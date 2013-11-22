@@ -16,30 +16,30 @@ Create a new Face object with the given Transport to manage NDN communication.
 
 :[C++]:
 
-.. code-block:: c++
-
-    Face(
+    .. code-block:: c++
     
-        const ptr_lib::shared_ptr<Transport>& transport
-        const ptr_lib::shared_ptr<const Transport::ConnectionInfo>& connectionInfo
-    
-    );
+        Face(
+        
+            const ptr_lib::shared_ptr<Transport>& transport
+            const ptr_lib::shared_ptr<const Transport::ConnectionInfo>& connectionInfo
+        
+        );
 
 :[JavaScript]:
 
-.. code-block:: javascript
-
-    var Face = function Face(
+    .. code-block:: javascript
     
-        [settings // associative array]
-    
-    )
+        var Face = function Face(
+        
+            [settings // associative array]
+        
+        )
 
 :[Python]:
 
-.. code-block:: python
-
-    def __init__(self)
+    .. code-block:: python
+    
+        def __init__(self)
 
 :Parameters:
 
@@ -67,30 +67,30 @@ Create a new Face object with optional settings to manage NDN communication.
 
 :[C++]:
 
-.. code-block:: c++
-
-    Face(
+    .. code-block:: c++
     
-        [const char* host]
-        [, unsigned short port]
-    
-    );
+        Face(
+        
+            [const char* host]
+            [, unsigned short port]
+        
+        );
 
 :[JavaScript]:
 
-.. code-block:: javascript
-
-    var Face = function Face(
+    .. code-block:: javascript
     
-        [settings // associative array]
-    
-    )
+        var Face = function Face(
+        
+            [settings // associative array]
+        
+        )
 
 :[Python]:
 
-.. code-block:: python
-
-    def __init__(self)
+    .. code-block:: python
+    
+        def __init__(self)
 
 :Parameters:
 
@@ -120,28 +120,28 @@ C++ only: Your application must call processEvents.
 
 :[C++]:
 
-.. code-block:: c++
-
-    unsigned int expressInterest(
+    .. code-block:: c++
     
-        const Interest& interest,
-        const OnData& onData,
-        [, const OnTimeout& onTimeout]
-        [, WireFormat& wireFormat]
-    
-    );
+        unsigned int expressInterest(
+        
+            const Interest& interest,
+            const OnData& onData,
+            [, const OnTimeout& onTimeout]
+            [, WireFormat& wireFormat]
+        
+        );
 
 :[JavaScript]:
 
-.. code-block:: javascript
-
-    Face.prototype.expressInterest = function(
+    .. code-block:: javascript
     
-        interest     // Interest
-        onData,      // function
-        [, onTimeout // function]
-    
-    )
+        Face.prototype.expressInterest = function(
+        
+            interest     // Interest
+            onData,      // function
+            [, onTimeout // function]
+        
+        )
 
 :Parameters:
 
@@ -174,42 +174,42 @@ C++ only: Your application must call processEvents.
 
 :[C++]:
 
-.. code-block:: c++
-
-    unsigned int expressInterest(
+    .. code-block:: c++
     
-        const Name& name,
-        [, const Interest* interestTemplate]
-        const OnData& onData,
-        [, const OnTimeout& onTimeout]
-        [, WireFormat& wireFormat]
-    
-    );
+        unsigned int expressInterest(
+        
+            const Name& name,
+            [, const Interest* interestTemplate]
+            const OnData& onData,
+            [, const OnTimeout& onTimeout]
+            [, WireFormat& wireFormat]
+        
+        );
 
 :[JavaScript]:
 
-.. code-block:: javascript
-
-    Face.prototype.expressInterest = function(
+    .. code-block:: javascript
     
-        name,               // Name
-        [, interestTemplate // Interest]
-        onData,             // function
-        [, onTimeout        // function]
-    
-    )
+        Face.prototype.expressInterest = function(
+        
+            name,               // Name
+            [, interestTemplate // Interest]
+            onData,             // function
+            [, onTimeout        // function]
+        
+        )
 
 :[Python]:
 
-.. code-block:: python
-
-    def expressInterest(self,
+    .. code-block:: python
     
-        name                # Name
-        closure             # Closure
-        [, interestTemplate # Interest]
-    
-    )
+        def expressInterest(self,
+        
+            name                # Name
+            closure             # Closure
+            [, interestTemplate # Interest]
+        
+        )
 
 :Parameters:
 
@@ -244,13 +244,13 @@ Remove the pending interest entry with the pendingInterestId from the pending in
 
 :[C++]:
 
-.. code-block:: c++
-
-    void removePendingInterest(
+    .. code-block:: c++
     
-        unsigned int pendingInterestId
-    
-    );
+        void removePendingInterest(
+        
+            unsigned int pendingInterestId
+        
+        );
 
 :Parameters:
 
@@ -266,42 +266,42 @@ C++ only: Your application must call processEvents.
 
 :[C++]:
 
-.. code-block:: c++
-
-    unsigned int registerPrefix(
+    .. code-block:: c++
     
-        const Name& prefix,
-        const OnInterest& onInterest,
-        const OnRegisterFailed& onRegisterFailed,
-        [, ForwardingFlags flags]
-        [, WireFormat& wireFormat]
-    
-    );
+        unsigned int registerPrefix(
+        
+            const Name& prefix,
+            const OnInterest& onInterest,
+            const OnRegisterFailed& onRegisterFailed,
+            [, ForwardingFlags flags]
+            [, WireFormat& wireFormat]
+        
+        );
 
 :[JavaScript]:
 
-.. code-block:: javascript
-
-    Face.prototype.registerPrefix = function(
+    .. code-block:: javascript
     
-        name,             // Name
-        onInterest        // function
-        onRegisterFailed  // function
-        [, flags          // ForwardingFlags]
-    
-    )
+        Face.prototype.registerPrefix = function(
+        
+            name,             // Name
+            onInterest        // function
+            onRegisterFailed  // function
+            [, flags          // ForwardingFlags]
+        
+        )
 
 :[Python]:
 
-.. code-block:: python
-
-    def setInterestFilter(self,
+    .. code-block:: python
     
-        name     # Name
-        closure  # Closure
-        [, flags # int]
-    
-    )
+        def setInterestFilter(self,
+        
+            name     # Name
+            closure  # Closure
+            [, flags # int]
+        
+        )
 
 :Parameters:
 
@@ -337,13 +337,13 @@ Remove the registered prefix entry with the registeredPrefixId from the pending 
 
 :[C++]:
 
-.. code-block:: c++
-
-    void removeRegisteredPrefix(
+    .. code-block:: c++
     
-        unsigned int registeredPrefixId
-    
-    );
+        void removeRegisteredPrefix(
+        
+            unsigned int registeredPrefixId
+        
+        );
 
 :Parameters:
 
@@ -357,9 +357,9 @@ C++ only: Process any data to receive and call data or timeout callbacks.  This 
 
 :[C++]:
 
-.. code-block:: c++
-
-    void processEvents();
+    .. code-block:: c++
+    
+        void processEvents();
 
 :Throw:
 

@@ -17,16 +17,16 @@ Create a new Name.Component, copying the optional value.
 
 :[C++]:
 
-.. code-block:: c++
-
-    ndn::Name::Component(
-        [const std::vector<uint8_t>& value]
-    );
+    .. code-block:: c++
+    
+        ndn::Name::Component(
+            [const std::vector<uint8_t>& value]
+        );
 
 :Parameters:
 
     - ``value``
-	(optional) The content byte array to copy.
+        (optional) The content byte array to copy.
 
 Name.Component.toEscapedString Method
 -------------------------------------
@@ -35,9 +35,9 @@ Convert this component value by escaping characters according to the NDN URI Sch
 
 :[C++]:
 
-.. code-block:: c++
-
-    std::string toEscapedString() const ();
+    .. code-block:: c++
+    
+        std::string toEscapedString() const ();
 
 :Returns:
 
@@ -63,32 +63,32 @@ Create a new Name with the optional components.
 
 :[C++]:
 
-.. code-block:: c++
-
-    Name(
-	[const std::vector<Name::Component>& components]
-    );
+    .. code-block:: c++
+    
+        Name(
+            [const std::vector<Name::Component>& components]
+        );
 
 :[JavaScript]:
 
-.. code-block:: javascript
-
-    var Name = function Name (
-        [components   // Array<Uint8Array>]    
-    )
+    .. code-block:: javascript
+    
+        var Name = function Name (
+            [components   // Array<Uint8Array>]    
+        )
 
 :[Python]:
 
-.. code-block:: python
-
-    def __init__(self
-	[, components // Array<string>]
-    )
+    .. code-block:: python
+    
+        def __init__(self
+            [, components // Array<string>]
+        )
     
 :Parameters:
 
     - ``components``
-	(optional) The array of name components.
+        (optional) The array of name components.
 
 Name Constructor (from URI)
 ---------------------------
@@ -97,24 +97,24 @@ Parse the uri according to the NDN URI Scheme and create the Name with the compo
 
 :[C++]:
 
-.. code-block:: c++
-
-    Name(
-	const char* uri
-    );
+    .. code-block:: c++
+    
+        Name(
+            const char* uri
+        );
 
 :[JavaScript]:
 
-.. code-block:: javascript
-
-    var Name = function Name (
-	uri // string
-    )
+    .. code-block:: javascript
+    
+        var Name = function Name (
+            uri // string
+        )
 
 :Parameters:
 
     - ``uri``
-	The URI in NDN URI Scheme.
+        The URI in NDN URI Scheme.
 
 Name.toUri Method
 -----------------
@@ -123,16 +123,16 @@ Return the escaped name string according to the NDN URI Scheme.
 
 :[C++]:
 
-.. code-block:: c++
-
-    std::string toUri() const ();
+    .. code-block:: c++
+    
+        std::string toUri() const ();
 
 :[JavaScript]:
 
-.. code-block:: javascript
-
-    // Returns string
-    Name.prototype.toUri = function();
+    .. code-block:: javascript
+    
+        // Returns string
+        Name.prototype.toUri = function();
 
 :Returns:
 
@@ -145,9 +145,9 @@ Get the number of components.
 
 :[C++]:
 
-.. code-block:: c++
-
-    size_t getComponentCount() const;
+    .. code-block:: c++
+    
+        size_t getComponentCount() const;
 
 :Returns:
 
@@ -160,16 +160,16 @@ Get a Name Component by index number.
 
 :[C++]:
 
-.. code-block:: c++
-
-    const Component& getComponent(
-        size_t i
-    ) const;
+    .. code-block:: c++
+    
+        const Component& getComponent(
+            size_t i
+        ) const;
 
 :Parameters:
 
     - ``i``
-	The index of the component to get, starting from 0.
+        The index of the component to get, starting from 0.
 
 :Returns:
 
@@ -182,25 +182,25 @@ Get a new Name with the first nComponents components of this Name.
 
 :[C++]:
 
-.. code-block:: c++
-
-    Name getPrefix(
-        size_t nComponents
-    ) const;
+    .. code-block:: c++
+    
+        Name getPrefix(
+            size_t nComponents
+        ) const;
 
 :[JavaScript]:
 
-.. code-block:: javascript
-
-    // Returns Name
-    Name.prototype.getPrefix = function(
-        nComponents  // Number
-    );
+    .. code-block:: javascript
+    
+        // Returns Name
+        Name.prototype.getPrefix = function(
+            nComponents  // Number
+        );
 
 :Parameters:
 
     - nComponents
-	The number of prefix components. If larger than the number of components in this name, return a copy of this Name.
+        The number of prefix components. If larger than the number of components in this name, return a copy of this Name.
 
 :Returns:
 
@@ -213,20 +213,20 @@ Get a new name, constructed as a subset of components.
 
 :[C++]:
 
-.. code-block:: c++
-
-    Name getSubName(
-        size_t iStartComponent
-	[, size_t nComponents]
-    ) const;
+    .. code-block:: c++
+    
+        Name getSubName(
+            size_t iStartComponent
+            [, size_t nComponents]
+        ) const;
 
 :Parameters:
 
     - ``iStartComponent``
-	The index if the first component to get.
+        The index if the first component to get.
 
     - ``nComponents``
-	(optional) The number of components starting at iStartComponent. If omitted, return components until the end of the name.
+        (optional) The number of components starting at iStartComponent. If omitted, return components until the end of the name.
 
 :Returns:
 
@@ -239,28 +239,28 @@ Check if the N components of this name are the same as the first N components of
 
 :[C++]:
 
-.. code-block:: c++
-
-    bool match(
-	const Name& name
-    ) const;
+    .. code-block:: c++
+    
+        bool match(
+            const Name& name
+        ) const;
 
 :[JavaScript]:
 
-.. code-block:: javascript
-
-    // Returns boolean
-    Name.prototype.match = function(
-        name  // Name
-    );
+    .. code-block:: javascript
+    
+        // Returns boolean
+        Name.prototype.match = function(
+            name  // Name
+        );
 
 :Parameters:
 
     - ``name``
-	The Name to check.
+        The Name to check.
 
     - ``nComponents``
-	The number of components starting at iStartComponent. If omitted, return components until the end of the name.
+        The number of components starting at iStartComponent. If omitted, return components until the end of the name.
 
 :Returns:
 
@@ -273,25 +273,25 @@ Append a new component, copying from byte array.
 
 :[C++]:
 
-.. code-block:: c++
-
-    Name& append(
-	const std::vector<uint8_t>& value
-    );
+    .. code-block:: c++
+    
+        Name& append(
+            const std::vector<uint8_t>& value
+        );
 
 :[JavaScript]:
 
-.. code-block:: javascript
-
-    // Returns this Name
-    Name.prototype.append = function(
-        value  // Array<number>|ArrayBuffer|Uint8Array
-    )
+    .. code-block:: javascript
+    
+        // Returns this Name
+        Name.prototype.append = function(
+            value  // Array<number>|ArrayBuffer|Uint8Array
+        )
 
 :Parameters:
 
     - ``value``
-	The component byte array to copy.
+        The component byte array to copy.
 
 :Returns:
 
@@ -304,16 +304,16 @@ Append a new component, taking another pointer to the byte array in the Blob.
 
 :[C++]:
 
-.. code-block:: c++
-
-    Name& append(
-	const Blob& value
-    );
+    .. code-block:: c++
+    
+        Name& append(
+            const Blob& value
+        );
 
 :Parameters:
 
     - ``value``
-	The Blob with the pointer to the byte array.
+        The Blob with the pointer to the byte array.
 
 :Returns:
 
@@ -326,16 +326,16 @@ Append the component to this name.
 
 :[C++]:
 
-.. code-block:: c++
-
-    Name& append(
-	const Name::Component& value
-    );
+    .. code-block:: c++
+    
+        Name& append(
+            const Name::Component& value
+        );
 
 :Parameters:
 
     - ``value``
-	The Name.Component to append.
+        The Name.Component to append.
 
 :Returns:
 
@@ -348,25 +348,25 @@ Append the components of the given name to this name.
 
 :[C++]:
 
-.. code-block:: c++
-
-    Name& append(
-	const Name& name
-    );
+    .. code-block:: c++
+    
+        Name& append(
+            const Name& name
+        );
 
 :[JavaScript]:
 
-.. code-block:: javascript
-
-    // Returns this Name
-    Name.prototype.append = function(
-        value  // Name
-    )
+    .. code-block:: javascript
+    
+        // Returns this Name
+        Name.prototype.append = function(
+            value  // Name
+        )
 
 :Parameters:
 
     - ``name``
-	The Name with components to append.
+        The Name with components to append.
 
 :Returns:
 
@@ -379,25 +379,25 @@ Append a component with the encoded segment number.
 
 :[C++]:
 
-.. code-block:: c++
-
-    Name& appendSegment(
-        uint64_t segment
-    );
+    .. code-block:: c++
+    
+        Name& appendSegment(
+            uint64_t segment
+        );
 
 :[JavaScript]:
 
-.. code-block:: javascript
-
-    // Returns this Name
-    Name.prototype.appendSegment = function(
-	segment  // Number
-    )
+    .. code-block:: javascript
+    
+        // Returns this Name
+        Name.prototype.appendSegment = function(
+            segment  // Number
+        )
 
 :Parameters:
 
     - ``segment``
-	The integer segment number to be encoded.
+        The integer segment number to be encoded.
 
 :Returns:
 
@@ -410,16 +410,16 @@ Append a component with the encoded version number. Note that this encodes the e
 
 :[C++]:
 
-.. code-block:: c++
-
-    Name& appendVersion(
-	uint64_t version
-    );
+    .. code-block:: c++
+    
+        Name& appendVersion(
+            uint64_t version
+        );
 
 :Parameters:
 
     - ``version``
-	The version number to be encoded.
+        The version number to be encoded.
 
 :Returns:
 
@@ -428,17 +428,19 @@ Append a component with the encoded version number. Note that this encodes the e
 Other Name getter and setter methods
 ------------------------------------
 
-.. code-block:: javascript
+:[JavaScript]:
 
-    // Returns a new Name
-    Name.prototype.cut = function(
-	minusComponents  // number
-    )
+    .. code-block:: javascript
     
-    // Returns number
-    Name.prototype.indexOfFileName = function()
-    
-    // Returns Boolean
-    Name.prototype.equalsName = function(
-	name            // Name
-    )
+        // Returns a new Name
+        Name.prototype.cut = function(
+            minusComponents  // number
+        )
+        
+        // Returns number
+        Name.prototype.indexOfFileName = function()
+        
+        // Returns Boolean
+        Name.prototype.equalsName = function(
+            name            // Name
+        )
