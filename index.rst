@@ -12,7 +12,16 @@ Table of Contents:
    data
    signature
    face
-   :maxdepth: 2
+   details/forwarding-flags
+   transport
+   details/tcp-transport
+   details/udp-transport
+   details/wire-format
+   details/binary-xml-wire-format
+   blob
+   key-chain
+   details/cpp
+   :maxdepth: 3
 
 
 .. Indices and tables
