@@ -59,7 +59,8 @@ Create a new Face object with the given Transport to manage NDN communication.
 
             getTransport: function() { return new WebSocketTransport(); },
             getHostAndPort: transport.defaultGetHostAndPort,
-                 // a function, on each call it returns a new { host: host, port: port } or null if there are no more hosts.
+                 // a function, on each call it returns 
+                 // a new { host: host, port: port } or null if there are no more hosts.
             host: null, // If null, use getHostAndPort when connecting.
             port: 9696
 
@@ -110,7 +111,8 @@ Create a new Face object with optional settings to manage NDN communication.
 
             getTransport: function() { return new WebSocketTransport(); },
             getHostAndPort: transport.defaultGetHostAndPort,
-                // a function, on each call it returns a new { host: host, port: port } or null if there are no more hosts.
+                // a function, on each call it returns a new 
+                // { host: host, port: port } or null if there are no more hosts.
             host: null, // If null, use getHostAndPort when connecting.
             port: 9696
 

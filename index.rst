@@ -8,6 +8,7 @@ Table of Contents:
 
 .. toctree::
    name
+   name-component
    interest
    data
    signature
