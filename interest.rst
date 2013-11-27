@@ -81,7 +81,7 @@ Create a new Interest with the optional values.
 Interest.wireDecode Method
 --------------------------
 
-Decode the input using a particular wire format and update this Interest.
+Decode the input from wire format and update this Interest.
 
 :[C++]:
 
@@ -90,7 +90,6 @@ Decode the input using a particular wire format and update this Interest.
     void decode(
     
         const std::vector<uint8_t>& input
-        [,WireFormat& wireFormat]
     
     );
 
@@ -101,7 +100,6 @@ Decode the input using a particular wire format and update this Interest.
     Interest.prototype.decode = function(
     
         input         // Uint8Array
-        [, wireFormat // WireFormat]
         
     )
 
@@ -110,40 +108,24 @@ Decode the input using a particular wire format and update this Interest.
     - ``input``
 	The input byte array to be decoded.
 
-    - ``wireFormat``
-	(optional) A WireFormat object used to decode the input. If omitted, use WireFormat getDefaultWireFormat ().
-
 
 Interest.wireEncode Method
 --------------------------
 
-Encode this Interest for a particular wire format.
+Encode this Interest to a wire format.
 
 :[C++]:
 
 .. code-block:: c++
 
-    Blob encode(
-    
-        [WireFormat& wireFormat]
-    
-    ) const;
+    Blob encode() const;
 
 :[JavaScript]:
 
 .. code-block:: javascript
 
     // Returns Uint8Array
-    Interest.prototype.encode = function(
-    
-        [wireFormat // WireFormat]
-    
-    )
-
-:Parameters:
-
-    - ``wireFormat``
-	(optional) A WireFormat object used to encode the input. If omitted, use use WireFormat getDefaultWireFormat ().
+    Interest.prototype.encode = function()
 
 :Returns:
 

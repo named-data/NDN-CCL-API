@@ -23,10 +23,10 @@ Table of Contents:
    details/forwarding-flags
    details/tcp-transport
    details/udp-transport
-   details/wire-format
-   details/binary-xml-wire-format
    :maxdepth: 1
 
+.. details/wire-format
+.. details/binary-xml-wire-format
 
 .. Indices and tables
 .. ==================

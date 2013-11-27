@@ -135,7 +135,6 @@ C++ only: Your application must call processEvents.
             const Interest& interest,
             const OnData& onData,
             [, const OnTimeout& onTimeout]
-            [, WireFormat& wireFormat]
         
         );
 
@@ -167,9 +166,6 @@ C++ only: Your application must call processEvents.
 
 	    - ``interest`` is the interest given to expressInterest.
 
-    - ``wireFormat``
-	(optional) A WireFormat object used to encode the message. If omitted, use WireFormat getDefaultWireFormat ().
-
 :Returns:
 
     The pending interest ID which can be used with removePendingInterest.
@@ -190,7 +186,6 @@ C++ only: Your application must call processEvents.
             [, const Interest* interestTemplate]
             const OnData& onData,
             [, const OnTimeout& onTimeout]
-            [, WireFormat& wireFormat]
         
         );
 
@@ -238,9 +233,6 @@ C++ only: Your application must call processEvents.
 
 	    - ``interest`` is the interest given to expressInterest.
 
-    - ``wireFormat``
-	(optional) A WireFormat object used to encode the message. If omitted, use WireFormat getDefaultWireFormat ().
-
 :Returns:
 
     The pending interest ID which can be used with removePendingInterest.
@@ -282,7 +274,6 @@ C++ only: Your application must call processEvents.
             const OnInterest& onInterest,
             const OnRegisterFailed& onRegisterFailed,
             [, ForwardingFlags flags]
-            [, WireFormat& wireFormat]
         
         );
 
@@ -330,9 +321,6 @@ C++ only: Your application must call processEvents.
 
     - ``flags``
 	(optional) The flags for finer control of which interests are forward to the application.  If omitted, use the default flags defined by the default ForwardingFlags constructor.
-
-    - ``wireFormat``
-	(optional) A WireFormat object used to encode the message. If omitted, use WireFormat getDefaultWireFormat ().
 
 :Returns:
 

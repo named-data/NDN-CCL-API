@@ -19,7 +19,6 @@ Wire encode the Data object, sign it and set its signature. Note: the caller mus
         
             Data& data,
             const Name& certificateName
-            [, WireFormat& wireFormat]
         
         );
 
@@ -30,9 +29,6 @@ Wire encode the Data object, sign it and set its signature. Note: the caller mus
 
     - `certificateName`
         The certificate name of the key to use for signing.
-
-    - `wireFormat`
-        (optional) A WireFormat object used to encode the Data object. If omitted, use WireFormat getDefaultWireFormat ().
 
 KeyChain.signByIdentity Method
 ------------------------------
@@ -47,7 +43,6 @@ Wire encode the Data object, sign it and set its signature. Note: the caller mus
         
             Data& data
             [, const Name& identityName]
-            [, WireFormat& wireFormat]
             
         );
 
@@ -58,9 +53,6 @@ Wire encode the Data object, sign it and set its signature. Note: the caller mus
 
     - `identityName`
         (optional) The identity name for the key to use for signing.  If omitted, infer the signing identity from the data packet name.
-
-    - `wireFormat`
-        (optional) A WireFormat object used to encode the Data object. If omitted, use WireFormat getDefaultWireFormat ().
 
 KeyChain.verifyData Method
 --------------------------

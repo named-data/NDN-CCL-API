@@ -94,7 +94,7 @@ Set content to point to an existing byte array.
 Data.wireDecode Method
 ----------------------
 
-Decode the input using a particular wire format and update this Data. If wireFormat is the default wire format, also set the defaultWireEncoding field to the input.
+Decode the input from wire format and update this Data.
 
 :[C++]:
 
@@ -103,7 +103,6 @@ Decode the input using a particular wire format and update this Data. If wireFor
     void wireDecode(
     
         const std::vector<uint8_t>& input
-	[, WireFormat& wireFormat]
     
     );
 
@@ -114,7 +113,6 @@ Decode the input using a particular wire format and update this Data. If wireFor
     ContentObject.prototype.decode = function(
     
         input // Uint8Array
-        [, wireFormat // WireFormat]
     
     )
 
@@ -123,39 +121,23 @@ Decode the input using a particular wire format and update this Data. If wireFor
     - ``input``
 	The input byte array to be decoded.
 
-    - ``wireFormat``
-	(optional) A WireFormat object used to decode the input. If omitted, use WireFormat getDefaultWireFormat().
-
 Data.wireEncode Method
 ----------------------
 
-Encode this Data for a particular wire format. If wireFormat is the default wire format, also set the defaultWireEncoding field to the encoded result.
+Encode this Data to wire format.
 
 :[C++]:
 
 .. code-block:: c++
 
-    SignedBlob wireEncode(
-    
-        [WireFormat& wireFormat]
-    
-    ) const;
+    SignedBlob wireEncode() const;
 
 :[JavaScript]:
 
 .. code-block:: javascript
 
     // Returns Uint8Array
-    ContentObject.prototype.encode = function(
-    
-        [wireFormat // WireFormat]
-    
-    )
-
-:Parameters:
-
-    - wireFormat
-	(optional) A WireFormat object used to encode the input. If omitted, use WireFormat getDefaultWireFormat ().
+    ContentObject.prototype.encode = function()
 
 :Returns:
 
