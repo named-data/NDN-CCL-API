@@ -1,3 +1,5 @@
+.. _ForwardingFlags:
+
 ForwardingFlags Class
 =====================
 
