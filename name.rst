@@ -19,7 +19,7 @@ Create a new Name.Component, copying the optional value.
 
     .. code-block:: c++
     
-        ndn::Name::Component(
+        Name::Component(
             [const std::vector<uint8_t>& value]
         );
 
@@ -56,8 +56,11 @@ A Name holds an array of Name.Component and represents an NDN name.
 :[Python]:
     Module: ``pyndn``
 
+Name Constructors
+-----------------
+
 Name Constructor (array of components)
---------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create a new Name with the optional components.
 
@@ -88,10 +91,10 @@ Create a new Name with the optional components.
 :Parameters:
 
     - ``components``
-        (optional) The array of name components.
+        (optional) The array of :ref:`name components <Name.Component>`.
 
 Name Constructor (from URI)
----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Parse the uri according to the NDN URI Scheme and create the Name with the components.
 
@@ -266,8 +269,11 @@ Check if the N components of this name are the same as the first N components of
 
     true if this matches the given name, otherwise false.  This always returns true if this name is empty.
 
+Name.append Methods
+-------------------
+
 Name.append Method (copy byte array)
-------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Append a new component, copying from byte array.
 
@@ -298,7 +304,7 @@ Append a new component, copying from byte array.
     This name so that you can chain calls to append.
 
 Name.append Method (from Blob)
-------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Append a new component, taking another pointer to the byte array in the Blob.
 
@@ -320,7 +326,7 @@ Append a new component, taking another pointer to the byte array in the Blob.
     This name so that you can chain calls to append.
 
 Name.append Method (from Component)
------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Append the component to this name.
 
@@ -342,7 +348,7 @@ Append the component to this name.
     This name so that you can chain calls to append.
 
 Name.append Method (from Name)
-------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Append the components of the given name to this name.
 

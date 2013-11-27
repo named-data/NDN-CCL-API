@@ -9,8 +9,11 @@ Face Class
 :[Python]:
     Module: ``pyndn``
 
+Face Constructors
+-----------------
+
 Face Constructor (explicit Transport)
--------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create a new Face object with the given Transport to manage NDN communication.
 
@@ -61,7 +64,7 @@ Create a new Face object with the given Transport to manage NDN communication.
             port: 9696
 
 Face Constructor (default Transport)
-------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create a new Face object with optional settings to manage NDN communication.
 
@@ -111,8 +114,11 @@ Create a new Face object with optional settings to manage NDN communication.
             host: null, // If null, use getHostAndPort when connecting.
             port: 9696
 
+Face.expressInterest Methods
+----------------------------
+
 Face.expressInterest Method (from Interest)
--------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Send the interest through the transport, read the entire response and call onData. If the interest times out according to interest lifetime, call onTimeout (if not omitted).
 
@@ -167,7 +173,7 @@ C++ only: Your application must call processEvents.
     The pending interest ID which can be used with removePendingInterest.
 
 Face.expressInterest Method (from Name)
----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Encode name as an Interest, using the interestTemplate if supplied, send the interest through the transport, read the entire response and call onData. If the interest times out according to interest lifetime, call onTimeout (if not omitted).
 C++ only: Your application must call processEvents.
