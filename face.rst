@@ -24,7 +24,8 @@ Create a new Face object with the given Transport to manage NDN communication.
         Face(
         
             const ptr_lib::shared_ptr<Transport>& transport
-            const ptr_lib::shared_ptr<const Transport::ConnectionInfo>& connectionInfo
+            const ptr_lib::shared_ptr<const Transport::ConnectionInfo>& 
+                connectionInfo
         
         );
 
@@ -57,10 +58,12 @@ Create a new Face object with the given Transport to manage NDN communication.
 
 	.. code-block:: javascript
 
-            getTransport: function() { return new WebSocketTransport(); },
+            getTransport: function() 
+                { return new WebSocketTransport(); },
             getHostAndPort: transport.defaultGetHostAndPort,
                  // a function, on each call it returns 
-                 // a new { host: host, port: port } or null if there are no more hosts.
+                 // a new { host: host, port: port } 
+                 // or null if there are no more hosts.
             host: null, // If null, use getHostAndPort when connecting.
             port: 9696
 
@@ -109,10 +112,12 @@ Create a new Face object with optional settings to manage NDN communication.
 
 	.. code-block:: javascript
 
-            getTransport: function() { return new WebSocketTransport(); },
+            getTransport: function() 
+                { return new WebSocketTransport(); },
             getHostAndPort: transport.defaultGetHostAndPort,
                 // a function, on each call it returns a new 
-                // { host: host, port: port } or null if there are no more hosts.
+                // { host: host, port: port } 
+                // or null if there are no more hosts.
             host: null, // If null, use getHostAndPort when connecting.
             port: 9696
 
