@@ -61,6 +61,8 @@ Check the signature on the Data object and call either ``onVerify`` or ``onVerif
 
 :[C++]:
 
+    .. code-block:: c++
+
         void verifyData(
         
             const ptr_lib::shared_ptr<Data>& data,
