@@ -105,7 +105,7 @@ Get the number of components.
 
     .. code-block:: c++
     
-        size_t getComponentCount() const;
+        size_t size() const;
 
 :Returns:
 
@@ -120,14 +120,15 @@ Get a Name Component by index number.
 
     .. code-block:: c++
     
-        const Component& getComponent(
-            size_t i
+        const Component& get(
+            int i
         ) const;
 
 :Parameters:
 
     - ``i``
-        The index of the component to get, starting from 0.
+        The index of the component to get, starting from 0. However, if i is negative, return the component
+        at size() - (-i).
 
 :Returns:
 
