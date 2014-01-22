@@ -143,7 +143,7 @@ Get a new Name with the first nComponents components of this Name.
     .. code-block:: c++
     
         Name getPrefix(
-            size_t nComponents
+            int nComponents
         ) const;
 
 :[JavaScript]:
@@ -158,7 +158,9 @@ Get a new Name with the first nComponents components of this Name.
 :Parameters:
 
     - nComponents
-        The number of prefix components. If larger than the number of components in this name, return a copy of this Name.
+        The number of prefix components. If larger than the number of components in this name, return a copy of this Name. 
+        If nComponents is -N then return the prefix up to name.size() - N. For example getPrefix(-1) returns the 
+        name without the final component.
 
 :Returns:
 
