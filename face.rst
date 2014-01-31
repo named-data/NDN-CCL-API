@@ -131,7 +131,7 @@ Send the interest through the transport, read the entire response and call onDat
 
 .. note::
 
-    **C++ only**: Your application must call :ref:`processEvents`.  The onData callback is called on the same thread that calls processEvents.
+    **C++ only**: Your application must call :ref:`processEvents <processEvents>`.  The onData callback is called on the same thread that calls processEvents.
 
 :[C++]:
 
@@ -184,7 +184,7 @@ Encode name as an Interest, using the interestTemplate if supplied, send the int
 
 .. note::
 
-    **C++ only**: Your application must call :ref:`processEvents`.  The onData callback is called on the same thread that calls processEvents.
+    **C++ only**: Your application must call :ref:`processEvents <processEvents>`.  The onData callback is called on the same thread that calls processEvents.
 
 :[C++]:
 
@@ -280,7 +280,7 @@ Register prefix with the connected NDN hub and call onInterest when a matching i
 
 .. note::
 
-    **C++ only**: Your application must call :ref:`processEvents`.  The onInterest callback is called on the same thread that calls processEvents.
+    **C++ only**: Your application must call :ref:`processEvents <processEvents>`.  The onInterest callback is called on the same thread that calls processEvents.
 
 :[C++]:
 
@@ -323,10 +323,11 @@ Register prefix with the connected NDN hub and call onInterest when a matching i
 :Parameters:
 
     - ``prefix``
-	The :ref:`Name prefix <Name>` to register.
+	The :ref:`Name <Name>` prefix to register.
 
     - ``onInterest``
 	When an interest is received which matches the name prefix, this calls ``onInterest(prefix, interest, transport, registeredPrefixId)`` where:
+
 	    - ``prefix`` is the prefix given to registerPrefix.
 	    - ``interest`` is the received interest.
 	    - ``transport`` is the Transport with the connection which received the interest. You must encode a signed Data packet and send it using transport.send().
@@ -334,6 +335,7 @@ Register prefix with the connected NDN hub and call onInterest when a matching i
 
     - ``onRegisterFailed``
 	If failed to set Interest filter for any reason, this calls ``onRegisterFailed(prefix)`` where:
+
 	    - ``prefix`` is the prefix given to registerPrefix.
 
     - ``flags``
@@ -343,7 +345,7 @@ Register prefix with the connected NDN hub and call onInterest when a matching i
 .. _removeRegisteredPrefix:
 
 Face.removeRegisteredPrefix Method
-----------------------------
+----------------------------------
 
 Remove the registered prefix entry with the registeredPrefixId from the pending interest table.  
 This does not affect another registered prefix with a different registeredPrefixId, even it if has the same prefix name. 
@@ -363,6 +365,8 @@ If there is no entry with the registeredPrefixId, do nothing.
 
     - ``registeredPrefixId``
 	The ID returned from registerPrefix.
+
+.. _processEvents:
 
 Face.processEvents Method
 -------------------------
