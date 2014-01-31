@@ -129,13 +129,15 @@ Face.expressInterest Method (from Interest)
 
 Send the interest through the transport, read the entire response and call onData. If the interest times out according to interest lifetime, call onTimeout (if not omitted).
 
-C++ only: Your application must call processEvents.
+.. note::
+
+    **C++ only**: Your application must call :ref:`processEvents`.  The onData callback is called on the same thread that calls processEvents.
 
 :[C++]:
 
     .. code-block:: c++
     
-        unsigned int expressInterest(
+        uint64_t expressInterest(
         
             const Interest& interest,
             const OnData& onData,
@@ -179,13 +181,16 @@ Face.expressInterest Method (from Name)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Encode name as an Interest, using the interestTemplate if supplied, send the interest through the transport, read the entire response and call onData. If the interest times out according to interest lifetime, call onTimeout (if not omitted).
-C++ only: Your application must call processEvents.
+
+.. note::
+
+    **C++ only**: Your application must call :ref:`processEvents`.  The onData callback is called on the same thread that calls processEvents.
 
 :[C++]:
 
     .. code-block:: c++
     
-        unsigned int expressInterest(
+        uint64_t expressInterest(
         
             const Name& name,
             [, const Interest* interestTemplate]
@@ -253,7 +258,7 @@ Remove the pending interest entry with the pendingInterestId from the pending in
     
         void removePendingInterest(
         
-            unsigned int pendingInterestId
+            uint64_t pendingInterestId
         
         );
 
@@ -267,15 +272,15 @@ Remove the pending interest entry with the pendingInterestId from the pending in
 Face.registerPrefix Method
 --------------------------
 
-Request NDN network to forward Interests for the specified :ref:`name prefix <Name>` towards the face.
+Register prefix with the connected NDN hub and call onInterest when a matching interest is received.
 
 .. note::
 
-    The current API is limited to registering the specified prefix only on a direclty connected NDN hub (e.g., local NDN daemon).
+    The current API is limited to registering a prefix only with a direclty connected NDN hub (e.g., the local NDN daemon).
 
 .. note::
 
-    **C++ only**: Your application must call :ref:`processEvents`.
+    **C++ only**: Your application must call :ref:`processEvents`.  The onInterest callback is called on the same thread that calls processEvents.
 
 :[C++]:
 
@@ -284,9 +289,10 @@ Request NDN network to forward Interests for the specified :ref:`name prefix <Na
         void registerPrefix(
         
             const Name &prefix,
-            const OnRegisterSucceed &onRegisterSucceed,
-            const onRegisterFailed &onRegisterFailed
+            const OnInterest &onInterest,
+            const OnRegisterFailed &onRegisterFailed
             [, ForwardingFlags flags]
+
         )
 
 :[JavaScript]:
@@ -296,7 +302,7 @@ Request NDN network to forward Interests for the specified :ref:`name prefix <Na
         Face.prototype.registerPrefix = function(
         
             prefix,            // Name
-            OnRegisterSucceed, // function
+            onInterest,        // function
             onRegisterFailed   // function
             [, flags]          // ForwardingFlags
         
@@ -306,23 +312,25 @@ Request NDN network to forward Interests for the specified :ref:`name prefix <Na
 
     .. code-block:: python
     
-        def registerPrefix(self,
+        def setInterestFilter(self,
         
-            prefix,             # Name
-            OnRegisterSucceed,  # function
-            OnRegisterFailed    # function
-            [, flags]           # ForwardingFlags
+            prefix     # Name
+            closure    # Closure
+            [, flags   # int]
+        
         )
 
 :Parameters:
 
     - ``prefix``
-	The :ref:`Name prefix <Name>` to register in NDN network.
+	The :ref:`Name prefix <Name>` to register.
 
-    - ``onRegisterSucceed``
-	Callback that is fired when the prefix is successfully registered within the NDN network.
-        The prototype for the callback is ``onRegisterSucceed(prefix)``, where:
-            - ``prefix`` is the prefix given to registerPrefix.
+    - ``onInterest``
+	When an interest is received which matches the name prefix, this calls ``onInterest(prefix, interest, transport, registeredPrefixId)`` where:
+	    - ``prefix`` is the prefix given to registerPrefix.
+	    - ``interest`` is the received interest.
+	    - ``transport`` is the Transport with the connection which received the interest. You must encode a signed Data packet and send it using transport.send().
+	    - ``registeredPrefixId`` is the registered prefix ID which can be used with removeRegisteredPrefix.
 
     - ``onRegisterFailed``
 	If failed to set Interest filter for any reason, this calls ``onRegisterFailed(prefix)`` where:
@@ -332,146 +340,29 @@ Request NDN network to forward Interests for the specified :ref:`name prefix <Na
 	(optional) The flags for finer control of how and which Interests should be forwarded towards the face.
         If omitted, use the default flags defined by the default :ref:`ForwardingFlags <ForwardingFlags>` constructor.
 
-.. _deregisterPrefix:
+.. _removeRegisteredPrefix:
 
-Face.deregisterPrefix Method
+Face.removeRegisteredPrefix Method
 ----------------------------
 
-Deregister the previously registered :ref:`prefix <Name>` from the NDN network.
-
-.. note::
-
-    The current API is limited to deregistering the specified prefix only on a direclty connected NDN hub (e.g., local NDN daemon).
+Remove the registered prefix entry with the registeredPrefixId from the pending interest table.  
+This does not affect another registered prefix with a different registeredPrefixId, even it if has the same prefix name. 
+If there is no entry with the registeredPrefixId, do nothing.
 
 :[C++]:
 
     .. code-block:: c++
 
-        void deregisterPrefix(
+        void removeRegisteredPrefix(
         
-            const Name &prefix
-            [, const onDeregisterSucceed &onDeregisterSucceed]
-            [, const onDeregisterFailed &onDeregisterFailed]
-        )
+            unsigned int registeredPrefixId
 
-:[JavaScript]:
-
-    .. code-block:: javascript
-    
-        Face.prototype.deregisterPrefix = function(
-        
-            prefix                   // Name
-            [, OnDeregisterSucceed]  // function
-            [, OnDeregisterFailed]   // function
-        
-        )
-
-:[Python]:
-
-    .. code-block:: python
-    
-        def deregisterPrefix(self,
-        
-            prefix                    # Name
-            [, OnDeregisterSucceed]   # function
-            [, OnDeregisterFailed]    # function
-        )
-
-:Parameters:
-
-    - ``prefix``
-	The :ref:`Name prefix <Name>` to deregister in NDN network.
-
-    - ``onDeregisterSucceed``
-	(Optional) Callback that is fired when the prefix is successfully deregistered within the NDN network.
-        The prototype for the callback is ``onDeregisterSucceed(prefix)``, where:
-	    - ``prefix`` is the prefix given to ``deregisterPrefix``.
-
-    - ``onRegisterFailed``
-	(Optional) If failed to set Interest filter for any reason, this calls ``onDeregisterFailed(prefix)`` where:
-	    - ``prefix`` is the prefix given to ``deregisterPrefix``.
-
-.. _setInterestFilter:
-
-Face.setInterestFilter Method
------------------------------
-
-Register ``onInterest`` callback when an Interest mathing the :ref:`filter <InterestFilter>` is received on the face.
-
-
-:[C++]:
-
-    .. code-block:: c++
-    
-        unsigned int setInterestFilter(
-        
-            const InterestFilter& filter,
-            const OnInterest& onInterest,
-
-        );
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-    
-        Face.prototype.setInterestFilter = function(
-        
-            filter,           // InterestFilter
-            onInterest        // function
-        
-        )
-
-:[Python]:
-
-    .. code-block:: python
-    
-        def setInterestFilter(self,
-        
-            filter,       # InterestFilter
-            onInterest    # function
-        
-        )
-
-:Parameters:
-
-    - ``filter``
-	The :ref:`InterestFilter <InterestFilter>` to match Interests.
-
-    - ``onInterest``
-	When an interest is received which matches the name prefix, this calls ``onInterest(face, filter, interest)`` where:
-
-            - ``face`` is the :ref:`Face` on which the Interest is received.
-              An application can satisfy this Interest using :ref:`put`
-	    - ``filter`` is the filter given to ``setInterestFilter``.
-	    - ``interest`` is the received interest.
-
-:Returns:
-
-    The interest filter ID which can be used with :ref:`removeInterestFilter`.
-
-.. _removeInterestFilter:
-
-Face.removeInterestFilter Method
---------------------------------
-
-Remove the previously set Interest filter with the ``interestFilterId`` from the pending interest table.  This does not affect any other interest filters with different IDs, even it if has the same prefix name. If there is no entry with the ``interestFilterId``, do nothing.
-
-:[C++]:
-
-    .. code-block:: c++
-    
-        void removeInterestFilter(
-        
-            unsigned int interestFilterId
-        
         );
 
 :Parameters:
 
-    - ``interestFilterId``
-	The ID returned from :ref:`setInterestFilter`.
-
-.. _processEvents:
+    - ``registeredPrefixId``
+	The ID returned from registerPrefix.
 
 Face.processEvents Method
 -------------------------
