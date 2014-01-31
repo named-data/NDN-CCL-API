@@ -23,13 +23,12 @@ Create a new Interest with the optional values.
         [const Name& name]
         [, int minSuffixComponents]
         [, int maxSuffixComponents]
-        [, const PublisherPublicKeyDigest& publisherPublicKeyDigest]
+        [, const KeyLocator& keyLocator]
         [, const Exclude& exclude]
         [, int childSelector]
         [, int answerOriginKind]
         [, int scope]
         [, Milliseconds interestLifetimeMilliseconds]
-        [, const std::vector<uint8_t>& nonce]
     
     );
 
@@ -48,7 +47,6 @@ Create a new Interest with the optional values.
         [, answerOriginKind             // number]
         [, scope                        // number]
         [, interestLifetimeMilliseconds // number]
-        [, nonce                        // Uint8Array]
     
     )
 
@@ -67,7 +65,6 @@ Create a new Interest with the optional values.
         [, answerOriginKind         // int]
         [, scope                    // int]
         [, interestLifetime         // float]
-        [, nonce                    // string]
     
     )
 
