@@ -471,32 +471,6 @@ Remove the previously set Interest filter with the ``interestFilterId`` from the
     - ``interestFilterId``
 	The ID returned from :ref:`setInterestFilter`.
 
-.. _put:
-
-Face.put Method
----------------
-
-Put (publish) the encoded and signed Data packet on a Face.
-
-This method essentially satisfies any pending Interest that matches the name of the published Data packet.
-If there are no outstanding Interests, directly connected NDN daemon (e.g., local NDN daemon) puts the Data packet into its packet buffer.
-
-:[C++]:
-
-    .. code-block:: c++
-    
-        void put(
-        
-            ptr_lib::shared_ptr<const Data> data
-        
-        );
-
-:Parameters:
-
-    - ``data``
-	The encoded and signed Data packet
-
-
 .. _processEvents:
 
 Face.processEvents Method
