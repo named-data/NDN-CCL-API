@@ -91,10 +91,44 @@ Set content to point to an existing byte array.
     - ``content``
 	The pointer to the byte array.
 
-Data.wireDecode Method
-----------------------
+Data.wireDecode Methods
+-----------------------
 
-Decode the input from wire format and update this Data.
+Data.wireDecode Method (from Blob)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Decode the input from wire format and update this Data.  Also keep a pointer to the immutable input Blob for later use. 
+
+:[C++]:
+
+.. code-block:: c++
+
+    void wireDecode(
+    
+        const Blob& input
+    
+    );
+
+:[JavaScript]:
+
+.. code-block:: javascript
+
+    ContentObject.prototype.decode = function(
+    
+        input // Uint8Array
+    
+    )
+
+:Parameters:
+
+    - ``input``
+	The immutable input byte array to be decoded.
+
+Data.wireDecode Method (copy from byte array)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Decode the input from wire format and update this Data.  Also save a copy of the input for later use. 
+(To not copy the input, see wireDecode(Blob).)
 
 :[C++]:
 
