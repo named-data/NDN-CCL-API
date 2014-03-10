@@ -803,3 +803,8 @@ a img.aligncenter {
 	margin-left:auto;
 	margin-right:auto;
 }
+
+div.experimental {
+  padding: 2px 7px 1px 7px;
+  border-left: 2em solid #ffd0d0;
+}
