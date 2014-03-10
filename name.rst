@@ -40,7 +40,7 @@ Create a new Name with the optional components.
     .. code-block:: python
     
         def __init__(self
-            [, components // Array<string>]
+            [, components # Array<string>]
         )
     
 :Parameters:

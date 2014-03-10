@@ -40,7 +40,7 @@ Create a new Data with the optional values.
 
     def __init__(self
     
-        [, name       // Name]
+        [, name       # Name]
     
     )
 
