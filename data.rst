@@ -115,7 +115,7 @@ Decode the input from wire format and update this Data.  Also keep a pointer to 
 
     ContentObject.prototype.decode = function(
     
-        input // Uint8Array
+        input // Blob
     
     )
 
