@@ -170,7 +170,7 @@ Encode this Data to wire format.
 
 .. code-block:: javascript
 
-    // Returns Uint8Array
+    // Returns SignedBlob
     ContentObject.prototype.encode = function()
 
 :Returns:
