@@ -121,12 +121,12 @@ Encode this Interest to a wire format.
 
 .. code-block:: javascript
 
-    // Returns Uint8Array
+    // Returns Blob
     Interest.prototype.encode = function()
 
 :Returns:
 
-    The encoded byte array.
+    The encoded byte array as a Blob.
 
 Interest.matchesName Method
 ---------------------------
