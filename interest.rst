@@ -56,15 +56,15 @@ Create a new Interest with the optional values.
 
     def __init__(self
     
-        [, name                     // Name]
-        [, minSuffixComponents      // int]
-        [, maxSuffixComponents      // int]
-        [, publisherPublicKeyDigest // string]
-        [, exclude                  // Exclude]
-        [, childSelector            // int]
-        [, answerOriginKind         // int]
-        [, scope                    // int]
-        [, interestLifetime         // float]
+        [, name                     # Name]
+        [, minSuffixComponents      # int]
+        [, maxSuffixComponents      # int]
+        [, publisherPublicKeyDigest # string]
+        [, exclude                  # Exclude]
+        [, childSelector            # int]
+        [, answerOriginKind         # int]
+        [, scope                    # int]
+        [, interestLifetime         # float]
     
     )
 
@@ -174,3 +174,40 @@ Return true if the components of this Interest’s name are the same as the lead
 
     True if this interest’s name and interest selectors match the name.
 
+Interest.toUri Method
+--------------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       This method is experimental.  The NDN specifications don't officially 
+       define how to add interest selectors to a URI.
+
+    Encode the name according to the "NDN URI Scheme".  If there are interest 
+    selectors, append "?" and add the selectors as a query string.  For example
+    "/test/name?ndn.ChildSelector=1".
+
+    :[C++]:
+
+    .. code-block:: c++
+
+        std::string toUri() const;
+
+    :[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns string
+        Interest.prototype.toUri = function()
+
+    :[Python]:
+
+    .. code-block:: python
+
+        # Returns str
+        def toUri(self)
+
+    :Returns:
+
+        The URI string.
