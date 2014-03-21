@@ -56,7 +56,7 @@ Create a new Interest with the optional name.
 Interest Constructor (copy)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a new interest as a deep copy of the given interest.
+Create a new Interest as a deep copy of the given interest.
 
 :[C++]:
 

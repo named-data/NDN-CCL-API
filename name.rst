@@ -74,6 +74,46 @@ Parse the uri according to the NDN URI Scheme and create the Name with the compo
     - ``uri``
         The URI in NDN URI Scheme.
 
+Name Constructor (copy)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a new Name as a deep copy of the given name.
+
+:[C++]:
+
+.. code-block:: c++
+
+    Name(
+    
+        const Name& name
+    
+    );
+
+:[JavaScript]:
+
+.. code-block:: javascript
+
+    var Name = function Name (
+    
+        name // Name
+    
+    )
+
+:[Python]:
+
+.. code-block:: python
+
+    def __init__(self,
+    
+        name # Name
+    
+    )
+
+:Parameters:
+
+    - ``name``
+	The Name to copy.
+
 Name.toUri Method
 -----------------
 
