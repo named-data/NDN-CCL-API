@@ -9,10 +9,13 @@ Interest Class
 :[Python]:
     Module: ``pyndn``
 
-Interest Constructor
---------------------
+Interest Constructors
+---------------------
 
-Create a new Interest with the optional values.
+Interest Constructor (optional Name)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a new Interest with the optional name.
 
 :[C++]:
 
@@ -21,14 +24,6 @@ Create a new Interest with the optional values.
     Interest(
     
         [const Name& name]
-        [, int minSuffixComponents]
-        [, int maxSuffixComponents]
-        [, const KeyLocator& keyLocator]
-        [, const Exclude& exclude]
-        [, int childSelector]
-        [, int answerOriginKind]
-        [, int scope]
-        [, Milliseconds interestLifetimeMilliseconds]
     
     );
 
@@ -38,15 +33,7 @@ Create a new Interest with the optional values.
 
     var Interest = function Interest (
     
-        [name                           // Name]
-        [, minSuffixComponents          // number]
-        [, maxSuffixComponents          // number]
-        [, publisherPublicKeyDigest     // PublisherPublicKeyDigest]
-        [, exclude                      // Exclude]
-        [, childSelector                // number]
-        [, answerOriginKind             // number]
-        [, scope                        // number]
-        [, interestLifetimeMilliseconds // number]
+        [name // Name]
     
     )
 
@@ -56,24 +43,55 @@ Create a new Interest with the optional values.
 
     def __init__(self
     
-        [, name                     # Name]
-        [, minSuffixComponents      # int]
-        [, maxSuffixComponents      # int]
-        [, publisherPublicKeyDigest # string]
-        [, exclude                  # Exclude]
-        [, childSelector            # int]
-        [, answerOriginKind         # int]
-        [, scope                    # int]
-        [, interestLifetime         # float]
+        [, name # Name]
     
     )
 
 :Parameters:
 
     - ``name``
-	(optional) The name of the content.
+	(optional) The name of the content. If omitted, use a blank name.
 
-.. TODO: define other parameters
+
+Interest Constructor (copy)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a new interest as a deep copy of the given interest.
+
+:[C++]:
+
+.. code-block:: c++
+
+    Interest(
+    
+        const Interest& interest
+    
+    );
+
+:[JavaScript]:
+
+.. code-block:: javascript
+
+    var Interest = function Interest (
+    
+        interest // Interest
+    
+    )
+
+:[Python]:
+
+.. code-block:: python
+
+    def __init__(self,
+    
+        interest # Interest
+    
+    )
+
+:Parameters:
+
+    - ``interest``
+	The Interest to copy.
 
 Interest.wireDecode Method
 --------------------------
