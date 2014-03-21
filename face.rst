@@ -131,7 +131,7 @@ Send the interest through the transport, read the entire response and call onDat
 
 .. note::
 
-    **C++ only**: Your application must call :ref:`processEvents <processEvents>`.  The onData callback is called on the same thread that calls processEvents.
+    [except JavaScript] Your application must call :ref:`processEvents <processEvents>`.  The onData callback is called on the same thread that calls processEvents.
 
 :[C++]:
 
@@ -184,7 +184,7 @@ Encode name as an Interest, using the interestTemplate if supplied, send the int
 
 .. note::
 
-    **C++ only**: Your application must call :ref:`processEvents <processEvents>`.  The onData callback is called on the same thread that calls processEvents.
+    [except JavaScript] Your application must call :ref:`processEvents <processEvents>`.  The onData callback is called on the same thread that calls processEvents.
 
 :[C++]:
 
@@ -280,7 +280,7 @@ Register prefix with the connected NDN hub and call onInterest when a matching i
 
 .. note::
 
-    **C++ only**: Your application must call :ref:`processEvents <processEvents>`.  The onInterest callback is called on the same thread that calls processEvents.
+    [except JavaScript] Your application must call :ref:`processEvents <processEvents>`.  The onInterest callback is called on the same thread that calls processEvents.
 
 :[C++]:
 
@@ -371,13 +371,19 @@ If there is no entry with the registeredPrefixId, do nothing.
 Face.processEvents Method
 -------------------------
 
-C++ only: Process any data to receive and call data or timeout callbacks.  This is non-blocking and will return immediately if there is no data to receive.  You should repeatedly call this from an event loop, with calls to sleep as needed so that the loop doesn't use 100% of the CPU.  Since processEvents modifies the pending interest table, your application should make sure that it calls processEvents in the same thread as expressInterest (which also modifies the pending interest table).
+[except JavaScript] Process any packets to receive and call callbacks such as onData, onInterest or onTimeout.  This returns immediately if there is no data to receive. This blocks while calling the callbacks. You should repeatedly call this from an event loop, with calls to sleep as needed so that the loop doesn't use 100% of the CPU.  Since processEvents modifies the pending interest table, your application should make sure that it calls processEvents in the same thread as expressInterest (which also modifies the pending interest table).
 
 :[C++]:
 
     .. code-block:: c++
     
         void processEvents();
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def processEvents(self)
 
 :Throw:
 
