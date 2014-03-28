@@ -16,6 +16,7 @@ Table of Contents:
    transport
    blob
    key-chain
+   memory-content-cache
    details/cpp
    :maxdepth: 3
 
@@ -24,9 +25,6 @@ Table of Contents:
    details/tcp-transport
    details/udp-transport
    :maxdepth: 1
-
-.. details/wire-format
-.. details/binary-xml-wire-format
 
 .. Indices and tables
 .. ==================
