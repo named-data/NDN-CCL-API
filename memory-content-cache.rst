@@ -67,6 +67,7 @@ MemoryContentCache.registerPrefix Method
 
                 const Name& prefix,
                 const OnRegisterFailed& onRegisterFailed
+                [, const OnInterest& onDataNotFound]
                 [, const ForwardingFlags& flags]
 
             );
@@ -80,6 +81,12 @@ MemoryContentCache.registerPrefix Method
             If failed to set Interest filter for any reason, this calls ``onRegisterFailed(prefix)`` where:
 
                 - ``prefix`` is the prefix given to registerPrefix.
+
+        - `onDataNotFound`
+            (optional) This callback is called to forward the OnInterest message 
+            when a data packet is not found in the cache. For details of the
+            callback parameters, see the onInterest parameter of :ref:`registerPrefix <registerPrefix>`. 
+            If omitted, this does not use it.
 
         - `flags`
             (optional) The flags for finer control of how and which Interests should be forwarded towards the face.
