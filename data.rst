@@ -46,7 +46,7 @@ Create a new Data with the optional values.
 
 :Parameters:
 
-    - ``name``
+    - `name`
 	(optional) The name for the data packet.
 
 Data.getContent Method
@@ -88,7 +88,7 @@ Set content to point to an existing byte array.
 
 :Parameters:
 
-    - ``content``
+    - `content`
 	The pointer to the byte array.
 
 Data.wireDecode Methods
@@ -121,7 +121,7 @@ Decode the input from wire format and update this Data.  Also keep a pointer to 
 
 :Parameters:
 
-    - ``input``
+    - `input`
 	The immutable input byte array to be decoded.
 
 Data.wireDecode Method (copy from byte array)
@@ -152,7 +152,7 @@ Decode the input from wire format and update this Data.  Also save a copy of the
 
 :Parameters:
 
-    - ``input``
+    - `input`
 	The input byte array to be decoded.
 
 Data.wireEncode Method

@@ -47,13 +47,13 @@ Create a new Face object with the given Transport to manage NDN communication.
 
 :Parameters:
 
-    - ``transport``
+    - `transport`
 	An object of a subclass of Transport to use for communication.
 
-    - ``connectionInfo``
+    - `connectionInfo`
 	This must be a ConnectionInfo from the same subclass of Transport as transport.
 
-    - ``settings``
+    - `settings`
 	(JavaScript only) An associative array with the following defaults:
 
 	.. code-block:: javascript
@@ -101,13 +101,13 @@ Create a new Face object with optional settings to manage NDN communication.
 
 :Parameters:
 
-    - ``host``
+    - `host`
 	(optional) The host to connect to. If omitted, use “localhost” with the default TcpTransport.
 
-    - ``port``
+    - `port`
 	(optional) The port to connect to. If omitted, use 6363 with the default TcpTransport.
 
-    - ``settings``
+    - `settings`
 	(JavaScript only) (optional) An associative array with the following defaults:
 
 	.. code-block:: javascript
@@ -159,16 +159,16 @@ Send the interest through the transport, read the entire response and call onDat
 
 :Parameters:
 
-    - ``interest``
+    - `interest`
 	The Interest to send which includes the interest lifetime for the timeout.
 
-    - ``onData``
+    - `onData`
 	When a matching data packet is received, this calls ``onData(interest, data)`` where:
 
 	    - ``interest`` is the interest given to expressInterest.
 	    - ``data`` is the received Data object.
 
-    - ``onTimeout``
+    - `onTimeout`
 	(optional) If the interest times out according to the interest lifetime, this calls ``onTimeout(interest)`` where:
 
 	    - ``interest`` is the interest given to expressInterest.
@@ -226,19 +226,19 @@ Encode name as an Interest, using the interestTemplate if supplied, send the int
 
 :Parameters:
 
-    - ``name``
+    - `name`
 	The Name for the interest.
 
-    - ``interestTemplate``
+    - `interestTemplate`
 	(optional) If not omitted, copy the interest selectors from this Interest. If omitted, use a default interest lifetime.
 
-    - ``onData``
+    - `onData`
 	When a matching data packet is received, this calls ``onData(interest, data)`` where:
 
 	    - ``interest`` is the interest given to expressInterest.
 	    - ``data`` is the received Data object.
 
-    - ``onTimeout``
+    - `onTimeout`
 	(optional) If the interest times out according to the interest lifetime, this calls ``onTimeout(interest)`` where:
 
 	    - ``interest`` is the interest given to expressInterest.
@@ -264,7 +264,7 @@ Remove the pending interest entry with the pendingInterestId from the pending in
 
 :Parameters:
 
-    - ``pendingInterestId``
+    - `pendingInterestId`
 	The ID returned from expressInterest.
 
 .. _registerPrefix:
@@ -322,10 +322,10 @@ Register prefix with the connected NDN hub and call onInterest when a matching i
 
 :Parameters:
 
-    - ``prefix``
+    - `prefix`
 	The :ref:`Name <Name>` prefix to register.
 
-    - ``onInterest``
+    - `onInterest`
 	When an interest is received which matches the name prefix, this calls ``onInterest(prefix, interest, transport, registeredPrefixId)`` where:
 
 	    - ``prefix`` is the prefix given to registerPrefix.
@@ -333,12 +333,12 @@ Register prefix with the connected NDN hub and call onInterest when a matching i
 	    - ``transport`` is the Transport with the connection which received the interest. You must encode a signed Data packet and send it using transport.send().
 	    - ``registeredPrefixId`` is the registered prefix ID which can be used with removeRegisteredPrefix.
 
-    - ``onRegisterFailed``
+    - `onRegisterFailed`
 	If failed to set Interest filter for any reason, this calls ``onRegisterFailed(prefix)`` where:
 
 	    - ``prefix`` is the prefix given to registerPrefix.
 
-    - ``flags``
+    - `flags`
 	(optional) The flags for finer control of how and which Interests should be forwarded towards the face.
         If omitted, use the default flags defined by the default :ref:`ForwardingFlags <ForwardingFlags>` constructor.
 
@@ -363,7 +363,7 @@ If there is no entry with the registeredPrefixId, do nothing.
 
 :Parameters:
 
-    - ``registeredPrefixId``
+    - `registeredPrefixId`
 	The ID returned from registerPrefix.
 
 .. _processEvents:

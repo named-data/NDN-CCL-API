@@ -25,7 +25,7 @@ Create a new Name.Component, copying the optional value.
 
 :Parameters:
 
-    - ``value``
+    - `value`
         (optional) The content byte array to copy.
 
 Name.Component.toEscapedString Method

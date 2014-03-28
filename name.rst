@@ -45,7 +45,7 @@ Create a new Name with the optional components.
     
 :Parameters:
 
-    - ``components``
+    - `components`
         (optional) The array of :ref:`name components <Name.Component>`.
 
 Name Constructor (from URI)
@@ -71,7 +71,7 @@ Parse the uri according to the NDN URI Scheme and create the Name with the compo
 
 :Parameters:
 
-    - ``uri``
+    - `uri`
         The URI in NDN URI Scheme.
 
 Name Constructor (copy)
@@ -111,7 +111,7 @@ Create a new Name as a deep copy of the given name.
 
 :Parameters:
 
-    - ``name``
+    - `name`
 	The Name to copy.
 
 Name.toUri Method
@@ -166,7 +166,7 @@ Get a Name Component by index number.
 
 :Parameters:
 
-    - ``i``
+    - `i`
         The index of the component to get, starting from 0. However, if i is negative, return the component
         at size() - (-i).
 
@@ -223,10 +223,10 @@ Get a new name, constructed as a subset of components.
 
 :Parameters:
 
-    - ``iStartComponent``
+    - `iStartComponent`
         The index if the first component to get.
 
-    - ``nComponents``
+    - `nComponents`
         (optional) The number of components starting at iStartComponent. If omitted, return components until the end of the name.
 
 :Returns:
@@ -257,10 +257,10 @@ Check if the N components of this name are the same as the first N components of
 
 :Parameters:
 
-    - ``name``
+    - `name`
         The Name to check.
 
-    - ``nComponents``
+    - `nComponents`
         The number of components starting at iStartComponent. If omitted, return components until the end of the name.
 
 :Returns:
@@ -294,7 +294,7 @@ Append a new component, copying from byte array.
 
 :Parameters:
 
-    - ``value``
+    - `value`
         The component byte array to copy.
 
 :Returns:
@@ -316,7 +316,7 @@ Append a new component, taking another pointer to the byte array in the Blob.
 
 :Parameters:
 
-    - ``value``
+    - `value`
         The Blob with the pointer to the byte array.
 
 :Returns:
@@ -338,7 +338,7 @@ Append the component to this name.
 
 :Parameters:
 
-    - ``value``
+    - `value`
         The Name.Component to append.
 
 :Returns:
@@ -369,7 +369,7 @@ Append the components of the given name to this name.
 
 :Parameters:
 
-    - ``name``
+    - `name`
         The Name with components to append.
 
 :Returns:
@@ -400,7 +400,7 @@ Append a component with the encoded segment number.
 
 :Parameters:
 
-    - ``segment``
+    - `segment`
         The integer segment number to be encoded.
 
 :Returns:
@@ -422,7 +422,7 @@ Append a component with the encoded version number. Note that this encodes the e
 
 :Parameters:
 
-    - ``version``
+    - `version`
         The version number to be encoded.
 
 :Returns:

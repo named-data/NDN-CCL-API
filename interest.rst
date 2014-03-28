@@ -49,7 +49,7 @@ Create a new Interest with the optional name.
 
 :Parameters:
 
-    - ``name``
+    - `name`
 	(optional) The name of the content. If omitted, use a blank name.
 
 
@@ -90,7 +90,7 @@ Create a new Interest as a deep copy of the given interest.
 
 :Parameters:
 
-    - ``interest``
+    - `interest`
 	The Interest to copy.
 
 Interest.wireDecode Method
@@ -120,7 +120,7 @@ Decode the input from wire format and update this Interest.
 
 :Parameters:
 
-    - ``input``
+    - `input`
 	The input byte array to be decoded.
 
 
@@ -185,7 +185,7 @@ Return true if the components of this Interest’s name are the same as the lead
 
 :Parameters:
 
-    - ``name``
+    - `name`
 	The Name to check against this Interest.
 
 :Returns:
