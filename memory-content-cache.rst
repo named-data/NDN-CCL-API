@@ -11,7 +11,7 @@ MemoryContentCache Class
         Namespace: `ndn`
 
     A MemoryContentCache holds a set of Data packets and answers an Interest to
-    return the correct Data packet. The cached is periodically cleaned up to
+    return the correct Data packet. The cache is periodically cleaned up to
     remove each stale Data packet based on its FreshnessPeriod (if it has one).
 
 MemoryContentCache Constructor
@@ -59,6 +59,11 @@ MemoryContentCache.registerPrefix Method
     Call registerPrefix on the Face given to the constructor so that this
     MemoryContentCache will answer interests whose name has the prefix.
 
+    .. note::
+
+        [except JavaScript] Your application must call :ref:`processEvents <processEvents>`.  
+        The cache is processed on the same thread that calls processEvents.
+
     :[C++]:
 
         .. code-block:: c++
@@ -86,6 +91,7 @@ MemoryContentCache.registerPrefix Method
             (optional) This callback is called to forward the OnInterest message 
             when a data packet is not found in the cache. For details of the
             callback parameters, see the onInterest parameter of :ref:`registerPrefix <registerPrefix>`. 
+            The onDataNotFound callback is called on the same thread that calls :ref:`processEvents <processEvents>`.
             If omitted, this does not use it.
 
         - `flags`
@@ -105,6 +111,12 @@ MemoryContentCache.add Method
     answer interests. If data.getFreshnessPeriod() is not negative, set the
     staleness time to now plus data.getFreshnessPeriod(), which is checked
     during cleanup to remove stale content.
+
+    .. note::
+
+        [except JavaScript] Your application must call :ref:`processEvents <processEvents>`.  
+        Since processEvents modifies the cache, your application should make sure that it 
+        calls processEvents in the same thread as add (which also modifies the cache).
 
     :[C++]:
 
