@@ -250,7 +250,7 @@ Encode name as an Interest, using the interestTemplate if supplied, send the int
 Face.removePendingInterest Method
 ---------------------------------
 
-Remove the pending interest entry with the pendingInterestId from the pending interest table. This does not affect another pending interest with a different pendingInterestId, even it if has the same interest name. If there is no entry with the pendingInterestId, do nothing.
+Remove the pending interest entry with the pendingInterestId from the pending interest table. This does not affect another pending interest with a different pendingInterestId, even if it has the same interest name. If there is no entry with the pendingInterestId, do nothing.
 
 :[C++]:
 
@@ -347,8 +347,8 @@ Register prefix with the connected NDN hub and call onInterest when a matching i
 Face.removeRegisteredPrefix Method
 ----------------------------------
 
-Remove the registered prefix entry with the registeredPrefixId from the pending interest table.  
-This does not affect another registered prefix with a different registeredPrefixId, even it if has the same prefix name. 
+Remove the registered prefix entry with the registeredPrefixId from the registered prefix table.  
+This does not affect another registered prefix with a different registeredPrefixId, even if it has the same prefix name. 
 If there is no entry with the registeredPrefixId, do nothing.
 
 :[C++]:
