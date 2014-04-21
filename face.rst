@@ -298,7 +298,7 @@ Set the KeyChain and certificate name used to sign command interests (e.g. for r
 .. _setCommandCertificateName:
 
 Face.setCommandCertificateName Method
----------------------------------
+-------------------------------------
 
 Set the certificate name used to sign command interest (e.g. for registerPrefix), using the KeyChain that was set with setCommandSigningInfo.
 
