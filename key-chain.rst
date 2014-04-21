@@ -12,8 +12,50 @@ KeyChain Class
 
     The Keychain class provides a set of interfaces to the security library such as identity management, policy configuration and packet signing and verification.
 
-KeyChain.sign Method
+KeyChain Constructor
 --------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The NDN security library is experimental and the API is not finalized.
+
+    Create a new KeyChain with the the default IdentityManager and a NoVerifyPolicyManager. This is sufficient for signing command interests.
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            KeyChain();
+
+KeyChain.getDefaultCertificateName Method
+-----------------------------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The NDN security library is experimental and the API is not finalized.
+
+    Get the default certificate name of the default identity.
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            Name getDefaultCertificateName();
+
+    :Returns:
+
+        The requested certificate name.
+        
+    :Throw:
+    
+        SecurityException if the default identity is not set or the default key name for the identity is not set or the default certificate name for the key name is not set.
+
+KeyChain.sign (Data) Method
+---------------------------
 
 .. container:: experimental
 
@@ -38,6 +80,36 @@ KeyChain.sign Method
 
         - `data`
             The Data object to be signed.  This updates its signature and key locator field and wireEncoding.
+
+        - `certificateName`
+            The certificate name of the key to use for signing.
+
+KeyChain.sign (Interest) Method
+-------------------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The NDN security library is experimental and the API is not finalized.
+
+    Append a SignatureInfo to the Interest name, sign the name components and append a final name component with the signature bits.
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            void sign(
+
+                Interest& interest,
+                const Name& certificateName
+
+            );
+
+    :Parameters:
+
+        - `interest`
+            The Interest object to be signed. This appends name components of SignatureInfo and the signature bits.
 
         - `certificateName`
             The certificate name of the key to use for signing.
