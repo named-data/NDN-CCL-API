@@ -247,6 +247,8 @@ Encode name as an Interest, using the interestTemplate if supplied, send the int
 
     The pending interest ID which can be used with removePendingInterest.
 
+.. _removePendingInterest:
+
 Face.removePendingInterest Method
 ---------------------------------
 
@@ -266,6 +268,54 @@ Remove the pending interest entry with the pendingInterestId from the pending in
 
     - `pendingInterestId`
 	The ID returned from expressInterest.
+
+.. _setCommandSigningInfo:
+
+Face.setCommandSigningInfo Method
+---------------------------------
+
+Set the KeyChain and certificate name used to sign command interests (e.g. for registerPrefix).
+
+:[C++]:
+
+    .. code-block:: c++
+    
+        void setCommandSigningInfo(
+        
+            KeyChain& keyChain,
+            const Name& certificateName
+        
+        );
+
+:Parameters:
+
+    - `keyChain`
+	The KeyChain object for signing interests, which must remain valid for the life of this Face. You must create the KeyChain object and pass it in. You can create a default KeyChain for your system with the default KeyChain constructor.
+
+    - `certificateName`
+	The certificate name for signing interest. This makes a copy of the Name. You can get the default certificate name with keyChain.getDefaultCertificateName() .
+
+.. _setCommandCertificateName:
+
+Face.setCommandCertificateName Method
+---------------------------------
+
+Set the certificate name used to sign command interest (e.g. for registerPrefix), using the KeyChain that was set with setCommandSigningInfo.
+
+:[C++]:
+
+    .. code-block:: c++
+    
+        void setCommandCertificateName(
+        
+            const Name& certificateName
+        
+        );
+
+:Parameters:
+
+    - `certificateName`
+	The certificate name for signing interest. This makes a copy of the Name.
 
 .. _registerPrefix:
 
