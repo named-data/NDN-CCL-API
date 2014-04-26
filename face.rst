@@ -323,10 +323,13 @@ Face.registerPrefix Method
 --------------------------
 
 Register prefix with the connected NDN hub and call onInterest when a matching 
-interest is received. If you have not called setCommandSigningInfo, this assumes 
-you are connecting to NDNx. If you have called setCommandSigningInfo, this first 
-sends an NFD registration request, and if that times out then this sends an NDNx 
-registration request.
+interest is received. If you have not called 
+:ref:`setCommandSigningInfo <setCommandSigningInfo>`, this assumes you are 
+connecting to NDNx. If you have called 
+:ref:`setCommandSigningInfo <setCommandSigningInfo>`, this first sends an NFD 
+registration request, and if that times out then this sends an NDNx 
+registration request. If need to register a prefix with NFD, you must first call 
+:ref:`setCommandSigningInfo <setCommandSigningInfo>`.
 
 .. note::
 
