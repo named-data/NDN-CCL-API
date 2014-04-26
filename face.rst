@@ -322,7 +322,11 @@ Set the certificate name used to sign command interest (e.g. for registerPrefix)
 Face.registerPrefix Method
 --------------------------
 
-Register prefix with the connected NDN hub and call onInterest when a matching interest is received.
+Register prefix with the connected NDN hub and call onInterest when a matching 
+interest is received. If you have not called setCommandSigningInfo, this assumes 
+you are connecting to NDNx. If you have called setCommandSigningInfo, this first 
+sends an NFD registration request, and if that times out then this sends an NDNx 
+registration request.
 
 .. note::
 
