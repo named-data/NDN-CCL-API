@@ -38,14 +38,6 @@ Create a new Name with the optional components.
             [components   // Array<Uint8Array>]    
         )
 
-:[Python]:
-
-    .. code-block:: python
-    
-        def __init__(self
-            [, components # Array<string>]
-        )
-
 :[Java]:
 
     .. code-block:: java
@@ -63,7 +55,7 @@ Create a new Name with the optional components.
 :Parameters:
 
     - `components`
-        (optional) The array of :ref:`name components <Name.Component>`.
+        (optional) The array of :ref:`name components <Name.Component>`. If omitted, create an empty Name.
 
 Name Constructor (from URI)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -78,12 +70,28 @@ Parse the uri according to the NDN URI Scheme and create the Name with the compo
             const char* uri
         );
 
+:[Python]:
+
+    .. code-block:: python
+    
+        def __init__(self
+            uri  # str
+        )
+
 :[JavaScript]:
 
     .. code-block:: javascript
     
         var Name = function Name (
             uri // string
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public Name(
+            String uri
         )
 
 :Parameters:
@@ -98,33 +106,35 @@ Create a new Name as a deep copy of the given name.
 
 :[C++]:
 
-.. code-block:: c++
+    .. code-block:: c++
 
-    Name(
-    
-        const Name& name
-    
-    );
-
-:[JavaScript]:
-
-.. code-block:: javascript
-
-    var Name = function Name (
-    
-        name // Name
-    
-    )
+        Name(
+            const Name& name
+        );
 
 :[Python]:
 
-.. code-block:: python
+    .. code-block:: python
+	
+        def __init__(self,
+            name  # Name
+        )
 
-    def __init__(self,
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        var Name = function Name (
+            name // Name
+        )
+
+:[Java]:
+
+    .. code-block:: java
     
-        name # Name
-    
-    )
+        public Name(
+            Name name
+        )
 
 :Parameters:
 
@@ -140,14 +150,27 @@ Return the escaped name string according to the NDN URI Scheme.
 
     .. code-block:: c++
     
-        std::string toUri() const ();
+        std::string toUri() const;
+
+:[Python]:
+
+    .. code-block:: python
+	
+	    # Returns str
+        def toUri(self)
 
 :[JavaScript]:
 
     .. code-block:: javascript
     
         // Returns string
-        Name.prototype.toUri = function();
+        Name.prototype.toUri = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final String toUri()
 
 :Returns:
 
@@ -163,6 +186,26 @@ Get the number of components.
     .. code-block:: c++
     
         size_t size() const;
+
+:[Python]:
+
+    .. code-block:: python
+	
+	    # Returns int
+        def size(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+    
+        // Returns number
+        Name.prototype.size = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final int size()
 
 :Returns:
 
@@ -180,6 +223,32 @@ Get a Name Component by index number.
         const Component& get(
             int i
         ) const;
+
+:[Python]:
+
+    .. code-block:: python
+	
+	    # Returns Name.Component
+        def get(self, 
+		    i  # int
+	    )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+    
+        // Returns Name.Component
+        Name.prototype.get = function(
+		    i  // number
+		)
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Component get(
+		    int i
+		)
 
 :Parameters:
 
@@ -204,14 +273,31 @@ Get a new Name with the first nComponents components of this Name.
             int nComponents
         ) const;
 
+:[Python]:
+
+    .. code-block:: python
+	
+	    # Returns Name
+        def getPrefix(self, 
+		    nComponents  # int
+	    )
+
 :[JavaScript]:
 
     .. code-block:: javascript
     
         // Returns Name
         Name.prototype.getPrefix = function(
-            nComponents  // Number
-        );
+            nComponents  // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Name getPrefix(
+		    int nComponents
+		)
 
 :Parameters:
 
@@ -238,6 +324,35 @@ Get a new name, constructed as a subset of components.
             [, size_t nComponents]
         ) const;
 
+:[Python]:
+
+    .. code-block:: python
+	
+	    # Returns Name
+        def getSubName(self, 
+		    iStartComponent  # int
+            [, nComponents  # int]
+	    )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+    
+        // Returns Name
+        Name.prototype.getSubName = function(
+            iStartComponent  // number
+            [, nComponents  // int]
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Name getSubName(
+		    int iStartComponent
+            [, int nComponents]
+		)
+
 :Parameters:
 
     - `iStartComponent`
@@ -263,6 +378,15 @@ Check if the N components of this name are the same as the first N components of
             const Name& name
         ) const;
 
+:[Python]:
+
+    .. code-block:: python
+	
+	    # Returns bool
+        def getSubName(self, 
+		    name  # Name
+	    )
+
 :[JavaScript]:
 
     .. code-block:: javascript
@@ -272,17 +396,22 @@ Check if the N components of this name are the same as the first N components of
             name  // Name
         );
 
+:[Java]:
+
+    .. code-block:: java
+    
+        public final boolean match(
+		    Name name
+		)
+
 :Parameters:
 
     - `name`
         The Name to check.
 
-    - `nComponents`
-        The number of components starting at iStartComponent. If omitted, return components until the end of the name.
-
 :Returns:
 
-    true if this matches the given name, otherwise false.  This always returns true if this name is empty.
+    true if this matches the given name, otherwise false. This always returns true if this name is empty.
 
 Name.append Methods
 -------------------
@@ -290,7 +419,7 @@ Name.append Methods
 Name.append Method (copy byte array)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Append a new component, copying from byte array.
+Append a new component, copying from the byte array.
 
 :[C++]:
 
@@ -300,14 +429,31 @@ Append a new component, copying from byte array.
             const std::vector<uint8_t>& value
         );
 
+:[Python]:
+
+    .. code-block:: python
+	
+	    # Returns Name
+        def append(self, 
+		    value  # bytearray|memoryview|other array of int
+	    )
+
 :[JavaScript]:
 
     .. code-block:: javascript
     
-        // Returns this Name
+        // Returns Name
         Name.prototype.append = function(
             value  // Array<number>|ArrayBuffer|Uint8Array
         )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Name append(
+		    byte[] value
+		)
 
 :Parameters:
 
@@ -331,6 +477,32 @@ Append a new component, taking another pointer to the byte array in the Blob.
             const Blob& value
         );
 
+:[Python]:
+
+    .. code-block:: python
+	
+	    # Returns Name
+        def append(self, 
+		    value  # Blob
+	    )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+    
+        // Returns Name
+        Name.prototype.append = function(
+            value  // Blob
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Name append(
+		    Blob value
+		)
+
 :Parameters:
 
     - `value`
@@ -352,6 +524,32 @@ Append the component to this name.
         Name& append(
             const Name::Component& value
         );
+
+:[Python]:
+
+    .. code-block:: python
+	
+	    # Returns Name
+        def append(self, 
+		    value  # Name.Component
+	    )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+    
+        // Returns Name
+        Name.prototype.append = function(
+            value  // Name.Component
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Name append(
+		    Component value
+		)
 
 :Parameters:
 
@@ -375,14 +573,31 @@ Append the components of the given name to this name.
             const Name& name
         );
 
+:[Python]:
+
+    .. code-block:: python
+	
+	    # Returns Name
+        def append(self, 
+		    name  # Name
+	    )
+
 :[JavaScript]:
 
     .. code-block:: javascript
     
-        // Returns this Name
+        // Returns Name
         Name.prototype.append = function(
-            value  // Name
+            name  // Name
         )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Name append(
+		    Name name
+		)
 
 :Parameters:
 
@@ -406,14 +621,31 @@ Append a component with the encoded segment number.
             uint64_t segment
         );
 
+:[Python]:
+
+    .. code-block:: python
+	
+	    # Returns Name
+        def appendSegment(self, 
+		    segment  # int
+	    )
+
 :[JavaScript]:
 
     .. code-block:: javascript
     
-        // Returns this Name
+        // Returns Name
         Name.prototype.appendSegment = function(
-            segment  // Number
+            segment  // number
         )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Name appendSegment(
+		    long segment
+		)
 
 :Parameters:
 
@@ -437,6 +669,32 @@ Append a component with the encoded version number. Note that this encodes the e
             uint64_t version
         );
 
+:[Python]:
+
+    .. code-block:: python
+	
+	    # Returns Name
+        def appendVersion(self, 
+		    version  # int
+	    )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+    
+        // Returns Name
+        Name.prototype.appendVersion = function(
+            version  // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Name appendVersion(
+		    long version
+		)
+
 :Parameters:
 
     - `version`
@@ -446,22 +704,3 @@ Append a component with the encoded version number. Note that this encodes the e
 
     This name so that you can chain calls to append.
 
-Other Name getter and setter methods
-------------------------------------
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-    
-        // Returns a new Name
-        Name.prototype.cut = function(
-            minusComponents  // number
-        )
-        
-        // Returns number
-        Name.prototype.indexOfFileName = function()
-        
-        // Returns Boolean
-        Name.prototype.equalsName = function(
-            name            // Name
-        )
