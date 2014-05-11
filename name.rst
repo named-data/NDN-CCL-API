@@ -43,13 +43,13 @@ Create a new Name with the optional components.
     .. code-block:: java
     
         public Name(
-            [, ArrayList components]
+            [ArrayList components]
         )
 
     .. code-block:: java
     
         public Name(
-            [, Component[] components]
+            [Component[] components]
         )
     
 :Parameters:
