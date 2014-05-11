@@ -165,6 +165,7 @@ Encode this Interest to a wire format.
 
     .. code-block:: python
 
+        # Returns Blob
         def wireEncode()
 
 :[JavaScript]:

@@ -9,45 +9,50 @@ Data Class
 :[Python]:
     Module: ``pyndn``
 
+:[Java]:
+    Package: ``net.named_data.jndn``
+
 Data Constructor
 ----------------
 
-Create a new Data with the optional values.
+Create a new Data object with the optional name.
 
 :[C++]:
 
-.. code-block:: c++
+    .. code-block:: c++
 
-    Data(
-    
-        [const Name& name]
-    
-    );
-
-:[JavaScript]:
-
-.. code-block:: javascript
-
-    var Data = function Data(
-    
-        [name         // Name]
-    
-    )
+        Data(
+            [const Name& name]
+        );
 
 :[Python]:
 
-.. code-block:: python
+    .. code-block:: python
 
-    def __init__(self
+        def __init__(self
+            [, name  # Name]
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        var Data = function Data(
+            [name  // Name]
+        )
+
+:[Java]:
+
+    .. code-block:: java
     
-        [, name       # Name]
-    
-    )
+        public Data(
+            [Name name]
+        )
 
 :Parameters:
 
     - `name`
-	(optional) The name for the data packet.
+	(optional) The name for the data packet. If omitted, use a blank name.
 
 Data.getContent Method
 ----------------------
@@ -56,16 +61,29 @@ Get content of the Data packet.
 
 :[C++]:
 
-.. code-block:: c++
+    .. code-block:: c++
 
-    const Blob& getContent() const;
+        const Blob& getContent() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Blob
+        def getContent(self)
 
 :[JavaScript]:
 
-.. code-block:: javascript
+    .. code-block:: javascript
 
-    // Returns Blob
-    Data.prototype.getContent = function()
+        // Returns Blob
+        Data.prototype.getContent = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Blob getContent()
     
 :Returns:
 
@@ -78,13 +96,35 @@ Set content to point to an existing byte array.
 
 :[C++]:
 
-.. code-block:: c++
+    .. code-block:: c++
 
-    void setContent(
+        void setContent(
+            const Blob& content
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def setContent(self,
+            content  # Blob
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Data.prototype.setContent = function(
+            content  // Blob
+        )
+
+:[Java]:
+
+    .. code-block:: java
     
-        const Blob& content
-    
-    );
+        public final void setContent(
+            Blob content
+        )
 
 :Parameters:
 
@@ -101,23 +141,35 @@ Decode the input from wire format and update this Data.  Also keep a pointer to 
 
 :[C++]:
 
-.. code-block:: c++
+    .. code-block:: c++
 
-    void wireDecode(
-    
-        const Blob& input
-    
-    );
+        void wireDecode(
+            const Blob& input
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def wireDecode(self,
+            input  # Blob
+        )
 
 :[JavaScript]:
 
-.. code-block:: javascript
+    .. code-block:: javascript
 
-    ContentObject.prototype.decode = function(
+        Data.prototype.wireDecode = function(
+            input  // Blob
+        )
+
+:[Java]:
+
+    .. code-block:: java
     
-        input // Blob
-    
-    )
+        public final void wireDecode(
+            Blob content
+        )
 
 :Parameters:
 
@@ -132,23 +184,42 @@ Decode the input from wire format and update this Data.  Also save a copy of the
 
 :[C++]:
 
-.. code-block:: c++
+    .. code-block:: c++
 
-    void wireDecode(
-    
-        const std::vector<uint8_t>& input
-    
-    );
+        void wireDecode(
+            const std::vector<uint8_t>& input
+        );
+
+    .. code-block:: c++
+
+        void wireDecode(
+            const uint8_t *input,
+            size_t inputLength
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def wireDecode(self,
+            input  # an array type with int elements
+        )
 
 :[JavaScript]:
 
-.. code-block:: javascript
+    .. code-block:: javascript
 
-    ContentObject.prototype.decode = function(
+        Data.prototype.wireDecode = function(
+            input  // Buffer
+        )
+
+:[Java]:
+
+    .. code-block:: java
     
-        input // Uint8Array
-    
-    )
+        public final void wireDecode(
+            ByteBuffer input
+        )
 
 :Parameters:
 
@@ -162,16 +233,29 @@ Encode this Data to wire format.
 
 :[C++]:
 
-.. code-block:: c++
+    .. code-block:: c++
 
-    SignedBlob wireEncode() const;
+        SignedBlob wireEncode() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns SignedBlob
+        def wireEncode()
 
 :[JavaScript]:
 
-.. code-block:: javascript
+    .. code-block:: javascript
 
-    // Returns SignedBlob
-    ContentObject.prototype.encode = function()
+        // Returns SignedBlob
+        Data.prototype.wireEncode = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final SignedBlob wireEncode()
 
 :Returns:
 
