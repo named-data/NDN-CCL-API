@@ -115,7 +115,7 @@ Create a new Name as a deep copy of the given name.
 :[Python]:
 
     .. code-block:: python
-	
+    
         def __init__(self,
             name  # Name
         )
@@ -139,7 +139,7 @@ Create a new Name as a deep copy of the given name.
 :Parameters:
 
     - `name`
-	The Name to copy.
+    The Name to copy.
 
 Name.toUri Method
 -----------------
@@ -155,8 +155,8 @@ Return the escaped name string according to the NDN URI Scheme.
 :[Python]:
 
     .. code-block:: python
-	
-	    # Returns str
+    
+        # Returns str
         def toUri(self)
 
 :[JavaScript]:
@@ -190,8 +190,8 @@ Get the number of components.
 :[Python]:
 
     .. code-block:: python
-	
-	    # Returns int
+    
+        # Returns int
         def size(self)
 
 :[JavaScript]:
@@ -227,11 +227,11 @@ Get a Name Component by index number.
 :[Python]:
 
     .. code-block:: python
-	
-	    # Returns Name.Component
+    
+        # Returns Name.Component
         def get(self, 
-		    i  # int
-	    )
+            i  # int
+        )
 
 :[JavaScript]:
 
@@ -239,16 +239,16 @@ Get a Name Component by index number.
     
         // Returns Name.Component
         Name.prototype.get = function(
-		    i  // number
-		)
+            i  // number
+        )
 
 :[Java]:
 
     .. code-block:: java
     
         public final Component get(
-		    int i
-		)
+            int i
+        )
 
 :Parameters:
 
@@ -276,11 +276,11 @@ Get a new Name with the first nComponents components of this Name.
 :[Python]:
 
     .. code-block:: python
-	
-	    # Returns Name
+    
+        # Returns Name
         def getPrefix(self, 
-		    nComponents  # int
-	    )
+            nComponents  # int
+        )
 
 :[JavaScript]:
 
@@ -296,8 +296,8 @@ Get a new Name with the first nComponents components of this Name.
     .. code-block:: java
     
         public final Name getPrefix(
-		    int nComponents
-		)
+            int nComponents
+        )
 
 :Parameters:
 
@@ -327,12 +327,12 @@ Get a new name, constructed as a subset of components.
 :[Python]:
 
     .. code-block:: python
-	
-	    # Returns Name
+    
+        # Returns Name
         def getSubName(self, 
-		    iStartComponent  # int
+            iStartComponent  # int
             [, nComponents  # int]
-	    )
+        )
 
 :[JavaScript]:
 
@@ -349,9 +349,9 @@ Get a new name, constructed as a subset of components.
     .. code-block:: java
     
         public final Name getSubName(
-		    int iStartComponent
+            int iStartComponent
             [, int nComponents]
-		)
+        )
 
 :Parameters:
 
@@ -381,11 +381,11 @@ Check if the N components of this name are the same as the first N components of
 :[Python]:
 
     .. code-block:: python
-	
-	    # Returns bool
+    
+        # Returns bool
         def getSubName(self, 
-		    name  # Name
-	    )
+            name  # Name
+        )
 
 :[JavaScript]:
 
@@ -401,8 +401,8 @@ Check if the N components of this name are the same as the first N components of
     .. code-block:: java
     
         public final boolean match(
-		    Name name
-		)
+            Name name
+        )
 
 :Parameters:
 
@@ -432,11 +432,11 @@ Append a new component, copying from the byte array.
 :[Python]:
 
     .. code-block:: python
-	
-	    # Returns Name
+    
+        # Returns Name
         def append(self, 
-		    value  # bytearray|memoryview|other array of int
-	    )
+            value  # bytearray|memoryview|other array of int
+        )
 
 :[JavaScript]:
 
@@ -452,8 +452,8 @@ Append a new component, copying from the byte array.
     .. code-block:: java
     
         public final Name append(
-		    byte[] value
-		)
+            byte[] value
+        )
 
 :Parameters:
 
@@ -480,11 +480,11 @@ Append a new component, taking another pointer to the byte array in the Blob.
 :[Python]:
 
     .. code-block:: python
-	
-	    # Returns Name
+    
+        # Returns Name
         def append(self, 
-		    value  # Blob
-	    )
+            value  # Blob
+        )
 
 :[JavaScript]:
 
@@ -500,8 +500,8 @@ Append a new component, taking another pointer to the byte array in the Blob.
     .. code-block:: java
     
         public final Name append(
-		    Blob value
-		)
+            Blob value
+        )
 
 :Parameters:
 
@@ -528,11 +528,11 @@ Append the component to this name.
 :[Python]:
 
     .. code-block:: python
-	
-	    # Returns Name
+    
+        # Returns Name
         def append(self, 
-		    value  # Name.Component
-	    )
+            value  # Name.Component
+        )
 
 :[JavaScript]:
 
@@ -548,8 +548,8 @@ Append the component to this name.
     .. code-block:: java
     
         public final Name append(
-		    Component value
-		)
+            Component value
+        )
 
 :Parameters:
 
@@ -576,11 +576,11 @@ Append the components of the given name to this name.
 :[Python]:
 
     .. code-block:: python
-	
-	    # Returns Name
+    
+        # Returns Name
         def append(self, 
-		    name  # Name
-	    )
+            name  # Name
+        )
 
 :[JavaScript]:
 
@@ -596,8 +596,8 @@ Append the components of the given name to this name.
     .. code-block:: java
     
         public final Name append(
-		    Name name
-		)
+            Name name
+        )
 
 :Parameters:
 
@@ -624,11 +624,11 @@ Append a component with the encoded segment number.
 :[Python]:
 
     .. code-block:: python
-	
-	    # Returns Name
+    
+        # Returns Name
         def appendSegment(self, 
-		    segment  # int
-	    )
+            segment  # int
+        )
 
 :[JavaScript]:
 
@@ -644,8 +644,8 @@ Append a component with the encoded segment number.
     .. code-block:: java
     
         public final Name appendSegment(
-		    long segment
-		)
+            long segment
+        )
 
 :Parameters:
 
@@ -672,11 +672,11 @@ Append a component with the encoded version number. Note that this encodes the e
 :[Python]:
 
     .. code-block:: python
-	
-	    # Returns Name
+    
+        # Returns Name
         def appendVersion(self, 
-		    version  # int
-	    )
+            version  # int
+        )
 
 :[JavaScript]:
 
@@ -692,8 +692,8 @@ Append a component with the encoded version number. Note that this encodes the e
     .. code-block:: java
     
         public final Name appendVersion(
-		    long version
-		)
+            long version
+        )
 
 :Parameters:
 
