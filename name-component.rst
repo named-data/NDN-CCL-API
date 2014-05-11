@@ -81,7 +81,7 @@ Convert this component value by escaping characters according to the NDN URI Sch
     .. code-block:: javascript
     
         // Returns string
-        Name.prototype.toEscapedString = function()
+        Name.Component.prototype.toEscapedString = function()
 
 :[Java]:
 
