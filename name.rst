@@ -11,6 +11,9 @@ A Name holds an array of Name.Component and represents an NDN name.
 :[Python]:
     Module: ``pyndn``
 
+:[Java]:
+    Package: ``net.named_data.jndn``
+
 Name Constructors
 -----------------
 
@@ -41,6 +44,20 @@ Create a new Name with the optional components.
     
         def __init__(self
             [, components # Array<string>]
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public Name(
+            [, ArrayList components]
+        )
+
+    .. code-block:: java
+    
+        public Name(
+            [, Component[] components]
         )
     
 :Parameters:
