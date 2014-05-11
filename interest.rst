@@ -9,6 +9,9 @@ Interest Class
 :[Python]:
     Module: ``pyndn``
 
+:[Java]:
+    Package: ``net.named_data.jndn``
+
 Interest Constructors
 ---------------------
 
@@ -19,38 +22,40 @@ Create a new Interest with the optional name.
 
 :[C++]:
 
-.. code-block:: c++
+    .. code-block:: c++
 
-    Interest(
-    
-        [const Name& name]
-    
-    );
-
-:[JavaScript]:
-
-.. code-block:: javascript
-
-    var Interest = function Interest (
-    
-        [name // Name]
-    
-    )
+        Interest(
+            [const Name& name]
+        );
 
 :[Python]:
 
-.. code-block:: python
+    .. code-block:: python
 
-    def __init__(self
+        def __init__(self
+            [, name  # Name]
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        var Interest = function Interest (
+            [name  // Name]
+        )
+
+:[Java]:
+
+    .. code-block:: java
     
-        [, name # Name]
-    
-    )
+        public Interest(
+            [Name name]
+        )
 
 :Parameters:
 
     - `name`
-	(optional) The name of the content. If omitted, use a blank name.
+	(optional) The name for the interest which is copied. If omitted, use a blank name.
 
 
 Interest Constructor (copy)
@@ -60,33 +65,35 @@ Create a new Interest as a deep copy of the given interest.
 
 :[C++]:
 
-.. code-block:: c++
+    .. code-block:: c++
 
-    Interest(
-    
-        const Interest& interest
-    
-    );
-
-:[JavaScript]:
-
-.. code-block:: javascript
-
-    var Interest = function Interest (
-    
-        interest // Interest
-    
-    )
+        Interest(
+            const Interest& interest
+        );
 
 :[Python]:
 
-.. code-block:: python
+    .. code-block:: python
 
-    def __init__(self,
+        def __init__(self,
+            interest  # Interest
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        var Interest = function Interest (
+            interest  // Interest
+        )
+
+:[Java]:
+
+    .. code-block:: java
     
-        interest # Interest
-    
-    )
+        public Interest(
+            Interest interest
+        )
 
 :Parameters:
 
@@ -100,23 +107,42 @@ Decode the input from wire format and update this Interest.
 
 :[C++]:
 
-.. code-block:: c++
+    .. code-block:: c++
 
-    void decode(
-    
-        const std::vector<uint8_t>& input
-    
-    );
+        void wireDecode(
+            const std::vector<uint8_t>& input
+        );
+
+    .. code-block:: c++
+
+        void wireDecode(
+            const uint8_t *input,
+            size_t inputLength
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def wireDecode(self,
+            input  # an array type with int elements
+        )
 
 :[JavaScript]:
 
-.. code-block:: javascript
+    .. code-block:: javascript
 
-    Interest.prototype.decode = function(
+        Interest.prototype.wireDecode = function(
+            input  // Buffer
+        )
+
+:[Java]:
+
+    .. code-block:: java
     
-        input         // Uint8Array
-        
-    )
+        public final void wireDecode(
+            ByteBuffer input
+        )
 
 :Parameters:
 
@@ -131,16 +157,28 @@ Encode this Interest to a wire format.
 
 :[C++]:
 
-.. code-block:: c++
+    .. code-block:: c++
 
-    Blob encode() const;
+        SignedBlob wireEncode() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        def wireEncode()
 
 :[JavaScript]:
 
-.. code-block:: javascript
+    .. code-block:: javascript
 
-    // Returns Blob
-    Interest.prototype.encode = function()
+        // Returns Blob
+        Interest.prototype.wireEncode = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Blob wireEncode()
 
 :Returns:
 
@@ -149,39 +187,41 @@ Encode this Interest to a wire format.
 Interest.matchesName Method
 ---------------------------
 
-Return true if the components of this Interest’s name are the same as the leading components of the given name, and the name conforms to the interest selectors.
+Return true if the components of this Interest's name are the same as the leading components of the given name, and the name conforms to the interest selectors.
 
 :[C++]:
 
-.. code-block:: c++
+    .. code-block:: c++
 
-    bool matchesName(
-    
-        const Name& name
-    
-    ) const;
-
-:[JavaScript]:
-
-.. code-block:: javascript
-
-    // Returns boolean
-    Interest.prototype.matchesName = function(
-    
-	name // Name
-    
-    )
+        bool matchesName(
+            const Name& name
+        ) const;
 
 :[Python]:
 
-.. code-block:: python
+    .. code-block:: python
 
-    # Returns True or False
-    def matches_name(self,
+        # Returns True or False
+        def matchesName(self,
+            name  # Name
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Interest.prototype.matchesName = function(
+            name  // Name
+        )
+
+:[Java]:
+
+    .. code-block:: java
     
-        name # Name
-    
-    )
+        public final boolean matchesName(
+            Name name
+        )
 
 :Parameters:
 
@@ -190,7 +230,7 @@ Return true if the components of this Interest’s name are the same as the lead
 
 :Returns:
 
-    True if this interest’s name and interest selectors match the name.
+    True if this interest's name and interest selectors match the name.
 
 Interest.toUri Method
 --------------------------
@@ -208,23 +248,29 @@ Interest.toUri Method
 
     :[C++]:
 
-    .. code-block:: c++
+      .. code-block:: c++
 
-        std::string toUri() const;
-
-    :[JavaScript]:
-
-    .. code-block:: javascript
-
-        // Returns string
-        Interest.prototype.toUri = function()
+          std::string toUri() const;
 
     :[Python]:
 
-    .. code-block:: python
+      .. code-block:: python
 
-        # Returns str
-        def toUri(self)
+          # Returns str
+          def toUri(self)
+
+    :[JavaScript]:
+
+      .. code-block:: javascript
+
+          // Returns string
+          Interest.prototype.toUri = function()
+          
+    :[Java]:
+
+        .. code-block:: java
+
+            public final String toUri()
 
     :Returns:
 
