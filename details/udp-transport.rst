@@ -2,8 +2,11 @@ UdpTransport.ConnectionInfo Class
 =================================
 
 :[C++]:
-    | ``#include <ndn-cpp/transport/tcp-transport.hpp>``
+    | ``#include <ndn-cpp/transport/udp-transport.hpp>``
     | Namespace: ``ndn``
+
+:[Python]:
+    Module: ``pyndn.transport``
 
 A UdpTransport::ConnectionInfo extends Transport::ConnectionInfo to hold the host and port info for the UDP connection.
 
@@ -16,12 +19,18 @@ Create a UdpTransport.ConnectionInfo with the given host and port.
 
     .. code-block:: c++
 
-        UdpTransport(
-        
+        ConnectionInfo(
             const char *host
             [, unsigned short port]
-        
         );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def __init__(self,
+            host     # str
+            [, port  # int])
 
 :Parameters:
 
@@ -29,7 +38,7 @@ Create a UdpTransport.ConnectionInfo with the given host and port.
         The host for the connection.
 
     - `port`
-        (optional) The port number for the connection. If omitted, use 9695.
+        (optional) The port number for the connection. If omitted, use 6363.
 
 .. _UdpTransport:
 
@@ -37,8 +46,11 @@ UdpTransport Class
 ==================
 
 :[C++]:
-    | ``#include <ndn-cpp/transport/tcp-transport.hpp>``
+    | ``#include <ndn-cpp/transport/udp-transport.hpp>``
     | Namespace: ``ndn``
+
+:[Python]:
+    Module: ``pyndn.transport``
 
 UdpTransport Constructor
 ------------------------
@@ -51,55 +63,38 @@ Create a UdpTransport which extends the Transport interface to implement communi
 
         UdpTransport();
 
-UdpTransport.connect Method
----------------------------
+:[Python]:
 
-Connect according to the info in ConnectionInfo, and use elementListener to receive data.
+    .. code-block:: python
 
-:[C++]:
-
-    .. code-block:: c++
-
-        void connect(
-        
-            const Transport::ConnectionInfo& connectionInfo,
-            ElementListener& elementListener
-        
-        );
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-
-        TcpTransport.prototype.connect = function(
-        
-            ndn // NDN
-        
-        )
-
-:Parameters:
-
-    - `connectionInfo`
-        A UdpTransport.ConnectionInfo with the info for connecting.
-
-    - `elementListener`
-        The ElementListener called when an element is received
+        def __init__(self)
 
 UdpTransport.send Method
 ------------------------
 
-Send the data over the connection.
+Send the data over the connection. The transport must already be connected by
+a previous call to Face.expressInterest or Face.registerPrefix.
 
 :[C++]:
 
     .. code-block:: c++
 
         void send(
-        
             const uint8_t* data,
             size_t dataLength
-            
         );
+
+        void send(
+            const std::vector<uint8_t>& data
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def send(self,
+            data  # an array type accepted by socket.send
+        )
 
 :Parameters:
 

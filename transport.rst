@@ -28,11 +28,17 @@ Create a base class Transport where the methods throw an "unimplemented" error. 
 
         Transport();
 
-:[JavaScript]:
+:[Python]:
 
-    .. code-block:: javascript
+    .. code-block:: python
 
-        var Transport = function Transport()
+        def __init__(self)
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public Transport()
 
 
 Transport.ConnectionInfo Class
@@ -41,5 +47,10 @@ Transport.ConnectionInfo Class
 :[C++]:
     Namespace: ``ndn``
 
+:[Python]:
+    Module: ``pyndn.transport``
+
+:[Java]:
+    Package: ``net.named_data.jndn.transport``
 
 A Transport.ConnectionInfo is a base class for connection information used by subclasses of Transport.

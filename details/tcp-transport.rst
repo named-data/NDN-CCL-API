@@ -5,6 +5,12 @@ TcpTransport.ConnectionInfo Class
     | ``#include <ndn-cpp/transport/tcp-transport.hpp>``
     | Namespace: ``ndn``
 
+:[Python]:
+    Module: ``pyndn.transport``
+
+:[Java]:
+    Package: ``net.named_data.jndn.transport``
+
 A TcpTransport::ConnectionInfo extends Transport::ConnectionInfo to hold the host and port info for the TCP connection.
 
 TcpTransport.ConnectionInfo Constructor
@@ -16,12 +22,27 @@ Create a TcpTransport.ConnectionInfo with the given host and port.
 
     .. code-block:: c++
 
-        TcpTransport(
-        
+        ConnectionInfo(
             const char *host
             [, unsigned short port]
-            
         );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def __init__(self,
+            host     # str
+            [, port  # int])
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public ConnectionInfo(
+            String host
+            [, int port]
+        )
 
 :Parameters:
 
@@ -29,7 +50,7 @@ Create a TcpTransport.ConnectionInfo with the given host and port.
         The host for the connection.
 
     - `port`
-        (optional) The port number for the connection. If omitted, use 9695.
+        (optional) The port number for the connection. If omitted, use 6363.
 
 .. _TcpTransport:
 
@@ -40,10 +61,16 @@ TcpTransport Class
     | ``#include <ndn-cpp/transport/tcp-transport.hpp>``
     | Namespace: ``ndn``
 
+:[Python]:
+    Module: ``pyndn.transport``
+
+:[Java]:
+    Package: ``net.named_data.jndn.transport``
+
 TcpTransport Constructor
 ------------------------
 
-Create a TcpTransport which extends the Transport interface to implement communication over TCP/IP.
+Create a TcpTransport which extends the Transport interface to implement communication over TCP.
 
 :[C++]:
 
@@ -51,70 +78,65 @@ Create a TcpTransport which extends the Transport interface to implement communi
 
         TcpTransport();
 
+:[Python]:
+
+    .. code-block:: python
+
+        def __init__(self)
+
 :[JavaScript]:
 
     .. code-block:: javascript
 
         var TcpTransport = function TcpTransport()
 
-TcpTransport.connect Method
----------------------------
+:[Java]:
 
-Connect according to the info in ConnectionInfo, and use elementListener to receive data.
-
-:[C++]:
-
-    .. code-block:: c++
-
-        void connect(
-        
-            const Transport::ConnectionInfo& connectionInfo,
-            ElementListener& elementListener
-        
-        );
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-
-        TcpTransport.prototype.connect = function(
-        
-            ndn // NDN
-        
-        )
-
-:Parameters:
-
-    - `connectionInfo`
-        A TcpTransport.ConnectionInfo with the info for connecting.
-
-    - `elementListener`
-        The ElementListener called when an element is received.
+    .. code-block:: java
+    
+        public TcpTransport()
 
 TcpTransport.send Method
 ------------------------
 
-Send the data over the connection.
+Send the data over the connection. The transport must already be connected by
+a previous call to Face.expressInterest or Face.registerPrefix.
 
 :[C++]:
 
     .. code-block:: c++
 
         void send(
-        
             const uint8_t* data,
             size_t dataLength
-        
         );
+
+        void send(
+            const std::vector<uint8_t>& data
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def send(self,
+            data  # an array type accepted by socket.send
+        )
 
 :[JavaScript]:
 
     .. code-block:: javascript
 
         TcpTransport.prototype.send = function(
-        
-            data // Uint8Array
-        
+            data  // Buffer
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public void send(
+            ByteBuffer data
         )
 
 :Parameters:
