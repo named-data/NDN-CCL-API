@@ -139,7 +139,7 @@ Create a new Name as a deep copy of the given name.
 :Parameters:
 
     - `name`
-    The Name to copy.
+        The Name to copy.
 
 Name.toUri Method
 -----------------
