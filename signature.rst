@@ -11,6 +11,9 @@ A Signature is an abstract base class providing methods to work with the signatu
 :[Python]:
     Module: ``pyndn``
 
+:[Java]:
+    Package: ``net.named_data.jndn``
+
 Signature.clone Method
 ----------------------
 
@@ -18,13 +21,33 @@ Return a pointer to a new Signature which is a copy of this signature. This is a
 
 :[C++]:
 
-.. code-block:: c++
+    .. code-block:: c++
 
-    virtual ptr_lib::shared_ptr<Signature> clone() const = 0;
+        virtual ptr_lib::shared_ptr<Signature> clone() const = 0;
 
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns a subclass of Signature
+        def clone(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns a subclass of Signature
+        Signature.prototype.clone = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public abstract Object clone()
+        
 :Returns:
 
-An now object of a subclass of Signature which is a clone of this object.
+An new object of a subclass of Signature which is a clone of this object.
 
 Sha256WithRsaSignature Class
 ============================
@@ -37,6 +60,9 @@ A Sha256WithRsaSignature extends Signature and holds the signature bits and othe
 :[Python]:
     Module: ``pyndn``
 
+:[Java]:
+    Package: ``net.named_data.jndn``
+
 Sha256WithRsaSignature Constructor
 ----------------------------------
 
@@ -44,9 +70,27 @@ Create a new Sha256WithRsaSignature object.
 
 :[C++]:
 
-.. code-block:: c++
+    .. code-block:: c++
 
-    Sha256WithRsaSignature();
+        Sha256WithRsaSignature();
+
+:[Python]:
+
+    .. code-block:: python
+
+        def __init__(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        var Signature = function Signature()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public Sha256WithRsaSignature()
 
 Sha256WithRsaSignature.clone Method
 -----------------------------------
@@ -55,9 +99,22 @@ Return a pointer to a new Sha256WithRsaSignature which is a copy of this signatu
 
 :[C++]:
 
-.. code-block:: c++
+    .. code-block:: c++
 
-    virtual ptr_lib::shared_ptr<Signature> clone() const;
+        virtual ptr_lib::shared_ptr<Signature> clone() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Sha256WithRsaSignature
+        def clone(self)
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public Object clone()
 
 :Returns:
 
