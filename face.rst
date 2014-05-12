@@ -9,6 +9,9 @@ Face Class
 :[Python]:
     Module: ``pyndn``
 
+:[Java]:
+    Package: ``net.named_data.jndn``
+
 Face Constructors
 -----------------
 
@@ -22,28 +25,35 @@ Create a new Face object with the given Transport to manage NDN communication.
     .. code-block:: c++
     
         Face(
-        
-            const ptr_lib::shared_ptr<Transport>& transport
-            const ptr_lib::shared_ptr<const Transport::ConnectionInfo>& 
-                connectionInfo
-        
+            const ptr_lib::shared_ptr<Transport>& transport,
+            const ptr_lib::shared_ptr<const Transport::ConnectionInfo>& connectionInfo
         );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def __init__(self
+            transport,  # Transport
+            connectionInfo  # Transport.ConnectionInfo
+        )
 
 :[JavaScript]:
 
     .. code-block:: javascript
     
         var Face = function Face(
-        
-            [settings // associative array]
-        
+            [settings  // associative array]
         )
 
-:[Python]:
+:[Java]:
 
-    .. code-block:: python
+    .. code-block:: java
     
-        def __init__(self)
+        public Face(
+            Transport transport,
+            Transport.ConnectionInfo connectionInfo
+        )
 
 :Parameters:
 
@@ -59,13 +69,15 @@ Create a new Face object with the given Transport to manage NDN communication.
 	.. code-block:: javascript
 
             getTransport: function() 
-                { return new WebSocketTransport(); },
+                { return new WebSocketTransport(); }, // If in the browser.
+                OR function() { return new TcpTransport(); }, // If in Node.js.
             getHostAndPort: transport.defaultGetHostAndPort,
                  // a function, on each call it returns 
                  // a new { host: host, port: port } 
                  // or null if there are no more hosts.
             host: null, // If null, use getHostAndPort when connecting.
-            port: 9696
+            port: 9696, // If in the browser.
+                  OR 6363, // If in Node.js.
 
 Face Constructor (default Transport)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -77,32 +89,40 @@ Create a new Face object with optional settings to manage NDN communication.
     .. code-block:: c++
     
         Face(
-        
             [const char* host]
             [, unsigned short port]
-        
         );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def __init__(self
+          [, host  # str]
+          [, port  # int]
+        )
 
 :[JavaScript]:
 
     .. code-block:: javascript
     
         var Face = function Face(
-        
             [settings // associative array]
-        
         )
 
-:[Python]:
+:[Java]:
 
-    .. code-block:: python
+    .. code-block:: java
     
-        def __init__(self)
+        public Face(
+            [String host]
+            [, int port]
+        )
 
 :Parameters:
 
     - `host`
-	(optional) The host to connect to. If omitted, use “localhost” with the default TcpTransport.
+	(optional) The host to connect to. If omitted, use “localhost�? with the default TcpTransport.
 
     - `port`
 	(optional) The port to connect to. If omitted, use 6363 with the default TcpTransport.
@@ -113,13 +133,15 @@ Create a new Face object with optional settings to manage NDN communication.
 	.. code-block:: javascript
 
             getTransport: function() 
-                { return new WebSocketTransport(); },
+                { return new WebSocketTransport(); }, // If in the browser.
+                OR function() { return new TcpTransport(); }, // If in Node.js.
             getHostAndPort: transport.defaultGetHostAndPort,
-                // a function, on each call it returns a new 
-                // { host: host, port: port } 
-                // or null if there are no more hosts.
+                 // a function, on each call it returns 
+                 // a new { host: host, port: port } 
+                 // or null if there are no more hosts.
             host: null, // If null, use getHostAndPort when connecting.
-            port: 9696
+            port: 9696, // If in the browser.
+                  OR 6363, // If in Node.js.
 
 Face.expressInterest Methods
 ----------------------------
@@ -138,23 +160,40 @@ Send the interest through the transport, read the entire response and call onDat
     .. code-block:: c++
     
         uint64_t expressInterest(
-        
             const Interest& interest,
             const OnData& onData,
             [, const OnTimeout& onTimeout]
-        
         );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns int
+        def expressInterest(self,
+            interest,     # Interest
+            onData        # function object
+            [, onTimeout  # function object]
+        )
 
 :[JavaScript]:
 
     .. code-block:: javascript
     
         Face.prototype.expressInterest = function(
-        
             interest     // Interest
             onData,      // function
             [, onTimeout // function]
-        
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final long expressInterest(
+            Interest interest,
+            OnData onData,
+            [, OnTimeout onTimeout]
         )
 
 :Parameters:
@@ -191,37 +230,44 @@ Encode name as an Interest, using the interestTemplate if supplied, send the int
     .. code-block:: c++
     
         uint64_t expressInterest(
-        
             const Name& name,
             [, const Interest* interestTemplate]
             const OnData& onData,
             [, const OnTimeout& onTimeout]
-        
         );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns int
+        def expressInterest(self,
+            name                # Name
+            [, interestTemplate # Interest]
+            onData,             # function object
+            [, onTimeout        # function object]
+        )
 
 :[JavaScript]:
 
     .. code-block:: javascript
     
         Face.prototype.expressInterest = function(
-        
             name,               // Name
             [, interestTemplate // Interest]
             onData,             // function
             [, onTimeout        // function]
-        
         )
 
-:[Python]:
+:[Java]:
 
-    .. code-block:: python
+    .. code-block:: java
     
-        def expressInterest(self,
-        
-            name                # Name
-            closure             # Closure
-            [, interestTemplate # Interest]
-        
+        public final long expressInterest(
+            Name name,
+            [, Interest interestTemplate]
+            OnData onData,
+            [, OnTimeout onTimeout]
         )
 
 :Parameters:
@@ -259,10 +305,24 @@ Remove the pending interest entry with the pendingInterestId from the pending in
     .. code-block:: c++
     
         void removePendingInterest(
-        
             uint64_t pendingInterestId
-        
         );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def removePendingInterest(self,
+            pendingInterestId  # int
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void removePendingInterest(
+            long pendingInterestId
+        )
 
 :Parameters:
 
@@ -281,10 +341,8 @@ Set the KeyChain and certificate name used to sign command interests (e.g. for r
     .. code-block:: c++
     
         void setCommandSigningInfo(
-        
             KeyChain& keyChain,
             const Name& certificateName
-        
         );
 
 :Parameters:
@@ -307,9 +365,7 @@ Set the certificate name used to sign command interest (e.g. for registerPrefix)
     .. code-block:: c++
     
         void setCommandCertificateName(
-        
             const Name& certificateName
-        
         );
 
 :Parameters:
@@ -344,12 +400,22 @@ registration request. If need to register a prefix with NFD, you must first call
     .. code-block:: c++
 
         void registerPrefix(
-        
             const Name &prefix,
             const OnInterest &onInterest,
             const OnRegisterFailed &onRegisterFailed
-            [, ForwardingFlags flags]
+            [, const ForwardingFlags& flags]
+        )
 
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns int
+        def registerPrefix(self,
+            prefix,           # Name
+            onInterest,       # function object
+            onRegisterFailed  # function object
+            [, flags]         # ForwardingFlags
         )
 
 :[JavaScript]:
@@ -357,24 +423,21 @@ registration request. If need to register a prefix with NFD, you must first call
     .. code-block:: javascript
     
         Face.prototype.registerPrefix = function(
-        
-            prefix,            // Name
-            onInterest,        // function
-            onRegisterFailed   // function
-            [, flags]          // ForwardingFlags
-        
+            prefix,           // Name
+            onInterest,       // function
+            onRegisterFailed  // function
+            [, flags]         // ForwardingFlags
         )
 
-:[Python]:
+:[Java]:
 
-    .. code-block:: python
+    .. code-block:: java
     
-        def setInterestFilter(self,
-        
-            prefix     # Name
-            closure    # Closure
-            [, flags   # int]
-        
+        public final long registerPrefix(
+            Name prefix,
+            OnInterest onInterest,
+            OnRegisterFailed onRegisterFailed
+            [, ForwardingFlags flags]
         )
 
 :Parameters:
@@ -413,10 +476,24 @@ If there is no entry with the registeredPrefixId, do nothing.
     .. code-block:: c++
 
         void removeRegisteredPrefix(
-        
             unsigned int registeredPrefixId
-
         );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def removeRegisteredPrefix(self,
+            registeredPrefixId  # int
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void removeRegisteredPrefix(
+            long registeredPrefixId
+        )
 
 :Parameters:
 
@@ -441,6 +518,12 @@ Face.processEvents Method
     .. code-block:: python
     
         def processEvents(self)
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void processEvents()
 
 :Throw:
 
