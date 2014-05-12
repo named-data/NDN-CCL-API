@@ -122,7 +122,7 @@ Create a new Face object with optional settings to manage NDN communication.
 :Parameters:
 
     - `host`
-	(optional) The host to connect to. If omitted, use â€œlocalhostâ€? with the default TcpTransport.
+	(optional) The host to connect to. If omitted, use "localhost" with the default TcpTransport.
 
     - `port`
 	(optional) The port to connect to. If omitted, use 6363 with the default TcpTransport.
