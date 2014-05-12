@@ -6,7 +6,8 @@ Name Class
 A Name holds an array of Name.Component and represents an NDN name.
 
 :[C++]:
-    Namespace: ``ndn``
+    | ``#include <ndn-cpp/name.hpp>``
+    | Namespace: ``ndn``
 
 :[Python]:
     Module: ``pyndn``

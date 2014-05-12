@@ -31,7 +31,7 @@ Milliseconds Typedef
 (C++ only) A time interval represented as the number of milliseconds.
 
 :[C++]:
-    Namespace: `ndn`
+    Namespace: ``ndn``
 
 .. code-block:: c++
 
@@ -43,7 +43,7 @@ MillisecondsSince1970 Typedef
 (C++ only) The calendar time represented as the number of milliseconds since 1/1/1970.
 
 :[C++]:
-    Namespace: ndn
+    Namespace: ``ndn``
 
 .. code-block:: c++
 

@@ -6,8 +6,8 @@ Name.Component Class
 A Name.Component is holds a read-only name component value
 
 :[C++]:
-
-    Namespace: ``ndn``
+    | ``#include <ndn-cpp/name.hpp>``
+    | Namespace: ``ndn``
 
 :[Python]:
     Module: ``pyndn``

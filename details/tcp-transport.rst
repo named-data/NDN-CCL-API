@@ -2,7 +2,8 @@ TcpTransport.ConnectionInfo Class
 =================================
 
 :[C++]:
-    Namespace: ndn
+    | ``#include <ndn-cpp/transport/tcp-transport.hpp>``
+    | Namespace: ``ndn``
 
 A TcpTransport::ConnectionInfo extends Transport::ConnectionInfo to hold the host and port info for the TCP connection.
 
@@ -36,8 +37,8 @@ TcpTransport Class
 ==================
 
 :[C++]:
-
-Namespace: `ndn`
+    | ``#include <ndn-cpp/transport/tcp-transport.hpp>``
+    | Namespace: ``ndn``
 
 TcpTransport Constructor
 ------------------------

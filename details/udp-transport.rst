@@ -2,7 +2,8 @@ UdpTransport.ConnectionInfo Class
 =================================
 
 :[C++]:
-    Namespace: `ndn`
+    | ``#include <ndn-cpp/transport/tcp-transport.hpp>``
+    | Namespace: ``ndn``
 
 A UdpTransport::ConnectionInfo extends Transport::ConnectionInfo to hold the host and port info for the UDP connection.
 
@@ -36,7 +37,8 @@ UdpTransport Class
 ==================
 
 :[C++]:
-    Namespace: `ndn`
+    | ``#include <ndn-cpp/transport/tcp-transport.hpp>``
+    | Namespace: ``ndn``
 
 UdpTransport Constructor
 ------------------------

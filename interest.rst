@@ -4,7 +4,8 @@ Interest Class
 ==============
 
 :[C++]:
-    Namespace: ``ndn``
+    | ``#include <ndn-cpp/interest.hpp>``
+    | Namespace: ``ndn``
 
 :[Python]:
     Module: ``pyndn``

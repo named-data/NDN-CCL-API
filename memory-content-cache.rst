@@ -8,7 +8,8 @@ MemoryContentCache Class
        The MemoryContentCache is experimental and the API is not finalized.
 
     :[C++]:
-        Namespace: `ndn`
+        | ``#include <ndn-cpp/util/memory-content-cache.hpp>``
+        | Namespace: ``ndn``
 
     A MemoryContentCache holds a set of Data packets and answers an Interest to
     return the correct Data packet. The cache is periodically cleaned up to

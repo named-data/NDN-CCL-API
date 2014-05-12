@@ -4,7 +4,8 @@ Data Class
 ==========
 
 :[C++]:
-    Namespace: ``ndn``
+    | ``#include <ndn-cpp/data.hpp>``
+    | Namespace: ``ndn``
 
 :[Python]:
     Module: ``pyndn``

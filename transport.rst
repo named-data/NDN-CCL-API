@@ -2,7 +2,14 @@ Transport Class
 ===============
 
 :[C++]:
-    Namespace: `ndn`
+    | ``#include <ndn-cpp/transport/transport.hpp>``
+    | Namespace: ``ndn``
+
+:[Python]:
+    Module: ``pyndn.transport``
+
+:[Java]:
+    Package: ``net.named_data.jndn.transport``
 
 :Realizations:
 
@@ -32,7 +39,7 @@ Transport.ConnectionInfo Class
 ------------------------------
 
 :[C++]:
-    Namespace: `ndn`
+    Namespace: ``ndn``
 
 
 A Transport.ConnectionInfo is a base class for connection information used by subclasses of Transport.

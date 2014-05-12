@@ -4,7 +4,8 @@ Blob Class
 ==========
 
 :[C++]:
-    Namespace: ndn
+    | ``#include <ndn-cpp/util/blob.hpp>``
+    | Namespace: ``ndn``
 
 .. code-block:: c++
 
@@ -157,7 +158,8 @@ SignedBlob Class
 ================
 
 :[C++]:
-    Namespace: ndn
+    | ``#include <ndn-cpp/util/signed-blob.hpp>``
+    | Namespace: ``ndn``
 
 .. code-block:: c++
 

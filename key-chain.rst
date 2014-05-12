@@ -8,7 +8,8 @@ KeyChain Class
        The NDN security library is experimental and the API is not finalized.
 
     :[C++]:
-        Namespace: `ndn`
+        | ``#include <ndn-cpp/security/key-chain.hpp>``
+        | Namespace: ``ndn``
 
     The Keychain class provides a set of interfaces to the security library such as identity management, policy configuration and packet signing and verification.
 

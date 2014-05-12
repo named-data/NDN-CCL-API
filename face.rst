@@ -4,7 +4,8 @@ Face Class
 ==========
 
 :[C++]:
-    Namespace: ``ndn``
+    | ``#include <ndn-cpp/face.hpp>``
+    | Namespace: ``ndn``
 
 :[Python]:
     Module: ``pyndn``

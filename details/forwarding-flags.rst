@@ -6,7 +6,8 @@ ForwardingFlags Class
 A ForwardingFlags object holds the flags which specify how the forwarding daemon should forward an interest for a registered prefix.  We use a separate ForwardingFlags object to retain future compatibility if the daemon forwarding bits are changed, amended or deprecated.
 
 :[C++]:
-    Namespace: `ndn`
+    | ``#include <ndn-cpp/forwarding-flags.hpp>``
+    | Namespace: ``ndn``
 
 ForwardingFlags Constructor
 
