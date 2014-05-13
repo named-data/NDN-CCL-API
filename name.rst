@@ -75,7 +75,7 @@ Parse the uri according to the NDN URI Scheme and create the Name with the compo
 
     .. code-block:: python
     
-        def __init__(self
+        def __init__(self,
             uri  # str
         )
 

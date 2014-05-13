@@ -34,7 +34,7 @@ Create a new Name.Component, copying the optional value.
     .. code-block:: python
     
         def __init__(self
-            [value  # bytearray|memoryview|other array of int]
+            [, value  # bytearray|memoryview|other array of int]
         )
 
 :[JavaScript]:

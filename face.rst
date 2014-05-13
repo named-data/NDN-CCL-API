@@ -34,7 +34,7 @@ Create a new Face object with the given Transport to manage NDN communication.
 
     .. code-block:: python
 
-        def __init__(self
+        def __init__(self,
             transport,  # Transport
             connectionInfo  # Transport.ConnectionInfo
         )
