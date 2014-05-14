@@ -173,18 +173,18 @@ Encode this Interest to a wire format.
 
     .. code-block:: javascript
 
-        // Returns Blob
+        // Returns SignedBlob
         Interest.prototype.wireEncode = function()
 
 :[Java]:
 
     .. code-block:: java
     
-        public final Blob wireEncode()
+        public final SignedBlob wireEncode()
 
 :Returns:
 
-    The encoded byte array as a Blob.
+    The encoded byte array as a SignedBlob.
 
 Interest.matchesName Method
 ---------------------------
