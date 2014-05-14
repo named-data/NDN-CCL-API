@@ -9,6 +9,12 @@ A ForwardingFlags object holds the flags which specify how the forwarding daemon
     | ``#include <ndn-cpp/forwarding-flags.hpp>``
     | Namespace: ``ndn``
 
+:[Python]:
+    Module: ``pyndn``
+
+:[Java]:
+    Package: ``net.named_data.jndn``
+
 ForwardingFlags Constructor
 
 Create a new ForwardingFlags with "active" and "childInherit" set and all other flags cleared.
@@ -19,11 +25,23 @@ Create a new ForwardingFlags with "active" and "childInherit" set and all other 
 
         ForwardingFlags();
 
+:[Python]:
+
+    .. code-block:: python
+    
+        def __init__(self)
+
 :[JavaScript]:
 
     .. code-block:: javascript
 
         var ForwardingFlags = function ForwardingFlags()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public ForwardingFlags()
 
 ForwardingFlags.getActive Method
 --------------------------------
@@ -36,11 +54,24 @@ Get the value of the "active" flag.
 
         bool getActive() const;
 
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns bool
+        def getActive(self)
+
 :[JavaScript]:
 
     .. code-block:: javascript
 
         ForwardingFlags.prototype.getActive = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final boolean getActive()
 
 :Returns:
 
@@ -57,11 +88,24 @@ Get the value of the "childInherit" flag.
 
         bool getChildInherit() const;
 
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns bool
+        def getChildInherit(self)
+
 :[JavaScript]:
 
     .. code-block:: javascript
 
         ForwardingFlags.prototype.getChildInherit = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final boolean getChildInherit()
 
 :Returns:
 
@@ -78,11 +122,24 @@ Get the value of the "advertise" flag.
 
         bool getAdvertise() const;
 
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns bool
+        def getAdvertise(self)
+
 :[JavaScript]:
 
     .. code-block:: javascript
 
         ForwardingFlags.prototype.getAdvertise = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final boolean getAdvertise()
 
 :Returns:
 
@@ -99,11 +156,24 @@ Get the value of the "last" flag.
 
         bool getLast() const;
 
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns bool
+        def getLast(self)
+
 :[JavaScript]:
 
     .. code-block:: javascript
 
         ForwardingFlags.prototype.getLast = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final boolean getLast()
 
 :Returns:
 
@@ -120,11 +190,24 @@ Get the value of the "capture" flag.
 
         bool getCapture() const;
 
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns bool
+        def getCapture(self)
+
 :[JavaScript]:
 
     .. code-block:: javascript
 
         ForwardingFlags.prototype.getCapture = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final boolean getCapture()
 
 :Returns:
 
@@ -141,11 +224,24 @@ Get the value of the "local" flag.
 
         bool getLocal() const;
 
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns bool
+        def getLocal(self)
+
 :[JavaScript]:
 
     .. code-block:: javascript
 
         ForwardingFlags.prototype.getLocal = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final boolean getLocal()
 
 :Returns:
 
@@ -162,11 +258,24 @@ Get the value of the "tap" flag.
 
         bool getTap() const;
 
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns bool
+        def getTap(self)
+
 :[JavaScript]:
 
     .. code-block:: javascript
 
         ForwardingFlags.prototype.getTap = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final boolean getTap()
 
 :Returns:
 
@@ -183,11 +292,24 @@ Get the value of the "captureOk" flag.
 
         bool getCaptureOk() const;
 
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns bool
+        def getCaptureOk(self)
+
 :[JavaScript]:
 
     .. code-block:: javascript
 
         ForwardingFlags.prototype.getCaptureOk = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final boolean getCaptureOk()
 
 :Returns:
 
@@ -203,19 +325,31 @@ Set the value of the "active" flag
     .. code-block:: c++
 
         void setActive(
-
             bool active;
-
         );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setActive(self,
+            active  # bool
+        )
 
 :[JavaScript]:
 
     .. code-block:: javascript
 
         ForwardingFlags.prototype.setActive = function(
-        
-            active    // boolean
-        
+            active  // boolean
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setActive(
+            boolean active;
         )
 
 :Parameters:
@@ -233,19 +367,31 @@ Set the value of the "childInherit" flag
     .. code-block:: c++
 
         void setChildInherit(
-
             bool childInherit;
-
         );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setChildInherit(self,
+            childInherit  # bool
+        )
 
 :[JavaScript]:
 
     .. code-block:: javascript
 
         ForwardingFlags.prototype.setChildInherit = function(
-        
-            childInherit    // boolean
-        
+            childInherit  // boolean
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setChildInherit(
+            boolean childInherit;
         )
 
 :Parameters:
@@ -263,19 +409,31 @@ Set the value of the "advertise" flag
     .. code-block:: c++
 
         void setAdvertise(
-
             bool advertise;
-
         );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setAdvertise(self,
+            advertise  # bool
+        )
 
 :[JavaScript]:
 
     .. code-block:: javascript
 
         ForwardingFlags.prototype.setAdvertise = function(
-        
-            advertise    // boolean
-        
+            advertise  // boolean
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setAdvertise(
+            boolean advertise;
         )
 
 :Parameters:
@@ -293,19 +451,31 @@ Set the value of the "last" flag
     .. code-block:: c++
 
         void setLast(
-        
             bool last;
-        
         );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setLast(self,
+            last  # bool
+        )
 
 :[JavaScript]:
 
     .. code-block:: javascript
 
         ForwardingFlags.prototype.setLast = function(
-        
-            last    // boolean
-        
+            last  // boolean
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setLast(
+            boolean last;
         )
 
 :Parameters:
@@ -323,19 +493,31 @@ Set the value of the "capture" flag
     .. code-block:: c++
 
         void setCapture(
-        
             bool capture;
-        
         );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setCapture(self,
+            capture  # bool
+        )
 
 :[JavaScript]:
 
     .. code-block:: javascript
 
         ForwardingFlags.prototype.setCapture = function(
-        
-            capture    // boolean
-        
+            capture  // boolean
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setCapture(
+            boolean capture;
         )
 
 :Parameters:
@@ -353,19 +535,31 @@ Set the value of the "local" flag
     .. code-block:: c++
 
         void setLocal(
-        
             bool local;
-        
         );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setLocal(self,
+            local  # bool
+        )
 
 :[JavaScript]:
 
     .. code-block:: javascript
 
         ForwardingFlags.prototype.setLocal = function(
-        
-            local    // boolean
-        
+            local  // boolean
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setLocal(
+            boolean local;
         )
 
 :Parameters:
@@ -383,19 +577,31 @@ Set the value of the "tap" flag
     .. code-block:: c++
 
         void setTap(
-        
             bool tap;
-        
         );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setTap(self,
+            tap  # bool
+        )
 
 :[JavaScript]:
 
     .. code-block:: javascript
 
         ForwardingFlags.prototype.setTap = function(
-        
-            tap    // boolean
-        
+            tap  // boolean
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setTap(
+            boolean tap;
         )
 
 :Parameters:
@@ -413,19 +619,31 @@ Set the value of the "captureOk" flag
     .. code-block:: c++
 
         void setCaptureOk(
-        
             bool captureOk;
-        
         );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setCaptureOk(self,
+            captureOk  # bool
+        )
 
 :[JavaScript]:
 
     .. code-block:: javascript
 
         ForwardingFlags.prototype.setCaptureOk = function(
-        
-            captureOk    // boolean
-        
+            captureOk  // boolean
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setCaptureOk(
+            boolean captureOk;
         )
 
 :Parameters:
