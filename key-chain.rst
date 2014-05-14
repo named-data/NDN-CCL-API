@@ -11,6 +11,12 @@ KeyChain Class
         | ``#include <ndn-cpp/security/key-chain.hpp>``
         | Namespace: ``ndn``
 
+    :[Python]:
+        Module: ``pyndn.security``
+
+    :[Java]:
+        Package: ``net.named_data.jndn.security``
+
     The Keychain class provides a set of interfaces to the security library such as identity management, policy configuration and packet signing and verification.
 
 KeyChain Constructor
@@ -30,6 +36,12 @@ KeyChain Constructor
 
             KeyChain();
 
+    :[Python]:
+
+        .. code-block:: python
+
+            def __init__(self)
+
 KeyChain.getDefaultCertificateName Method
 -----------------------------------------
 
@@ -46,6 +58,19 @@ KeyChain.getDefaultCertificateName Method
         .. code-block:: c++
 
             Name getDefaultCertificateName();
+
+    :[Python]:
+
+        .. code-block:: python
+
+            # Returns Name
+            def getDefaultCertificateName(self)
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final Name getDefaultCertificateName() throws SecurityException
 
     :Returns:
 
@@ -71,12 +96,28 @@ KeyChain.sign (Data) Method
         .. code-block:: c++
 
             void sign(
-
                 Data& data,
                 const Name& certificateName
-
             );
 
+    :[Python]:
+
+        .. code-block:: python
+
+            def getDefaultCertificateName(self,
+                data,            # Data
+                certificateName  # Name
+            )
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final void sign(
+                Data data,
+                Name certificateName
+            )
+            
     :Parameters:
 
         - `data`
@@ -101,11 +142,27 @@ KeyChain.sign (Interest) Method
         .. code-block:: c++
 
             void sign(
-
                 Interest& interest,
                 const Name& certificateName
-
             );
+
+    :[Python]:
+
+        .. code-block:: python
+
+            def getDefaultCertificateName(self,
+                interest,        # Interest
+                certificateName  # Name
+            )
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final void sign(
+                Interest interest,
+                Name certificateName
+            )
 
     :Parameters:
 
@@ -114,36 +171,6 @@ KeyChain.sign (Interest) Method
 
         - `certificateName`
             The certificate name of the key to use for signing.
-
-KeyChain.signByIdentity Method
-------------------------------
-
-.. container:: experimental
-
-    .. admonition:: Experimental
-
-       The NDN security library is experimental and the API is not finalized.
-
-    Wire encode the Data object, sign it and set its signature. Note: the caller must make sure the timestamp is correct, if necessary calling ``data.getMetaInfo().setTimestampMilliseconds``.
-
-    :[C++]:
-
-        .. code-block:: c++
-
-            void signByIdentity(
-
-                Data& data
-                [, const Name& identityName]
-
-            );
-
-    :Parameters:
-
-        - `data`
-            The Data object to be signed.  This updates its signature and key locator field and wireEncoding.
-
-        - `identityName`
-            (optional) The identity name for the key to use for signing.  If omitted, infer the signing identity from the data packet name.
 
 KeyChain.verifyData Method
 --------------------------
@@ -161,12 +188,30 @@ KeyChain.verifyData Method
         .. code-block:: c++
 
             void verifyData(
-
                 const ptr_lib::shared_ptr<Data>& data,
                 const OnVerified& onVerified,
                 const OnVerifyFailed& onVerifyFailed
-
             );
+
+    :[Python]:
+
+        .. code-block:: python
+
+            def verifyData(self,
+                data,           # Data
+                onVerified,     # function object
+                onVerifyFailed  # function object
+            )
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final void verifyData(
+                Data data,
+                OnVerified onVerified,
+                OnVerifyFailed onVerifyFailed
+            )
 
     :Parameters:
 
@@ -197,10 +242,24 @@ KeyChain.setFace Method
         .. code-block:: c++
 
             void setFace(
-
                 Face* face
-
             );
+
+    :[Python]:
+
+        .. code-block:: python
+
+            def setFace(self,
+                face  # Face
+            )
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final void setFace(
+                Face face
+            )
 
     :Parameters:
 
