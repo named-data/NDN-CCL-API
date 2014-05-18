@@ -36,7 +36,7 @@ Create a new Name with the optional components.
     .. code-block:: javascript
     
         var Name = function Name (
-            [components   // Array<Uint8Array>]    
+            [components  // Array<Uint8Array>]    
         )
 
 :[Java]:
@@ -84,7 +84,7 @@ Parse the uri according to the NDN URI Scheme and create the Name with the compo
     .. code-block:: javascript
     
         var Name = function Name (
-            uri // string
+            uri  // string
         )
 
 :[Java]:
@@ -98,7 +98,7 @@ Parse the uri according to the NDN URI Scheme and create the Name with the compo
 :Parameters:
 
     - `uri`
-        The URI in NDN URI Scheme.
+        The URI in the NDN URI Scheme.
 
 Name Constructor (copy)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -126,7 +126,7 @@ Create a new Name as a deep copy of the given name.
     .. code-block:: javascript
 
         var Name = function Name (
-            name // Name
+            name  // Name
         )
 
 :[Java]:
@@ -433,6 +433,136 @@ Append a component with the encoded version number. Note that this encodes the e
 
     This name so that you can chain calls to append.
 
+Name.clear Method
+-----------------
+
+Clear all the components.
+
+:[C++]:
+
+    .. code-block:: c++
+    
+        void clear();
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def clear(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+    
+        Name.prototype.clear = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void clear()
+
+Name.compare Method
+-------------------
+
+Compare this to the other Name using NDN canonical ordering.  If the 
+first components of each name are not equal, this returns -1 if the 
+first comes before the second using the NDN canonical ordering for name 
+components, or 1 if it comes after. If they are equal, this compares the 
+second components of each name, etc.  If both names are the same up to
+the size of the shorter name, this returns -1 if the first name is 
+shorter than the second or 1 if it is longer.  For example, sorted 
+gives: /a/b/d /a/b/cc /c /c/a /bb .  This is intuitive because all names
+with the prefix /a are next to each other.  But it may be also be 
+counter-intuitive because /c comes before /bb according to NDN canonical 
+ordering since it is shorter.
+
+See http://named-data.net/doc/0.2/technical/CanonicalOrder.html
+
+:[C++]:
+
+    .. code-block:: c++
+    
+        int compare(
+            const Name& other
+        ) const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns int
+        def compare(self, 
+            other  # Name
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final int other(
+            Name other
+        )
+
+:Parameters:
+
+    - `other`
+        The other Name to compare with.
+
+:Returns:
+
+    0 If they compare equal, -1 if self comes before other in the 
+    canonical ordering, or 1 if self comes after other in the canonical 
+    ordering.
+
+.. _fromEscapedString:
+    
+Name.fromEscapedString Method
+-----------------------------
+
+Make a Blob value by decoding the escapedString according to the NDN URI Scheme.
+If the escaped string is "", "." or ".." then return a Blob with a null pointer, 
+which means the component should be skipped in a URI name.
+
+:[C++]:
+
+    .. code-block:: c++
+    
+        static Blob fromEscapedString(
+            const std::string& escapedString
+        );
+    
+        void set(
+            const char *escapedString
+        );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns Blob
+        @staticmethod
+        def fromEscapedString(self,
+            escapedString  # str
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public static Blob fromEscapedString(
+            String escapedString
+        )
+
+:Parameters:
+
+    - `escapedString`
+        The escaped string.
+
+:Returns:
+    The unescaped Blob value. If the escapedString is not a valid 
+    escaped component, then the Blob isNull().
+
 Name.get Method
 ---------------
 
@@ -634,6 +764,52 @@ Check if the N components of this name are the same as the first N components of
 :Returns:
 
     true if this matches the given name, otherwise false. This always returns true if this name is empty.
+    
+Name.set Method
+----------------
+
+Parse the uri according to the NDN URI Scheme and set the Name with the components.
+
+:[C++]:
+
+    .. code-block:: c++
+    
+        void set(
+            const std::string& uri
+        );
+    
+        void set(
+            const char *uri
+        );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def set(self,
+            uri  # str
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+    
+        Name.prototype.set = function(
+            uri  // string
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void set(
+            String uri
+        )
+
+:Parameters:
+
+    - `uri`
+        The URI in the NDN URI Scheme.
 
 Name.size Method
 ----------------
