@@ -77,40 +77,6 @@ Get the value of the "active" flag.
 
     true if the flag is set, false if it is cleared.
 
-ForwardingFlags.getChildInherit Method
---------------------------------------
-
-Get the value of the "childInherit" flag.
-
-:[C++]:
-
-    .. code-block:: c++
-
-        bool getChildInherit() const;
-
-:[Python]:
-
-    .. code-block:: python
-    
-        # Returns bool
-        def getChildInherit(self)
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-
-        ForwardingFlags.prototype.getChildInherit = function()
-
-:[Java]:
-
-    .. code-block:: java
-    
-        public final boolean getChildInherit()
-
-:Returns:
-
-    true if the flag is set, false if it is cleared.
-
 ForwardingFlags.getAdvertise Method
 -----------------------------------
 
@@ -145,40 +111,6 @@ Get the value of the "advertise" flag.
 
     true if the flag is set, false if it is cleared.
 
-ForwardingFlags.getLast Method
-------------------------------
-
-Get the value of the "last" flag.
-
-:[C++]:
-
-    .. code-block:: c++
-
-        bool getLast() const;
-
-:[Python]:
-
-    .. code-block:: python
-    
-        # Returns bool
-        def getLast(self)
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-
-        ForwardingFlags.prototype.getLast = function()
-
-:[Java]:
-
-    .. code-block:: java
-    
-        public final boolean getLast()
-
-:Returns:
-
-    true if the flag is set, false if it is cleared.
-
 ForwardingFlags.getCapture Method
 ---------------------------------
 
@@ -208,6 +140,108 @@ Get the value of the "capture" flag.
     .. code-block:: java
     
         public final boolean getCapture()
+
+:Returns:
+
+    true if the flag is set, false if it is cleared.
+
+ForwardingFlags.getCaptureOk Method
+-----------------------------------
+
+Get the value of the "captureOk" flag.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        bool getCaptureOk() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns bool
+        def getCaptureOk(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        ForwardingFlags.prototype.getCaptureOk = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final boolean getCaptureOk()
+
+:Returns:
+
+    true if the flag is set, false if it is cleared.
+
+ForwardingFlags.getChildInherit Method
+--------------------------------------
+
+Get the value of the "childInherit" flag.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        bool getChildInherit() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns bool
+        def getChildInherit(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        ForwardingFlags.prototype.getChildInherit = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final boolean getChildInherit()
+
+:Returns:
+
+    true if the flag is set, false if it is cleared.
+
+ForwardingFlags.getLast Method
+------------------------------
+
+Get the value of the "last" flag.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        bool getLast() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns bool
+        def getLast(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        ForwardingFlags.prototype.getLast = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final boolean getLast()
 
 :Returns:
 
@@ -281,40 +315,6 @@ Get the value of the "tap" flag.
 
     true if the flag is set, false if it is cleared.
 
-ForwardingFlags.getCaptureOk Method
------------------------------------
-
-Get the value of the "captureOk" flag.
-
-:[C++]:
-
-    .. code-block:: c++
-
-        bool getCaptureOk() const;
-
-:[Python]:
-
-    .. code-block:: python
-    
-        # Returns bool
-        def getCaptureOk(self)
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-
-        ForwardingFlags.prototype.getCaptureOk = function()
-
-:[Java]:
-
-    .. code-block:: java
-    
-        public final boolean getCaptureOk()
-
-:Returns:
-
-    true if the flag is set, false if it is cleared.
-
 ForwardingFlags.setActive Method
 --------------------------------
 
@@ -355,48 +355,6 @@ Set the value of the "active" flag
 :Parameters:
 
     - `active`
-        true to set the flag, false to clear it.
-
-ForwardingFlags.setChildInherit Method
---------------------------------------
-
-Set the value of the "childInherit" flag
-
-:[C++]:
-
-    .. code-block:: c++
-
-        void setChildInherit(
-            bool childInherit;
-        );
-
-:[Python]:
-
-    .. code-block:: python
-    
-        def setChildInherit(self,
-            childInherit  # bool
-        )
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-
-        ForwardingFlags.prototype.setChildInherit = function(
-            childInherit  // boolean
-        )
-
-:[Java]:
-
-    .. code-block:: java
-    
-        public final void setChildInherit(
-            boolean childInherit;
-        )
-
-:Parameters:
-
-    - `childInherit`
         true to set the flag, false to clear it.
 
 ForwardingFlags.setAdvertise Method
@@ -441,48 +399,6 @@ Set the value of the "advertise" flag
     - `advertise`
         true to set the flag, false to clear it.
 
-ForwardingFlags.setLast Method
-------------------------------
-
-Set the value of the "last" flag
-
-:[C++]:
-
-    .. code-block:: c++
-
-        void setLast(
-            bool last;
-        );
-
-:[Python]:
-
-    .. code-block:: python
-    
-        def setLast(self,
-            last  # bool
-        )
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-
-        ForwardingFlags.prototype.setLast = function(
-            last  // boolean
-        )
-
-:[Java]:
-
-    .. code-block:: java
-    
-        public final void setLast(
-            boolean last;
-        )
-
-:Parameters:
-
-    - `last`
-        true to set the flag, false to clear it.
-
 ForwardingFlags.setCapture Method
 ---------------------------------
 
@@ -523,6 +439,132 @@ Set the value of the "capture" flag
 :Parameters:
 
     - `capture`
+        true to set the flag, false to clear it.
+
+ForwardingFlags.setCaptureOk Method
+-----------------------------------
+
+Set the value of the "captureOk" flag
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setCaptureOk(
+            bool captureOk;
+        );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setCaptureOk(self,
+            captureOk  # bool
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        ForwardingFlags.prototype.setCaptureOk = function(
+            captureOk  // boolean
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setCaptureOk(
+            boolean captureOk;
+        )
+
+:Parameters:
+
+    - `captureOk`
+        true to set the flag, false to clear it.
+
+ForwardingFlags.setChildInherit Method
+--------------------------------------
+
+Set the value of the "childInherit" flag
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setChildInherit(
+            bool childInherit;
+        );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setChildInherit(self,
+            childInherit  # bool
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        ForwardingFlags.prototype.setChildInherit = function(
+            childInherit  // boolean
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setChildInherit(
+            boolean childInherit;
+        )
+
+:Parameters:
+
+    - `childInherit`
+        true to set the flag, false to clear it.
+
+ForwardingFlags.setLast Method
+------------------------------
+
+Set the value of the "last" flag
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setLast(
+            bool last;
+        );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setLast(self,
+            last  # bool
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        ForwardingFlags.prototype.setLast = function(
+            last  // boolean
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setLast(
+            boolean last;
+        )
+
+:Parameters:
+
+    - `last`
         true to set the flag, false to clear it.
 
 ForwardingFlags.setLocal Method
@@ -607,46 +649,4 @@ Set the value of the "tap" flag
 :Parameters:
 
     - `tap`
-        true to set the flag, false to clear it.
-
-ForwardingFlags.setCaptureOk Method
------------------------------------
-
-Set the value of the "captureOk" flag
-
-:[C++]:
-
-    .. code-block:: c++
-
-        void setCaptureOk(
-            bool captureOk;
-        );
-
-:[Python]:
-
-    .. code-block:: python
-    
-        def setCaptureOk(self,
-            captureOk  # bool
-        )
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-
-        ForwardingFlags.prototype.setCaptureOk = function(
-            captureOk  // boolean
-        )
-
-:[Java]:
-
-    .. code-block:: java
-    
-        public final void setCaptureOk(
-            boolean captureOk;
-        )
-
-:Parameters:
-
-    - `captureOk`
         true to set the flag, false to clear it.

@@ -210,41 +210,6 @@ Create a new Blob from the UTF8 encoding of the Unicode string.
     - `value`
         The Unicode string which is encoded as UTF8.
 
-Blob.size Method
-----------------
-
-Return the length of the immutable byte array.
-
-:[C++]:
-
-    .. code-block:: c++
-
-        size_t size() const;
-
-:[Python]:
-
-    .. code-block:: python
-    
-        # Returns int
-        def size(self)
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-
-        // Returns number
-        Blob.prototype.size = function()
-
-:[Java]:
-
-    .. code-block:: java
-    
-        public final int size()
-
-:Returns:
-
-    The length of the array.  If the pointer to the array is null, return 0.
-
 Blob.buf Method
 ---------------
 
@@ -318,6 +283,41 @@ Check if the array pointer is null.
 
 .. _SignedBlob:
 
+Blob.size Method
+----------------
+
+Return the length of the immutable byte array.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        size_t size() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns int
+        def size(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Blob.prototype.size = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final int size()
+
+:Returns:
+
+    The length of the array.  If the pointer to the array is null, return 0.
+
 SignedBlob Class
 ================
 
@@ -345,76 +345,6 @@ SignedBlob Class
 
 A SignedBlob extends Blob to keep the offsets of a signed portion (e.g., the 
 bytes of Data packet). This inherits from Blob, including Blob.size and Blob.buf.
-
-SignedBlob.signedSize Method
-----------------------------
-
-Return the length of the signed portion of the immutable byte array.
-
-:[C++]:
-
-    .. code-block:: c++
-
-        size_t signedSize() const;
-
-:[Python]:
-
-    .. code-block:: python
-    
-        # Returns int
-        def signedSize(self)
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-
-        // Returns number
-        SignedBlob.prototype.signedSize = function()
-
-:[Java]:
-
-    .. code-block:: java
-    
-        public final int signedSize()
-
-:Returns:
-
-    The length of the signed portion.  If the pointer to the array is null, return 0.
-
-SignedBlob.signedBuf Method
----------------------------
-
-Return a pointer to the first byte of the signed portion of the immutable byte array.
-
-:[C++]:
-
-    .. code-block:: c++
-
-        const uint8_t* signedBuf() const;
-
-:[Python]:
-
-    .. code-block:: python
-    
-        # Returns an array type with int elements, such as bytearray.
-        def signedBuf(self)
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-
-        // Returns Buffer
-        SignedBlob.prototype.signedBuf = function()
-
-:[Java]:
-
-    .. code-block:: java
-    
-        public final ByteBuffer signedBuf()
-
-:Returns:
-
-    A pointer to the first byte of the signed portion.  If the pointer to the array is null, return null.
 
 SignedBlob.getSignedPortionBeginOffset Method
 ---------------------------------------------
@@ -485,3 +415,73 @@ Return the offset in the array of the end of the signed portion.
 :Returns:
 
     The offset of the end of the signed portion that was given to the constructor.
+
+SignedBlob.signedBuf Method
+---------------------------
+
+Return a pointer to the first byte of the signed portion of the immutable byte array.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        const uint8_t* signedBuf() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns an array type with int elements, such as bytearray.
+        def signedBuf(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Buffer
+        SignedBlob.prototype.signedBuf = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final ByteBuffer signedBuf()
+
+:Returns:
+
+    A pointer to the first byte of the signed portion.  If the pointer to the array is null, return null.
+
+SignedBlob.signedSize Method
+----------------------------
+
+Return the length of the signed portion of the immutable byte array.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        size_t signedSize() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns int
+        def signedSize(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        SignedBlob.prototype.signedSize = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final int signedSize()
+
+:Returns:
+
+    The length of the signed portion.  If the pointer to the array is null, return 0.

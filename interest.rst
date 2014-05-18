@@ -101,91 +101,6 @@ Create a new Interest as a deep copy of the given interest.
     - `interest`
 	The Interest to copy.
 
-Interest.wireDecode Method
---------------------------
-
-Decode the input from wire format and update this Interest.
-
-:[C++]:
-
-    .. code-block:: c++
-
-        void wireDecode(
-            const std::vector<uint8_t>& input
-        );
-
-    .. code-block:: c++
-
-        void wireDecode(
-            const uint8_t *input,
-            size_t inputLength
-        );
-
-:[Python]:
-
-    .. code-block:: python
-
-        def wireDecode(self,
-            input  # an array type with int elements
-        )
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-
-        Interest.prototype.wireDecode = function(
-            input  // Buffer
-        )
-
-:[Java]:
-
-    .. code-block:: java
-    
-        public final void wireDecode(
-            ByteBuffer input
-        )
-
-:Parameters:
-
-    - `input`
-	The input byte array to be decoded.
-
-
-Interest.wireEncode Method
---------------------------
-
-Encode this Interest to a wire format.
-
-:[C++]:
-
-    .. code-block:: c++
-
-        SignedBlob wireEncode() const;
-
-:[Python]:
-
-    .. code-block:: python
-
-        # Returns Blob
-        def wireEncode()
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-
-        // Returns SignedBlob
-        Interest.prototype.wireEncode = function()
-
-:[Java]:
-
-    .. code-block:: java
-    
-        public final SignedBlob wireEncode()
-
-:Returns:
-
-    The encoded byte array as a SignedBlob.
-
 Interest.matchesName Method
 ---------------------------
 
@@ -277,3 +192,88 @@ Interest.toUri Method
     :Returns:
 
         The URI string.
+
+Interest.wireDecode Method
+--------------------------
+
+Decode the input from wire format and update this Interest.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void wireDecode(
+            const std::vector<uint8_t>& input
+        );
+
+    .. code-block:: c++
+
+        void wireDecode(
+            const uint8_t *input,
+            size_t inputLength
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def wireDecode(self,
+            input  # an array type with int elements
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Interest.prototype.wireDecode = function(
+            input  // Buffer
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void wireDecode(
+            ByteBuffer input
+        )
+
+:Parameters:
+
+    - `input`
+	The input byte array to be decoded.
+
+
+Interest.wireEncode Method
+--------------------------
+
+Encode this Interest to a wire format.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        SignedBlob wireEncode() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Blob
+        def wireEncode()
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns SignedBlob
+        Interest.prototype.wireEncode = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final SignedBlob wireEncode()
+
+:Returns:
+
+    The encoded byte array as a SignedBlob.

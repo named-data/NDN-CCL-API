@@ -80,8 +80,51 @@ KeyChain.getDefaultCertificateName Method
     
         SecurityException if the default identity is not set or the default key name for the identity is not set or the default certificate name for the key name is not set.
 
+KeyChain.setFace Method
+-----------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The NDN security library is experimental and the API is not finalized.
+
+    Set the Face which will be used to fetch required certificates.
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            void setFace(
+                Face* face
+            );
+
+    :[Python]:
+
+        .. code-block:: python
+
+            def setFace(self,
+                face  # Face
+            )
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final void setFace(
+                Face face
+            )
+
+    :Parameters:
+
+        - `face`
+            The Face object.
+
+KeyChain.sign Methods
+---------------------
+
 KeyChain.sign (Data) Method
----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. container:: experimental
 
@@ -127,7 +170,7 @@ KeyChain.sign (Data) Method
             The certificate name of the key to use for signing.
 
 KeyChain.sign (Interest) Method
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. container:: experimental
 
@@ -225,43 +268,3 @@ KeyChain.verifyData Method
         - `onVerifyFailed`
             If the signature check fails, this calls ``onVerifyFailed(data)`` where:
                 - `data` is the given Data object.
-
-KeyChain.setFace Method
------------------------
-
-.. container:: experimental
-
-    .. admonition:: Experimental
-
-       The NDN security library is experimental and the API is not finalized.
-
-    Set the Face which will be used to fetch required certificates.
-
-    :[C++]:
-
-        .. code-block:: c++
-
-            void setFace(
-                Face* face
-            );
-
-    :[Python]:
-
-        .. code-block:: python
-
-            def setFace(self,
-                face  # Face
-            )
-
-    :[Java]:
-
-        .. code-block:: java
-
-            public final void setFace(
-                Face face
-            )
-
-    :Parameters:
-
-        - `face`
-            The Face object.

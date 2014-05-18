@@ -48,6 +48,42 @@ MemoryContentCache Constructor
             use a default of 1000 milliseconds. If this is a large number, then
             effectively the stale content will not be removed from the cache.
 
+MemoryContentCache.add Method
+----------------------------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The MemoryContentCache is experimental and the API is not finalized.
+
+    Add the Data packet to the cache so that it is available to use to 
+    answer interests. If data.getFreshnessPeriod() is not negative, set the
+    staleness time to now plus data.getFreshnessPeriod(), which is checked
+    during cleanup to remove stale content.
+
+    .. note::
+
+        [except JavaScript] Your application must call :ref:`processEvents <processEvents>`.  
+        Since processEvents modifies the cache, your application should make sure that it 
+        calls processEvents in the same thread as add (which also modifies the cache).
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            void add(
+
+                const Data& data
+
+            );
+
+    :Parameters:
+
+        - `data`
+            The Data packet object to put in the cache. This copies the 
+            fields from the object.
+
 MemoryContentCache.registerPrefix Method
 ----------------------------------------
 
@@ -98,39 +134,3 @@ MemoryContentCache.registerPrefix Method
         - `flags`
             (optional) The flags for finer control of how and which Interests should be forwarded towards the face.
             If omitted, use the default flags defined by the default :ref:`ForwardingFlags <ForwardingFlags>` constructor.
-
-MemoryContentCache.add Method
-----------------------------------------
-
-.. container:: experimental
-
-    .. admonition:: Experimental
-
-       The MemoryContentCache is experimental and the API is not finalized.
-
-    Add the Data packet to the cache so that it is available to use to 
-    answer interests. If data.getFreshnessPeriod() is not negative, set the
-    staleness time to now plus data.getFreshnessPeriod(), which is checked
-    during cleanup to remove stale content.
-
-    .. note::
-
-        [except JavaScript] Your application must call :ref:`processEvents <processEvents>`.  
-        Since processEvents modifies the cache, your application should make sure that it 
-        calls processEvents in the same thread as add (which also modifies the cache).
-
-    :[C++]:
-
-        .. code-block:: c++
-
-            void add(
-
-                const Data& data
-
-            );
-
-    :Parameters:
-
-        - `data`
-            The Data packet object to put in the cache. This copies the 
-            fields from the object.

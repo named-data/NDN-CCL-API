@@ -294,85 +294,34 @@ Encode name as an Interest, using the interestTemplate if supplied, send the int
 
     The pending interest ID which can be used with removePendingInterest.
 
-.. _removePendingInterest:
+.. _processEvents:
 
-Face.removePendingInterest Method
----------------------------------
+Face.processEvents Method
+-------------------------
 
-Remove the pending interest entry with the pendingInterestId from the pending interest table. This does not affect another pending interest with a different pendingInterestId, even if it has the same interest name. If there is no entry with the pendingInterestId, do nothing.
+[except JavaScript] Process any packets to receive and call callbacks such as onData, onInterest or onTimeout.  This returns immediately if there is no data to receive. This blocks while calling the callbacks. You should repeatedly call this from an event loop, with calls to sleep as needed so that the loop doesn't use 100% of the CPU.  Since processEvents modifies the pending interest table, your application should make sure that it calls processEvents in the same thread as expressInterest (which also modifies the pending interest table).
 
 :[C++]:
 
     .. code-block:: c++
     
-        void removePendingInterest(
-            uint64_t pendingInterestId
-        );
+        void processEvents();
 
 :[Python]:
 
     .. code-block:: python
     
-        def removePendingInterest(self,
-            pendingInterestId  # int
-        )
+        def processEvents(self)
 
 :[Java]:
 
     .. code-block:: java
     
-        public final void removePendingInterest(
-            long pendingInterestId
-        )
+        public final void processEvents()
 
-:Parameters:
+:Throw:
 
-    - `pendingInterestId`
-	The ID returned from expressInterest.
-
-.. _setCommandSigningInfo:
-
-Face.setCommandSigningInfo Method
----------------------------------
-
-Set the KeyChain and certificate name used to sign command interests (e.g. for registerPrefix).
-
-:[C++]:
-
-    .. code-block:: c++
-    
-        void setCommandSigningInfo(
-            KeyChain& keyChain,
-            const Name& certificateName
-        );
-
-:Parameters:
-
-    - `keyChain`
-	The KeyChain object for signing interests, which must remain valid for the life of this Face. You must create the KeyChain object and pass it in. You can create a default KeyChain for your system with the default KeyChain constructor.
-
-    - `certificateName`
-	The certificate name for signing interest. This makes a copy of the Name. You can get the default certificate name with keyChain.getDefaultCertificateName() .
-
-.. _setCommandCertificateName:
-
-Face.setCommandCertificateName Method
--------------------------------------
-
-Set the certificate name used to sign command interest (e.g. for registerPrefix), using the KeyChain that was set with setCommandSigningInfo.
-
-:[C++]:
-
-    .. code-block:: c++
-    
-        void setCommandCertificateName(
-            const Name& certificateName
-        );
-
-:Parameters:
-
-    - `certificateName`
-	The certificate name for signing interest. This makes a copy of the Name.
+    This may throw an exception for reading data or in the callback for processing the data.  If you call this from an main event loop, you may want to catch and log/disregard all exceptions.
 
 .. _registerPrefix:
 
@@ -463,6 +412,42 @@ registration request. If need to register a prefix with NFD, you must first call
 	(optional) The flags for finer control of how and which Interests should be forwarded towards the face.
         If omitted, use the default flags defined by the default :ref:`ForwardingFlags <ForwardingFlags>` constructor.
 
+.. _removePendingInterest:
+
+Face.removePendingInterest Method
+---------------------------------
+
+Remove the pending interest entry with the pendingInterestId from the pending interest table. This does not affect another pending interest with a different pendingInterestId, even if it has the same interest name. If there is no entry with the pendingInterestId, do nothing.
+
+:[C++]:
+
+    .. code-block:: c++
+    
+        void removePendingInterest(
+            uint64_t pendingInterestId
+        );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def removePendingInterest(self,
+            pendingInterestId  # int
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void removePendingInterest(
+            long pendingInterestId
+        )
+
+:Parameters:
+
+    - `pendingInterestId`
+	The ID returned from expressInterest.
+
 .. _removeRegisteredPrefix:
 
 Face.removeRegisteredPrefix Method
@@ -501,32 +486,46 @@ If there is no entry with the registeredPrefixId, do nothing.
     - `registeredPrefixId`
 	The ID returned from registerPrefix.
 
-.. _processEvents:
+.. _setCommandCertificateName:
 
-Face.processEvents Method
--------------------------
+Face.setCommandCertificateName Method
+-------------------------------------
 
-[except JavaScript] Process any packets to receive and call callbacks such as onData, onInterest or onTimeout.  This returns immediately if there is no data to receive. This blocks while calling the callbacks. You should repeatedly call this from an event loop, with calls to sleep as needed so that the loop doesn't use 100% of the CPU.  Since processEvents modifies the pending interest table, your application should make sure that it calls processEvents in the same thread as expressInterest (which also modifies the pending interest table).
+Set the certificate name used to sign command interest (e.g. for registerPrefix), using the KeyChain that was set with setCommandSigningInfo.
 
 :[C++]:
 
     .. code-block:: c++
     
-        void processEvents();
+        void setCommandCertificateName(
+            const Name& certificateName
+        );
 
-:[Python]:
+:Parameters:
 
-    .. code-block:: python
+    - `certificateName`
+	The certificate name for signing interest. This makes a copy of the Name.
+
+.. _setCommandSigningInfo:
+
+Face.setCommandSigningInfo Method
+---------------------------------
+
+Set the KeyChain and certificate name used to sign command interests (e.g. for registerPrefix).
+
+:[C++]:
+
+    .. code-block:: c++
     
-        def processEvents(self)
+        void setCommandSigningInfo(
+            KeyChain& keyChain,
+            const Name& certificateName
+        );
 
-:[Java]:
+:Parameters:
 
-    .. code-block:: java
-    
-        public final void processEvents()
+    - `keyChain`
+	The KeyChain object for signing interests, which must remain valid for the life of this Face. You must create the KeyChain object and pass it in. You can create a default KeyChain for your system with the default KeyChain constructor.
 
-:Throw:
-
-    This may throw an exception for reading data or in the callback for processing the data.  If you call this from an main event loop, you may want to catch and log/disregard all exceptions.
-
+    - `certificateName`
+	The certificate name for signing interest. This makes a copy of the Name. You can get the default certificate name with keyChain.getDefaultCertificateName() .
