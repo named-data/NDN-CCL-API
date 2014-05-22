@@ -60,6 +60,47 @@ Create a new Name.Component, optionally copying from the byte array.
     - `value`
         (optional) The content byte array to copy. If omitted, create a Component with an empty value.
 
+Name.Component Constructor (from Unicode string)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a new Name.Component, converting the value to UTF8 bytes.  This does not 
+escape %XX values. If you need to escape, use Name.fromEscapedString.
+
+:[Python]:
+
+    .. code-block:: python
+    
+         def __init__(self, 
+            value  # unicode (Python 2) or str (Python 3)
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+    
+        Name.Component = function NameComponent(
+            value  // string
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        Component(
+            String value
+        )
+
+:Parameters:
+
+    - `value`
+        The Unicode string which is encoded as UTF8.  
+        
+        .. note::
+
+            [Python only] In Python 2, only a value of type 'unicode' is encoded 
+            as UTF8. A Python 2 'str' is treated as a "raw string" and converted 
+            to an array without encoding.
+
 Name.Component Constructor (from Blob)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
