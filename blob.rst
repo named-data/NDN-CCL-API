@@ -186,7 +186,7 @@ Create a new Blob from the UTF8 encoding of the Unicode string.
     .. code-block:: python
     
         def __init__(self,
-            value  # str
+            value  # unicode (Python 2) or str (Python 3)
         )
 
 :[JavaScript]:
@@ -208,7 +208,13 @@ Create a new Blob from the UTF8 encoding of the Unicode string.
 :Parameters:
 
     - `value`
-        The Unicode string which is encoded as UTF8.
+        The Unicode string which is encoded as UTF8.  
+        
+        .. note::
+
+            [Python only] In Python 2, only a value of type 'unicode' is encoded 
+            as UTF8. A Python 2 'str' is treated as a "raw string" and converted 
+            to an array without encoding.
 
 Blob.buf Method
 ---------------
