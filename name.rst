@@ -193,6 +193,56 @@ Append a new component, copying from the byte array.
 
     This name so that you can chain calls to append.
 
+Name.append Method (from Unicode string)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Convert the value to UTF8 bytes and append a Name.Component.  This does not 
+escape %XX values. If you need to escape, use Name.fromEscapedString. Also, if 
+the string has "/", this does not split into separate components. If you need 
+to split into separate components, create a new Name using the from URI
+constructor, and use append from Name.
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns Name
+        def append(self, 
+            value  # unicode (Python 2) or str (Python 3)
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+    
+        // Returns Name
+        Name.prototype.append = function(
+            value  // string
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Name append(
+            String value
+        )
+
+:Parameters:
+
+    - `value`
+        The Unicode string which is encoded as UTF8.  
+        
+        .. note::
+
+            [Python only] In Python 2, only a value of type 'unicode' is encoded 
+            as UTF8. A Python 2 'str' is treated as a "raw string" and converted 
+            to an array without encoding.
+
+:Returns:
+
+    This name so that you can chain calls to append.
+
 Name.append Method (from Blob)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
