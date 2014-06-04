@@ -411,8 +411,12 @@ registration request. If need to register a prefix with NFD, you must first call
 	    - ``transport`` is the Transport with the connection which received the interest. You must encode a signed Data packet and send it using transport.send().
 	    - ``registeredPrefixId`` is the registered prefix ID which can be used with removeRegisteredPrefix.
 
+        .. note::
+
+            You must not change the prefix object - if you need to change it then make a copy.
+
     - `onRegisterFailed`
-	If failed to set Interest filter for any reason, this calls ``onRegisterFailed(prefix)`` where:
+	If register prefix fails for any reason, this calls ``onRegisterFailed(prefix)`` where:
 
 	    - ``prefix`` is the prefix given to registerPrefix.
 
