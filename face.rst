@@ -208,6 +208,10 @@ Send the interest through the transport, read the entire response and call onDat
 	    - ``interest`` is the interest given to expressInterest.
 	    - ``data`` is the received Data object.
 
+        .. note::
+
+            You must not change the interest object - if you need to change it then make a copy.
+          
     - `onTimeout`
 	(optional) If the interest times out according to the interest lifetime, this calls ``onTimeout(interest)`` where:
 
@@ -284,6 +288,10 @@ Encode name as an Interest, using the interestTemplate if supplied, send the int
 
 	    - ``interest`` is the interest given to expressInterest.
 	    - ``data`` is the received Data object.
+
+        .. note::
+
+            You must not change the interest object - if you need to change it then make a copy.
 
     - `onTimeout`
 	(optional) If the interest times out according to the interest lifetime, this calls ``onTimeout(interest)`` where:
