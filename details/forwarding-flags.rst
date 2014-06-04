@@ -65,6 +65,7 @@ Get the value of the "active" flag.
 
     .. code-block:: javascript
 
+        // Returns boolean
         ForwardingFlags.prototype.getActive = function()
 
 :[Java]:
@@ -99,6 +100,7 @@ Get the value of the "advertise" flag.
 
     .. code-block:: javascript
 
+        // Returns boolean
         ForwardingFlags.prototype.getAdvertise = function()
 
 :[Java]:
@@ -133,6 +135,7 @@ Get the value of the "capture" flag.
 
     .. code-block:: javascript
 
+        // Returns boolean
         ForwardingFlags.prototype.getCapture = function()
 
 :[Java]:
@@ -167,6 +170,7 @@ Get the value of the "captureOk" flag.
 
     .. code-block:: javascript
 
+        // Returns boolean
         ForwardingFlags.prototype.getCaptureOk = function()
 
 :[Java]:
@@ -201,6 +205,7 @@ Get the value of the "childInherit" flag.
 
     .. code-block:: javascript
 
+        // Returns boolean
         ForwardingFlags.prototype.getChildInherit = function()
 
 :[Java]:
@@ -235,6 +240,7 @@ Get the value of the "last" flag.
 
     .. code-block:: javascript
 
+        // Returns boolean
         ForwardingFlags.prototype.getLast = function()
 
 :[Java]:
@@ -269,6 +275,7 @@ Get the value of the "local" flag.
 
     .. code-block:: javascript
 
+        // Returns boolean
         ForwardingFlags.prototype.getLocal = function()
 
 :[Java]:
@@ -303,6 +310,7 @@ Get the value of the "tap" flag.
 
     .. code-block:: javascript
 
+        // Returns boolean
         ForwardingFlags.prototype.getTap = function()
 
 :[Java]:
