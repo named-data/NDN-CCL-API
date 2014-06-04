@@ -25,6 +25,8 @@ Time representation
 
 Some methods use calendar time or a time interval.  These are represented as follows.
 
+.. _Milliseconds:
+
 Milliseconds Typedef
 --------------------
 
@@ -36,6 +38,8 @@ Milliseconds Typedef
 .. code-block:: c++
 
     typedef double Milliseconds;
+
+.. _MillisecondsSince1970:
 
 MillisecondsSince1970 Typedef
 -----------------------------
