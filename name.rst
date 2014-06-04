@@ -785,7 +785,7 @@ Check if the N components of this name are the same as the first N components of
     .. code-block:: python
     
         # Returns bool
-        def getSubName(self, 
+        def match(self, 
             name  # Name
         )
 
