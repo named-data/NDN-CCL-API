@@ -89,7 +89,7 @@ Create a new Interest as a deep copy of the given interest.
 
     .. code-block:: javascript
 
-        var Interest = function Interest (
+        var Interest = function Interest(
             interest  // Interest
         )
 
@@ -144,6 +144,43 @@ Get the child selector.
 
     The child selector. If not specified, return -1 (C++ and Java)
     or None (Python) or undefined (JavaScript).
+
+Interest.getExclude Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the interest :ref:`Exclude <Exclude>` object.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Exclude& getExclude();
+
+        const Exclude& getExclude() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns Exclude
+        def getExclude(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Exclude
+        Interest.prototype.getExclude = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Exclude getExclude()
+
+:Returns:
+
+    The :ref:`Exclude <Exclude>` object. If not specified, the exclude size() is 0.
 
 Interest.getInterestLifetimeMilliseconds Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -462,6 +499,54 @@ Set the child selector.
     - `childSelector`
         The child selector. If not specified, set to -1 (C++ and Java)
         or None (Python) or undefined (JavaScript).
+
+Interest.setExclude Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set this interest to use a copy of the given :ref:`Exclude <Exclude>` object.
+
+.. note::
+
+    You can also call getExclude and change the exclude entries directly.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setExclude(
+            const Exclude& exclude;
+        );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setExclude(self,
+            exclude  # Exclude
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Interest.prototype.setExclude = function(
+            exclude  // Exclude
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setExclude(
+            Exclude exclude;
+        )
+
+:Parameters:
+
+    - `exclude`
+        The :ref:`Exclude <Exclude>` object. This makes a copy of the object. 
+        If no exclude is specified, set to a new default Exclude(), or to an 
+        Exclude with size() 0.
 
 Interest.setInterestLifetimeMilliseconds Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
