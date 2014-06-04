@@ -35,7 +35,7 @@ Create a new Name with the optional components.
 
     .. code-block:: javascript
     
-        var Name = function Name (
+        var Name = function Name(
             [components  // Array<Uint8Array>]    
         )
 
@@ -83,7 +83,7 @@ Parse the uri according to the NDN URI Scheme and create the Name with the compo
 
     .. code-block:: javascript
     
-        var Name = function Name (
+        var Name = function Name(
             uri  // string
         )
 
@@ -125,7 +125,7 @@ Create a new Name as a deep copy of the given name.
 
     .. code-block:: javascript
 
-        var Name = function Name (
+        var Name = function Name(
             name  // Name
         )
 
