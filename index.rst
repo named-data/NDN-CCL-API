@@ -13,6 +13,7 @@ Table of Contents:
    exclude
    data
    signature
+   key-locator
    face
    transport
    blob

@@ -142,8 +142,8 @@ Get the child selector.
 
 :Returns:
 
-    The child selector. If not specified, return -1 (C++ and Java)
-    or None (Python) or undefined (JavaScript).
+    The child selector. If not specified, return ``-1`` (C++ and Java)
+    or ``None`` (Python) or ``undefined`` (JavaScript).
 
 Interest.getExclude Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -215,8 +215,46 @@ Get the interest lifetime.
 
 :Returns:
 
-    The interest lifetime in milliseconds. If not specified, return -1 (C++ and Java)
-    or None (Python) or undefined (JavaScript).
+    The interest lifetime in milliseconds. If not specified, return ``-1`` (C++ and Java)
+    or ``None`` (Python) or ``undefined`` (JavaScript).
+
+Interest.getKeyLocator Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the interest :ref:`KeyLocator <KeyLocator>` object.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        KeyLocator& getKeyLocator();
+
+        const KeyLocator& getKeyLocator() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns KeyLocator
+        def getKeyLocator(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns KeyLocator
+        Interest.prototype.getKeyLocator = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final KeyLocator getKeyLocator()
+
+:Returns:
+
+    The :ref:`KeyLocator <KeyLocator>` object. If not specified, the 
+    key locator getType() is not specified.
 
 Interest.getMaxSuffixComponents Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -258,8 +296,8 @@ Get the max suffix components.
 
 :Returns:
 
-    The max suffix components. If not specified, return -1 (C++ and Java)
-    or None (Python) or undefined (JavaScript).
+    The max suffix components. If not specified, return ``-1`` (C++ and Java)
+    or ``None`` (Python) or ``undefined`` (JavaScript).
 
 Interest.getMinSuffixComponents Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -301,8 +339,8 @@ Get the min suffix components.
 
 :Returns:
 
-    The min suffix components. If not specified, return -1 (C++ and Java)
-    or None (Python) or undefined (JavaScript).
+    The min suffix components. If not specified, return ``-1`` (C++ and Java)
+    or ``None`` (Python) or ``undefined`` (JavaScript).
 
 Interest.getMustBeFresh Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -451,8 +489,8 @@ Get the interest scope.
 
 :Returns:
 
-    The interest scope. If not specified, return -1 (C++ and Java)
-    or None (Python) or undefined (JavaScript).
+    The interest scope. If not specified, return ``-1`` (C++ and Java)
+    or ``None`` (Python) or ``undefined`` (JavaScript).
 
 Interest Set Methods
 --------------------
@@ -497,8 +535,8 @@ Set the child selector.
 :Parameters:
 
     - `childSelector`
-        The child selector. If not specified, set to -1 (C++ and Java)
-        or None (Python) or undefined (JavaScript).
+        The child selector. If not specified, return ``-1`` (C++ and Java)
+        or ``None`` (Python) or ``undefined`` (JavaScript).
 
 Interest.setExclude Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -588,8 +626,56 @@ Set the interest lifetime.
 :Parameters:
 
     - `interestLifetimeMilliseconds`
-        The interest lifetime in milliseconds. If not specified, set to -1 (C++ and Java)
-        or None (Python) or undefined (JavaScript).
+        The interest lifetime in milliseconds. If not specified, return ``-1`` (C++ and Java)
+        or ``None`` (Python) or ``undefined`` (JavaScript).
+
+Interest.setKeyLocator Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set this interest to use a copy of the given :ref:`KeyLocator <KeyLocator>` object.
+
+.. note::
+
+    You can also call getKeyLocator and change the key locator directly.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setKeyLocator(
+            const KeyLocator& keyLocator;
+        );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setKeyLocator(self,
+            keyLocator  # KeyLocator
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Interest.prototype.setKeyLocator = function(
+            keyLocator  // KeyLocator
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setKeyLocator(
+            KeyLocator keyLocator;
+        )
+
+:Parameters:
+
+    - `exclude`
+        The :ref:`KeyLocator <KeyLocator>` object. This makes a copy of the object. 
+        If no exclude is specified, set to a new default KeyLocator(), or to a 
+        KeyLocator with an unspecified type.
 
 Interest.setMustBeFresh Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -681,8 +767,8 @@ Set the max suffix components.
 :Parameters:
 
     - `maxSuffixComponents`
-        The max suffix components. If not specified, set to -1 (C++ and Java)
-        or None (Python) or undefined (JavaScript).
+        The max suffix components. If not specified, return ``-1`` (C++ and Java)
+        or ``None`` (Python) or ``undefined`` (JavaScript).
 
 Interest.setMinSuffixComponents Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -731,8 +817,8 @@ Set the min suffix components.
 :Parameters:
 
     - `minSuffixComponents`
-        The min suffix components. If not specified, set to -1 (C++ and Java)
-        or None (Python) or undefined (JavaScript).
+        The min suffix components. If not specified, return ``-1`` (C++ and Java)
+        or ``None`` (Python) or ``undefined`` (JavaScript).
 
 Interest.setName Method
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -820,8 +906,8 @@ Set the interest scope.
 :Parameters:
 
     - `scope`
-        The interest scope. If not specified, set to -1 (C++ and Java)
-        or None (Python) or undefined (JavaScript).
+        The interest scope. If not specified, return ``-1`` (C++ and Java)
+        or ``None`` (Python) or ``undefined`` (JavaScript).
 
 Interest.matchesName Method
 ---------------------------
