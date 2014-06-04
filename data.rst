@@ -53,7 +53,7 @@ Create a new Data object with the optional name.
 :Parameters:
 
     - `name`
-	(optional) The name for the data packet. If omitted, use a blank name.
+        (optional) The name for the data packet. If omitted, use a blank name.
 
 Data.getContent Method
 ----------------------
@@ -88,12 +88,12 @@ Get content of the Data packet.
     
 :Returns:
 
-    A pointer to the content byte array.
+    The data packet content as a Blob.
 
 Data.setContent Method
 ----------------------
 
-Set content to point to an existing byte array.
+Set the content to the given value.
 
 :[C++]:
 
@@ -130,7 +130,7 @@ Set content to point to an existing byte array.
 :Parameters:
 
     - `content`
-	The pointer to the byte array.
+        A Blob with the content.
 
 Data.wireDecode Methods
 -----------------------
@@ -175,7 +175,7 @@ Decode the input from wire format and update this Data.  Also keep a pointer to 
 :Parameters:
 
     - `input`
-	The immutable input byte array to be decoded.
+        The immutable input byte array to be decoded.
 
 Data.wireDecode Method (copy from byte array)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -225,7 +225,7 @@ Decode the input from wire format and update this Data.  Also save a copy of the
 :Parameters:
 
     - `input`
-	The input byte array to be decoded.
+        The input byte array to be decoded.
 
 Data.wireEncode Method
 ----------------------
