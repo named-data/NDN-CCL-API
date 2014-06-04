@@ -13,6 +13,11 @@ Interest Class
 :[Java]:
     Package: ``net.named_data.jndn``
 
+.. note::
+
+    You don't have to set the interest nonce. A nonce is automatically
+    generated when the interest is wire encoded.
+
 Interest Constructors
 ---------------------
 
@@ -60,7 +65,7 @@ Create a new Interest with the optional name.
 
 
 Interest Constructor (copy)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create a new Interest as a deep copy of the given interest.
 
@@ -100,6 +105,638 @@ Create a new Interest as a deep copy of the given interest.
 
     - `interest`
 	The Interest to copy.
+
+Interest Get Methods
+--------------------
+
+Interest.getChildSelector Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the child selector.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        int getChildSelector() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns int
+        def getChildSelector(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Interest.prototype.getChildSelector = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final int getChildSelector()
+
+:Returns:
+
+    The child selector. If not specified, return -1 (C++ and Java)
+    or None (Python) or undefined (JavaScript).
+
+Interest.getInterestLifetimeMilliseconds Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the interest lifetime.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Milliseconds getInterestLifetimeMilliseconds() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns float
+        def getInterestLifetimeMilliseconds(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Interest.prototype.getInterestLifetimeMilliseconds = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final double getInterestLifetimeMilliseconds()
+
+:Returns:
+
+    The interest lifetime in milliseconds. If not specified, return -1 (C++ and Java)
+    or None (Python) or undefined (JavaScript).
+
+Interest.getMaxSuffixComponents Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the max suffix components.
+
+.. note::
+
+    The suffix components includes the implicit digest component of the full
+    name in the data packet. For example, if the interest name is the prefix
+    /a/b and the data packet name is /a/b/c, then the data packet name has 2
+    suffix components: "c" and the implicit digest which is not shown.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        int getMaxSuffixComponents() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns int
+        def getMaxSuffixComponents(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Interest.prototype.getMaxSuffixComponents = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final int getMaxSuffixComponents()
+
+:Returns:
+
+    The max suffix components. If not specified, return -1 (C++ and Java)
+    or None (Python) or undefined (JavaScript).
+
+Interest.getMinSuffixComponents Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the min suffix components.
+
+.. note::
+
+    The suffix components includes the implicit digest component of the full
+    name in the data packet. For example, if the interest name is the prefix
+    /a/b and the data packet name is /a/b/c, then the data packet name has 2
+    suffix components: "c" and the implicit digest which is not shown.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        int getMinSuffixComponents() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns int
+        def getMinSuffixComponents(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Interest.prototype.getMinSuffixComponents = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final int getMinSuffixComponents()
+
+:Returns:
+
+    The min suffix components. If not specified, return -1 (C++ and Java)
+    or None (Python) or undefined (JavaScript).
+
+Interest.getMustBeFresh Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the MustBeFresh flag.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        bool getMustBeFresh() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns bool
+        def getMustBeFresh(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Interest.prototype.getMustBeFresh = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final boolean getMustBeFresh()
+
+:Returns:
+
+    True if must be fresh, otherwise false. If not specified, the default is 
+    true.
+
+Interest.getName Method
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the interest name.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Name& getName();
+
+        const Name& getName() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns Name
+        def getName(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name
+        Interest.prototype.getName = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Name getName()
+
+:Returns:
+
+    The name. If not specified, the name size() is 0.
+
+Interest.getNonce Method
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the nonce value from the incoming interest.  If you change any of the fields
+in this Interest object, then the nonce value is cleared.
+
+.. note::
+
+    When you create an interest, you don't have to set the nonce. A nonce is 
+    automatically generated when the interest is wire encoded.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        const Blob& getNonce() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns Blob
+        def getNonce(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Buffer
+        Interest.prototype.getNonce = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Blob getNonce()
+
+:Returns:
+
+    The nonce. If not specified, the value :ref:`isNull() <isNull>`.
+
+Interest.getScope Method
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the interest scope.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        int getScope() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns int
+        def getScope(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Interest.prototype.getScope = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final int getScope()
+
+:Returns:
+
+    The interest scope. If not specified, return -1 (C++ and Java)
+    or None (Python) or undefined (JavaScript).
+
+Interest Set Methods
+--------------------
+
+Interest.setChildSelector Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set the child selector.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setChildSelector(
+            int childSelector;
+        );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setChildSelector(self,
+            childSelector  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Interest.prototype.setChildSelector = function(
+            childSelector  // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setChildSelector(
+            int childSelector;
+        )
+
+:Parameters:
+
+    - `childSelector`
+        The child selector. If not specified, set to -1 (C++ and Java)
+        or None (Python) or undefined (JavaScript).
+
+Interest.setInterestLifetimeMilliseconds Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set the interest lifetime.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setInterestLifetimeMilliseconds(
+            Milliseconds interestLifetimeMilliseconds;
+        );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setInterestLifetimeMilliseconds(self,
+            interestLifetimeMilliseconds  # float
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Interest.prototype.setInterestLifetimeMilliseconds = function(
+            interestLifetimeMilliseconds  // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setInterestLifetimeMilliseconds(
+            double interestLifetimeMilliseconds;
+        )
+
+:Parameters:
+
+    - `interestLifetimeMilliseconds`
+        The interest lifetime in milliseconds. If not specified, set to -1 (C++ and Java)
+        or None (Python) or undefined (JavaScript).
+
+Interest.setMustBeFresh Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set the MustBeFresh flag.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setMustBeFresh(
+            bool mustBeFresh;
+        );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setMustBeFresh(self,
+            mustBeFresh  # bool
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Interest.prototype.setMustBeFresh = function(
+            mustBeFresh  // boolean
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setMustBeFresh(
+            boolean mustBeFresh;
+        )
+
+:Parameters:
+
+    - `mustBeFresh`
+        True if the content must be fresh, otherwise false. If you do not set
+        this flag, the default value is true.
+
+Interest.setMaxSuffixComponents Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set the max suffix components.
+
+.. note::
+
+    The suffix components includes the implicit digest component of the full
+    name in the data packet. For example, if the interest name is the prefix
+    /a/b and the data packet name is /a/b/c, then the data packet name has 2
+    suffix components: "c" and the implicit digest which is not shown.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setMaxSuffixComponents(
+            int maxSuffixComponents;
+        );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setMaxSuffixComponents(self,
+            maxSuffixComponents  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Interest.prototype.setMaxSuffixComponents = function(
+            maxSuffixComponents  // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setMaxSuffixComponents(
+            int maxSuffixComponents;
+        )
+
+:Parameters:
+
+    - `maxSuffixComponents`
+        The max suffix components. If not specified, set to -1 (C++ and Java)
+        or None (Python) or undefined (JavaScript).
+
+Interest.setMinSuffixComponents Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set the min suffix components.
+
+.. note::
+
+    The suffix components includes the implicit digest component of the full
+    name in the data packet. For example, if the interest name is the prefix
+    /a/b and the data packet name is /a/b/c, then the data packet name has 2
+    suffix components: "c" and the implicit digest which is not shown.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setMinSuffixComponents(
+            int minSuffixComponents;
+        );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setMinSuffixComponents(self,
+            minSuffixComponents  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Interest.prototype.setMinSuffixComponents = function(
+            minSuffixComponents  // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setMinSuffixComponents(
+            int minSuffixComponents;
+        )
+
+:Parameters:
+
+    - `minSuffixComponents`
+        The min suffix components. If not specified, set to -1 (C++ and Java)
+        or None (Python) or undefined (JavaScript).
+
+Interest.setName Method
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Set the interest name.
+
+.. note::
+
+    You can also call getName and change the name values directly.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setName(
+            const Name& name;
+        );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setName(self,
+            name  # Name
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Interest.prototype.setName = function(
+            name  // Name
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setName(
+            Name name;
+        )
+
+:Parameters:
+
+    - `name`
+        The interest name. This makes a copy of the name.
+
+Interest.setScope Method
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set the interest scope.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setScope(
+            int scope;
+        );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setScope(self,
+            scope  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Interest.prototype.setScope = function(
+            scope  // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setScope(
+            int scope;
+        )
+
+:Parameters:
+
+    - `scope`
+        The interest scope. If not specified, set to -1 (C++ and Java)
+        or None (Python) or undefined (JavaScript).
 
 Interest.matchesName Method
 ---------------------------
@@ -150,7 +787,7 @@ Return true if the components of this Interest's name are the same as the leadin
     True if this interest's name and interest selectors match the name.
 
 Interest.toUri Method
---------------------------
+---------------------
 
 .. container:: experimental
 
@@ -205,8 +842,6 @@ Decode the input from wire format and update this Interest.
         void wireDecode(
             const std::vector<uint8_t>& input
         );
-
-    .. code-block:: c++
 
         void wireDecode(
             const uint8_t *input,
