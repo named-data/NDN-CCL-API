@@ -326,7 +326,7 @@ Get the value of the "tap" flag.
 ForwardingFlags.setActive Method
 --------------------------------
 
-Set the value of the "active" flag
+Set the value of the "active" flag.
 
 :[C++]:
 
@@ -368,7 +368,7 @@ Set the value of the "active" flag
 ForwardingFlags.setAdvertise Method
 -----------------------------------
 
-Set the value of the "advertise" flag
+Set the value of the "advertise" flag.
 
 :[C++]:
 
@@ -410,7 +410,7 @@ Set the value of the "advertise" flag
 ForwardingFlags.setCapture Method
 ---------------------------------
 
-Set the value of the "capture" flag
+Set the value of the "capture" flag.
 
 :[C++]:
 
@@ -452,7 +452,7 @@ Set the value of the "capture" flag
 ForwardingFlags.setCaptureOk Method
 -----------------------------------
 
-Set the value of the "captureOk" flag
+Set the value of the "captureOk" flag.
 
 :[C++]:
 
@@ -494,7 +494,7 @@ Set the value of the "captureOk" flag
 ForwardingFlags.setChildInherit Method
 --------------------------------------
 
-Set the value of the "childInherit" flag
+Set the value of the "childInherit" flag.
 
 :[C++]:
 
@@ -536,7 +536,7 @@ Set the value of the "childInherit" flag
 ForwardingFlags.setLast Method
 ------------------------------
 
-Set the value of the "last" flag
+Set the value of the "last" flag.
 
 :[C++]:
 
@@ -578,7 +578,7 @@ Set the value of the "last" flag
 ForwardingFlags.setLocal Method
 -------------------------------
 
-Set the value of the "local" flag
+Set the value of the "local" flag.
 
 :[C++]:
 
@@ -620,7 +620,7 @@ Set the value of the "local" flag
 ForwardingFlags.setTap Method
 -----------------------------
 
-Set the value of the "tap" flag
+Set the value of the "tap" flag.
 
 :[C++]:
 
