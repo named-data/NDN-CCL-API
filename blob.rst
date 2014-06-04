@@ -252,6 +252,8 @@ array.  If you need to change it, make a copy.
 
     A pointer to the immutable byte array. If the pointer to the array is null, return null.
 
+.. _isNull:
+
 Blob.isNull Method
 ------------------
 
