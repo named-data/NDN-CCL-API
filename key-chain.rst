@@ -120,6 +120,8 @@ KeyChain.setFace Method
         - `face`
             The Face object.
 
+.. _KeyChain.sign:
+
 KeyChain.sign Methods
 ---------------------
 
