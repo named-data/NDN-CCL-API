@@ -55,8 +55,11 @@ Create a new Data object with the optional name.
     - `name`
         (optional) The name for the data packet. If omitted, use a blank name.
 
+Data Get Methods
+----------------
+
 Data.getContent Method
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
 
 Get content of the Data packet.
 
@@ -90,8 +93,89 @@ Get content of the Data packet.
 
     The data packet content as a Blob.
 
+Data.getName Method
+^^^^^^^^^^^^^^^^^^^
+
+Get the data packet's name.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Name& getName();
+
+        const Name& getName() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns Name
+        def getName(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name
+        Data.prototype.getName = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Name getName()
+
+:Returns:
+
+    The name. If not specified, the name size() is 0.
+
+Data.getSignature Method
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the data packet's signature object. If not null, the object is a subclass of 
+Signature such as Sha256WithRsaSignature
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Signature* getSignature();
+
+        const Signature* getSignature() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns a subclass of Signature such as Sha256WithRsaSignature
+        def getSignature(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns a subclass of Signature such as Sha256WithRsaSignature
+        Data.prototype.getSignature = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Signature getSignature()
+
+:Returns:
+
+    The signature object.  To read the fields of the object, you must check for 
+    the type of subclass of Signature (such as Sha256WithRsaSignature), and in 
+    C++ and Java you must cast to the subclass. If the signature is not 
+    specified, return null (or None in Python).
+
+Data Set Methods
+----------------
+
 Data.setContent Method
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
 
 Set the content to the given value.
 
@@ -131,6 +215,105 @@ Set the content to the given value.
 
     - `content`
         A Blob with the content.
+
+Data.setName Method
+^^^^^^^^^^^^^^^^^^^
+
+Set the data packet's name.
+
+.. note::
+
+    You can also call getName and change the name values directly.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setName(
+            const Name& name;
+        );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        def setName(self,
+            name  # Name
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Data.prototype.setName = function(
+            name  // Name
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final void setName(
+            Name name;
+        )
+
+:Parameters:
+
+    - `name`
+        The data packet's name. This makes a copy of the name.
+
+Data.setSignature Method
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set the signature to a copy of the given signature.
+
+.. note::
+
+    You can also call getSignature and change the fields directly.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Data& setSignature(
+            const Signature& signature;
+        );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns Data
+        def setSignature(self,
+            signature  # a subclass of Signature such as Sha256WithRsaSignature
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Data
+        Data.prototype.setSignature = function(
+            signature  // a subclass of Signature such as Sha256WithRsaSignature
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Data setSignature(
+            Signature signature;
+        )
+
+:Parameters:
+
+    - `signature`
+        An object of a subclass of Signature such as Sha256WithRsaSignature.
+        This calls signature.clone() to make a copy.
+
+:Returns:
+
+    This Data so that you can chain calls to update values.
 
 Data.wireDecode Methods
 -----------------------
