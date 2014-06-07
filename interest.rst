@@ -672,9 +672,9 @@ Set this interest to use a copy of the given :ref:`KeyLocator <KeyLocator>` obje
 
 :Parameters:
 
-    - `exclude`
+    - `keyLocator`
         The :ref:`KeyLocator <KeyLocator>` object. This makes a copy of the object. 
-        If no exclude is specified, set to a new default KeyLocator(), or to a 
+        If no key locator is specified, set to a new default KeyLocator(), or to a 
         KeyLocator with an unspecified type.
 
 Interest.setMustBeFresh Method
