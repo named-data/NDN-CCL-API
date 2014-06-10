@@ -259,11 +259,11 @@ Get the interest :ref:`KeyLocator <KeyLocator>` object.
 Interest.getMaxSuffixComponents Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Get the max suffix components.
+Get the max suffix components count.
 
 .. note::
 
-    The suffix components includes the implicit digest component of the full
+    The suffix components count includes the implicit digest component of the full
     name in the data packet. For example, if the interest name is the prefix
     /a/b and the data packet name is /a/b/c, then the data packet name has 2
     suffix components: "c" and the implicit digest which is not shown.
@@ -296,17 +296,17 @@ Get the max suffix components.
 
 :Returns:
 
-    The max suffix components. If not specified, return ``-1`` (C++ and Java)
+    The max suffix components count. If not specified, return ``-1`` (C++ and Java)
     or ``None`` (Python) or ``undefined`` (JavaScript).
 
 Interest.getMinSuffixComponents Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Get the min suffix components.
+Get the min suffix components count.
 
 .. note::
 
-    The suffix components includes the implicit digest component of the full
+    The suffix components count includes the implicit digest component of the full
     name in the data packet. For example, if the interest name is the prefix
     /a/b and the data packet name is /a/b/c, then the data packet name has 2
     suffix components: "c" and the implicit digest which is not shown.
@@ -339,7 +339,7 @@ Get the min suffix components.
 
 :Returns:
 
-    The min suffix components. If not specified, return ``-1`` (C++ and Java)
+    The min suffix components count. If not specified, return ``-1`` (C++ and Java)
     or ``None`` (Python) or ``undefined`` (JavaScript).
 
 Interest.getMustBeFresh Method
@@ -723,11 +723,11 @@ Set the MustBeFresh flag.
 Interest.setMaxSuffixComponents Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Set the max suffix components.
+Set the max suffix components count.
 
 .. note::
 
-    The suffix components includes the implicit digest component of the full
+    The suffix components count includes the implicit digest component of the full
     name in the data packet. For example, if the interest name is the prefix
     /a/b and the data packet name is /a/b/c, then the data packet name has 2
     suffix components: "c" and the implicit digest which is not shown.
@@ -767,17 +767,17 @@ Set the max suffix components.
 :Parameters:
 
     - `maxSuffixComponents`
-        The max suffix components. If not specified, return ``-1`` (C++ and Java)
+        The max suffix components count. If not specified, return ``-1`` (C++ and Java)
         or ``None`` (Python) or ``undefined`` (JavaScript).
 
 Interest.setMinSuffixComponents Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Set the min suffix components.
+Set the min suffix components count.
 
 .. note::
 
-    The suffix components includes the implicit digest component of the full
+    The suffix components count includes the implicit digest component of the full
     name in the data packet. For example, if the interest name is the prefix
     /a/b and the data packet name is /a/b/c, then the data packet name has 2
     suffix components: "c" and the implicit digest which is not shown.
@@ -817,7 +817,7 @@ Set the min suffix components.
 :Parameters:
 
     - `minSuffixComponents`
-        The min suffix components. If not specified, return ``-1`` (C++ and Java)
+        The min suffix components count. If not specified, return ``-1`` (C++ and Java)
         or ``None`` (Python) or ``undefined`` (JavaScript).
 
 Interest.setName Method
