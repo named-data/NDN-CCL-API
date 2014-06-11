@@ -535,7 +535,7 @@ Set the child selector.
 :Parameters:
 
     - `childSelector`
-        The child selector. If not specified, return ``-1`` (C++ and Java)
+        The child selector. If not specified, set to ``-1`` (C++ and Java)
         or ``None`` (Python) or ``undefined`` (JavaScript).
 
 Interest.setExclude Method
@@ -626,7 +626,7 @@ Set the interest lifetime.
 :Parameters:
 
     - `interestLifetimeMilliseconds`
-        The interest lifetime in milliseconds. If not specified, return ``-1`` (C++ and Java)
+        The interest lifetime in milliseconds. If not specified, set to ``-1`` (C++ and Java)
         or ``None`` (Python) or ``undefined`` (JavaScript).
 
 Interest.setKeyLocator Method
@@ -767,7 +767,7 @@ Set the max suffix components count.
 :Parameters:
 
     - `maxSuffixComponents`
-        The max suffix components count. If not specified, return ``-1`` (C++ and Java)
+        The max suffix components count. If not specified, set to ``-1`` (C++ and Java)
         or ``None`` (Python) or ``undefined`` (JavaScript).
 
 Interest.setMinSuffixComponents Method
@@ -817,7 +817,7 @@ Set the min suffix components count.
 :Parameters:
 
     - `minSuffixComponents`
-        The min suffix components count. If not specified, return ``-1`` (C++ and Java)
+        The min suffix components count. If not specified, set to ``-1`` (C++ and Java)
         or ``None`` (Python) or ``undefined`` (JavaScript).
 
 Interest.setName Method
@@ -906,7 +906,7 @@ Set the interest scope.
 :Parameters:
 
     - `scope`
-        The interest scope. If not specified, return ``-1`` (C++ and Java)
+        The interest scope. If not specified, set to ``-1`` (C++ and Java)
         or ``None`` (Python) or ``undefined`` (JavaScript).
 
 Interest.matchesName Method
