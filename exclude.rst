@@ -395,7 +395,7 @@ directly, but use :ref:`Exclude.appendAny <Exclude.appendAny>` or
 Exclude.Entry.getType Method
 ----------------------------
 
-Get the value of the component.
+Get the type of this Exclude.Entry.
 
 :[C++]:
 
