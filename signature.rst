@@ -50,6 +50,8 @@ Return a pointer to a new Signature which is a copy of this signature. This is a
 
 An new object of a subclass of Signature which is a clone of this object.
 
+.. _Sha256WithRsaSignature:
+
 Sha256WithRsaSignature Class
 ============================
 
