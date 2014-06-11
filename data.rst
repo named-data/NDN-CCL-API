@@ -93,10 +93,47 @@ Get content of the Data packet.
 
     The data packet content as a Blob.
 
+Data.getMetaInfo Method
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the data packet's :ref:`MetaInfo <MetaInfo>` object.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        MetaInfo& getMetaInfo();
+
+        const MetaInfo& getMetaInfo() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns MetaInfo
+        def getMetaInfo(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns MetaInfo
+        Data.prototype.getMetaInfo = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final MetaInfo getMetaInfo()
+
+:Returns:
+
+    The meta info object.
+
 Data.getName Method
 ^^^^^^^^^^^^^^^^^^^
 
-Get the data packet's name.
+Get the data packet's :ref:`Name <Name>`.
 
 :[C++]:
 
@@ -133,8 +170,8 @@ Get the data packet's name.
 Data.getSignature Method
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Get the data packet's signature object. If not null, the object is a subclass of 
-Signature such as Sha256WithRsaSignature
+Get the data packet's :ref:`Signature <Signature>` object. If not null, the object is a subclass of 
+Signature such as :ref:`Sha256WithRsaSignature <Sha256WithRsaSignature>`
 
 :[C++]:
 
@@ -216,10 +253,62 @@ Set the content to the given value.
     - `content`
         A Blob with the content.
 
+Data.setMetaInfo Method
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Set the meta info to a copy of the given :ref:`MetaInfo <MetaInfo>` object.
+
+.. note::
+
+    You can also call getMetaInfo and change the fields directly.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Data& setMetaInfo(
+            const MetaInfo& metaInfo
+        );
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns Data
+        def setMetaInfo(self,
+            metaInfo  # MetaInfo
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Data
+        Data.prototype.setMetaInfo = function(
+            metaInfo  // MetaInfo
+        )
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Data setMetaInfo(
+            MetaInfo metaInfo
+        )
+
+:Parameters:
+
+    - `metaInfo`
+        The MetaInfo object which is copied.
+
+:Returns:
+
+    This Data so that you can chain calls to update values.
+
 Data.setName Method
 ^^^^^^^^^^^^^^^^^^^
 
-Set the data packet's name.
+Set the data packet's :ref:`Name <Name>`.
 
 .. note::
 
@@ -265,7 +354,7 @@ Set the data packet's name.
 Data.setSignature Method
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Set the signature to a copy of the given signature.
+Set the signature to a copy of the given :ref:`Signature <Signature>` object.
 
 .. note::
 

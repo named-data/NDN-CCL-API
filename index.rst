@@ -12,6 +12,7 @@ Table of Contents:
    interest
    exclude
    data
+   meta-info
    signature
    key-locator
    face
