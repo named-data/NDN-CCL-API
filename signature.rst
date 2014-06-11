@@ -181,7 +181,7 @@ Set this signature object to use a copy of the given :ref:`KeyLocator <KeyLocato
     .. code-block:: c++
 
         void setKeyLocator(
-            const KeyLocator& keyLocator;
+            const KeyLocator& keyLocator
         );
 
 :[Python]:
@@ -205,7 +205,7 @@ Set this signature object to use a copy of the given :ref:`KeyLocator <KeyLocato
     .. code-block:: java
     
         public final void setKeyLocator(
-            KeyLocator keyLocator;
+            KeyLocator keyLocator
         )
 
 :Parameters:

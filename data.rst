@@ -230,7 +230,7 @@ Set the data packet's name.
     .. code-block:: c++
 
         void setName(
-            const Name& name;
+            const Name& name
         );
 
 :[Python]:
@@ -254,7 +254,7 @@ Set the data packet's name.
     .. code-block:: java
     
         public final void setName(
-            Name name;
+            Name name
         )
 
 :Parameters:
@@ -276,7 +276,7 @@ Set the signature to a copy of the given signature.
     .. code-block:: c++
 
         Data& setSignature(
-            const Signature& signature;
+            const Signature& signature
         );
 
 :[Python]:
@@ -302,7 +302,7 @@ Set the signature to a copy of the given signature.
     .. code-block:: java
     
         public final Data setSignature(
-            Signature signature;
+            Signature signature
         )
 
 :Parameters:

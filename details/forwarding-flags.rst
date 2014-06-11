@@ -333,7 +333,7 @@ Set the value of the "active" flag.
     .. code-block:: c++
 
         void setActive(
-            bool active;
+            bool active
         );
 
 :[Python]:
@@ -357,7 +357,7 @@ Set the value of the "active" flag.
     .. code-block:: java
     
         public final void setActive(
-            boolean active;
+            boolean active
         )
 
 :Parameters:
@@ -375,7 +375,7 @@ Set the value of the "advertise" flag.
     .. code-block:: c++
 
         void setAdvertise(
-            bool advertise;
+            bool advertise
         );
 
 :[Python]:
@@ -399,7 +399,7 @@ Set the value of the "advertise" flag.
     .. code-block:: java
     
         public final void setAdvertise(
-            boolean advertise;
+            boolean advertise
         )
 
 :Parameters:
@@ -417,7 +417,7 @@ Set the value of the "capture" flag.
     .. code-block:: c++
 
         void setCapture(
-            bool capture;
+            bool capture
         );
 
 :[Python]:
@@ -441,7 +441,7 @@ Set the value of the "capture" flag.
     .. code-block:: java
     
         public final void setCapture(
-            boolean capture;
+            boolean capture
         )
 
 :Parameters:
@@ -459,7 +459,7 @@ Set the value of the "captureOk" flag.
     .. code-block:: c++
 
         void setCaptureOk(
-            bool captureOk;
+            bool captureOk
         );
 
 :[Python]:
@@ -483,7 +483,7 @@ Set the value of the "captureOk" flag.
     .. code-block:: java
     
         public final void setCaptureOk(
-            boolean captureOk;
+            boolean captureOk
         )
 
 :Parameters:
@@ -501,7 +501,7 @@ Set the value of the "childInherit" flag.
     .. code-block:: c++
 
         void setChildInherit(
-            bool childInherit;
+            bool childInherit
         );
 
 :[Python]:
@@ -525,7 +525,7 @@ Set the value of the "childInherit" flag.
     .. code-block:: java
     
         public final void setChildInherit(
-            boolean childInherit;
+            boolean childInherit
         )
 
 :Parameters:
@@ -543,7 +543,7 @@ Set the value of the "last" flag.
     .. code-block:: c++
 
         void setLast(
-            bool last;
+            bool last
         );
 
 :[Python]:
@@ -567,7 +567,7 @@ Set the value of the "last" flag.
     .. code-block:: java
     
         public final void setLast(
-            boolean last;
+            boolean last
         )
 
 :Parameters:
@@ -585,7 +585,7 @@ Set the value of the "local" flag.
     .. code-block:: c++
 
         void setLocal(
-            bool local;
+            bool local
         );
 
 :[Python]:
@@ -609,7 +609,7 @@ Set the value of the "local" flag.
     .. code-block:: java
     
         public final void setLocal(
-            boolean local;
+            boolean local
         )
 
 :Parameters:
@@ -627,7 +627,7 @@ Set the value of the "tap" flag.
     .. code-block:: c++
 
         void setTap(
-            bool tap;
+            bool tap
         );
 
 :[Python]:
@@ -651,7 +651,7 @@ Set the value of the "tap" flag.
     .. code-block:: java
     
         public final void setTap(
-            boolean tap;
+            boolean tap
         )
 
 :Parameters:

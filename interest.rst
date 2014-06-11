@@ -505,7 +505,7 @@ Set the child selector.
     .. code-block:: c++
 
         void setChildSelector(
-            int childSelector;
+            int childSelector
         );
 
 :[Python]:
@@ -529,7 +529,7 @@ Set the child selector.
     .. code-block:: java
     
         public final void setChildSelector(
-            int childSelector;
+            int childSelector
         )
 
 :Parameters:
@@ -552,7 +552,7 @@ Set this interest to use a copy of the given :ref:`Exclude <Exclude>` object.
     .. code-block:: c++
 
         void setExclude(
-            const Exclude& exclude;
+            const Exclude& exclude
         );
 
 :[Python]:
@@ -576,7 +576,7 @@ Set this interest to use a copy of the given :ref:`Exclude <Exclude>` object.
     .. code-block:: java
     
         public final void setExclude(
-            Exclude exclude;
+            Exclude exclude
         )
 
 :Parameters:
@@ -596,7 +596,7 @@ Set the interest lifetime.
     .. code-block:: c++
 
         void setInterestLifetimeMilliseconds(
-            Milliseconds interestLifetimeMilliseconds;
+            Milliseconds interestLifetimeMilliseconds
         );
 
 :[Python]:
@@ -620,7 +620,7 @@ Set the interest lifetime.
     .. code-block:: java
     
         public final void setInterestLifetimeMilliseconds(
-            double interestLifetimeMilliseconds;
+            double interestLifetimeMilliseconds
         )
 
 :Parameters:
@@ -643,7 +643,7 @@ Set this interest to use a copy of the given :ref:`KeyLocator <KeyLocator>` obje
     .. code-block:: c++
 
         void setKeyLocator(
-            const KeyLocator& keyLocator;
+            const KeyLocator& keyLocator
         );
 
 :[Python]:
@@ -667,7 +667,7 @@ Set this interest to use a copy of the given :ref:`KeyLocator <KeyLocator>` obje
     .. code-block:: java
     
         public final void setKeyLocator(
-            KeyLocator keyLocator;
+            KeyLocator keyLocator
         )
 
 :Parameters:
@@ -687,7 +687,7 @@ Set the MustBeFresh flag.
     .. code-block:: c++
 
         void setMustBeFresh(
-            bool mustBeFresh;
+            bool mustBeFresh
         );
 
 :[Python]:
@@ -711,7 +711,7 @@ Set the MustBeFresh flag.
     .. code-block:: java
     
         public final void setMustBeFresh(
-            boolean mustBeFresh;
+            boolean mustBeFresh
         )
 
 :Parameters:
@@ -737,7 +737,7 @@ Set the max suffix components count.
     .. code-block:: c++
 
         void setMaxSuffixComponents(
-            int maxSuffixComponents;
+            int maxSuffixComponents
         );
 
 :[Python]:
@@ -761,7 +761,7 @@ Set the max suffix components count.
     .. code-block:: java
     
         public final void setMaxSuffixComponents(
-            int maxSuffixComponents;
+            int maxSuffixComponents
         )
 
 :Parameters:
@@ -787,7 +787,7 @@ Set the min suffix components count.
     .. code-block:: c++
 
         void setMinSuffixComponents(
-            int minSuffixComponents;
+            int minSuffixComponents
         );
 
 :[Python]:
@@ -811,7 +811,7 @@ Set the min suffix components count.
     .. code-block:: java
     
         public final void setMinSuffixComponents(
-            int minSuffixComponents;
+            int minSuffixComponents
         )
 
 :Parameters:
@@ -834,7 +834,7 @@ Set the interest name.
     .. code-block:: c++
 
         void setName(
-            const Name& name;
+            const Name& name
         );
 
 :[Python]:
@@ -858,7 +858,7 @@ Set the interest name.
     .. code-block:: java
     
         public final void setName(
-            Name name;
+            Name name
         )
 
 :Parameters:
@@ -876,7 +876,7 @@ Set the interest scope.
     .. code-block:: c++
 
         void setScope(
-            int scope;
+            int scope
         );
 
 :[Python]:
@@ -900,7 +900,7 @@ Set the interest scope.
     .. code-block:: java
     
         public final void setScope(
-            int scope;
+            int scope
         )
 
 :Parameters:

@@ -270,7 +270,7 @@ KEYNAME.
     .. code-block:: c++
 
         void setKeyName(
-            const Name& name;
+            const Name& name
         );
 
 :[Python]:
@@ -294,7 +294,7 @@ KEYNAME.
     .. code-block:: java
     
         public final void setKeyName(
-            Name name;
+            Name name
         )
 
 :Parameters:
@@ -314,7 +314,7 @@ setKeyData() to set the digest.
     .. code-block:: c++
 
         void setType(
-            ndn_KeyLocatorType type;
+            ndn_KeyLocatorType type
         );
 
 :[Python]:
@@ -338,7 +338,7 @@ setKeyData() to set the digest.
     .. code-block:: java
     
         public final void setType(
-            KeyLocatorType type;
+            KeyLocatorType type
         )
 
 :Parameters:
