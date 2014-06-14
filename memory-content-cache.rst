@@ -37,6 +37,15 @@ MemoryContentCache Constructor
 
             );
 
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            var MemoryContentCache = function MemoryContentCache(
+                face                            // Face
+                [, cleanupIntervalMilliseconds  // number]
+            )
+
     :Parameters:
 
         - `face`
@@ -78,6 +87,14 @@ MemoryContentCache.add Method
 
             );
 
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            MemoryContentCache.prototype.add = function(
+                data  // Data
+            )
+
     :Parameters:
 
         - `data`
@@ -113,6 +130,17 @@ MemoryContentCache.registerPrefix Method
                 [, const ForwardingFlags& flags]
 
             );
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            MemoryContentCache.prototype.registerPrefix = function(
+                prefix,            // Name
+                onRegisterFailed   // function
+                [, onDataNotFound  // function]
+                [, flags           // ForwardingFlags]
+            )
 
     :Parameters:
 
