@@ -373,7 +373,7 @@ registration request. If need to register a prefix with NFD, you must first call
             prefix,           # Name
             onInterest,       # function object
             onRegisterFailed  # function object
-            [, flags]         # ForwardingFlags
+            [, flags          # ForwardingFlags]
         )
 
 :[JavaScript]:
@@ -384,7 +384,7 @@ registration request. If need to register a prefix with NFD, you must first call
             prefix,           // Name
             onInterest,       // function
             onRegisterFailed  // function
-            [, flags]         // ForwardingFlags
+            [, flags          // ForwardingFlags]
         )
 
 :[Java]:
