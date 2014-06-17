@@ -74,11 +74,14 @@ Create a new Face object with the given Transport to manage NDN communication.
                 OR function() { return new TcpTransport(); }, // If in Node.js.
             getHostAndPort: transport.defaultGetHostAndPort,
                  // a function, on each call it returns 
-                 // a new { host: host, port: port } 
+                 // a new Transport.ConnectionInfo
                  // or null if there are no more hosts.
-            host: null, // If null, use getHostAndPort when connecting.
-            port: 9696, // If in the browser.
+            connectionInfo: null,
+            host: null, // If null and connectionInfo is null, use getHostAndPort when connecting.
+                        // However, if connectionInfo is not null, use it instead.
+            port: 9696,    // If in the browser.
                   OR 6363, // If in Node.js.
+                           // However, if connectionInfo is not null, use it instead.
 
 Face Constructor (default Transport)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -138,11 +141,14 @@ Create a new Face object with optional settings to manage NDN communication.
                 OR function() { return new TcpTransport(); }, // If in Node.js.
             getHostAndPort: transport.defaultGetHostAndPort,
                  // a function, on each call it returns 
-                 // a new { host: host, port: port } 
+                 // a new Transport.ConnectionInfo
                  // or null if there are no more hosts.
-            host: null, // If null, use getHostAndPort when connecting.
-            port: 9696, // If in the browser.
+            connectionInfo: null,
+            host: null, // If null and connectionInfo is null, use getHostAndPort when connecting.
+                        // However, if connectionInfo is not null, use it instead.
+            port: 9696,    // If in the browser.
                   OR 6363, // If in Node.js.
+                           // However, if connectionInfo is not null, use it instead.
 
 Face.expressInterest Methods
 ----------------------------
