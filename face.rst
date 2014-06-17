@@ -39,14 +39,6 @@ Create a new Face object with the given Transport to manage NDN communication.
             connectionInfo  # Transport.ConnectionInfo
         )
 
-:[JavaScript]:
-
-    .. code-block:: javascript
-    
-        var Face = function Face(
-            [settings  // associative array]
-        )
-
 :[Java]:
 
     .. code-block:: java
@@ -63,26 +55,6 @@ Create a new Face object with the given Transport to manage NDN communication.
 
     - `connectionInfo`
 	This must be a ConnectionInfo from the same subclass of Transport as transport.
-
-    - `settings`
-	(JavaScript only) An associative array with the following defaults:
-
-	.. code-block:: javascript
-
-            getTransport: function() 
-                { return new WebSocketTransport(); }, // If in the browser.
-                OR function() { return new TcpTransport(); }, // If in Node.js.
-            getConnectionInfo: transport.defaultGetConnectionInfo,
-                 // a function, on each call it returns 
-                 // a new Transport.ConnectionInfo
-                 // or null if there are no more hosts.
-            connectionInfo: null,
-            host: null, // If null and connectionInfo is null, use 
-                        // getHostAndPort when connecting.
-                        // However, if connectionInfo is not null, use it instead.
-            port: 9696,    // If in the browser.
-                  OR 6363, // If in Node.js.
-                           // However, if connectionInfo is not null, use it instead.
 
 Face Constructor (default Transport)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -140,10 +112,13 @@ Create a new Face object with optional settings to manage NDN communication.
             getTransport: function() 
                 { return new WebSocketTransport(); }, // If in the browser.
                 OR function() { return new TcpTransport(); }, // If in Node.js.
+                // If getTransport creates a UnixTransport and connectionInfo is 
+                // null, then connect to the local forwarder's Unix socket.
             getConnectionInfo: transport.defaultGetConnectionInfo,
-                 // a function, on each call it returns 
-                 // a new Transport.ConnectionInfo
-                 // or null if there are no more hosts.
+                 // a function, on each call it returns a new 
+                 // Transport.ConnectionInfo or null if there are no more hosts.
+                 // If connectionInfo or host is not null, getConnectionInfo 
+                 // is ignored.
             connectionInfo: null,
             host: null, // If null and connectionInfo is null, use 
                         // getHostAndPort when connecting.
