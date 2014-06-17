@@ -72,12 +72,13 @@ Create a new Face object with the given Transport to manage NDN communication.
             getTransport: function() 
                 { return new WebSocketTransport(); }, // If in the browser.
                 OR function() { return new TcpTransport(); }, // If in Node.js.
-            getHostAndPort: transport.defaultGetHostAndPort,
+            getConnectionInfo: transport.defaultGetConnectionInfo,
                  // a function, on each call it returns 
                  // a new Transport.ConnectionInfo
                  // or null if there are no more hosts.
             connectionInfo: null,
-            host: null, // If null and connectionInfo is null, use getHostAndPort when connecting.
+            host: null, // If null and connectionInfo is null, use 
+                        // getHostAndPort when connecting.
                         // However, if connectionInfo is not null, use it instead.
             port: 9696,    // If in the browser.
                   OR 6363, // If in Node.js.
@@ -139,12 +140,13 @@ Create a new Face object with optional settings to manage NDN communication.
             getTransport: function() 
                 { return new WebSocketTransport(); }, // If in the browser.
                 OR function() { return new TcpTransport(); }, // If in Node.js.
-            getHostAndPort: transport.defaultGetHostAndPort,
+            getConnectionInfo: transport.defaultGetConnectionInfo,
                  // a function, on each call it returns 
                  // a new Transport.ConnectionInfo
                  // or null if there are no more hosts.
             connectionInfo: null,
-            host: null, // If null and connectionInfo is null, use getHostAndPort when connecting.
+            host: null, // If null and connectionInfo is null, use 
+                        // getHostAndPort when connecting.
                         // However, if connectionInfo is not null, use it instead.
             port: 9696,    // If in the browser.
                   OR 6363, // If in Node.js.
