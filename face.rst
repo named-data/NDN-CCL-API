@@ -39,6 +39,15 @@ Create a new Face object with the given Transport to manage NDN communication.
             connectionInfo  # Transport.ConnectionInfo
         )
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+    
+        var Face = function Face(
+            transport,  // Transport
+            connectionInfo  // Transport.ConnectionInfo
+        )
+
 :[Java]:
 
     .. code-block:: java
@@ -54,7 +63,9 @@ Create a new Face object with the given Transport to manage NDN communication.
 	An object of a subclass of Transport to use for communication.
 
     - `connectionInfo`
-	This must be a ConnectionInfo from the same subclass of Transport as transport.
+	This must be a ConnectionInfo from the same subclass of Transport as transport. [JavaScript
+        only: If connectionInfo is omitted and `transport` is a new UnixTransport() then
+        attempt to create to the Unix socket for the local forwarder.]
 
 Face Constructor (default Transport)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
