@@ -296,6 +296,41 @@ Encode name as an Interest, using the interestTemplate if supplied, send the int
 
     The pending interest ID which can be used with removePendingInterest.
 
+Face.makeCommandInterest Method
+-------------------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       This method is experimental.  The API is not finalized.
+
+    Append a timestamp component and a random value component to interest's
+    name. Then use the keyChain and certificateName from 
+    :ref:`setCommandSigningInfo <setCommandSigningInfo>` to sign the interest. 
+    If the interest lifetime is not set, this sets it.
+
+    :[C++]:
+
+      .. code-block:: c++
+
+          void makeCommandInterest(
+              Interest& interest
+          );
+
+    :[Python]:
+
+      .. code-block:: python
+
+          def makeCommandInterest(self,
+              interest  // Interest
+          )
+
+    :Parameters:
+
+        - `interest`
+            The interest whose name is appended with components.
+
 .. _processEvents:
 
 Face.processEvents Method
