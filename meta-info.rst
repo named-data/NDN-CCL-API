@@ -116,7 +116,7 @@ Get the final block ID.
 
     .. code-block:: javascript
 
-        // Returns Buffer
+        // Returns Name.Component
         MetaInfo.prototype.getFinalBlockID = function()
 
 :[Java]:
