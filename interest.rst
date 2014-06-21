@@ -443,7 +443,7 @@ in this Interest object, then the nonce value is cleared.
 
     .. code-block:: javascript
 
-        // Returns Buffer
+        // Returns Blob
         Interest.prototype.getNonce = function()
 
 :[Java]:
