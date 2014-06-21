@@ -203,6 +203,13 @@ Get the value of the component.
         # Returns Blob
         def getValue(self)
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+    
+        // Returns Blob
+        Name.Component.prototype.getValue = function()
+
 :[Java]:
 
     .. code-block:: java
