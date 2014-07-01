@@ -11,6 +11,9 @@ MemoryContentCache Class
         | ``#include <ndn-cpp/util/memory-content-cache.hpp>``
         | Namespace: ``ndn``
 
+    :[Python]:
+        Module: ``pyndn.util.memory_content_cache``
+
     A MemoryContentCache holds a set of Data packets and answers an Interest to
     return the correct Data packet. The cache is periodically cleaned up to
     remove each stale Data packet based on its FreshnessPeriod (if it has one).
@@ -31,11 +34,18 @@ MemoryContentCache Constructor
         .. code-block:: c++
 
             MemoryContentCache(
-
                 Face* face
                 [, Milliseconds cleanupIntervalMilliseconds]
-
             );
+
+    :[Python]:
+
+        .. code-block:: python
+
+            def __init__(self
+                face                            # Face
+                [, cleanupIntervalMilliseconds  # double]
+            )
 
     :[JavaScript]:
 
@@ -82,10 +92,16 @@ MemoryContentCache.add Method
         .. code-block:: c++
 
             void add(
-
                 const Data& data
-
             );
+
+    :[Python]:
+
+        .. code-block:: python
+
+            def add(self,
+                data  # Data
+            )
 
     :[JavaScript]:
 
@@ -123,13 +139,22 @@ MemoryContentCache.registerPrefix Method
         .. code-block:: c++
 
             void registerPrefix(
-
                 const Name& prefix,
                 const OnRegisterFailed& onRegisterFailed
                 [, const OnInterest& onDataNotFound]
                 [, const ForwardingFlags& flags]
-
             );
+
+    :[Python]:
+
+        .. code-block:: python
+
+            def registerPrefix(self,
+                prefix,            # Name
+                onRegisterFailed   # function object
+                [, onDataNotFound  # function object]
+                [, flags           # ForwardingFlags]
+            )
 
     :[JavaScript]:
 
