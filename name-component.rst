@@ -273,6 +273,13 @@ Interpret this name component as a network-ordered number and return an integer.
         # Returns int
         def toNumber(self)
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Name.Component.prototype.toNumber = function()
+
 :[Java]:
 
     .. code-block:: java
@@ -304,6 +311,15 @@ marker and return an integer.
         # Returns int
         def toNumberWithMarker(self,
             marker  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Name.Component.prototype.toNumber = function(
+            marker  # number
         )
 
 :[Java]:
@@ -346,6 +362,13 @@ conventions (a network-ordered number where the first byte is the marker 0x00).
         # Returns int
         def toSegment(self)
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Name.Component.prototype.toSegment = function()
+
 :[Java]:
 
     .. code-block:: java
@@ -380,6 +403,13 @@ without converting it to a time representation.
     
         # Returns int
         def toVersion(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Name.Component.prototype.toVersion = function()
 
 :[Java]:
 
