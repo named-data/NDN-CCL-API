@@ -3,26 +3,26 @@
 Blob Class
 ==========
 
+A Blob holds a pointer to an immutable byte array.  This is like a JavaScript
+string which is a pointer to an immutable string.  It is OK to pass a pointer to
+the string because the new owner can't change the bytes of the string.  However,
+like a JavaScript string, it is possible to change the pointer, and so this does
+allow the copy constructor and assignment to change the pointer.  Also remember
+that the pointer can be null.
+
 :[C++]:
     | ``#include <ndn-cpp/util/blob.hpp>``
     | Namespace: ``ndn``
+
+    .. code-block:: c++
+
+        class Blob : public ptr_lib::shared_ptr<const std::vector<uint8_t> >
 
 :[Python]:
     Module: ``pyndn.util``
 
 :[Java]:
     Package: ``net.named_data.jndn.util``
-
-.. code-block:: c++
-
-    class Blob : public ptr_lib::shared_ptr<const std::vector<uint8_t> >
-
-A Blob holds a pointer to an immutable byte array.  This is like a JavaScript 
-string which is a pointer to an immutable string.  It is OK to pass a pointer to 
-the string because the new owner can't change the bytes of the string.  However, 
-like a JavaScript string, it is possible to change the pointer, and so this does 
-allow the copy constructor and assignment to change the pointer.  Also remember 
-that the pointer can be null.
 
 Blob Constructors
 -----------------
@@ -329,6 +329,9 @@ Return the length of the immutable byte array.
 SignedBlob Class
 ================
 
+A SignedBlob extends Blob to keep the offsets of a signed portion (e.g., the
+bytes of Data packet). This inherits from Blob, including Blob.size and Blob.buf.
+
 :[C++]:
     | ``#include <ndn-cpp/util/signed-blob.hpp>``
     | Namespace: ``ndn``
@@ -350,9 +353,6 @@ SignedBlob Class
     .. code-block:: java
     
         public class SignedBlob extends Blob 
-
-A SignedBlob extends Blob to keep the offsets of a signed portion (e.g., the 
-bytes of Data packet). This inherits from Blob, including Blob.size and Blob.buf.
 
 SignedBlob.getSignedPortionBeginOffset Method
 ---------------------------------------------

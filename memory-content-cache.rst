@@ -7,16 +7,16 @@ MemoryContentCache Class
 
        The MemoryContentCache is experimental and the API is not finalized.
 
+    A MemoryContentCache holds a set of Data packets and answers an Interest to
+    return the correct Data packet. The cache is periodically cleaned up to
+    remove each stale Data packet based on its FreshnessPeriod (if it has one).
+
     :[C++]:
         | ``#include <ndn-cpp/util/memory-content-cache.hpp>``
         | Namespace: ``ndn``
 
     :[Python]:
         Module: ``pyndn.util.memory_content_cache``
-
-    A MemoryContentCache holds a set of Data packets and answers an Interest to
-    return the correct Data packet. The cache is periodically cleaned up to
-    remove each stale Data packet based on its FreshnessPeriod (if it has one).
 
 MemoryContentCache Constructor
 ------------------------------

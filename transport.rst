@@ -16,7 +16,6 @@ Transport Class
     - :ref:`UdpTransport Class <UdpTransport>`
     - :ref:`TcpTransport Class <TcpTransport>`
 
-
 Transport Constructor
 ---------------------
 
@@ -40,9 +39,10 @@ Create a base class Transport where the methods throw an "unimplemented" error. 
     
         public Transport()
 
-
 Transport.ConnectionInfo Class
 ------------------------------
+
+A Transport.ConnectionInfo is a base class for connection information used by subclasses of Transport.
 
 :[C++]:
     Namespace: ``ndn``
@@ -52,5 +52,3 @@ Transport.ConnectionInfo Class
 
 :[Java]:
     Package: ``net.named_data.jndn.transport``
-
-A Transport.ConnectionInfo is a base class for connection information used by subclasses of Transport.

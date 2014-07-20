@@ -1,6 +1,8 @@
 TcpTransport.ConnectionInfo Class
 =================================
 
+A TcpTransport::ConnectionInfo extends Transport::ConnectionInfo to hold the host and port info for the TCP connection.
+
 :[C++]:
     | ``#include <ndn-cpp/transport/tcp-transport.hpp>``
     | Namespace: ``ndn``
@@ -10,8 +12,6 @@ TcpTransport.ConnectionInfo Class
 
 :[Java]:
     Package: ``net.named_data.jndn.transport``
-
-A TcpTransport::ConnectionInfo extends Transport::ConnectionInfo to hold the host and port info for the TCP connection.
 
 TcpTransport.ConnectionInfo Constructor
 ---------------------------------------

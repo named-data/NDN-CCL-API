@@ -1,14 +1,14 @@
 UdpTransport.ConnectionInfo Class
 =================================
 
+A UdpTransport::ConnectionInfo extends Transport::ConnectionInfo to hold the host and port info for the UDP connection.
+
 :[C++]:
     | ``#include <ndn-cpp/transport/udp-transport.hpp>``
     | Namespace: ``ndn``
 
 :[Python]:
     Module: ``pyndn.transport``
-
-A UdpTransport::ConnectionInfo extends Transport::ConnectionInfo to hold the host and port info for the UDP connection.
 
 UdpTransport.ConnectionInfo Constructor
 ---------------------------------------

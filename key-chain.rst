@@ -7,6 +7,8 @@ KeyChain Class
 
        The NDN security library is experimental and the API is not finalized.
 
+    The Keychain class provides a set of interfaces to the security library such as identity management, policy configuration and packet signing and verification.
+
     :[C++]:
         | ``#include <ndn-cpp/security/key-chain.hpp>``
         | Namespace: ``ndn``
@@ -16,8 +18,6 @@ KeyChain Class
 
     :[Java]:
         Package: ``net.named_data.jndn.security``
-
-    The Keychain class provides a set of interfaces to the security library such as identity management, policy configuration and packet signing and verification.
 
 KeyChain Constructor
 --------------------
