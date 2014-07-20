@@ -424,8 +424,8 @@ Get the type of this Exclude.Entry.
         * Python: ``Exclude.ANY`` or ``Exclude.COMPONENT``
         * Java: ``Exclude.Type.ANY`` or ``Exclude.Type.COMPONENT``
 
-Name.Component.getComponent Method
-----------------------------------
+Exclude.Entry.getComponent Method
+---------------------------------
 
 Get the component value for this entry (only valid if this entry has type COMPONENT).
 
