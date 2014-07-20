@@ -5,16 +5,16 @@ ChronoSync2013 Class
 
     .. admonition:: Experimental
 
-       The suport for ChronoSync is experimental and the API is not finalized.
-
-    :[C++]:
-        | ``#include <ndn-cpp/sync/chrono-sync2013.hpp>``
-        | Namespace: ``ndn``
+       The support for ChronoSync is experimental and the API is not finalized.
 
     A ChronoSync2013 implements the NDN ChronoSync protocol as described in the
     2013 paper "Let’s ChronoSync: Decentralized Dataset State Synchronization in
     Named Data Networking".
     http://named-data.net/publications/chronosync
+
+    :[C++]:
+        | ``#include <ndn-cpp/sync/chrono-sync2013.hpp>``
+        | Namespace: ``ndn``
 
 ChronoSync2013 Constructor
 --------------------------
@@ -23,7 +23,7 @@ ChronoSync2013 Constructor
 
     .. admonition:: Experimental
 
-       The suport for ChronoSync is experimental and the API is not finalized.
+       The support for ChronoSync is experimental and the API is not finalized.
 
     Create a new ChronoSync2013 to communicate using the given face. Initialize
     the digest log with a digest of "00" and and empty content. Register the
@@ -55,7 +55,7 @@ ChronoSync2013 Constructor
             onReceivedSyncState(syncStates, isRecovery) where:
 
             - `syncStates`
-                is the list of SyncState messages.
+                is the list of :ref:`SyncState <ChronoSync2013.SyncState>` messages.
             - `isRecovery`
                 is true if this is the initial list of SyncState messages or from
                 a recovery interest. (For example, if isRecovery is true, a chat
@@ -106,6 +106,42 @@ ChronoSync2013 Constructor
             `applicationBroadcastPrefix`, this calls
             onRegisterFailed(applicationBroadcastPrefix).
 
+.. _getProducerSequenceNo:
+
+ChronoSync2013.getProducerSequenceNo Method
+-------------------------------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The support for ChronoSync is experimental and the API is not finalized.
+
+    Get the current sequence number in the digest tree for the given producer
+    dataPrefix and sessionNo.
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            int getProducerSequenceNo(
+                const std::string& dataPrefix,
+                int sessionNo
+            );
+
+    :Parameters:
+
+        - `dataPrefix`
+            The producer data prefix as a Name URI string.
+
+        - `sessionNo`
+            The producer session number.
+
+    :Returns:
+
+        The current producer sequence number, or -1 if the producer namePrefix
+        and sessionNo are not in the digest tree.
+
 .. _getSequenceNo:
 
 ChronoSync2013.getSequenceNo Method
@@ -115,7 +151,7 @@ ChronoSync2013.getSequenceNo Method
 
     .. admonition:: Experimental
 
-       The suport for ChronoSync is experimental and the API is not finalized.
+       The support for ChronoSync is experimental and the API is not finalized.
 
     Get the sequence number of the latest data published by this application
     instance.
@@ -126,6 +162,10 @@ ChronoSync2013.getSequenceNo Method
 
             int getSequenceNo();
 
+    :Returns:
+
+        The sequence number.
+
 .. _publishNextSequenceNo:
 
 ChronoSync2013.publishNextSequenceNo Method
@@ -135,7 +175,7 @@ ChronoSync2013.publishNextSequenceNo Method
 
     .. admonition:: Experimental
 
-       The suport for ChronoSync is experimental and the API is not finalized.
+       The support for ChronoSync is experimental and the API is not finalized.
 
     Increment the sequence number, create a sync message with the new sequence
     number and publish a data packet where the name is the
@@ -158,3 +198,85 @@ ChronoSync2013.publishNextSequenceNo Method
         .. code-block:: c++
 
             void publishNextSequenceNo();
+
+.. _ChronoSync2013.SyncState:
+
+ChronoSync2013.SyncState Class
+==============================
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The support for ChronoSync is experimental and the API is not finalized.
+
+    A SyncState holds the values of a sync state message which is passed to the
+    onReceivedSyncState callback which was given to the ChronoSyn2013 constructor.
+
+    :[C++]:
+        | ``#include <ndn-cpp/sync/chrono-sync2013.hpp>``
+        | Namespace: ``ndn``
+
+ChronoSync2013.SyncState.getDataPrefix Method
+---------------------------------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The support for ChronoSync is experimental and the API is not finalized.
+
+    Get the application data prefix for this sync state message.
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            const std::string& getDataPrefix() const;
+
+    :Returns:
+
+        The application data prefix as a Name URI string.
+
+ChronoSync2013.SyncState.getSequenceNo Method
+---------------------------------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The support for ChronoSync is experimental and the API is not finalized.
+
+    Get the sequence number for this sync state message.
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            const std::string& getSequenceNo() const;
+
+    :Returns:
+
+        The sequence number.
+
+ChronoSync2013.SyncState.getSessionNo Method
+--------------------------------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The support for ChronoSync is experimental and the API is not finalized.
+
+    Get the session number associated with the application data prefix for this
+    sync state message.
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            const std::string& getSessionNo() const;
+
+    :Returns:
+
+        The session number.
