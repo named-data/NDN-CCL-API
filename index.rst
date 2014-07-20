@@ -20,6 +20,7 @@ Table of Contents:
    blob
    key-chain
    memory-content-cache
+   chrono-sync
    details/cpp
    :maxdepth: 3
 
