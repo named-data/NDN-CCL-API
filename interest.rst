@@ -1001,8 +1001,54 @@ Interest.toUri Method
 
         The URI string.
 
-Interest.wireDecode Method
---------------------------
+Interest.wireDecode Methods
+---------------------------
+
+Interest.wireDecode Method (from Blob)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Decode the input from wire format and update this Interest.  Also keep a pointer
+to the immutable input Blob for later use.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void wireDecode(
+            const Blob& input
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def wireDecode(self,
+            input  # Blob
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Interest.prototype.wireDecode = function(
+            input  // Blob
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final void wireDecode(
+            Blob content
+        )
+
+:Parameters:
+
+    - `input`
+        The immutable input byte array to be decoded.
+
+Interest.wireDecode Method (copy from byte array)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Decode the input from wire format and update this Interest.
 
