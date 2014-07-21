@@ -261,7 +261,7 @@ KeyChain.verifyData Method
     :Parameters:
 
         - `data`
-            The Data object with the signature to check. It is an error if data does not have a wireEncoding. To set the wireEncoding, you can call data.wireDecode.
+            The Data object with the signature to check. 
 
         - `onVerified`
             If the signature is verified, this calls ``onVerified(data)`` where:
@@ -270,3 +270,47 @@ KeyChain.verifyData Method
         - `onVerifyFailed`
             If the signature check fails, this calls ``onVerifyFailed(data)`` where:
                 - `data` is the given Data object.
+
+KeyChain.verifyInterest Method
+------------------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The NDN security library is experimental and the API is not finalized.
+
+    Check the signature on the signed interest and call either ``onVerify`` or ``onVerifyFailed``. We use callback functions because verify may fetch information to check the signature.
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            void verifyInterest(
+                const ptr_lib::shared_ptr<Interest>& interest,
+                const OnVerifiedInterest& onVerified,
+                const OnVerifyInterestFailed& onVerifyFailed
+            );
+
+    :[Python]:
+
+        .. code-block:: python
+
+            def verifyInterest(self,
+                interest,       # Interest
+                onVerified,     # function object
+                onVerifyFailed  # function object
+            )
+
+    :Parameters:
+
+        - `interest`
+            The interest with the signature to check.
+
+        - `onVerified`
+            If the signature is verified, this calls ``onVerified(interest)`` where:
+                - `interest` is the given Interest object.
+
+        - `onVerifyFailed`
+            If the signature check fails, this calls ``onVerifyFailed(interest)`` where:
+                - `interest` is the given Interest object.
