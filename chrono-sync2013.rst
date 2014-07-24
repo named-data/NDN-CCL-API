@@ -137,7 +137,6 @@ ChronoSync2013 Constructor
                 const Name& applicationDataPrefix,
                 const Name& applicationBroadcastPrefix,
                 int sessionNo,
-                Transport& transport,
                 Face& face,
                 KeyChain& keyChain,
                 const Name& certificateName,
@@ -178,9 +177,6 @@ ChronoSync2013 Constructor
         - `sessionNo`
             The session number used with the applicationDataPrefix in sync state
             messages.
-
-        - `transport`
-
 
         - `face`
             The :ref:`Face <Face>` for calling registerPrefix and expressInterest.
