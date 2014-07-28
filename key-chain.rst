@@ -66,6 +66,13 @@ KeyChain.getDefaultCertificateName Method
             # Returns Name
             def getDefaultCertificateName(self)
 
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            // Returns Name
+            KeyChain.prototype.getDefaultCertificateName = function()
+
     :[Java]:
 
         .. code-block:: java
@@ -105,6 +112,14 @@ KeyChain.setFace Method
 
             def setFace(self,
                 face  # Face
+            )
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            KeyChain.prototype.setFace = function(
+                face  // Face
             )
 
     :[Java]:
@@ -149,9 +164,18 @@ KeyChain.sign (Data) Method
 
         .. code-block:: python
 
-            def getDefaultCertificateName(self,
+            def sign(self,
                 data,            # Data
                 certificateName  # Name
+            )
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            KeyChain.prototype.sign = function(
+                data,            // Data
+                certificateName  // Name
             )
 
     :[Java]:
@@ -200,6 +224,15 @@ KeyChain.sign (Interest) Method
                 certificateName  # Name
             )
 
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            KeyChain.prototype.sign = function(
+                interest,        // Interest
+                certificateName  // Name
+            )
+
     :[Java]:
 
         .. code-block:: java
@@ -246,6 +279,16 @@ KeyChain.verifyData Method
                 data,           # Data
                 onVerified,     # function object
                 onVerifyFailed  # function object
+            )
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            KeyChain.prototype.verifyData = function(
+                data,           // Data
+                onVerified,     // function object
+                onVerifyFailed  // function object
             )
 
     :[Java]:
