@@ -84,6 +84,12 @@ Create a new Sha256WithRsaSignature object.
 
         def __init__(self)
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        var Sha256WithRsaSignature = function Sha256WithRsaSignature()
+
 :[Java]:
 
     .. code-block:: java
@@ -118,7 +124,7 @@ Get the signature :ref:`KeyLocator <KeyLocator>` object.
     .. code-block:: javascript
 
         // Returns KeyLocator
-        Signature.prototype.getKeyLocator = function()
+        Sha256WithRsaSignature.prototype.getKeyLocator = function()
 
 :[Java]:
 
@@ -154,7 +160,7 @@ Get the signature bytes.
     .. code-block:: javascript
 
         // Returns Blob
-        Signature.prototype.getSignature = function()
+        Sha256WithRsaSignature.prototype.getSignature = function()
 
 :[Java]:
 
@@ -198,7 +204,7 @@ Set this signature object to use a copy of the given :ref:`KeyLocator <KeyLocato
 
     .. code-block:: javascript
 
-        Signature.prototype.setKeyLocator = function(
+        Sha256WithRsaSignature.prototype.setKeyLocator = function(
             keyLocator  // KeyLocator
         )
 
@@ -246,7 +252,7 @@ Set the signature bytes to the given value.
 
     .. code-block:: javascript
 
-        Signature.prototype.setSignature = function(
+        Sha256WithRsaSignature.prototype.setSignature = function(
             signature  // Blob
         )
 
@@ -286,7 +292,7 @@ Return a pointer to a new Sha256WithRsaSignature which is a copy of this signatu
     .. code-block:: javascript
 
         // Returns Sha256WithRsaSignature
-        Signature.prototype.clone = function()
+        Sha256WithRsaSignature.prototype.clone = function()
 
 :[Java]:
 
