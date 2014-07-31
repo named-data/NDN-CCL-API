@@ -546,6 +546,15 @@ See http://named-data.net/doc/0.2/technical/CanonicalOrder.html
             other  # Name
         )
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Name.prototype.compare = function(
+            other  // Name
+        )
+
 :[Java]:
 
     .. code-block:: java
@@ -561,8 +570,8 @@ See http://named-data.net/doc/0.2/technical/CanonicalOrder.html
 
 :Returns:
 
-    0 If they compare equal, -1 if self comes before other in the 
-    canonical ordering, or 1 if self comes after other in the canonical 
+    0 If they compare equal, -1 if this Name comes before other in the
+    canonical ordering, or 1 if this Name comes after other in the canonical
     ordering.
 
 Name.equals Method
