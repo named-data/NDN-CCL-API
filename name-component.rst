@@ -185,6 +185,106 @@ Create a new Name.Component, taking another pointer to the component's value.
     - `component`
         The Name.Component to copy.
 
+Name.Component.compare Method
+-----------------------------
+
+Compare this to the other Component using NDN canonical ordering.
+
+See http://named-data.net/doc/0.2/technical/CanonicalOrder.html
+
+:[C++]:
+
+    .. code-block:: c++
+
+        int compare(
+            const Name::Component& other
+        ) const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns int
+        def compare(self,
+            other  # Name.Component
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Name.Component.prototype.compare = function(
+            other  // Name.Component
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final int other(
+            Name.Component other
+        )
+
+:Parameters:
+
+    - `other`
+        The other Component to compare with.
+
+:Returns:
+
+    0 If they compare equal, -1 if this Name.Component comes before other in the
+    canonical ordering, or 1 if this Name.Component comes after other in the
+    canonical ordering.
+
+Name.Component.equals Method
+----------------------------
+
+Check if this is the same component as other.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        bool equals(
+            const Component& other
+        ) const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns bool
+        def equals(self,
+            other  # Name.Component
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Name.Component.prototype.equals = function(
+            other  // Name.Component
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public boolean equals(
+            Name.Component other
+        )
+
+:Parameters:
+
+    - other
+        The other Component to compare with.
+
+:Returns:
+
+    True if the components are not equal, otherwise false.
+
 Name.Component.getValue Method
 ------------------------------
 
