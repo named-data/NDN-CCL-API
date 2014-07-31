@@ -565,6 +565,54 @@ See http://named-data.net/doc/0.2/technical/CanonicalOrder.html
     canonical ordering, or 1 if self comes after other in the canonical 
     ordering.
 
+Name.equals Method
+------------------
+
+Check if this name has the same component count and components as the given name.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        bool equals(
+            const Name& name
+        ) const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns bool
+        def equals(self,
+            name  # Name
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Name.prototype.equals = function(
+            name  // Name
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public boolean equals(
+            Name name
+        )
+
+:Parameters:
+
+    - name
+        The Name to check.
+
+:Returns:
+
+    True if the names are equal, otherwise false.
+
 .. _fromEscapedString:
     
 Name.fromEscapedString Method
@@ -594,6 +642,15 @@ which means the component should be skipped in a URI name.
         @staticmethod
         def fromEscapedString(self,
             escapedString  # str
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Blob
+        Name.fromEscapedString = function(
+            escapedString  // string
         )
 
 :[Java]:
