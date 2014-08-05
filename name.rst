@@ -965,7 +965,8 @@ Get the number of components.
 Name.toUri Method
 -----------------
 
-Return the escaped name string according to the NDN URI Scheme.
+Return the escaped name string according to the NDN URI Scheme. See:
+http://named-data.net/doc/0.1/technical/URI.html
 
 :[C++]:
 
