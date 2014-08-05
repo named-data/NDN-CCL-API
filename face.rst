@@ -174,7 +174,8 @@ Send the interest through the transport, read the entire response and call onDat
 :[JavaScript]:
 
     .. code-block:: javascript
-    
+
+        // Returns number
         Face.prototype.expressInterest = function(
             interest     // Interest
             onData,      // function
@@ -251,6 +252,7 @@ Encode name as an Interest, using the interestTemplate if supplied, send the int
 
     .. code-block:: javascript
     
+        // Returns number
         Face.prototype.expressInterest = function(
             name,               // Name
             [, interestTemplate // Interest]
@@ -474,6 +476,14 @@ Remove the pending interest entry with the pendingInterestId from the pending in
     
         def removePendingInterest(self,
             pendingInterestId  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Face.prototype.removePendingInterest = function(
+            pendingInterestId  // number
         )
 
 :[Java]:
