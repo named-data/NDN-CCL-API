@@ -388,7 +388,7 @@ registration request. If need to register a prefix with NFD, you must first call
 
     .. code-block:: c++
 
-        void registerPrefix(
+        uint64_t registerPrefix(
             const Name &prefix,
             const OnInterest &onInterest,
             const OnRegisterFailed &onRegisterFailed
@@ -411,6 +411,7 @@ registration request. If need to register a prefix with NFD, you must first call
 
     .. code-block:: javascript
     
+        // Returns number
         Face.prototype.registerPrefix = function(
             prefix,           // Name
             onInterest,       // function
@@ -454,6 +455,10 @@ registration request. If need to register a prefix with NFD, you must first call
     - `flags`
 	(optional) The flags for finer control of how and which Interests should be forwarded towards the face.
         If omitted, use the default flags defined by the default :ref:`ForwardingFlags <ForwardingFlags>` constructor.
+
+:Returns:
+
+    The registered prefix ID which can be used with removeRegisteredPrefix.
 
 .. _removePendingInterest:
 
@@ -522,6 +527,14 @@ If there is no entry with the registeredPrefixId, do nothing.
     
         def removeRegisteredPrefix(self,
             registeredPrefixId  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Face.prototype.removeRegisteredPrefix = function(
+            registeredPrefixId  // number
         )
 
 :[Java]:
