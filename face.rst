@@ -328,6 +328,14 @@ Face.makeCommandInterest Method
               interest  // Interest
           )
 
+    :[Java]:
+
+        .. code-block:: java
+
+            public final void makeCommandInterest(
+              Interest interest
+            )
+
     :Parameters:
 
         - `interest`
@@ -565,6 +573,22 @@ Set the certificate name used to sign command interest (e.g. for registerPrefix)
             const Name& certificateName
         );
 
+:[Python]:
+
+    .. code-block:: python
+
+        def setCommandCertificateName(self,
+            certificateName  # Name
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final void setCommandCertificateName(
+            Name certificateName
+        )
+
 :Parameters:
 
     - `certificateName`
@@ -585,6 +609,24 @@ Set the KeyChain and certificate name used to sign command interests (e.g. for r
             KeyChain& keyChain,
             const Name& certificateName
         );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def setCommandSigningInfo(self,
+            keyChain         # KeyChain
+            certificateName  # Name
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final void setCommandSigningInfo(
+            KeyChain keyChain,
+            Name certificateName
+        )
 
 :Parameters:
 
