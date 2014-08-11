@@ -314,19 +314,27 @@ Face.makeCommandInterest Method
 
     :[C++]:
 
-      .. code-block:: c++
+        .. code-block:: c++
 
-          void makeCommandInterest(
-              Interest& interest
-          );
+            void makeCommandInterest(
+                Interest& interest
+            );
 
     :[Python]:
 
-      .. code-block:: python
+        .. code-block:: python
 
-          def makeCommandInterest(self,
-              interest  // Interest
-          )
+            def makeCommandInterest(self,
+                interest  // Interest
+            )
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            Face.prototype.makeCommandInterest = function(
+                interest  // Interest
+            )
 
     :[Java]:
 
@@ -581,6 +589,14 @@ Set the certificate name used to sign command interest (e.g. for registerPrefix)
             certificateName  # Name
         )
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Face.prototype.setCommandCertificateName = function(
+            certificateName  // Name
+        )
+
 :[Java]:
 
     .. code-block:: java
@@ -617,6 +633,15 @@ Set the KeyChain and certificate name used to sign command interests (e.g. for r
         def setCommandSigningInfo(self,
             keyChain         # KeyChain
             certificateName  # Name
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Face.prototype.setCommandSigningInfo = function(
+            keyChain         // KeyChain
+            certificateName  // Name
         )
 
 :[Java]:
