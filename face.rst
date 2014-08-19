@@ -3,6 +3,9 @@
 Face Class
 ==========
 
+A Face class provides the top-level interface to the library. It holds a
+connection to a forwarder and supports interest / data exchange.
+
 :[C++]:
     | ``#include <ndn-cpp/face.hpp>``
     | Namespace: ``ndn``
