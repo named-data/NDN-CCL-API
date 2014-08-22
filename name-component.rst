@@ -285,6 +285,63 @@ Check if this is the same component as other.
 
     True if the components are not equal, otherwise false.
 
+Name.Component.fromNumberWithMarker Method
+------------------------------------------
+
+Create a component whose value is the marker appended with the network-ordered
+encoding of the number. This is a static method.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        static Component fromNumberWithMarker(
+            uint64_t number,
+            uint8_t marker
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name.Component
+        @staticmethod
+        def fromNumberWithMarker(self,
+            number  # int
+            marker  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name.Component
+        Name.Component.fromNumberWithMarker = function(
+            number  # number
+            marker  # number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public static Component fromNumberWithMarker(
+            long number,
+            byte marker
+        )
+
+:Parameters:
+
+    - `number`
+        The number to be encoded.
+
+    - `marker`
+        The marker to use as the first byte of the component.
+
+:Returns:
+
+    The component value.
+
 Name.Component.getValue Method
 ------------------------------
 
@@ -418,7 +475,7 @@ marker and return an integer.
     .. code-block:: javascript
 
         // Returns number
-        Name.Component.prototype.toNumber = function(
+        Name.Component.prototype.toNumberWithMarker = function(
             marker  # number
         )
 
