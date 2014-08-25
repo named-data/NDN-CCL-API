@@ -288,8 +288,9 @@ Check if this is the same component as other.
 Name.Component.fromNumberWithMarker Method
 ------------------------------------------
 
-Create a component whose value is the marker appended with the network-ordered
+Create a component whose value is the marker appended with the nonNegativeInteger
 encoding of the number. This is a static method.
+A nonNegativeInteger is always encoded as 1, 2, 4 or 8 bytes.
 
 :[C++]:
 
