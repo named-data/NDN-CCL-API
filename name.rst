@@ -390,7 +390,9 @@ Append the components of the given name to this name.
 Name.appendSegment Method
 -------------------------
 
-Append a component with the encoded segment number.
+Append a component with the encoded segment number according to NDN naming
+conventions for "Segment number" (marker 0x00).
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
 
 :[C++]:
 
@@ -435,10 +437,165 @@ Append a component with the encoded segment number.
 
     This name so that you can chain calls to append.
 
+Name.appendSegmentOffset Method
+-------------------------------
+
+Append a component with the encoded segment byte offset according to NDN naming
+conventions for segment "Byte offset" (marker 0xFB).
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Name& appendSegmentOffset(
+            uint64_t segmentOffset
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name
+        def appendSegmentOffset(self,
+            segmentOffset  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name
+        Name.prototype.appendSegmentOffset = function(
+            segmentOffset  // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Name appendSegmentOffset(
+            long segmentOffset
+        )
+
+:Parameters:
+
+    - `segmentOffset`
+        The segment byte offset.
+
+:Returns:
+
+    This name so that you can chain calls to append.
+
+Name.appendSequenceNumber Method
+--------------------------------
+
+Append a component with the encoded sequence number according to NDN naming
+conventions for "Sequencing" (marker 0xFE).
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Name& appendSequenceNumber(
+            uint64_t sequenceNumber
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name
+        def appendSequenceNumber(self,
+            sequenceNumber  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name
+        Name.prototype.appendSequenceNumber = function(
+            sequenceNumber  // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Name appendSequenceNumber(
+            long sequenceNumber
+        )
+
+:Parameters:
+
+    - `sequenceNumber`
+        The sequence number.
+
+:Returns:
+
+    This name so that you can chain calls to append.
+
+Name.appendTimestamp Method
+---------------------------
+
+Append a component with the encoded timestamp according to NDN naming
+conventions for "Timestamp" (marker 0xFC).
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Name& appendTimestamp(
+            uint64_t timestamp
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name
+        def appendTimestamp(self,
+            timestamp  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name
+        Name.prototype.appendTimestamp = function(
+            timestamp  // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Name appendTimestamp(
+            long timestamp
+        )
+
+:Parameters:
+
+    - `timestamp`
+        The number of microseconds since the UNIX epoch (Thursday, 1 January
+        1970) not counting leap seconds.
+
+:Returns:
+
+    This name so that you can chain calls to append.
+
 Name.appendVersion Method
 -------------------------
 
-Append a component with the encoded version number. Note that this encodes the exact value of version without converting from a time representation.
+Append a component with the encoded version number according to NDN naming
+conventions for "Versioning" (marker 0xFD).
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
+Note that this encodes the exact value of version without converting from a time
+representation.
 
 :[C++]:
 
