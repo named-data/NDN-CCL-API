@@ -285,6 +285,59 @@ Check if this is the same component as other.
 
     True if the components are not equal, otherwise false.
 
+Name.Component.fromNumber Method
+--------------------------------
+
+Create a component whose value is the nonNegativeInteger encoding of the number.
+A nonNegativeInteger is always encoded as 1, 2, 4 or 8 bytes.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        static Component fromNumber(
+            uint64_t number
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name.Component
+        @staticmethod
+        def fromNumber(self,
+            number  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name.Component
+        Name.Component.fromNumber = function(
+            number  # number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public static Component fromNumber(
+            long number
+        )
+
+:Parameters:
+
+    - `number`
+        The number to be encoded.
+
+    - `marker`
+        The marker to use as the first byte of the component.
+
+:Returns:
+
+    The component value.
+
 Name.Component.fromNumberWithMarker Method
 ------------------------------------------
 
@@ -308,8 +361,8 @@ A nonNegativeInteger is always encoded as 1, 2, 4 or 8 bytes.
         # Returns Name.Component
         @staticmethod
         def fromNumberWithMarker(self,
-            number  # int
-            marker  # int
+            number,  # int
+            marker   # int
         )
 
 :[JavaScript]:
@@ -318,8 +371,8 @@ A nonNegativeInteger is always encoded as 1, 2, 4 or 8 bytes.
 
         // Returns Name.Component
         Name.Component.fromNumberWithMarker = function(
-            number  # number
-            marker  # number
+            number,  # number
+            marker   # number
         )
 
 :[Java]:
@@ -504,8 +557,9 @@ marker and return an integer.
 Name.Component.toSegment Method
 -------------------------------
 
-Interpret this name component as a segment number according to NDN name 
-conventions (a network-ordered number where the first byte is the marker 0x00).
+Interpret this name component as a segment number according to NDN naming
+conventions for "Segment number" (marker 0x00).
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
 
 :[C++]:
 
@@ -541,13 +595,138 @@ conventions (a network-ordered number where the first byte is the marker 0x00).
 
     Throw an exception if the first byte of the component is not the expected marker.
 
+Name.Component.toSegmentOffset Method
+-------------------------------------
+
+Interpret this name component as a segment byte offset according to NDN naming
+conventions for segment "Byte offset" (marker 0xFB).
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
+
+:[C++]:
+
+    .. code-block:: c++
+
+        const uint64_t toSegmentOffset() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns int
+        def toSegmentOffset(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Name.Component.prototype.toSegmentOffset = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final long toSegmentOffset()
+
+:Returns:
+
+    The integer segment byte offset.
+
+:Throw:
+
+    Throw an exception if the first byte of the component is not the expected marker.
+
+Name.Component.toSequenceNumber Method
+--------------------------------------
+
+Interpret this name component as a sequence number according to NDN naming
+conventions for "Sequencing" (marker 0xFE).
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
+
+:[C++]:
+
+    .. code-block:: c++
+
+        const uint64_t toSequenceNumber() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns int
+        def toSequenceNumber(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Name.Component.prototype.toSequenceNumber = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final long toSequenceNumber()
+
+:Returns:
+
+    The integer sequence number.
+
+:Throw:
+
+    Throw an exception if the first byte of the component is not the expected marker.
+
+Name.Component.toTimestamp Method
+---------------------------------
+
+Interpret this name component as a timestamp  according to NDN naming
+conventions for "Timestamp" (marker 0xFC).
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
+
+:[C++]:
+
+    .. code-block:: c++
+
+        const uint64_t toTimestamp() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns int
+        def toTimestamp(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Name.Component.prototype.toTimestamp = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final long toTimestamp()
+
+:Returns:
+
+    The number of microseconds since the UNIX epoch (Thursday, 1 January 1970)
+    not counting leap seconds.
+
+:Throw:
+
+    Throw an exception if the first byte of the component is not the expected marker.
+
 Name.Component.toVersion Method
 -------------------------------
 
-Interpret this name component as a version number according to NDN name 
-conventions (a network-ordered number where the first byte is the marker 
-0xFD).  Note that this returns the exact number from the component
-without converting it to a time representation.
+Interpret this name component as a version number  according to NDN naming
+conventions for "Versioning" (marker 0xFD). Note that this returns
+the exact number from the component without converting it to a time
+representation.
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
 
 :[C++]:
 
