@@ -113,6 +113,25 @@ ChronoSync2013 Class
     and uses it to respond to a "recovery" interest as described in section
     III.F "Handling network partitions".
 
+    When the ChronoSync2013 class sends a sync state message, the content of the
+    data packet needs a way to encode the sync state. So, it uses a Google protocol
+    buffer (https://developers.google.com/protocol-buffers/)
+    encoding using the definition in sync-state.proto
+    (https://github.com/named-data/ndn-cpp/blob/master/src/sync/sync-state.proto)
+    which specifies `applicationDataPrefix` as the name, along with the session
+    number and sequence number. (Note that the
+    :ref:`SyncState <ChronoSync2013.SyncState>` object has the same fields but
+    is defined separately so that the API is not dependent on the specifics of
+    the protocol buffer code.)
+
+    Likewise, the application can define its own message format for the content
+    in the application-specific data packet. So, the ChronoChat example uses a
+    protocol buffer encoding using the definition in chatbuf.proto
+    (https://github.com/named-data/ndn-cpp/blob/master/tests/chatbuf.proto)
+    which specifies a message type of CHAT, HELLO, LEAVE and JOIN, along with
+    details for each message type. The application-specific message is cleanly
+    separated from the core sync state message used by ChronoChat2013.
+
 ChronoSync2013 Constructor
 --------------------------
 
