@@ -94,7 +94,7 @@ Create a new MetaInfo as a deep copy of the given metaInfo.
 MetaInfo Get Methods
 --------------------
 
-MetaInfo.getFinalBlockID Method
+MetaInfo.getFinalBlockId Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Get the final block ID.
@@ -103,27 +103,27 @@ Get the final block ID.
 
     .. code-block:: c++
     
-        const Name::Component& getFinalBlockID() const;
+        const Name::Component& getFinalBlockId() const;
 
 :[Python]:
 
     .. code-block:: python
     
         # Returns Name.Component
-        def getFinalBlockID(self)
+        def getFinalBlockId(self)
 
 :[JavaScript]:
 
     .. code-block:: javascript
 
         // Returns Name.Component
-        MetaInfo.prototype.getFinalBlockID = function()
+        MetaInfo.prototype.getFinalBlockId = function()
 
 :[Java]:
 
     .. code-block:: java
     
-        public final Name.Component getFinalBlockID()
+        public final Name.Component getFinalBlockId()
 
 :Returns:
 
@@ -209,7 +209,7 @@ Get the content type.
 MetaInfo Set Methods
 --------------------
 
-MetaInfo.setFinalBlockID Method
+MetaInfo.setFinalBlockId Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Set the final block ID.
@@ -218,37 +218,37 @@ Set the final block ID.
 
     .. code-block:: c++
 
-        void setFinalBlockID(
-            const Name::Component& finalBlockID
+        void setFinalBlockId(
+            const Name::Component& finalBlockId
         );
 
 :[Python]:
 
     .. code-block:: python
     
-        def setFinalBlockID(self,
-            finalBlockID  # Name.Component
+        def setFinalBlockId(self,
+            finalBlockId  # Name.Component
         )
 
 :[JavaScript]:
 
     .. code-block:: javascript
 
-        MetaInfo.prototype.setFinalBlockID = function(
-            finalBlockID  // Name.Component
+        MetaInfo.prototype.setFinalBlockId = function(
+            finalBlockId  // Name.Component
         )
 
 :[Java]:
 
     .. code-block:: java
     
-        public final void setFinalBlockID(
-            Name.Component finalBlockID
+        public final void setFinalBlockId(
+            Name.Component finalBlockId
         )
 
 :Parameters:
 
-    - `finalBlockID`
+    - `finalBlockId`
         The final block ID as a Name.Component.  If not specified, set to a new 
         default Name.Component(), or to a Name.Component where getValue().size()
         is 0.
