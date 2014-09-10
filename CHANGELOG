@@ -1,0 +1,11 @@
+Interim changes since NDN-CCL-API v0.3 (2014-09-10)
+---------------------------------------------------
+
+Changes
+* In MetaInfo, renamed get/setFinalBlockID to get/setFinalBlockId.
+  (Deprecated get/setFinalBlockID in the client libraries.)
+
+NDN-CCL-API v0.3 (2014-08-28)
+-----------------------------
+
+This is the initial tagged release for the NDN Platform version 0.3.
