@@ -56,6 +56,15 @@ MemoryContentCache Constructor
                 [, cleanupIntervalMilliseconds  // number]
             )
 
+    :[Java]:
+
+        .. code-block:: java
+
+            public MemoryContentCache(
+                Face face
+                [, double cleanupIntervalMilliseconds]
+            )
+
     :Parameters:
 
         - `face`
@@ -109,6 +118,14 @@ MemoryContentCache.add Method
 
             MemoryContentCache.prototype.add = function(
                 data  // Data
+            )
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final void add(
+                Data data
             )
 
     :Parameters:
@@ -165,6 +182,17 @@ MemoryContentCache.registerPrefix Method
                 onRegisterFailed   // function
                 [, onDataNotFound  // function]
                 [, flags           // ForwardingFlags]
+            )
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final void registerPrefix(
+                Name prefix,
+                OnRegisterFailed onRegisterFailed
+                [, OnInterest onDataNotFound]
+                [, ForwardingFlags flags]
             )
 
     :Parameters:
