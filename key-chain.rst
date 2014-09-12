@@ -345,6 +345,16 @@ KeyChain.verifyInterest Method
                 onVerifyFailed  # function object
             )
 
+    :[Java]:
+
+        .. code-block:: java
+
+            public final void verifyInterest(
+                Interest interest,
+                OnVerifiedInterest onVerified,
+                OnVerifyInterestFailed onVerifyFailed
+            )
+
     :Parameters:
 
         - `interest`

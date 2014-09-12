@@ -1,10 +1,11 @@
-Interim changes since NDN-CCL-API v0.3 (2014-09-10)
+Interim changes since NDN-CCL-API v0.3 (2014-09-12)
 ---------------------------------------------------
 
 Changes
 * In MetaInfo, renamed get/setFinalBlockID to get/setFinalBlockId.
   (Deprecated get/setFinalBlockID in the client libraries.)
-* In MemoryContentCache: Added Java API.
+* In MemoryContentCache, added Java API.
+* In KeyChain.verifyInterest, added Java API.
 
 NDN-CCL-API v0.3 (2014-08-28)
 -----------------------------
