@@ -7,6 +7,9 @@ Changes
 * In MemoryContentCache, added Java API.
 * In KeyChain.verifyInterest, added Java API.
 
+Bug fixes
+* In the install instructions, added pip install sphinxcontrib-fulltoc.
+
 NDN-CCL-API v0.3 (2014-08-28)
 -----------------------------
 

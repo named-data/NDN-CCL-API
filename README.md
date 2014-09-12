@@ -1,36 +1,33 @@
 Prerequisites
 =============
 
-To "compile" documentation into html form you would need to install Sphinx documentation package, which should be relatively trivial.
+To "compile" documentation into html you need the Sphinx documentation package.
 
-If you're on OSX platform:
+## If you're on OS X:
 
-- If you have macports, then
+    sudo easy_install pip
+    sudo pip install sphinx
+    sudo pip install sphinxcontrib-fulltoc
 
-    sudo port install py27-sphinx
-    sudo port selectsphinx py27-sphinx
+## If you're on Ubuntu Linux:
 
-- Install from source: http://sphinx-doc.org/install.html
-
-- Install from .pkg binary package: http://named-data.net/binaries/sphinx-doc-0.2.pkg
-
-If you're on Ubuntu Linux:
-
-    sudo apt-get install python-sphinx
+    sudo apt-get install python-pip
+    sudo pip install sphinx
+    sudo pip install sphinxcontrib-fulltoc
 
 Compilation
 ===========
 
-Just type
+In a terminal, enter:
 
     make html
 
-And a set of HTML pages will be build under ``_build/html``
+And a set of HTML pages will be built under ``_build/html``
 
 
-You can also type
+If you have Latex installed, in a terminal you can also enter:
 
     make latexpdf
 
-This way Sphinx will prepare .tex file and will try to build .pdf document.
+This way Sphinx will prepare a .tex file and a .pdf document under ``_build/latex``.
 
