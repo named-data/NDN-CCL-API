@@ -1110,7 +1110,7 @@ Encode this Interest to a wire format.
 
     .. code-block:: python
 
-        # Returns Blob
+        # Returns SignedBlob
         def wireEncode()
 
 :[JavaScript]:
