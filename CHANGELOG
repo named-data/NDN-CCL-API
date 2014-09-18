@@ -1,4 +1,4 @@
-Interim changes since NDN-CCL-API v0.3 (2014-09-12)
+Interim changes since NDN-CCL-API v0.3 (2014-09-18)
 ---------------------------------------------------
 
 Changes
@@ -6,6 +6,7 @@ Changes
   (Deprecated get/setFinalBlockID in the client libraries.)
 * In MemoryContentCache, added Java API.
 * In KeyChain.verifyInterest, added Java API.
+* In Java Name.Component toNumberWithMarker and fromNumberWithMarker, pass the marker as int, not byte.
 
 Bug fixes
 * In the install instructions, added pip install sphinxcontrib-fulltoc.

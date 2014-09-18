@@ -331,9 +331,6 @@ A nonNegativeInteger is always encoded as 1, 2, 4 or 8 bytes.
     - `number`
         The number to be encoded.
 
-    - `marker`
-        The marker to use as the first byte of the component.
-
 :Returns:
 
     The component value.
@@ -381,7 +378,7 @@ A nonNegativeInteger is always encoded as 1, 2, 4 or 8 bytes.
 
         public static Component fromNumberWithMarker(
             long number,
-            byte marker
+            int marker
         )
 
 :Parameters:
@@ -538,7 +535,7 @@ marker and return an integer.
     .. code-block:: java
     
         public final long toNumberWithMarker(
-            byte marker
+            int marker
         )
 
 :Parameters:
