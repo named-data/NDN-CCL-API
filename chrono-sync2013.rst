@@ -16,6 +16,9 @@ ChronoSync2013 Class
         | ``#include <ndn-cpp/sync/chrono-sync2013.hpp>``
         | Namespace: ``ndn``
 
+    :[Java]:
+        Package: ``net.named_data.jndn.sync``
+
     As in [ChronoSync2013], we describe the ChronoSync protocol using
     the example of ChronoChat, a chat application.
 
@@ -163,6 +166,23 @@ ChronoSync2013 Constructor
                 const OnRegisterFailed& onRegisterFailed
             );
 
+    :[Java]:
+
+        .. code-block:: java
+
+            public ChronoSync2013(
+                OnReceivedSyncState onReceivedSyncState,
+                OnInitialized onInitialized,
+                Name applicationDataPrefix,
+                Name applicationBroadcastPrefix,
+                long sessionNo,
+                Face face,
+                KeyChain keyChain,
+                Name certificateName,
+                double syncLifetime,
+                OnRegisterFailed onRegisterFailed
+            )
+
     :Parameters:
 
         - `onReceivedSyncState`
@@ -241,6 +261,15 @@ ChronoSync2013.getProducerSequenceNo Method
                 int sessionNo
             );
 
+    :[Java]:
+
+        .. code-block:: java
+
+            public final long getProducerSequenceNo(
+                String dataPrefix,
+                long sessionNo
+            )
+
     :Parameters:
 
         - `dataPrefix`
@@ -273,6 +302,12 @@ ChronoSync2013.getSequenceNo Method
         .. code-block:: c++
 
             int getSequenceNo();
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final long getSequenceNo()
 
     :Returns:
 
@@ -311,6 +346,12 @@ ChronoSync2013.publishNextSequenceNo Method
 
             void publishNextSequenceNo();
 
+    :[Java]:
+
+        .. code-block:: java
+
+            public final void publishNextSequenceNo()
+
 .. _ChronoSync2013.SyncState:
 
 ChronoSync2013.SyncState Class
@@ -329,6 +370,9 @@ ChronoSync2013.SyncState Class
         | ``#include <ndn-cpp/sync/chrono-sync2013.hpp>``
         | Namespace: ``ndn``
 
+    :[Java]:
+        Package: ``net.named_data.jndn.sync``
+
 ChronoSync2013.SyncState.getDataPrefix Method
 ---------------------------------------------
 
@@ -345,6 +389,12 @@ ChronoSync2013.SyncState.getDataPrefix Method
         .. code-block:: c++
 
             const std::string& getDataPrefix() const;
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final String getDataPrefix()
 
     :Returns:
 
@@ -367,6 +417,12 @@ ChronoSync2013.SyncState.getSequenceNo Method
 
             const std::string& getSequenceNo() const;
 
+    :[Java]:
+
+        .. code-block:: java
+
+            public final long getSequenceNo()
+
     :Returns:
 
         The sequence number.
@@ -388,6 +444,12 @@ ChronoSync2013.SyncState.getSessionNo Method
         .. code-block:: c++
 
             const std::string& getSessionNo() const;
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final long getSessionNo()
 
     :Returns:
 
