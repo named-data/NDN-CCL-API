@@ -18,6 +18,9 @@ MemoryContentCache Class
     :[Python]:
         Module: ``pyndn.util.memory_content_cache``
 
+    :[Java]:
+        Package: ``net.named_data.jndn.util``
+
 MemoryContentCache Constructor
 ------------------------------
 
