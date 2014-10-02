@@ -7,6 +7,7 @@ Changes
 * In MemoryContentCache, added Java API.
 * In KeyChain.verifyInterest, added Java API.
 * In Java Name.Component toNumberWithMarker and fromNumberWithMarker, pass the marker as int, not byte.
+* In Name.getSubName, allow a negative value for iStartComponent.
 
 Bug fixes
 * In the install instructions, added pip install sphinxcontrib-fulltoc.
