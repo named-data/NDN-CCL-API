@@ -945,7 +945,7 @@ Get a new name, constructed as a subset of components.
     .. code-block:: c++
     
         Name getSubName(
-            size_t iStartComponent
+            int iStartComponent
             [, size_t nComponents]
         ) const;
 
@@ -956,7 +956,7 @@ Get a new name, constructed as a subset of components.
         # Returns Name
         def getSubName(self, 
             iStartComponent  # int
-            [, nComponents  # int]
+            [, nComponents   # int]
         )
 
 :[JavaScript]:
@@ -966,7 +966,7 @@ Get a new name, constructed as a subset of components.
         // Returns Name
         Name.prototype.getSubName = function(
             iStartComponent  // number
-            [, nComponents  // int]
+            [, nComponents   // int]
         )
 
 :[Java]:
@@ -981,7 +981,7 @@ Get a new name, constructed as a subset of components.
 :Parameters:
 
     - `iStartComponent`
-        The index if the first component to get.
+        The index if the first component to get. If iStartComponent is -N then return return components starting from name.size() - N.
 
     - `nComponents`
         (optional) The number of components starting at iStartComponent. If omitted, return components until the end of the name.
