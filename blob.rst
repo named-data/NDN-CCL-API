@@ -252,6 +252,54 @@ array.  If you need to change it, make a copy.
 
     A pointer to the immutable byte array. If the pointer to the array is null, return null.
 
+Blob.equals Method
+------------------
+
+Check if the value of this Blob equals the other blob.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        bool equals(
+            const Blob& other
+        ) const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns bool.
+        def equals(self,
+            other  # Blob
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Blob.prototype.equals = function(
+            other  // Blob
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final boolean equals(
+            Blob other
+        )
+
+:Parameters:
+
+    - `other`
+        The other Blob to check.
+
+:Returns:
+
+    True if this isNull and other isNull or if the bytes of this blob equal the bytes of the other.
+
 .. _isNull:
 
 Blob.isNull Method
