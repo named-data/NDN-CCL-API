@@ -345,6 +345,16 @@ KeyChain.verifyInterest Method
                 onVerifyFailed  # function object
             )
 
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            KeyChain.prototype.verifyInterest = function(
+                interest,       // Interest
+                onVerified,     // function object
+                onVerifyFailed  // function object
+            )
+
     :[Java]:
 
         .. code-block:: java
