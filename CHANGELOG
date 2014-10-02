@@ -1,11 +1,11 @@
-Interim changes since NDN-CCL-API v0.3 (2014-09-18)
+Interim changes since NDN-CCL-API v0.3 (2014-10-02)
 ---------------------------------------------------
 
 Changes
 * In MetaInfo, renamed get/setFinalBlockID to get/setFinalBlockId.
   (Deprecated get/setFinalBlockID in the client libraries.)
 * In MemoryContentCache, added Java API.
-* In KeyChain.verifyInterest, added Java API.
+* In KeyChain.verifyInterest, added JavaScript and Java API.
 * In Java Name.Component toNumberWithMarker and fromNumberWithMarker, pass the marker as int, not byte.
 * In Name.getSubName, allow a negative value for iStartComponent.
 
