@@ -88,7 +88,7 @@ Create a UdpTransport which extends the Transport interface to implement communi
 
     .. code-block:: java
 
-        public TcpTransport()
+        public UdpTransport()
 
 UdpTransport.send Method
 ------------------------
