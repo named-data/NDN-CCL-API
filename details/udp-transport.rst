@@ -10,6 +10,9 @@ A UdpTransport::ConnectionInfo extends Transport::ConnectionInfo to hold the hos
 :[Python]:
     Module: ``pyndn.transport``
 
+:[Java]:
+    Package: ``net.named_data.jndn.transport``
+
 UdpTransport.ConnectionInfo Constructor
 ---------------------------------------
 
@@ -32,6 +35,15 @@ Create a UdpTransport.ConnectionInfo with the given host and port.
             host     # str
             [, port  # int])
 
+:[Java]:
+
+    .. code-block:: java
+
+        public ConnectionInfo(
+            String host
+            [, int port]
+        )
+
 :Parameters:
 
     - `host`
@@ -52,6 +64,9 @@ UdpTransport Class
 :[Python]:
     Module: ``pyndn.transport``
 
+:[Java]:
+    Package: ``net.named_data.jndn.transport``
+
 UdpTransport Constructor
 ------------------------
 
@@ -68,6 +83,12 @@ Create a UdpTransport which extends the Transport interface to implement communi
     .. code-block:: python
 
         def __init__(self)
+
+:[Java]:
+
+    .. code-block:: java
+
+        public TcpTransport()
 
 UdpTransport.send Method
 ------------------------
@@ -94,6 +115,14 @@ a previous call to Face.expressInterest or Face.registerPrefix.
 
         def send(self,
             data  # an array type accepted by socket.send
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public void send(
+            ByteBuffer data
         )
 
 :Parameters:

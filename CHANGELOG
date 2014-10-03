@@ -1,4 +1,4 @@
-Interim changes since NDN-CCL-API v0.3 (2014-10-02)
+Interim changes since NDN-CCL-API v0.3 (2014-10-03)
 ---------------------------------------------------
 
 Changes
@@ -8,6 +8,7 @@ Changes
 * In KeyChain.verifyInterest, added JavaScript and Java API.
 * In Java Name.Component toNumberWithMarker and fromNumberWithMarker, pass the marker as int, not byte.
 * In Name.getSubName, allow a negative value for iStartComponent.
+* In UdpTransport, added Java API.
 
 Bug fixes
 * In the install instructions, added pip install sphinxcontrib-fulltoc.
