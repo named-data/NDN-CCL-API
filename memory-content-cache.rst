@@ -80,7 +80,7 @@ MemoryContentCache Constructor
             effectively the stale content will not be removed from the cache.
 
 MemoryContentCache.add Method
-----------------------------------------
+-----------------------------
 
 .. container:: experimental
 
@@ -218,3 +218,46 @@ MemoryContentCache.registerPrefix Method
         - `flags`
             (optional) The flags for finer control of how and which Interests should be forwarded towards the face.
             If omitted, use the default flags defined by the default :ref:`ForwardingFlags <ForwardingFlags>` constructor.
+
+MemoryContentCache.unregisterAll Method
+---------------------------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The MemoryContentCache is experimental and the API is not finalized.
+
+    Call Face.removeRegisteredPrefix for all the prefixes given to the
+    registerPrefix method on this MemoryContentCache object so that it will not
+    receive interests any more. You can call this if you want to "shut down"
+    this MemoryContentCache while your application is still running.
+
+    .. note::
+
+        [except JavaScript] Your application should call this on the same thread
+        that calls processEvents.
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            void unregisterAll();
+
+    :[Python]:
+
+        .. code-block:: python
+
+            def unregisterAll(self)
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            MemoryContentCache.prototype.unregisterAll = function()
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final unregisterAll()
