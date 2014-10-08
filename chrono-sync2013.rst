@@ -166,6 +166,23 @@ ChronoSync2013 Constructor
                 const OnRegisterFailed& onRegisterFailed
             );
 
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            var ChronoSync2013 = function ChronoSync2013(
+                onReceivedSyncState,         // function
+                onInitialized,               // function
+                applicationDataPrefix,       // Name
+                applicationBroadcastPrefix,  // Name
+                sessionNo,                   // number
+                face,                        // Face
+                keyChain,                    // KeyChain
+                certificateName,             // Name
+                syncLifetime,                // number
+                onRegisterFailed             // function
+            )
+
     :[Java]:
 
         .. code-block:: java
@@ -261,6 +278,16 @@ ChronoSync2013.getProducerSequenceNo Method
                 int sessionNo
             );
 
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            // Returns number
+            ChronoSync2013.prototype.getProducerSequenceNo = function(
+                dataPrefix,  // string
+                sessionNo    // number
+            )
+
     :[Java]:
 
         .. code-block:: java
@@ -302,6 +329,13 @@ ChronoSync2013.getSequenceNo Method
         .. code-block:: c++
 
             int getSequenceNo();
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            // Returns number
+            ChronoSync2013.prototype.getSequenceNo = function()
 
     :[Java]:
 
@@ -345,6 +379,13 @@ ChronoSync2013.publishNextSequenceNo Method
         .. code-block:: c++
 
             void publishNextSequenceNo();
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            // Returns number
+            ChronoSync2013.prototype.publishNextSequenceNo = function()
 
     :[Java]:
 
@@ -390,6 +431,13 @@ ChronoSync2013.SyncState.getDataPrefix Method
 
             const std::string& getDataPrefix() const;
 
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            // Returns string
+            ChronoSync2013.prototype.getDataPrefix = function()
+
     :[Java]:
 
         .. code-block:: java
@@ -415,7 +463,14 @@ ChronoSync2013.SyncState.getSequenceNo Method
 
         .. code-block:: c++
 
-            const std::string& getSequenceNo() const;
+            int getSequenceNo() const;
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            // Returns number
+            ChronoSync2013.prototype.getSequenceNo = function()
 
     :[Java]:
 
@@ -443,7 +498,14 @@ ChronoSync2013.SyncState.getSessionNo Method
 
         .. code-block:: c++
 
-            const std::string& getSessionNo() const;
+            int getSessionNo() const;
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            // Returns number
+            ChronoSync2013.prototype.getSessionNo = function()
 
     :[Java]:
 

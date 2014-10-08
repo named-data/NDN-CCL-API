@@ -7,6 +7,7 @@ Changes
 * In MemoryContentCache, added Java API.
 * In MemoryContentCache, added unregisterAll.
 * In KeyChain.verifyInterest, added JavaScript and Java API.
+* In ChronoSync2013, added JavaScript API.
 * In Java Name.Component toNumberWithMarker and fromNumberWithMarker, pass the marker as int, not byte.
 * In Name.getSubName, allow a negative value for iStartComponent.
 * In UdpTransport, added Java API.
