@@ -4,6 +4,14 @@
 #}
 {% extends "basic/layout.html" %}
 
+{#
+    Additional Script and CSS files for the language support feature
+    where the users can select to view APIs in a preferred language
+    (e.g. C++, Python, Java, Javascript, All Languages).
+#}
+{% set script_files = script_files + ["_static/jquery.cookie.js", "_static/language_filter.js"] %}
+{% set css_files = css_files + ["_static/language_filter.css"] %}
+
 {% block header %}
     <!--headercontainer-->
     <div id="header_container">
