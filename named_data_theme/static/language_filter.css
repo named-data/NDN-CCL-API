@@ -1,0 +1,35 @@
+/**
+ * Supporting CSS for the API Language Selection header bar.
+ *
+ */
+#language-select-text {
+    display: inline;
+    margin: 0px;
+    padding: 0px;
+}
+#language-list {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    display: inline;
+}
+#language-list li {
+    display: inline;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+#language-list li:hover {
+    cursor: pointer;
+}
+#language-settings {
+    padding: 0px;
+    padding-top: 38px;
+    display: none;
+}
+.language-active {
+    background: #cc5c00;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+}
+
