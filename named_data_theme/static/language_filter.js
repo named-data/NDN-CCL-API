@@ -24,7 +24,8 @@ function display_language(selected_language) {
     $("th.field-name").each(function(){
         // Display 'Parameters:' for each section as parameters
         // is also in the "th.field-name" CSS class
-        if ($(this).text() === 'Parameters:') {
+        var current_text = $(this).text();
+        if (current_text === 'Parameters:' || current_text === 'Returns:') {
             return;
         }
 
