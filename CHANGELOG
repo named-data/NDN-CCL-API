@@ -1,7 +1,8 @@
-Interim changes since NDN-CCL-API v0.3 (2014-10-06)
+Interim changes since NDN-CCL-API v0.3 (2014-10-14)
 ---------------------------------------------------
 
 Changes
+* Added a language selector at the top of each page. Thanks to Ivan Yeo! https://github.com/ivanyeo
 * In MetaInfo, renamed get/setFinalBlockID to get/setFinalBlockId.
   (Deprecated get/setFinalBlockID in the client libraries.)
 * In MemoryContentCache, added Java API.
