@@ -22,6 +22,12 @@ function contains_ignorecase(haystack, needle) {
 // Display the APIs for the selected language; hides the other languages
 function display_language(selected_language) {
     $("th.field-name").each(function(){
+        // Display 'Parameters:' for each section as parameters
+        // is also in the "th.field-name" CSS class
+        if ($(this).text() === 'Parameters:') {
+            return;
+        }
+
         // Get field's language
         var field_language = $(this).text();
 
