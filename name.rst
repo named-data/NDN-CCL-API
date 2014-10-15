@@ -1154,3 +1154,131 @@ http://named-data.net/doc/0.1/technical/URI.html
 :Returns:
 
     The escaped name string according to the NDN URI Scheme.
+
+Name.wireDecode Methods
+---------------------------
+
+Name.wireDecode Method (from Blob)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Decode the input from wire format and update this Name.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void wireDecode(
+            const Blob& input
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def wireDecode(self,
+            input  # Blob
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Name.prototype.wireDecode = function(
+            input  // Blob
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final void wireDecode(
+            Blob content
+        )
+
+:Parameters:
+
+    - `input`
+        The immutable input byte array to be decoded.
+
+Name.wireDecode Method (from byte array)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Decode the input from wire format and update this Name.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void wireDecode(
+            const std::vector<uint8_t>& input
+        );
+
+        void wireDecode(
+            const uint8_t *input,
+            size_t inputLength
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def wireDecode(self,
+            input  # an array type with int elements
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Name.prototype.wireDecode = function(
+            input  // Buffer
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final void wireDecode(
+            ByteBuffer input
+        )
+
+:Parameters:
+
+    - `input`
+	The input byte array to be decoded.
+
+
+Name.wireEncode Method
+--------------------------
+
+Encode this Name to a wire format.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Blob wireEncode() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Blob
+        def wireEncode()
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Blob
+        Name.prototype.wireEncode = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Blob wireEncode()
+
+:Returns:
+
+    The encoded byte array as a Blob.

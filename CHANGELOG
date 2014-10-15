@@ -1,4 +1,4 @@
-Interim changes since NDN-CCL-API v0.3 (2014-10-14)
+Interim changes since NDN-CCL-API v0.3 (2014-10-15)
 ---------------------------------------------------
 
 Changes
@@ -11,6 +11,7 @@ Changes
 * In ChronoSync2013, added JavaScript API.
 * In Java Name.Component toNumberWithMarker and fromNumberWithMarker, pass the marker as int, not byte.
 * In Name.getSubName, allow a negative value for iStartComponent.
+* In Name, added wireEncode and wireDecode.
 * In UdpTransport, added Java API.
 
 Bug fixes
