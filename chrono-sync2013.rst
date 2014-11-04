@@ -391,7 +391,6 @@ ChronoSync2013.publishNextSequenceNo Method
 
         .. code-block:: javascript
 
-            // Returns number
             ChronoSync2013.prototype.publishNextSequenceNo = function()
 
     :[Java]:
@@ -399,6 +398,46 @@ ChronoSync2013.publishNextSequenceNo Method
         .. code-block:: java
 
             public final void publishNextSequenceNo()
+
+ChronoSync2013.shutdown Method
+------------------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The support for ChronoSync is experimental and the API is not finalized.
+
+    Unregister callbacks so that this does not respond to interests anymore.
+    If you will dispose this ChronoSync2013 object while your application is
+    still running, you should call shutdown() first.  After calling this, you
+    should not call publishNextSequenceNo() again since the behavior will be
+    undefined.
+
+    .. note::
+
+        [except JavaScript] Because this modifies internal ChronoSync data
+        structures, your application should make sure that it calls
+        processEvents in the same thread as shutdown() (which also modifies the
+        data structures).
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            void shutdown();
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            ChronoSync2013.prototype.shutdown = function()
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final void shutdown()
 
 .. _ChronoSync2013.SyncState:
 
