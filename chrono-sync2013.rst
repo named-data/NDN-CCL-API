@@ -149,6 +149,13 @@ ChronoSync2013 Constructor
     applicationBroadcastPrefix to receive interests for sync state messages and
     express an interest for the initial root digest "00".
 
+    .. note::
+
+        [except JavaScript] Your application must call :ref:`processEvents <processEvents>`.
+        Since processEvents modifies the internal ChronoSync data structures, your
+        application should make sure that it calls processEvents in the same
+        thread as this constructor (which also modifies the data structures).
+
     :[C++]:
 
         .. code-block:: c++
