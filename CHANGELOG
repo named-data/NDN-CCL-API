@@ -1,4 +1,4 @@
-Interim changes since NDN-CCL-API v0.3 (2014-10-15)
+Interim changes since NDN-CCL-API v0.3 (2014-11-21)
 ---------------------------------------------------
 
 Changes
@@ -8,7 +8,7 @@ Changes
 * In MemoryContentCache, added Java API.
 * In MemoryContentCache, added unregisterAll.
 * In KeyChain.verifyInterest, added JavaScript and Java API.
-* In ChronoSync2013, added JavaScript API.
+* In ChronoSync2013, added Python and JavaScript APIs.
 * In Java Name.Component toNumberWithMarker and fromNumberWithMarker, pass the marker as int, not byte.
 * In Name.getSubName, allow a negative value for iStartComponent.
 * In Name, added wireEncode and wireDecode.

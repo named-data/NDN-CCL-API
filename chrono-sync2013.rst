@@ -16,6 +16,9 @@ ChronoSync2013 Class
         | ``#include <ndn-cpp/sync/chrono-sync2013.hpp>``
         | Namespace: ``ndn``
 
+    :[Python]:
+        Module: ``pyndn.sync``
+
     :[Java]:
         Package: ``net.named_data.jndn.sync``
 
@@ -173,6 +176,23 @@ ChronoSync2013 Constructor
                 const OnRegisterFailed& onRegisterFailed
             );
 
+    :[Python]:
+
+        .. code-block:: python
+
+            def __init__(self
+                onReceivedSyncState,         # function object
+                onInitialized,               # function object
+                applicationDataPrefix,       # Name
+                applicationBroadcastPrefix,  # Name
+                sessionNo,                   # int
+                face,                        # Face
+                keyChain,                    # KeyChain
+                certificateName,             # Name
+                syncLifetime,                # float
+                onRegisterFailed             # function object
+            )
+
     :[JavaScript]:
 
         .. code-block:: javascript
@@ -285,6 +305,16 @@ ChronoSync2013.getProducerSequenceNo Method
                 int sessionNo
             );
 
+    :[Python]:
+
+        .. code-block:: python
+
+            # Returns int
+            def getProducerSequenceNo(self,
+                dataPrefix,  # str
+                sessionNo    # int
+            )
+
     :[JavaScript]:
 
         .. code-block:: javascript
@@ -337,6 +367,13 @@ ChronoSync2013.getSequenceNo Method
 
             int getSequenceNo();
 
+    :[Python]:
+
+        .. code-block:: python
+
+            # Returns int
+            def getSequenceNo(self)
+
     :[JavaScript]:
 
         .. code-block:: javascript
@@ -387,6 +424,12 @@ ChronoSync2013.publishNextSequenceNo Method
 
             void publishNextSequenceNo();
 
+    :[Python]:
+
+        .. code-block:: python
+
+            def publishNextSequenceNo(self)
+
     :[JavaScript]:
 
         .. code-block:: javascript
@@ -427,6 +470,12 @@ ChronoSync2013.shutdown Method
 
             void shutdown();
 
+    :[Python]:
+
+        .. code-block:: python
+
+            def shutdown(self)
+
     :[JavaScript]:
 
         .. code-block:: javascript
@@ -457,6 +506,9 @@ ChronoSync2013.SyncState Class
         | ``#include <ndn-cpp/sync/chrono-sync2013.hpp>``
         | Namespace: ``ndn``
 
+    :[Python]:
+        Module: ``pyndn.sync``
+
     :[Java]:
         Package: ``net.named_data.jndn.sync``
 
@@ -476,6 +528,13 @@ ChronoSync2013.SyncState.getDataPrefix Method
         .. code-block:: c++
 
             const std::string& getDataPrefix() const;
+
+    :[Python]:
+
+        .. code-block:: python
+
+            # Returns str
+            def getDataPrefix(self)
 
     :[JavaScript]:
 
@@ -511,6 +570,13 @@ ChronoSync2013.SyncState.getSequenceNo Method
 
             int getSequenceNo() const;
 
+    :[Python]:
+
+        .. code-block:: python
+
+            # Returns int
+            def getSequenceNo(self)
+
     :[JavaScript]:
 
         .. code-block:: javascript
@@ -545,6 +611,13 @@ ChronoSync2013.SyncState.getSessionNo Method
         .. code-block:: c++
 
             int getSessionNo() const;
+
+    :[Python]:
+
+        .. code-block:: python
+
+            # Returns int
+            def getSequenceNo(self)
 
     :[JavaScript]:
 
