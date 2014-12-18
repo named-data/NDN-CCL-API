@@ -3,7 +3,7 @@
 Signature Class
 ===============
 
-A Signature is an abstract base class providing methods to work with the signature information in a Data packet. You must create an object of a subclass, for example Sha256WithRsaSignature.
+A Signature is an abstract base class providing methods to work with the signature information in an interest or data packet. You must create an object of a subclass, for example Sha256WithRsaSignature.
 
 :[C++]:
     | ``#include <ndn-cpp/signature.hpp>``
@@ -55,7 +55,7 @@ An new object of a subclass of Signature which is a clone of this object.
 Sha256WithRsaSignature Class
 ============================
 
-A Sha256WithRsaSignature extends Signature and holds the signature bits and other info representing a SHA256-with-RSA signature in a data packet.
+A Sha256WithRsaSignature extends Signature and holds the signature bits and other info representing a SHA256-with-RSA signature in an interest or data packet.
 
 :[C++]:
     | ``#include <ndn-cpp/sha256-with-rsa-signature.hpp>``
@@ -303,3 +303,168 @@ Return a pointer to a new Sha256WithRsaSignature which is a copy of this signatu
 :Returns:
 
     A new Sha256WithRsaSignature object.
+
+.. _Sha256WithEcdsaSignature:
+
+Sha256WithEcdsaSignature Class
+==============================
+
+A Sha256WithEcdsaSignature extends Signature and holds the signature bits and other info representing a SHA256-with-ECDSA signature in an interest or data packet.
+
+:[C++]:
+    | ``#include <ndn-cpp/sha256-with-ecdsa-signature.hpp>``
+    | Namespace: ``ndn``
+
+:[Java]:
+    Package: ``net.named_data.jndn``
+
+Sha256WithEcdsaSignature Constructor
+------------------------------------
+
+Create a new Sha256WithEcdsaSignature object.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Sha256WithEcdsaSignature();
+
+:[Java]:
+
+    .. code-block:: java
+
+        public Sha256WithEcdsaSignature()
+
+Sha256WithEcdsaSignature Get Methods
+------------------------------------
+
+Sha256WithEcdsaSignature.getKeyLocator Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the signature :ref:`KeyLocator <KeyLocator>` object.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        KeyLocator& getKeyLocator();
+
+        const KeyLocator& getKeyLocator() const;
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final KeyLocator getKeyLocator()
+
+:Returns:
+
+    The :ref:`KeyLocator <KeyLocator>` object. If not specified, the
+    key locator getType() is not specified.
+
+Sha256WithEcdsaSignature.getSignature Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the signature bytes.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        const Blob& getSignature() const;
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Blob getSignature()
+
+:Returns:
+
+    The signature bytes. If not specified, the value :ref:`isNull() <isNull>`.
+
+Sha256WithEcdsaSignature Set Methods
+------------------------------------
+
+Sha256WithEcdsaSignature.setKeyLocator Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set this signature object to use a copy of the given :ref:`KeyLocator <KeyLocator>` object.
+
+.. note::
+
+    You can also call getKeyLocator and change the key locator directly.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setKeyLocator(
+            const KeyLocator& keyLocator
+        );
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final void setKeyLocator(
+            KeyLocator keyLocator
+        )
+
+:Parameters:
+
+    - `keyLocator`
+        The :ref:`KeyLocator <KeyLocator>` object. This makes a copy of the object.
+        If no key locator is specified, set to a new default KeyLocator(), or to a
+        KeyLocator with an unspecified type.
+
+Sha256WithEcdsaSignature.setSignature Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set the signature bytes to the given value.
+
+.. note::
+
+    Normally you do not set the signature bytes directly, but instead use :ref:`KeyChain.sign <KeyChain.sign>`.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setSignature(
+            const Blob& signature
+        );
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final void setSignature(
+            Blob signature
+        )
+
+:Parameters:
+
+    - `signature`
+        A Blob with the signature bytes.
+
+Sha256WithEcdsaSignature.clone Method
+-------------------------------------
+
+Return a pointer to a new Sha256WithEcdsaSignature which is a copy of this signature.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        virtual ptr_lib::shared_ptr<Signature> clone() const;
+
+:[Java]:
+
+    .. code-block:: java
+
+        public Object clone()
+
+:Returns:
+
+    A new Sha256WithEcdsaSignature object.
