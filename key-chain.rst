@@ -250,6 +250,11 @@ KeyChain.sign (Interest) Method
         - `certificateName`
             The certificate name of the key to use for signing.
 
+.. _KeyChain.signWithSha256:
+
+KeyChain.signWithSha256 Methods
+-------------------------------
+
 KeyChain.signWithSha256 (Data) Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
