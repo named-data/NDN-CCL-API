@@ -50,6 +50,176 @@ Return a pointer to a new Signature which is a copy of this signature. This is a
 
 An new object of a subclass of Signature which is a clone of this object.
 
+.. _DigestSha256Signature:
+
+DigestSha256Signature Class
+===========================
+
+A DigestSha256Signature extends Signature and holds the signature bits (which
+are only the SHA256 digest) and an empty SignatureInfo for a data packet or
+signed interest.
+
+:[C++]:
+    | ``#include <ndn-cpp/digest-sha256-signature.hpp>``
+    | Namespace: ``ndn``
+
+:[Python]:
+    Module: ``pyndn``
+
+:[Java]:
+    Package: ``net.named_data.jndn``
+
+DigestSha256Signature Constructor
+---------------------------------
+
+Create a new DigestSha256Signature object.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        DigestSha256Signature();
+
+:[Python]:
+
+    .. code-block:: python
+
+        def __init__(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        var DigestSha256Signature = function DigestSha256Signature()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public DigestSha256Signature()
+
+DigestSha256Signature Get Methods
+---------------------------------
+
+DigestSha256Signature.getSignature Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the signature bytes (which are only the digest).
+
+:[C++]:
+
+    .. code-block:: c++
+
+        const Blob& getSignature() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Blob
+        def getSignature(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Blob
+        DigestSha256Signature.prototype.getSignature = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Blob getSignature()
+
+:Returns:
+
+    The signature bytes. If not specified, the value :ref:`isNull() <isNull>`.
+
+DigestSha256Signature Set Methods
+---------------------------------
+
+DigestSha256Signature.setSignature Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set the signature bytes (which are only the digest) to the given value.
+
+.. note::
+
+    Normally you do not set the signature bytes directly, but instead use :ref:`KeyChain.signWithSha256 <KeyChain.signWithSha256>`.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setSignature(
+            const Blob& signature
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def setSignature(self,
+            signature  # Blob
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        DigestSha256Signature.prototype.setSignature = function(
+            signature  // Blob
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final void setSignature(
+            Blob signature
+        )
+
+:Parameters:
+
+    - `signature`
+        A Blob with the signature bytes.
+
+DigestSha256Signature.clone Method
+-----------------------------------
+
+Return a pointer to a new DigestSha256Signature which is a copy of this signature.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        virtual ptr_lib::shared_ptr<Signature> clone() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns DigestSha256Signature
+        def clone(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns DigestSha256Signature
+        DigestSha256Signature.prototype.clone = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public Object clone()
+
+:Returns:
+
+    A new DigestSha256Signature object.
+
 .. _Sha256WithRsaSignature:
 
 Sha256WithRsaSignature Class

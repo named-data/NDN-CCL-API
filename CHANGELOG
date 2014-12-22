@@ -1,4 +1,4 @@
-Interim changes since NDN-CCL-API v0.3 (2014-12-18)
+Interim changes since NDN-CCL-API v0.3 (2014-12-22)
 ---------------------------------------------------
 
 Changes
@@ -13,6 +13,7 @@ Changes
 * In Name.getSubName, allow a negative value for iStartComponent.
 * In Name, added wireEncode and wireDecode.
 * In UdpTransport, added Java API.
+* In Signature, added DigestSha256Signature.
 * In Signature, added Sha256WithEcdsaSignature for C++ and Java.
 
 Bug fixes
