@@ -219,7 +219,7 @@ KeyChain.sign (Interest) Method
 
         .. code-block:: python
 
-            def getDefaultCertificateName(self,
+            def sign(self,
                 interest,        # Interest
                 certificateName  # Name
             )
@@ -249,6 +249,104 @@ KeyChain.sign (Interest) Method
 
         - `certificateName`
             The certificate name of the key to use for signing.
+
+KeyChain.signWithSha256 (Data) Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The NDN security library is experimental and the API is not finalized.
+
+    Wire encode the Data object, digest it and set its SignatureInfo to a DigestSha256.
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            void signWithSha256(
+                Data& data
+            );
+
+    :[Python]:
+
+        .. code-block:: python
+
+            def signWithSha256(self,
+                data  # Data
+            )
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            KeyChain.prototype.signWithSha256 = function(
+                data  // Data
+            )
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final void signWithSha256(
+                Data data
+            )
+
+    :Parameters:
+
+        - `data`
+            The Data object to be signed.  This updates its signature.
+
+KeyChain.signWithSha256 (Interest) Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The NDN security library is experimental and the API is not finalized.
+
+    Append a SignatureInfo for DigestSha256 to the Interest name, digest the
+    name components and append a final name component with the signature bits
+    (which is the digest).
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            void signWithSha256(
+                Interest& interest
+            );
+
+    :[Python]:
+
+        .. code-block:: python
+
+            def signWithSha256(self,
+                interest  # Interest
+            )
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            KeyChain.prototype.signWithSha256 = function(
+                interest  // Interest
+            )
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final void signWithSha256(
+                Interest interest
+            )
+
+    :Parameters:
+
+        - `interest`
+            The Interest object to be signed. This appends name components of SignatureInfo and the signature bits.
 
 KeyChain.verifyData Method
 --------------------------
