@@ -2,7 +2,7 @@
 NDN Common Client Libraries API
 ===============================
 
-This documents the API for the NDN client libraries, showing the classes and method declarations for C++, JavaScript and Python.
+This documents the API for the NDN client libraries, showing the classes and method declarations for C++, Python, JavaScript and Java.
 
 Table of Contents:
 
