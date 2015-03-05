@@ -253,6 +253,10 @@ Set the content to the given value.
     - `content`
         A Blob with the content.
 
+:Returns:
+
+    This Data so that you can chain calls to update values.
+
 Data.setMetaInfo Method
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -350,6 +354,10 @@ Set the data packet's :ref:`Name <Name>`.
 
     - `name`
         The data packet's name. This makes a copy of the name.
+
+:Returns:
+
+    This Data so that you can chain calls to update values.
 
 Data.setSignature Method
 ^^^^^^^^^^^^^^^^^^^^^^^^
