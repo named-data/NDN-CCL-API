@@ -1129,27 +1129,43 @@ http://named-data.net/doc/0.1/technical/URI.html
 
     .. code-block:: c++
     
-        std::string toUri() const;
+        std::string toUri(
+            bool includeScheme = false
+        ) const;
 
 :[Python]:
 
     .. code-block:: python
     
         # Returns str
-        def toUri(self)
+        def toUri(self,
+            includeScheme = False  # bool
+        )
 
 :[JavaScript]:
 
     .. code-block:: javascript
     
         // Returns string
-        Name.prototype.toUri = function()
+        Name.prototype.toUri = function(
+            includeScheme  // boolean
+        )
 
 :[Java]:
 
     .. code-block:: java
     
-        public final String toUri()
+        public final String toUri(
+            boolean includeScheme
+        )
+
+:Parameters:
+
+    - `includeScheme`
+        (optional) If true, include the "ndn:" scheme in the URI, e.g.
+        "ndn:/example/name". If false, just return the path, e.g.
+        "/example/name". If ommitted, then just return the path which is the
+        default case where toUri() is used for display.
 
 :Returns:
 
