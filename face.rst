@@ -219,6 +219,11 @@ Send the interest through the transport, read the entire response and call onDat
 
     The pending interest ID which can be used with removePendingInterest.
 
+:Throw:
+
+    Throw an exception If the encoded interest size exceeds
+    :ref:`getMaxNdnPacketSize() <getMaxNdnPacketSize>`.
+    
 Face.expressInterest Method (from Name)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -300,6 +305,50 @@ Encode name as an Interest, using the interestTemplate if supplied, send the int
 :Returns:
 
     The pending interest ID which can be used with removePendingInterest.
+
+:Throw:
+
+    Throw an exception If the encoded interest size exceeds
+    :ref:`getMaxNdnPacketSize() <getMaxNdnPacketSize>`.
+
+.. _getMaxNdnPacketSize:
+
+Face.getMaxNdnPacketSize Method
+-------------------------------
+
+This is a static method to get the practical limit of the size of a network-layer
+packet. If a packet is larger than this, the library or application MAY drop it.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        static size_t getMaxNdnPacketSize();
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns int
+        @staticmethod
+        def getMaxNdnPacketSize()
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Face.getMaxNdnPacketSize = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public static int getMaxNdnPacketSize()
+
+:Returns:
+
+    The maximum NDN packet size.
 
 Face.makeCommandInterest Method
 -------------------------------

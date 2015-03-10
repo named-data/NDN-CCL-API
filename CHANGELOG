@@ -1,5 +1,12 @@
-Interim changes since NDN-CCL-API v0.3 (2014-12-22)
----------------------------------------------------
+Interim changes since NDN-CCL-API v0.3.1 (2015-03-10)
+-----------------------------------------------------
+
+Changes
+* In Face, added static inline method getMaxNdnPacketSize(). Note that
+  expressInterest can throw an exception if exceeded.
+
+NDN-CCL-API v0.3.1 (2014-12-23)
+-------------------------------
 
 Changes
 * Added a language selector at the top of each page. Thanks to Ivan Yeo! https://github.com/ivanyeo
