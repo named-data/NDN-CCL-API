@@ -220,7 +220,7 @@ Set the content to the given value.
 
     .. code-block:: c++
 
-        void setContent(
+        Data& setContent(
             const Blob& content
         );
 
@@ -228,6 +228,7 @@ Set the content to the given value.
 
     .. code-block:: python
 
+        # Returns Data
         def setContent(self,
             content  # Blob
         )
@@ -236,6 +237,7 @@ Set the content to the given value.
 
     .. code-block:: javascript
 
+        // Returns Data
         Data.prototype.setContent = function(
             content  // Blob
         )
@@ -244,7 +246,7 @@ Set the content to the given value.
 
     .. code-block:: java
     
-        public final void setContent(
+        public final Data setContent(
             Blob content
         )
 
@@ -322,7 +324,7 @@ Set the data packet's :ref:`Name <Name>`.
 
     .. code-block:: c++
 
-        void setName(
+        Data& setName(
             const Name& name
         );
 
@@ -330,6 +332,7 @@ Set the data packet's :ref:`Name <Name>`.
 
     .. code-block:: python
     
+        # Returns Data
         def setName(self,
             name  # Name
         )
@@ -338,6 +341,7 @@ Set the data packet's :ref:`Name <Name>`.
 
     .. code-block:: javascript
 
+        // Returns Data
         Data.prototype.setName = function(
             name  // Name
         )
@@ -346,7 +350,7 @@ Set the data packet's :ref:`Name <Name>`.
 
     .. code-block:: java
     
-        public final void setName(
+        public final Data setName(
             Name name
         )
 
