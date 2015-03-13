@@ -504,7 +504,7 @@ Set the child selector.
 
     .. code-block:: c++
 
-        void setChildSelector(
+        Interest& setChildSelector(
             int childSelector
         );
 
@@ -512,6 +512,7 @@ Set the child selector.
 
     .. code-block:: python
     
+        # Returns Interest
         def setChildSelector(self,
             childSelector  # int
         )
@@ -520,6 +521,7 @@ Set the child selector.
 
     .. code-block:: javascript
 
+        // Returns Interest
         Interest.prototype.setChildSelector = function(
             childSelector  // number
         )
@@ -528,7 +530,7 @@ Set the child selector.
 
     .. code-block:: java
     
-        public final void setChildSelector(
+        public final Interest setChildSelector(
             int childSelector
         )
 
@@ -537,6 +539,10 @@ Set the child selector.
     - `childSelector`
         The child selector. If not specified, set to ``-1`` (C++ and Java)
         or ``None`` (Python) or ``undefined`` (JavaScript).
+
+:Returns:
+
+    This Interest so that you can chain calls to update values.
 
 Interest.setExclude Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -551,7 +557,7 @@ Set this interest to use a copy of the given :ref:`Exclude <Exclude>` object.
 
     .. code-block:: c++
 
-        void setExclude(
+        Interest& setExclude(
             const Exclude& exclude
         );
 
@@ -559,6 +565,7 @@ Set this interest to use a copy of the given :ref:`Exclude <Exclude>` object.
 
     .. code-block:: python
     
+        # Returns Interest
         def setExclude(self,
             exclude  # Exclude
         )
@@ -567,6 +574,7 @@ Set this interest to use a copy of the given :ref:`Exclude <Exclude>` object.
 
     .. code-block:: javascript
 
+        // Returns Interest
         Interest.prototype.setExclude = function(
             exclude  // Exclude
         )
@@ -575,7 +583,7 @@ Set this interest to use a copy of the given :ref:`Exclude <Exclude>` object.
 
     .. code-block:: java
     
-        public final void setExclude(
+        public final Interest setExclude(
             Exclude exclude
         )
 
@@ -586,6 +594,10 @@ Set this interest to use a copy of the given :ref:`Exclude <Exclude>` object.
         If no exclude is specified, set to a new default Exclude(), or to an 
         Exclude with size() 0.
 
+:Returns:
+
+    This Interest so that you can chain calls to update values.
+
 Interest.setInterestLifetimeMilliseconds Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -595,7 +607,7 @@ Set the interest lifetime.
 
     .. code-block:: c++
 
-        void setInterestLifetimeMilliseconds(
+        Interest& setInterestLifetimeMilliseconds(
             Milliseconds interestLifetimeMilliseconds
         );
 
@@ -603,6 +615,7 @@ Set the interest lifetime.
 
     .. code-block:: python
     
+        # Returns Interest
         def setInterestLifetimeMilliseconds(self,
             interestLifetimeMilliseconds  # float
         )
@@ -611,6 +624,7 @@ Set the interest lifetime.
 
     .. code-block:: javascript
 
+        // Returns Interest
         Interest.prototype.setInterestLifetimeMilliseconds = function(
             interestLifetimeMilliseconds  // number
         )
@@ -619,7 +633,7 @@ Set the interest lifetime.
 
     .. code-block:: java
     
-        public final void setInterestLifetimeMilliseconds(
+        public final Interest setInterestLifetimeMilliseconds(
             double interestLifetimeMilliseconds
         )
 
@@ -628,6 +642,10 @@ Set the interest lifetime.
     - `interestLifetimeMilliseconds`
         The interest lifetime in milliseconds. If not specified, set to ``-1`` (C++ and Java)
         or ``None`` (Python) or ``undefined`` (JavaScript).
+
+:Returns:
+
+    This Interest so that you can chain calls to update values.
 
 Interest.setKeyLocator Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -642,7 +660,7 @@ Set this interest to use a copy of the given :ref:`KeyLocator <KeyLocator>` obje
 
     .. code-block:: c++
 
-        void setKeyLocator(
+        Interest& setKeyLocator(
             const KeyLocator& keyLocator
         );
 
@@ -650,6 +668,7 @@ Set this interest to use a copy of the given :ref:`KeyLocator <KeyLocator>` obje
 
     .. code-block:: python
     
+        # Returns Interest
         def setKeyLocator(self,
             keyLocator  # KeyLocator
         )
@@ -658,6 +677,7 @@ Set this interest to use a copy of the given :ref:`KeyLocator <KeyLocator>` obje
 
     .. code-block:: javascript
 
+        // Returns Interest
         Interest.prototype.setKeyLocator = function(
             keyLocator  // KeyLocator
         )
@@ -666,7 +686,7 @@ Set this interest to use a copy of the given :ref:`KeyLocator <KeyLocator>` obje
 
     .. code-block:: java
     
-        public final void setKeyLocator(
+        public final Interest setKeyLocator(
             KeyLocator keyLocator
         )
 
@@ -677,6 +697,10 @@ Set this interest to use a copy of the given :ref:`KeyLocator <KeyLocator>` obje
         If no key locator is specified, set to a new default KeyLocator(), or to a 
         KeyLocator with an unspecified type.
 
+:Returns:
+
+    This Interest so that you can chain calls to update values.
+
 Interest.setMustBeFresh Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -686,7 +710,7 @@ Set the MustBeFresh flag.
 
     .. code-block:: c++
 
-        void setMustBeFresh(
+        Interest& setMustBeFresh(
             bool mustBeFresh
         );
 
@@ -694,6 +718,7 @@ Set the MustBeFresh flag.
 
     .. code-block:: python
     
+        # Returns Interest
         def setMustBeFresh(self,
             mustBeFresh  # bool
         )
@@ -702,6 +727,7 @@ Set the MustBeFresh flag.
 
     .. code-block:: javascript
 
+        // Returns Interest
         Interest.prototype.setMustBeFresh = function(
             mustBeFresh  // boolean
         )
@@ -710,7 +736,7 @@ Set the MustBeFresh flag.
 
     .. code-block:: java
     
-        public final void setMustBeFresh(
+        public final Interest setMustBeFresh(
             boolean mustBeFresh
         )
 
@@ -719,6 +745,10 @@ Set the MustBeFresh flag.
     - `mustBeFresh`
         True if the content must be fresh, otherwise false. If you do not set
         this flag, the default value is true.
+
+:Returns:
+
+    This Interest so that you can chain calls to update values.
 
 Interest.setMaxSuffixComponents Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -736,7 +766,7 @@ Set the max suffix components count.
 
     .. code-block:: c++
 
-        void setMaxSuffixComponents(
+        Interest& setMaxSuffixComponents(
             int maxSuffixComponents
         );
 
@@ -744,6 +774,7 @@ Set the max suffix components count.
 
     .. code-block:: python
     
+        # Returns Interest
         def setMaxSuffixComponents(self,
             maxSuffixComponents  # int
         )
@@ -752,6 +783,7 @@ Set the max suffix components count.
 
     .. code-block:: javascript
 
+        // Returns Interest
         Interest.prototype.setMaxSuffixComponents = function(
             maxSuffixComponents  // number
         )
@@ -760,7 +792,7 @@ Set the max suffix components count.
 
     .. code-block:: java
     
-        public final void setMaxSuffixComponents(
+        public final Interest setMaxSuffixComponents(
             int maxSuffixComponents
         )
 
@@ -769,6 +801,10 @@ Set the max suffix components count.
     - `maxSuffixComponents`
         The max suffix components count. If not specified, set to ``-1`` (C++ and Java)
         or ``None`` (Python) or ``undefined`` (JavaScript).
+
+:Returns:
+
+    This Interest so that you can chain calls to update values.
 
 Interest.setMinSuffixComponents Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -786,7 +822,7 @@ Set the min suffix components count.
 
     .. code-block:: c++
 
-        void setMinSuffixComponents(
+        Interest& setMinSuffixComponents(
             int minSuffixComponents
         );
 
@@ -794,6 +830,7 @@ Set the min suffix components count.
 
     .. code-block:: python
     
+        # Returns Interest
         def setMinSuffixComponents(self,
             minSuffixComponents  # int
         )
@@ -802,6 +839,7 @@ Set the min suffix components count.
 
     .. code-block:: javascript
 
+        // Returns Interest
         Interest.prototype.setMinSuffixComponents = function(
             minSuffixComponents  // number
         )
@@ -810,7 +848,7 @@ Set the min suffix components count.
 
     .. code-block:: java
     
-        public final void setMinSuffixComponents(
+        public final Interest setMinSuffixComponents(
             int minSuffixComponents
         )
 
@@ -819,6 +857,10 @@ Set the min suffix components count.
     - `minSuffixComponents`
         The min suffix components count. If not specified, set to ``-1`` (C++ and Java)
         or ``None`` (Python) or ``undefined`` (JavaScript).
+
+:Returns:
+
+    This Interest so that you can chain calls to update values.
 
 Interest.setName Method
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -833,7 +875,7 @@ Set the interest name.
 
     .. code-block:: c++
 
-        void setName(
+        Interest& setName(
             const Name& name
         );
 
@@ -841,6 +883,7 @@ Set the interest name.
 
     .. code-block:: python
     
+        # Returns Interest
         def setName(self,
             name  # Name
         )
@@ -849,6 +892,7 @@ Set the interest name.
 
     .. code-block:: javascript
 
+        // Returns Interest
         Interest.prototype.setName = function(
             name  // Name
         )
@@ -857,7 +901,7 @@ Set the interest name.
 
     .. code-block:: java
     
-        public final void setName(
+        public final Interest setName(
             Name name
         )
 
@@ -865,6 +909,10 @@ Set the interest name.
 
     - `name`
         The interest name. This makes a copy of the name.
+
+:Returns:
+
+    This Interest so that you can chain calls to update values.
 
 Interest.setScope Method
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -875,7 +923,7 @@ Set the interest scope.
 
     .. code-block:: c++
 
-        void setScope(
+        Interest& setScope(
             int scope
         );
 
@@ -883,6 +931,7 @@ Set the interest scope.
 
     .. code-block:: python
     
+        # Returns Interest
         def setScope(self,
             scope  # int
         )
@@ -891,6 +940,7 @@ Set the interest scope.
 
     .. code-block:: javascript
 
+        // Returns Interest
         Interest.prototype.setScope = function(
             scope  // number
         )
@@ -899,7 +949,7 @@ Set the interest scope.
 
     .. code-block:: java
     
-        public final void setScope(
+        public final Interest setScope(
             int scope
         )
 
@@ -908,6 +958,10 @@ Set the interest scope.
     - `scope`
         The interest scope. If not specified, set to ``-1`` (C++ and Java)
         or ``None`` (Python) or ``undefined`` (JavaScript).
+
+:Returns:
+
+    This Interest so that you can chain calls to update values.
 
 Interest.matchesName Method
 ---------------------------

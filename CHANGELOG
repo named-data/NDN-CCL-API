@@ -1,10 +1,11 @@
-Interim changes since NDN-CCL-API v0.3.1 (2015-03-10)
+Interim changes since NDN-CCL-API v0.3.1 (2015-03-12)
 -----------------------------------------------------
 
 Changes
 * In Face, added static inline method getMaxNdnPacketSize(). Note that
   expressInterest can throw an exception if exceeded.
 * In Name.toUri, added the optional param includeScheme.
+* In Interest setter methods, return this so that you can chain calls to update values.
 
 NDN-CCL-API v0.3.1 (2014-12-23)
 -------------------------------
