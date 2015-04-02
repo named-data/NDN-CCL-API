@@ -15,6 +15,7 @@ Table of Contents:
    meta-info
    signature
    key-locator
+   interest-filter
    face
    transport
    blob
