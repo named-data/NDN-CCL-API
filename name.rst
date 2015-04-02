@@ -1130,7 +1130,7 @@ http://named-data.net/doc/0.1/technical/URI.html
     .. code-block:: c++
     
         std::string toUri(
-            bool includeScheme = false
+            [bool includeScheme]
         ) const;
 
 :[Python]:
@@ -1138,8 +1138,8 @@ http://named-data.net/doc/0.1/technical/URI.html
     .. code-block:: python
     
         # Returns str
-        def toUri(self,
-            includeScheme = False  # bool
+        def toUri(self
+            [, includeScheme  # bool]
         )
 
 :[JavaScript]:
@@ -1148,7 +1148,7 @@ http://named-data.net/doc/0.1/technical/URI.html
     
         // Returns string
         Name.prototype.toUri = function(
-            includeScheme  // boolean
+            [includeScheme  // boolean]
         )
 
 :[Java]:
@@ -1156,16 +1156,15 @@ http://named-data.net/doc/0.1/technical/URI.html
     .. code-block:: java
     
         public final String toUri(
-            boolean includeScheme
+            [boolean includeScheme]
         )
 
 :Parameters:
 
     - `includeScheme`
         (optional) If true, include the "ndn:" scheme in the URI, e.g.
-        "ndn:/example/name". If false, just return the path, e.g.
-        "/example/name". If ommitted, then just return the path which is the
-        default case where toUri() is used for display.
+        "ndn:/example/name". If false or omitted, just return the path, e.g.
+        "/example/name".
 
 :Returns:
 
