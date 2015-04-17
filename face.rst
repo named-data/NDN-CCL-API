@@ -350,6 +350,67 @@ packet. If a packet is larger than this, the library or application MAY drop it.
 
     The maximum NDN packet size.
 
+Face.isLocal Method
+-------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       This method is experimental.  The API is not finalized.
+
+    Check if the face is local based on the current connection through the Transport.
+    This affects the processing of :ref:`registerPrefix <registerPrefix>` with
+    NFD: if the NFD is local, registration occurs with the '/localhost/nfd/...'
+    prefix; if non-local, remote prefix registration is attempted using
+    '/localhop/nfd/...' . Some Transport subclasses may cause network I/O (e.g.
+    an IP host name lookup).
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            bool isLocal();
+
+    :[Python]:
+
+        .. code-block:: python
+
+            # Returns bool
+            def isLocal()
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            // Returns boolean
+            Face.prototype.isLocal = function(
+                onResult,  // function
+                onError    // function
+            )
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public boolean isLocal()
+
+    :Parameters:
+
+        - `onResult`
+            (JavaScript only) On success, this calls onResult(isLocal) where
+            isLocal is true if the host is local, false if not. We use callbacks
+            because this may need to do async network I/O (e.g. an IP host name
+            lookup).
+
+        - `onError`
+            (JavaScript only) On failure for DNS lookup or other error, this
+            calls onError(message) where message is an error string.
+
+    :Returns:
+
+        True if the face is local, false if not.
+
 Face.makeCommandInterest Method
 -------------------------------
 

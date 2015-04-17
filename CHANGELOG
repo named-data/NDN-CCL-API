@@ -6,6 +6,7 @@ Changes
 * In Face, added static inline method getMaxNdnPacketSize(). Note that
   expressInterest can throw an exception if exceeded.
 * In Name.toUri, added the optional param includeScheme.
+* In Face, added method isLocal.
 * In MemoryContentCache, added storePendingInterest and getStorePendingInterest.
   Updated registerPrefix to describe using these for onDataNotFound. Updated
   add(data) to describe checking pending interests.
