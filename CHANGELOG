@@ -1,4 +1,4 @@
-Interim changes since NDN-CCL-API v0.3.1 (2015-04-02)
+Interim changes since NDN-CCL-API v0.3.1 (2015-04-17)
 -----------------------------------------------------
 
 Changes
@@ -6,6 +6,9 @@ Changes
 * In Face, added static inline method getMaxNdnPacketSize(). Note that
   expressInterest can throw an exception if exceeded.
 * In Name.toUri, added the optional param includeScheme.
+* In MemoryContentCache, added storePendingInterest and getStorePendingInterest.
+  Updated registerPrefix to describe using these for onDataNotFound. Updated
+  add(data) to describe checking pending interests.
 * In Interest setter methods, return this so that you can chain calls to update values.
 
 NDN-CCL-API v0.3.1 (2014-12-23)
