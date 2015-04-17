@@ -383,7 +383,6 @@ Face.isLocal Method
 
         .. code-block:: javascript
 
-            // Returns boolean
             Face.prototype.isLocal = function(
                 onResult,  // function
                 onError    // function
@@ -409,7 +408,7 @@ Face.isLocal Method
 
     :Returns:
 
-        True if the face is local, false if not.
+        (except JavaScript) True if the face is local, false if not.
 
 Face.makeCommandInterest Method
 -------------------------------
