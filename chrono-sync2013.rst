@@ -22,121 +22,114 @@ ChronoSync2013 Class
     :[Java]:
         Package: ``net.named_data.jndn.sync``
 
-    As in [ChronoSync2013], we describe the ChronoSync protocol using
-    the example of ChronoChat, a chat application.
+ChronoSync Protocol
+-------------------
 
-    As described in [ChronoSync 2013] section III.B "Naming Rules",
-    a ChronoSync application uses two types of name prefixes: A broadcast
-    prefix for sync state messages that update the current sequence number of
-    each publisher, and an application data prefix used to fetch the
-    application-specific data from a producer. These prefixes are given to
-    the ChronoSync2013 constructor as `applicationBroadcastPrefix` and
-    `applicationDataPrefix`.
-    
-    Similar to the example in [ChronoSync 2013] Fig. 3b, an application
-    broadcast prefix for the chat room "lunch-talk" would be
-    "/ndn/broadcast/ChronoChat-0.3/lunch-talk".
-    
-    In [ChronoSync 2013] Fig. 3a, the example application data prefix
-    is "/wonderland/alice/chronos/lunch-talk", where
-    "/wonderland/alice/chronos" is a prefix under which the user is allowed to
-    publish application data. For our ChronoChat implementation, we always
-    prompt the user for a "hub prefix" under which the user is allowed to
-    pubish, for example "/ndn/edu/ucla/remap". Also, instead of putting the
-    actual user name in the data prefix, we generate a random string at
-    application startup, for example "GL7VUW32Ft". So, the application data
-    prefix for the chat room "lunch-talk" would be 
-    "/ndn/edu/ucla/remap/lunch-talk/GL7VUW32Ft".
+As in [ChronoSync2013], we describe the ChronoSync protocol using
+the example of ChronoChat, a chat application.
 
-    In ChronoChat, each publisher publishes a sequence of data packets, and
-    at any point in time each publisher has a maximum sequence number. The
-    purpose of the ChronoSync2013 class is to track the current sequence number
-    of each publisher, and to announce a new sequence number when the local
-    application publishes new data. (Sequence numbers only increase, so the
-    current sequence number is always the maximum.) As described in
-    [ChronoSync 2013], ChronoSync2013 accomplishes this by maintaining a
-    "digest tree" with an entry for each publisher and their current (maximum)
-    sequence number.
-    
-    In the digest tree in [ChronoSync 2013] Fig. 4, the node for each publisher
-    has a "name prefix" and "maximum sequence number". The "name prefix" is
-    the same as the `applicationDataPrefix` that each ChronoChat application
-    gives to its ChronoSync2013 constructor. In our implementation, we
-    say "current sequence number" instead of "maximum sequence number. In our
-    implementation, we also add a separate "session number", which is based on
-    the timestamp at application start-up. (The application gives this to the
-    ChronoChat2013 constructor as `sessionNo`.) This would be a separate field
-    for each node in [ChronoSync 2013] Fig. 4, so that the node digest is
-    computed over "application data prefix" + "session number" + "current
-    sequence number". As in [ChronoSync 2013], the ChronoSync2013 class computes
-    the digest of each node in the tree (sorted on "application data prefix" +
-    "session number") and then computes the "root digest" over each node digest.
+Broadcast prefix and application data prefix
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    As described in [ChronoSync 2013] section III.D, the ChronoSync2013 class
-    keeps an outstanding interest for the root digest of the digest tree, so
-    that another application will answer with a data packet when it publishes
-    data under a new sequence number. For example, if the current root digest is
-    "74d13bb1081d457b5798f796399a7833657fe6ea65b7a6891c07f84fc7c26e93" and using
-    the application broadcast prefix above, then the outstanding interest would be
-    "/ndn/broadcast/ChronoChat-0.3/ndnchat/74d13bb1081d457b5798f796399a7833657fe6ea65b7a6891c07f84fc7c26e93",
-    where the interest lifetime is `syncLifetime` given to the ChronoSync2013
-    constructor. (Note that the root digest of an empty tree at startup is
-    always "00".)
+As described in [ChronoSync 2013] section III.B "Naming Rules",
+a ChronoSync application uses two types of name prefixes: A broadcast
+prefix for sync state messages that update the current sequence number of
+each publisher, and an application data prefix used to fetch the
+application-specific data from a producer. 
 
-    When another application answers this interest with a sync state message,
-    ChronoSync2013 updates its internal digest tree, computes a new root digest
-    and expresses an outstanding interest with the new root digest for a new
-    sync state message.  It also calls the onReceivedSyncState callback given to the
-    constructor to provide the application with a list of
-    :ref:`SyncState <ChronoSync2013.SyncState>` objects. For example, the
-    SyncState data prefix (of the other application) is
-    "/ndn/edu/ucla/remap/lunch-talk/48nQn3KyXV", the session number
-    (of the other application) is 1405718551, and the new sequence number
-    is 791. In this case, the ChronoChat application would express an interest for
-    "/ndn/edu/ucla/remap/lunch-talk/48nQn3KyXV/1405718551/791". (This is
-    similar to the full example chat data name in [ChronoSync 2013] Fig. 3a.)
-    The other ChronoChat application will receive this interest and send the
-    application-specific content, for example containing a chat message or
-    a "leave" announcement, which ChronoChat displays to the user.
+In ChronoChat, a broadcast prefix for the chat room "lunch-talk"
+would be "/ndn/broadcast/ChronoChat-0.3/lunch-talk".
 
-    Finally, when the application wants to publish data, it calls the
-    ChronoSync2013 method `publishNextSequenceNo()` which increments the
-    current application sequence number, creates a sync message with the new
-    sequence number and publishes a data packet where the name is the
-    applicationBroadcastPrefix plus the root digest of the current digest tree.
-    (This is the data packet which answers the outstanding interest from other
-    applications for a sync state update.) ChronoChat2013 then adds this sync
-    message to its internal digest tree which creates a new root digest.
-    Then it expresses an interest for the next sync update with
-    the name applicationBroadcastPrefix plus the new root digest. After the
-    application calls this method, it calls :ref:`getSequenceNo() <getSequenceNo>`
-    to get the new sequence number generated by `publishNextSequenceNo()` and
-    publishes the application-specific content for the this sequence number.
+As part of the application data prefix, ChronoChat always prompts the user for a
+"hub prefix" under which the user is allowed to pubish, for example
+"/ndn/edu/ucla/remap". Also, instead of putting the actual user name in the
+data prefix, we generate a random string at application startup, for example
+"GL7VUW32Ft". So, the application data prefix for the chat room "lunch-talk"
+would be "/ndn/edu/ucla/remap/lunch-talk/GL7VUW32Ft".
 
-    In addition to the above operations, each time that ChronoSync2013 receives
-    or generates a new set of sync state messages for a particular root digest, it
-    saves this in a "digest log" as described in [ChronoSync 2013] section III.C
-    and uses it to respond to a "recovery" interest as described in section
-    III.F "Handling network partitions".
+The digest tree: Tracking each publisher's sequence number
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    When the ChronoSync2013 class sends a sync state message, the content of the
-    data packet needs a way to encode the sync state. So, it uses a Google protocol
-    buffer (https://developers.google.com/protocol-buffers/)
-    encoding using the definition in sync-state.proto
-    (https://github.com/named-data/ndn-cpp/blob/master/src/sync/sync-state.proto)
-    which specifies `applicationDataPrefix` as the name, along with the session
-    number and sequence number. (Note that the
-    :ref:`SyncState <ChronoSync2013.SyncState>` object has the same fields but
-    is defined separately so that the API is not dependent on the specifics of
-    the protocol buffer code.)
+In ChronoSync, each publisher publishes a sequence of data packets, and
+at any point in time each publisher has a current (maximum) sequence number. The
+purpose of the ChronoSync2013 class is to track the current sequence number
+of each publisher, and to announce a new sequence number when the local
+application publishes new data. ChronoSync2013 does this by maintaining a
+"digest tree" with an entry for each publisher and their current sequence number.
 
-    Likewise, the application can define its own message format for the content
-    in the application-specific data packet. So, the ChronoChat example uses a
-    protocol buffer encoding using the definition in chatbuf.proto
-    (https://github.com/named-data/ndn-cpp/blob/master/tests/chatbuf.proto)
-    which specifies a message type of CHAT, HELLO, LEAVE and JOIN, along with
-    details for each message type. The application-specific message is cleanly
-    separated from the core sync state message used by ChronoChat2013.
+In the digest tree in [ChronoSync 2013] Fig. 4, the node for each publisher
+has a "name prefix" (application data prefix) and "sequence number". In our
+implementation, we also add a separate "session number", which is based on the
+timestamp at application start-up. So the node digest is computed over
+"application data prefix" + "session number" + "current sequence number". The
+ChronoSync2013 class computes the digest of each node in the tree (sorted on
+"application data prefix" + "session number") and then computes the
+"root digest" over each node digest.
+
+Syncing the digest tree root digest
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As described in [ChronoSync 2013] section III.D, ChronoSync2013 keeps an
+outstanding interest for the root digest of the digest tree, so
+that another application will answer with a data packet when it publishes
+data under a new sequence number. For example, if the current root digest is
+"74d13bb1081d457b5798f796399a7833657fe6ea65b7a6891c07f84fc7c26e93", then the
+outstanding interest would be
+"/ndn/broadcast/ChronoChat-0.3/ndnchat/74d13bb1081d457b5798f796399a7833657fe6ea65b7a6891c07f84fc7c26e93".
+(Note that the root digest of an empty tree at startup is always "00".)
+
+When another application answers this interest with a sync state message,
+ChronoSync2013 updates its internal digest tree, computes a new root digest
+and expresses an outstanding interest with the new root digest for a new
+sync state message.  It also calls the `onReceivedSyncState` callback given to
+the constructor to provide the application with a list of
+:ref:`SyncState <ChronoSync2013.SyncState>` objects. For example, the
+SyncState data prefix (of the other application) is
+"/ndn/edu/ucla/remap/lunch-talk/48nQn3KyXV", the session number
+(of the other application) is 1405718551, and the new sequence number
+is 791. In this case, the ChronoChat application would express an interest for
+"/ndn/edu/ucla/remap/lunch-talk/48nQn3KyXV/1405718551/791". The other ChronoChat
+application will receive this interest and send the application-specific content,
+e.g. a chat message.
+
+Publishing new data
+^^^^^^^^^^^^^^^^^^^
+
+Finally, when the application wants to publish new data, it calls
+:ref:`publishNextSequenceNo <ChronoSync2013.publishNextSequenceNo>` which
+increments the current sequence number and answers the outstanding interest 
+from other applications by publishing a sync message with the new
+sequence number. ChronoChat2013 then adds this sync message to its internal
+digest tree which creates a new root digest. Finally, it expresses an interest
+for the next sync update where the name has the new root digest. After the
+application calls publishNextSequenceNo, it calls
+:ref:`getSequenceNo <ChronoSync2013.getSequenceNo>`
+to get the new sequence number and publishes the application-specific content
+for the this sequence number.
+
+In addition to the above operations, each time that ChronoSync2013 receives
+or generates a new set of sync state messages for a particular root digest, it
+saves this in a "digest log" as described in [ChronoSync 2013] section III.C
+used with "recovery" interests.
+
+Packet encoding with Google protocol buffers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When the ChronoSync2013 class sends a sync state message, the content of the
+data packet needs a way to encode the sync state. So, it uses a Google protocol
+buffer (https://developers.google.com/protocol-buffers/)
+encoding using the definition in sync-state.proto
+(https://github.com/named-data/ndn-cpp/blob/master/src/sync/sync-state.proto)
+which specifies `applicationDataPrefix` as the name, along with the session
+number and sequence number.
+
+Likewise, the application can define its own message format for the content
+in the application-specific data packet. So, the ChronoChat example uses a
+protocol buffer encoding using the definition in chatbuf.proto
+(https://github.com/named-data/ndn-cpp/blob/master/tests/chatbuf.proto)
+which specifies a message type of CHAT, HELLO, LEAVE and JOIN, along with
+details for each message type. The application-specific message is cleanly
+separated from the core sync state message used by ChronoChat2013.
 
 ChronoSync2013 Constructor
 --------------------------
@@ -282,7 +275,7 @@ ChronoSync2013 Constructor
             `applicationBroadcastPrefix`, this calls
             onRegisterFailed(applicationBroadcastPrefix).
 
-.. _getProducerSequenceNo:
+.. _ChronoSync2013.getProducerSequenceNo:
 
 ChronoSync2013.getProducerSequenceNo Method
 -------------------------------------------
@@ -347,7 +340,7 @@ ChronoSync2013.getProducerSequenceNo Method
         The current producer sequence number, or -1 if the producer namePrefix
         and sessionNo are not in the digest tree.
 
-.. _getSequenceNo:
+.. _ChronoSync2013.getSequenceNo:
 
 ChronoSync2013.getSequenceNo Method
 -----------------------------------
@@ -391,7 +384,7 @@ ChronoSync2013.getSequenceNo Method
 
         The sequence number.
 
-.. _publishNextSequenceNo:
+.. _ChronoSync2013.publishNextSequenceNo:
 
 ChronoSync2013.publishNextSequenceNo Method
 -------------------------------------------
@@ -409,7 +402,8 @@ ChronoSync2013.publishNextSequenceNo Method
     new root digest. Finally, express an interest for the next sync update with
     the name applicationBroadcastPrefix + the new root digest. After this, your
     application should publish the content for the new sequence number. You can
-    get the new sequence number with :ref:`getSequenceNo() <getSequenceNo>`.
+    get the new sequence number with
+    :ref:`getSequenceNo() <ChronoSync2013.getSequenceNo>`.
 
     .. note::
 
