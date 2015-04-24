@@ -243,7 +243,7 @@ Get the prefix given to the constructor.
 
     .. code-block:: c++
 
-        const ptr_lib::shared_ptr<const Name>& getPrefix() const;
+        const Name& getPrefix() const;
 
 :[Python]:
 
