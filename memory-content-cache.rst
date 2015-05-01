@@ -71,7 +71,7 @@ MemoryContentCache Constructor
     :Parameters:
 
         - `face`
-            The Face to use to call registerPrefix and which will call the OnInterest callback.
+            The Face to use to call registerPrefix and which will call the onInterest callback.
 
         - `cleanupIntervalMilliseconds`
             (optional) The interval in milliseconds
@@ -93,8 +93,10 @@ MemoryContentCache.add Method
     Add the Data packet to the cache so that it is available to use to 
     answer interests. If data.getMetaInfo().getFreshnessPeriod() is specified,
     set the staleness time to now plus data.getMetaInfo().getFreshnessPeriod(),
-    which is checked during cleanup to remove stale content. After removing
-    stale content, remove timed-out pending interests from
+    which is checked during cleanup to remove stale content. This also checks if 
+    cleanupIntervalMilliseconds milliseconds have passed and removes stale 
+    content from the cache. After removing stale content, remove timed-out
+    pending interests from
     :ref:`storePendingInterest <MemoryContentCache.storePendingInterest>`, then
     if the added Data packet satisfies any interest, send it and remove the
     interest from the pending interest table.
@@ -165,27 +167,27 @@ MemoryContentCache.getStorePendingInterest Method
 
         .. code-block:: c++
 
-            const OnInterest& getStorePendingInterest();
+            const OnInterestCallback& getStorePendingInterest();
 
     :[Python]:
 
         .. code-block:: python
 
-            # Returns an OnInterest callback
+            # Returns an onInterest callback
             def getStorePendingInterest(self)
 
     :[JavaScript]:
 
         .. code-block:: javascript
 
-            // Returns an OnInterest callback
+            // Returns an onInterest callback
             MemoryContentCache.prototype.getStorePendingInterest = function()
 
     :[Java]:
 
         .. code-block:: java
 
-            public final OnInterest getStorePendingInterest()
+            public final OnInterestCallback getStorePendingInterest()
 
     :Returns:
 
@@ -218,7 +220,7 @@ MemoryContentCache.registerPrefix Method
             void registerPrefix(
                 const Name& prefix,
                 const OnRegisterFailed& onRegisterFailed
-                [, const OnInterest& onDataNotFound]
+                [, const OnInterestCallback& onDataNotFound]
                 [, const ForwardingFlags& flags]
             );
 
@@ -251,7 +253,7 @@ MemoryContentCache.registerPrefix Method
             public final void registerPrefix(
                 Name prefix,
                 OnRegisterFailed onRegisterFailed
-                [, OnInterest onDataNotFound]
+                [, OnInterestCallback onDataNotFound]
                 [, ForwardingFlags flags]
             )
 
@@ -269,7 +271,7 @@ MemoryContentCache.registerPrefix Method
             (optional) If a data packet for an interest is not found in the
             cache, this forwards the interest by calling the onDataNotFound
             callback. (For details of the callback parameters, see the
-            onInterest parameter of :ref:`registerPrefix <registerPrefix>`.
+            onInterest parameter of :ref:`registerPrefix <Face.registerPrefix>`.
             The onDataNotFound callback is called on the same thread that calls
             :ref:`processEvents <processEvents>`.) Your callback can find the
             Data packet for the interest and send it. If your callback cannot
@@ -279,7 +281,8 @@ MemoryContentCache.registerPrefix Method
             later call to :ref:`add(data) <MemoryContentCache.add>`. If you want
             to automatically store all pending interests, you can simply use
             :ref:`getStorePendingInterest() <MemoryContentCache.getStorePendingInterest>`
-            for onDataNotFound. If onDataNotFound is omitted, this does not use
+            for onDataNotFound. If onDataNotFound is an empty OnInterestCallback()
+            (C++) or null (Java, JavaScript) or None (PyNDN), this does not use
             it.
 
         - `flags`
@@ -297,7 +300,7 @@ MemoryContentCache.storePendingInterest Method
 
        The MemoryContentCache is experimental and the API is not finalized.
 
-    Store an interest from an OnInterest callback in the internal pending
+    Store an interest from an onInterest callback in the internal pending
     interest table (normally because there is no Data packet available yet to
     satisfy the interest). :ref:`add(data) <MemoryContentCache.add>` will check
     if the added Data packet satisfies any pending interest and send it through
@@ -347,7 +350,7 @@ MemoryContentCache.storePendingInterest Method
 
         - `transport`
             The Transport with the connection which received the interest. This
-            comes from the OnInterest callback.
+            comes from the onInterest callback.
 
 MemoryContentCache.unregisterAll Method
 ---------------------------------------
