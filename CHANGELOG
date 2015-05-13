@@ -1,5 +1,5 @@
-Interim changes since NDN-CCL-API v0.3.1 (2015-05-01)
------------------------------------------------------
+NDN-CCL-API v0.3.2 (2015-05-13)
+-------------------------------
 
 Changes
 * Added InterestFilter.
