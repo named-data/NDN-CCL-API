@@ -1,3 +1,9 @@
+Interim changes since NDN-CCL-API v0.3.2 (2015-06-15)
+-----------------------------------------------------
+
+Changes
+* In Interest, removed get/setScope since it is deprecated and not used by NFD.
+
 NDN-CCL-API v0.3.2 (2015-05-13)
 -------------------------------
 

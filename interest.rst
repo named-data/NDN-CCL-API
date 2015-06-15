@@ -456,42 +456,6 @@ in this Interest object, then the nonce value is cleared.
 
     The nonce. If not specified, the value :ref:`isNull() <isNull>`.
 
-Interest.getScope Method
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-Get the interest scope.
-
-:[C++]:
-
-    .. code-block:: c++
-
-        int getScope() const;
-
-:[Python]:
-
-    .. code-block:: python
-    
-        # Returns int
-        def getScope(self)
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-
-        // Returns number
-        Interest.prototype.getScope = function()
-
-:[Java]:
-
-    .. code-block:: java
-    
-        public final int getScope()
-
-:Returns:
-
-    The interest scope. If not specified, return ``-1`` (C++ and Java)
-    or ``None`` (Python) or ``undefined`` (JavaScript).
-
 Interest Set Methods
 --------------------
 
@@ -909,55 +873,6 @@ Set the interest name.
 
     - `name`
         The interest name. This makes a copy of the name.
-
-:Returns:
-
-    This Interest so that you can chain calls to update values.
-
-Interest.setScope Method
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-Set the interest scope.
-
-:[C++]:
-
-    .. code-block:: c++
-
-        Interest& setScope(
-            int scope
-        );
-
-:[Python]:
-
-    .. code-block:: python
-    
-        # Returns Interest
-        def setScope(self,
-            scope  # int
-        )
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-
-        // Returns Interest
-        Interest.prototype.setScope = function(
-            scope  // number
-        )
-
-:[Java]:
-
-    .. code-block:: java
-    
-        public final Interest setScope(
-            int scope
-        )
-
-:Parameters:
-
-    - `scope`
-        The interest scope. If not specified, set to ``-1`` (C++ and Java)
-        or ``None`` (Python) or ``undefined`` (JavaScript).
 
 :Returns:
 
