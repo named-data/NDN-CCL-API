@@ -75,7 +75,7 @@ that another application will answer with a data packet when it publishes
 data under a new sequence number. For example, if the current root digest is
 "74d13bb1081d457b5798f796399a7833657fe6ea65b7a6891c07f84fc7c26e93", then the
 outstanding interest would be
-"/ndn/broadcast/ChronoChat-0.3/ndnchat/74d13bb1081d457b5798f796399a7833657fe6ea65b7a6891c07f84fc7c26e93".
+"/ndn/broadcast/ChronoChat-0.3/lunch-talk/74d13bb1081d457b5798f796399a7833657fe6ea65b7a6891c07f84fc7c26e93".
 (Note that the root digest of an empty tree at startup is always "00".)
 
 When another application answers this interest with a sync state message,
@@ -241,13 +241,13 @@ ChronoSync2013 Constructor
 
         - `applicationDataPrefix`
             The prefix used by this application instance for application data.
-            For example, "/my/local/prefix/ndnchat4/0K4wChff2v". This is used
+            For example, "/my/local/prefix/lunch-talk/0K4wChff2v". This is used
             when sending a sync message for a new sequence number. In the sync
             message, this uses applicationDataPrefix.toUri().
 
         - `applicationBroadcastPrefix`
             The broadcast name prefix including the application name. For
-            example, "/ndn/broadcast/ChronoChat-0.3/ndnchat1". This makes a copy
+            example, "/ndn/broadcast/ChronoChat-0.3/lunch-talk". This makes a copy
             of the name.
 
         - `sessionNo`
