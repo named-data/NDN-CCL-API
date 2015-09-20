@@ -549,12 +549,7 @@ Face.registerPrefix Method
 --------------------------
 
 Register prefix with the connected NDN hub and call onInterest when a matching 
-interest is received. If you have not called 
-:ref:`setCommandSigningInfo <Face.setCommandSigningInfo>`, this assumes you are
-connecting to NDNx. If you have called 
-:ref:`setCommandSigningInfo <Face.setCommandSigningInfo>`, this first sends an NFD
-registration request, and if that times out then this sends an NDNx 
-registration request. If you need to register a prefix with NFD, you must first call
+interest is received. To register a prefix with NFD, you must first call
 :ref:`setCommandSigningInfo <Face.setCommandSigningInfo>`. This connects to a
 local or remote forwarder according to :ref:`isLocal <Face.isLocal>`.
 
