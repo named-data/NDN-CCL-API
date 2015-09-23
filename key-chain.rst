@@ -42,6 +42,88 @@ KeyChain Constructor
 
             def __init__(self)
 
+KeyChain.createIdentityAndCertificate Method
+--------------------------------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The NDN security library is experimental and the API is not finalized.
+
+    Create an identity by creating a pair of Key-Signing-Key (KSK) for this
+    identity and a self-signed certificate of the KSK. If a key pair or
+    certificate for the identity already exists, use it.
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            Name createIdentityAndCertificate(
+                const Name& identityName
+                [, const KeyParams& params]
+            );
+
+    :[Python]:
+
+        .. code-block:: python
+
+            # Returns Name
+            def createIdentityAndCertificate(self,
+                identityName  # Name
+                [, params     # KeyParams]
+            )
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            // Returns Name
+            KeyChain.prototype.createIdentityAndCertificate = function(
+                identityName   // Name
+                [, params      // KeyParams]
+                [, onComplete  // function]
+                [, onError     // function]
+            )
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final Name createIdentityAndCertificate(
+                Name identityName
+                [, KeyParams params]
+            )
+
+    :Parameters:
+
+        - `identityName`
+            The name of the identity.
+
+        - `params`
+            (optional) The key parameters if a key needs to be generated for the
+            identity. If omitted, use default parameters for RSA.
+
+        - `onComplete`
+            [JavaScript only] (optional) This calls onComplete(certificateName)
+            with name of the default certificate of the identity. If omitted,
+            the return value is described below. (Some crypto libraries only use
+            a callback, so onComplete is required to use these.)
+
+        - `onError`
+            [JavaScript only] (optional) If defined, then onComplete must be
+            defined and if there is an exception, then this calls
+            onError(exception) with the exception. If onComplete is defined but
+            onError is undefined, then this will log any thrown exception. (Some
+            database libraries only use a callback, so onError is required to be
+            notified of an exception.)
+
+    :Returns:
+
+        The name of the default certificate of the identity.
+        [JavaScript only: However, if onComplete is supplied then return
+        undefined and use onComplete as described above.]
+
 KeyChain.getDefaultCertificateName Method
 -----------------------------------------
 
