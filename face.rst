@@ -565,6 +565,7 @@ local or remote forwarder according to :ref:`isLocal <Face.isLocal>`.
             const Name &prefix,
             const OnInterestCallback &onInterest,
             const OnRegisterFailed &onRegisterFailed
+            [, const OnRegisterSuccess &onRegisterSuccess]
             [, const ForwardingFlags& flags]
         )
 
@@ -574,10 +575,11 @@ local or remote forwarder according to :ref:`isLocal <Face.isLocal>`.
     
         # Returns int
         def registerPrefix(self,
-            prefix,           # Name
-            onInterest,       # function object
-            onRegisterFailed  # function object
-            [, flags          # ForwardingFlags]
+            prefix,               # Name
+            onInterest,           # function object
+            onRegisterFailed      # function object
+            [, onRegisterSuccess  # function object]
+            [, flags              # ForwardingFlags]
         )
 
 :[JavaScript]:
@@ -586,10 +588,11 @@ local or remote forwarder according to :ref:`isLocal <Face.isLocal>`.
     
         // Returns number
         Face.prototype.registerPrefix = function(
-            prefix,           // Name
-            onInterest,       // function
-            onRegisterFailed  // function
-            [, flags          // ForwardingFlags]
+            prefix,               // Name
+            onInterest,           // function
+            onRegisterFailed      // function
+            [, onRegisterSuccess  // function]
+            [, flags              // ForwardingFlags]
         )
 
 :[Java]:
@@ -600,6 +603,7 @@ local or remote forwarder according to :ref:`isLocal <Face.isLocal>`.
             Name prefix,
             OnInterestCallback onInterest,
             OnRegisterFailed onRegisterFailed
+            [, OnRegisterSuccess onRegisterSuccess]
             [, ForwardingFlags flags]
         )
 
@@ -631,6 +635,15 @@ local or remote forwarder according to :ref:`isLocal <Face.isLocal>`.
 	If register prefix fails for any reason, this calls ``onRegisterFailed(prefix)`` where:
 
 	    - ``prefix`` is the prefix given to registerPrefix.
+
+    - `onRegisterSuccess`
+	(optional) When this receives a success message from the forwarder, this calls ``onRegisterSuccess(prefix, registeredPrefixId)`` where:
+
+	    - ``prefix`` is the prefix given to registerPrefix.
+	    - ``registeredPrefixId`` is the value retured by registerPrefix.
+
+        (The onRegisterSuccess parameter comes after onRegisterFailed because it
+        can be omitted, unlike onRegisterFailed.)
 
     - `flags`
 	(optional) The flags for finer control of how and which Interests should be forwarded towards the face.
