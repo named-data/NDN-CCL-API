@@ -199,12 +199,12 @@ Get the content type.
 
 :Returns:
 
-    The content type which is BLOB, LINK or KEY as follows:
+    The content type which is BLOB, LINK, KEY or NACK as follows:
     
-        * C++: ``ndn_ContentType_BLOB``, ``ndn_ContentType_LINK`` or ``ndn_ContentType_KEY``
-        * Python: ``ContentType.BLOB``, ``ContentType.LINK`` or ``ContentType.KEY``
-        * JavaScript: ``ContentType.BLOB``, ``ContentType.LINK`` or ``ContentType.KEY``
-        * Java: ``ContentType.BLOB``, ``ContentType.LINK`` or ``ContentType.KEY``
+        * C++: ``ndn_ContentType_BLOB``, ``ndn_ContentType_LINK``, ``ndn_ContentType_KEY`` or ``ndn_ContentType_NACK``
+        * Python: ``ContentType.BLOB``, ``ContentType.LINK``, ``ContentType.KEY`` or ``ContentType.NACK``
+        * JavaScript: ``ContentType.BLOB``, ``ContentType.LINK``, ``ContentType.KEY`` or ``ContentType.NACK``
+        * Java: ``ContentType.BLOB``, ``ContentType.LINK``, ``ContentType.KEY`` or ``ContentType.NACK``
 
 MetaInfo Set Methods
 --------------------
@@ -337,9 +337,9 @@ Set the content type.
 
     - `type`
 
-        The content type which is BLOB, LINK or KEY as follows:
+        The content type which is BLOB, LINK, KEY or NACK as follows:
 
-            * C++: ``ndn_ContentType_BLOB``, ``ndn_ContentType_LINK`` or ``ndn_ContentType_KEY``
-            * Python: ``ContentType.BLOB``, ``ContentType.LINK`` or ``ContentType.KEY``
-            * JavaScript: ``ContentType.BLOB``, ``ContentType.LINK`` or ``ContentType.KEY``
-            * Java: ``ContentType.BLOB``, ``ContentType.LINK`` or ``ContentType.KEY``
+            * C++: ``ndn_ContentType_BLOB``, ``ndn_ContentType_LINK``, ``ndn_ContentType_KEY`` or ``ndn_ContentType_NACK``
+            * Python: ``ContentType.BLOB``, ``ContentType.LINK``, ``ContentType.KEY`` or ``ContentType.NACK``
+            * JavaScript: ``ContentType.BLOB``, ``ContentType.LINK``, ``ContentType.KEY`` or ``ContentType.NACK``
+            * Java: ``ContentType.BLOB``, ``ContentType.LINK``, ``ContentType.KEY`` or ``ContentType.NACK``
