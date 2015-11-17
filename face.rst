@@ -492,7 +492,7 @@ Face.processEvents Method
 
 :Throw:
 
-    This may throw an exception for reading data or in the callback for processing the data.  If you call this from an main event loop, you may want to catch and log/disregard all exceptions.
+    This may throw an exception, for example in processing incoming data.  If you call this from a main event loop, you should catch and log/dicard exceptions.
 
 .. _Face.putData:
 
