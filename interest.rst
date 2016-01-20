@@ -256,6 +256,57 @@ Get the interest :ref:`KeyLocator <KeyLocator>` object.
     The :ref:`KeyLocator <KeyLocator>` object. If not specified, the 
     key locator getType() is not specified.
 
+.. _Interest.getLink:
+
+Interest.getLink Method
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the link object. If necessary, decode it from the link wire encoding.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Link* getLink();
+
+        const Link* getLink() const;
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Link getLink()
+
+:Returns:
+
+    The link object. If not specified, return ``0`` (C++) or ``null`` (Java).
+
+Interest.getLinkWireEncoding Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the wire encoding of the link object. If there is already a wire encoding
+then return it. Otherwise encode from the link object (if available).
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Blob getLinkWireEncoding() const;
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Blob getLinkWireEncoding()
+
+:Returns:
+
+    The wire encoding, or an isNull Blob if the link is not specified.
+
+:Throw:
+
+    Throw an exception for error encoding the link object.
+
 Interest.getMaxSuffixComponents Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -455,6 +506,27 @@ in this Interest object, then the nonce value is cleared.
 :Returns:
 
     The nonce. If not specified, the value :ref:`isNull() <isNull>`.
+
+Interest.getSelectedDelegationIndex Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the selected delegation index.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        int getSelectedDelegationIndex() const;
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final int getSelectedDelegationIndex()
+
+:Returns:
+
+    The selected delegation index. If not specified, return ``-1`` (C++ and Java).
 
 Interest Set Methods
 --------------------
@@ -660,6 +732,40 @@ Set this interest to use a copy of the given :ref:`KeyLocator <KeyLocator>` obje
         The :ref:`KeyLocator <KeyLocator>` object. This makes a copy of the object. 
         If no key locator is specified, set to a new default KeyLocator(), or to a 
         KeyLocator with an unspecified type.
+
+:Returns:
+
+    This Interest so that you can chain calls to update values.
+
+Interest.setLinkWireEncoding Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set the link wire encoding bytes, without decoding them. If there is a link
+object, remove it. If you later call :ref:`getLink() <Interest.getLink>`, it
+will decode the wireEncoding to create the link object.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Interest& setLinkWireEncoding(
+            Blob encoding
+        );
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Interest setLinkWireEncoding(
+            Blob encoding
+        )
+
+:Parameters:
+
+    - `encoding`
+        The blob with the bytes of the link wire encoding. If no link is
+        specified, set to an empty Blob() or call
+        :ref:`unsetLink <Interest.unsetLink>`.
 
 :Returns:
 
@@ -878,6 +984,59 @@ Set the interest name.
 
     This Interest so that you can chain calls to update values.
 
+Interest.setSelectedDelegationIndex Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set the selected delegation index.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Interest& setSelectedDelegationIndex(
+            int selectedDelegationIndex
+        );
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Interest setSelectedDelegationIndex(
+            int selectedDelegationIndex
+        )
+
+:Parameters:
+
+    - `selectedDelegationIndex`
+        The selected delegation index. If not specified, set to ``-1``
+        (C++ and Java).
+
+:Returns:
+
+    This Interest so that you can chain calls to update values.
+
+Interest.hasLink Method
+-----------------------
+
+Check if this interest has a link object (or a link wire encoding which can be
+decoded to make the link object).
+
+:[C++]:
+
+    .. code-block:: c++
+
+        bool hasLink() const;
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final boolean hasLink()
+
+:Returns:
+
+    True if this interest has a link object, false if not.
+
 Interest.matchesName Method
 ---------------------------
 
@@ -969,6 +1128,30 @@ Interest.toUri Method
     :Returns:
 
         The URI string.
+
+.. _Interest.unsetLink:
+
+Interest.unsetLink Method
+-------------------------
+
+Clear the link wire encoding and link object so that
+:ref:`getLink <Interest.getLink>` returns null.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Interest& unsetLink();
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Interest unsetLink()
+
+:Returns:
+
+    This Interest so that you can chain calls to update values.
 
 Interest.wireDecode Methods
 ---------------------------
