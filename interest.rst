@@ -261,7 +261,7 @@ Get the interest :ref:`KeyLocator <KeyLocator>` object.
 Interest.getLink Method
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Get the link object. If necessary, decode it from the link wire encoding.
+Get the :ref:`Link <Link>` object. If necessary, decode it from the link wire encoding.
 
 :[C++]:
 
