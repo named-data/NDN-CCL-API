@@ -16,6 +16,7 @@ Table of Contents:
    signature
    key-locator
    interest-filter
+   link
    face
    transport
    blob
@@ -26,6 +27,7 @@ Table of Contents:
    :maxdepth: 3
 
 .. toctree::
+   details/delegation-set
    details/forwarding-flags
    details/tcp-transport
    details/udp-transport
