@@ -16,6 +16,7 @@ A ForwardingFlags object holds the flags which specify how the forwarding daemon
     Package: ``net.named_data.jndn``
 
 ForwardingFlags Constructor
+---------------------------
 
 Create a new ForwardingFlags with "childInherit" set and all other flags cleared.
 
