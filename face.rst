@@ -209,11 +209,21 @@ Send the interest through the transport, read the entire response and call onDat
         .. note::
 
             You must not change the interest object - if you need to change it then make a copy.
+
+        .. note::
+
+            The library will log any exceptions thrown by this callback, but for better
+            error handling the callback should catch and properly handle any exceptions.
           
     - `onTimeout`
 	(optional) If the interest times out according to the interest lifetime, this calls ``onTimeout(interest)`` where:
 
 	    - ``interest`` is the interest given to expressInterest.
+
+        .. note::
+
+            The library will log any exceptions thrown by this callback, but for better
+            error handling the callback should catch and properly handle any exceptions.
 
 :Returns:
 
@@ -298,10 +308,20 @@ Encode name as an Interest, using the interestTemplate if supplied, send the int
 
             You must not change the interest object - if you need to change it then make a copy.
 
+        .. note::
+
+            The library will log any exceptions thrown by this callback, but for better
+            error handling the callback should catch and properly handle any exceptions.
+
     - `onTimeout`
 	(optional) If the interest times out according to the interest lifetime, this calls ``onTimeout(interest)`` where:
 
 	    - ``interest`` is the interest given to expressInterest.
+
+        .. note::
+
+            The library will log any exceptions thrown by this callback, but for better
+            error handling the callback should catch and properly handle any exceptions.
 
 :Returns:
 
@@ -623,18 +643,28 @@ local or remote forwarder according to :ref:`isLocal <Face.isLocal>`.
 	    - ``interestFilterId`` is the interest filter ID which can be used with :ref:`unsetInterestFilter <Face.unsetInterestFilter>`.
 	    - ``filter`` is the :ref:`InterestFilter <InterestFilter>` created from the prefix.
 
+        If onInterest is an empty OnInterestCallback() (C++) or null
+        (JavaScript, Java) or None (PyNDN), it is ignored and you must call
+        :ref:`setInterestFilter <Face.setInterestFilter>`.
+
         .. note::
 
             You must not change the prefix or filter objects - if you need to change them then make a copy.
 
-        If onInterest is an empty OnInterestCallback() (C++) or null
-        (JavaScript, Java) or None (PyNDN), it is ignored and you must call
-        :ref:`setInterestFilter <Face.setInterestFilter>`.
+        .. note::
+
+            The library will log any exceptions thrown by this callback, but for better
+            error handling the callback should catch and properly handle any exceptions.
 
     - `onRegisterFailed`
 	If register prefix fails for any reason, this calls ``onRegisterFailed(prefix)`` where:
 
 	    - ``prefix`` is the prefix given to registerPrefix.
+
+        .. note::
+
+            The library will log any exceptions thrown by this callback, but for better
+            error handling the callback should catch and properly handle any exceptions.
 
     - `onRegisterSuccess`
 	(optional) When this receives a success message from the forwarder, this calls ``onRegisterSuccess(prefix, registeredPrefixId)`` where:
@@ -644,6 +674,11 @@ local or remote forwarder according to :ref:`isLocal <Face.isLocal>`.
 
         (The onRegisterSuccess parameter comes after onRegisterFailed because it
         can be omitted, unlike onRegisterFailed.)
+
+        .. note::
+
+            The library will log any exceptions thrown by this callback, but for better
+            error handling the callback should catch and properly handle any exceptions.
 
     - `flags`
 	(optional) The flags for finer control of how and which Interests should be forwarded towards the face.
@@ -974,6 +1009,11 @@ always succeed. To register a prefix with the forwarder, use
 
             You must not change the prefix or filter objects - if you need to change them then make a copy.
 
+        .. note::
+
+            The library will log any exceptions thrown by this callback, but for better
+            error handling the callback should catch and properly handle any exceptions.
+
 :Returns:
 
     The interest filter ID which can be used with
@@ -1045,6 +1085,11 @@ always succeed. To register a prefix with the forwarder, use
         .. note::
 
             You must not change the prefix or filter objects - if you need to change them then make a copy.
+
+        .. note::
+
+            The library will log any exceptions thrown by this callback, but for better
+            error handling the callback should catch and properly handle any exceptions.
 
 :Returns:
 

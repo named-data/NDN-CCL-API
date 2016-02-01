@@ -235,9 +235,19 @@ ChronoSync2013 Constructor
                 messages.) The callback should send interests to fetch the
                 application data for the sequence numbers in the sync state.
 
+          .. note::
+
+              The library will log any exceptions thrown by this callback, but for better
+              error handling the callback should catch and properly handle any exceptions.
+
         - `onInitialized`
             This calls onInitialized() when the first sync data is received (or
             the interest times out because there are no other publishers yet).
+
+          .. note::
+
+              The library will log any exceptions thrown by this callback, but for better
+              error handling the callback should catch and properly handle any exceptions.
 
         - `applicationDataPrefix`
             The prefix used by this application instance for application data.
@@ -274,6 +284,11 @@ ChronoSync2013 Constructor
             If failed to register the prefix to receive interests for the
             `applicationBroadcastPrefix`, this calls
             onRegisterFailed(applicationBroadcastPrefix).
+
+          .. note::
+
+              The library will log any exceptions thrown by this callback, but for better
+              error handling the callback should catch and properly handle any exceptions.
 
 .. _ChronoSync2013.getProducerSequenceNo:
 

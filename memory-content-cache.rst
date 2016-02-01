@@ -267,6 +267,11 @@ MemoryContentCache.registerPrefix Method
 
                 - ``prefix`` is the prefix given to registerPrefix.
 
+          .. note::
+
+              The library will log any exceptions thrown by this callback, but for better
+              error handling the callback should catch and properly handle any exceptions.
+
         - `onDataNotFound`
             (optional) If a data packet for an interest is not found in the
             cache, this forwards the interest by calling the onDataNotFound
@@ -284,6 +289,11 @@ MemoryContentCache.registerPrefix Method
             for onDataNotFound. If onDataNotFound is an empty OnInterestCallback()
             (C++) or null (Java, JavaScript) or None (PyNDN), this does not use
             it.
+
+          .. note::
+
+              The library will log any exceptions thrown by this callback, but for better
+              error handling the callback should catch and properly handle any exceptions.
 
         - `flags`
             (optional) The flags for finer control of how and which Interests should be forwarded towards the face.

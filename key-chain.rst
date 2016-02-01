@@ -495,9 +495,19 @@ KeyChain.verifyData Method
             If the signature is verified, this calls ``onVerified(data)`` where:
                 - `data` is the given Data object.
 
+          .. note::
+
+              The library will log any exceptions thrown by this callback, but for better
+              error handling the callback should catch and properly handle any exceptions.
+
         - `onVerifyFailed`
             If the signature check fails, this calls ``onVerifyFailed(data)`` where:
                 - `data` is the given Data object.
+
+          .. note::
+
+              The library will log any exceptions thrown by this callback, but for better
+              error handling the callback should catch and properly handle any exceptions.
 
 KeyChain.verifyInterest Method
 ------------------------------
@@ -559,6 +569,16 @@ KeyChain.verifyInterest Method
             If the signature is verified, this calls ``onVerified(interest)`` where:
                 - `interest` is the given Interest object.
 
+          .. note::
+
+              The library will log any exceptions thrown by this callback, but for better
+              error handling the callback should catch and properly handle any exceptions.
+
         - `onVerifyFailed`
             If the signature check fails, this calls ``onVerifyFailed(interest)`` where:
                 - `interest` is the given Interest object.
+
+          .. note::
+
+              The library will log any exceptions thrown by this callback, but for better
+              error handling the callback should catch and properly handle any exceptions.
