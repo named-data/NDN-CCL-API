@@ -220,6 +220,7 @@ MemoryContentCache.registerPrefix Method
             void registerPrefix(
                 const Name& prefix,
                 const OnRegisterFailed& onRegisterFailed
+                [, const OnRegisterSuccess& onRegisterSuccess]
                 [, const OnInterestCallback& onDataNotFound]
                 [, const ForwardingFlags& flags]
             );
@@ -229,10 +230,11 @@ MemoryContentCache.registerPrefix Method
         .. code-block:: python
 
             def registerPrefix(self,
-                prefix,            # Name
-                onRegisterFailed   # function object
-                [, onDataNotFound  # function object]
-                [, flags           # ForwardingFlags]
+                prefix,               # Name
+                onRegisterFailed      # function object
+                [, onRegisterSuccess  # function object]
+                [, onDataNotFound     # function object]
+                [, flags              # ForwardingFlags]
             )
 
     :[JavaScript]:
@@ -240,10 +242,11 @@ MemoryContentCache.registerPrefix Method
         .. code-block:: javascript
 
             MemoryContentCache.prototype.registerPrefix = function(
-                prefix,            // Name
-                onRegisterFailed   // function
-                [, onDataNotFound  // function]
-                [, flags           // ForwardingFlags]
+                prefix,               // Name
+                onRegisterFailed      // function
+                [, onRegisterSuccess  // function]
+                [, onDataNotFound     // function]
+                [, flags              // ForwardingFlags]
             )
 
     :[Java]:
@@ -253,6 +256,7 @@ MemoryContentCache.registerPrefix Method
             public final void registerPrefix(
                 Name prefix,
                 OnRegisterFailed onRegisterFailed
+                [, OnRegisterSuccess onRegisterSuccess]
                 [, OnInterestCallback onDataNotFound]
                 [, ForwardingFlags flags]
             )
@@ -266,6 +270,17 @@ MemoryContentCache.registerPrefix Method
             If failed to set Interest filter for any reason, this calls ``onRegisterFailed(prefix)`` where:
 
                 - ``prefix`` is the prefix given to registerPrefix.
+
+          .. note::
+
+              The library will log any exceptions thrown by this callback, but for better
+              error handling the callback should catch and properly handle any exceptions.
+
+        - `onRegisterSuccess`
+          (optional) When this receives a success message from the forwarder, this calls ``onRegisterSuccess(prefix, registeredPrefixId)`` where:
+
+          - ``prefix`` is the prefix given to registerPrefix.
+          - ``registeredPrefixId`` is the value retured by registerPrefix.
 
           .. note::
 
