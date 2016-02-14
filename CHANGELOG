@@ -1,4 +1,4 @@
-Interim changes since NDN-CCL-API v0.4.0 (2016-02-09)
+Interim changes since NDN-CCL-API v0.4.0 (2016-02-14)
 -----------------------------------------------------
 
 Changes
@@ -6,6 +6,7 @@ Changes
 * In Interest, added methods to support link objects and SelectedDelegation:
   hasLink, getLink, unsetLink, get/setLinkWireEncoding, get/setSelectedDelegationIndex.
 * In MemoryContentCache.registerPrefix, added optional onRegisterSuccess.
+* In Sha256WithEcdsaSignature, added Python.
 
 NDN-CCL-API v0.4.0 (2016-01-07)
 -------------------------------

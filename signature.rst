@@ -485,6 +485,9 @@ A Sha256WithEcdsaSignature extends Signature and holds the signature bits and ot
     | ``#include <ndn-cpp/sha256-with-ecdsa-signature.hpp>``
     | Namespace: ``ndn``
 
+:[Python]:
+    Module: ``pyndn``
+
 :[Java]:
     Package: ``net.named_data.jndn``
 
@@ -498,6 +501,12 @@ Create a new Sha256WithEcdsaSignature object.
     .. code-block:: c++
 
         Sha256WithEcdsaSignature();
+
+:[Python]:
+
+    .. code-block:: python
+
+        def __init__(self)
 
 :[Java]:
 
@@ -521,6 +530,13 @@ Get the signature :ref:`KeyLocator <KeyLocator>` object.
 
         const KeyLocator& getKeyLocator() const;
 
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns KeyLocator
+        def getKeyLocator(self)
+
 :[Java]:
 
     .. code-block:: java
@@ -542,6 +558,13 @@ Get the signature bytes.
     .. code-block:: c++
 
         const Blob& getSignature() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Blob
+        def getSignature(self)
 
 :[Java]:
 
@@ -572,6 +595,14 @@ Set this signature object to use a copy of the given :ref:`KeyLocator <KeyLocato
         void setKeyLocator(
             const KeyLocator& keyLocator
         );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def setKeyLocator(self,
+            keyLocator  # KeyLocator
+        )
 
 :[Java]:
 
@@ -605,6 +636,14 @@ Set the signature bytes to the given value.
             const Blob& signature
         );
 
+:[Python]:
+
+    .. code-block:: python
+
+        def setSignature(self,
+            signature  # Blob
+        )
+
 :[Java]:
 
     .. code-block:: java
@@ -628,6 +667,13 @@ Return a pointer to a new Sha256WithEcdsaSignature which is a copy of this signa
     .. code-block:: c++
 
         virtual ptr_lib::shared_ptr<Signature> clone() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Sha256WithEcdsaSignature
+        def clone(self)
 
 :[Java]:
 
