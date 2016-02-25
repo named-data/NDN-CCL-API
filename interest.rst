@@ -1085,6 +1085,37 @@ Return true if the components of this Interest's name are the same as the leadin
 
     True if this interest's name and interest selectors match the name.
 
+Interest.refreshNonce Method
+----------------------------
+
+Update the bytes of the nonce with new random values. This ensures that the new
+nonce value is different than the current one. If the current nonce is not
+specified, this does nothing.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void refreshNonce();
+
+:[Python]:
+
+    .. code-block:: python
+
+        def refreshNonce(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Interest.prototype.refreshNonce = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final void refreshNonce()
+
 Interest.toUri Method
 ---------------------
 
