@@ -984,7 +984,8 @@ Get a new name, constructed as a subset of components.
         The index if the first component to get. If iStartComponent is -N then return return components starting from name.size() - N.
 
     - `nComponents`
-        (optional) The number of components starting at iStartComponent. If omitted, return components until the end of the name.
+        (optional) The number of components starting at iStartComponent.
+        If omitted or greater than the size of this name, get until the end of the name.
 
 :Returns:
 
