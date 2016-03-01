@@ -436,32 +436,67 @@ Convert this component value by escaping characters according to the NDN URI Sch
 :[C++]:
 
     .. code-block:: c++
-    
+
         std::string toEscapedString() const;
 
 :[Python]:
 
     .. code-block:: python
-    
+
         # Returns str
         def toEscapedString(self)
 
 :[JavaScript]:
 
     .. code-block:: javascript
-    
+
         // Returns string
         Name.Component.prototype.toEscapedString = function()
 
 :[Java]:
 
     .. code-block:: java
-    
+
         public final String toEscapedString()
 
 :Returns:
 
     The escaped string.
+
+Name.Component.getSuccessor Method
+----------------------------------
+
+Get the successor of this component, as described in :ref:`Name.getSuccessor <Name.getSuccessor>`.
+
+:[C++]:
+
+    .. code-block:: c++
+    
+        Component getSuccessor() const;
+
+:[Python]:
+
+    .. code-block:: python
+    
+        # Returns Name.Component
+        def getSuccessor(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+    
+        // Returns Name.Component
+        Name.Component.prototype.getSuccessor = function()
+
+:[Java]:
+
+    .. code-block:: java
+    
+        public final Component getSuccessor()
+
+:Returns:
+
+    A new Name.Component which is the successor of this.
 
 Name.Component.toNumber Method
 ------------------------------

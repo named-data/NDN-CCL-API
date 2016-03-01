@@ -669,8 +669,13 @@ Clear all the components.
     
         public final void clear()
 
-Name.compare Method
--------------------
+Name.compare Methods
+--------------------
+
+.. _Name.compare:
+
+Name.compare Method (basic)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Compare this to the other Name using NDN canonical ordering.  If the 
 first components of each name are not equal, this returns -1 if the 
@@ -707,7 +712,7 @@ See http://named-data.net/doc/0.2/technical/CanonicalOrder.html
 
     .. code-block:: javascript
 
-        // Returns boolean
+        // Returns number
         Name.prototype.compare = function(
             other  // Name
         )
@@ -716,7 +721,7 @@ See http://named-data.net/doc/0.2/technical/CanonicalOrder.html
 
     .. code-block:: java
     
-        public final int other(
+        public final int compare(
             Name other
         )
 
@@ -724,6 +729,91 @@ See http://named-data.net/doc/0.2/technical/CanonicalOrder.html
 
     - `other`
         The other Name to compare with.
+
+:Returns:
+
+    0 If they compare equal, -1 if this Name comes before other in the
+    canonical ordering, or 1 if this Name comes after other in the canonical
+    ordering.
+
+Name.compare Method (sub names)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Compare a subset of this name to a subset of the other name, equivalent to
+this. :ref:`getSubName <Name.getSubName>`. :ref:`compare <Name.compare>` (other. :ref:`getSubName <Name.getSubName>` (iOtherStartComponent, nOtherComponents)).
+
+:[C++]:
+
+    .. code-block:: c++
+
+        int compare(
+            int iStartComponent,
+            size_t nComponents,
+            const Name& other
+            [, int iOtherStartComponent]
+            [, size_t nOtherComponents]
+        ) const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns int
+        def compare(self,
+            iStartComponent,         # int
+            nComponents,             # int
+            other                    # Name
+            [, iOtherStartComponent  # int]
+            [, nOtherComponents      # int]
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Name.prototype.compare = function(
+            iStartComponent,         // int
+            nComponents,             // int
+            other                    // Name
+            [, iOtherStartComponent  // int]
+            [, nOtherComponents      // int]
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final int compare(
+            int iStartComponent,
+            int nComponents,
+            Name other
+            [, int iOtherStartComponent]
+            [, int nOtherComponents]
+        )
+
+:Parameters:
+
+    - `iStartComponent`
+        The index if the first component of this name to compare. If
+        iStartComponent is -N then compare components starting from name.size() - N.
+
+    - `nComponents`
+        The number of components starting at iStartComponent. If greater than
+        the size of this name, compare until the end of the name.
+
+    - `other`
+        The other Name to compare with.
+
+    - `iOtherStartComponent`
+        (optional) The index if the first component of the other name to compare.
+        If iOtherStartComponent is -N then compare components starting from
+        other.size() - N. If omitted, compare starting from index 0.
+
+    - `nOtherComponents`
+        (optional) The number of components starting at iOtherStartComponent. If
+        omitted or greater than the size of this name, compare until the end of
+        the name.
 
 :Returns:
 
@@ -935,6 +1025,8 @@ Get a new Name with the first nComponents components of this Name.
 
     A new Name.
 
+.. _Name.getSubName:
+
 Name.getSubName Method
 ----------------------
 
@@ -990,6 +1082,55 @@ Get a new name, constructed as a subset of components.
 :Returns:
 
     A new Name.
+
+.. _Name.getSuccessor:
+
+Name.Component.getSuccessor Method
+----------------------------------
+
+Get the successor of this name which is defined as follows.
+
+* N represents the set of NDN Names, and X,Y ∈ N.
+* Operator < is defined by the NDN canonical order on N.
+* Y is the successor of X, if (a) X < Y, and (b) ∄ Z ∈ N s.t. X < Z < Y.
+
+In plain words, the successor of a name is the same name, but with its last
+component advanced to a next possible value. Examples:
+
+* The successor of / is /%00
+* The successor of /%00%01/%01%02 is /%00%01/%01%03
+* The successor of /%00%01/%01%FF is /%00%01/%02%00
+* The successor of /%00%01/%FF%FF is /%00%01/%00%00%00
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Name getSuccessor() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name
+        def getSuccessor(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name
+        Name.Component.prototype.getSuccessor = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Name getSuccessor()
+
+:Returns:
+
+    A new name which is the successor of this.
 
 Name.match Method
 -----------------
