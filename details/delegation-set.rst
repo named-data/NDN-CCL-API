@@ -36,6 +36,15 @@ delegations with the same name.
             const Name& name
         );
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        DelegationSet.prototype.add = function(
+            preference  // number
+            name        // Name
+        )
+
 :[Java]:
 
     .. code-block:: java
@@ -64,6 +73,12 @@ Clear the list of delegations.
 
         void clear();
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        DelegationSet.prototype.clear = function()
+
 :[Java]:
 
     .. code-block:: java
@@ -82,6 +97,15 @@ Find the first delegation with the given name and return its index.
         int find(
             const Name& name
         ) const;
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        DelegationSet.prototype.find = function(
+            name  // Name
+        )
 
 :[Java]:
 
@@ -114,6 +138,15 @@ Get the delegation at the given index, according to the ordering described in
             size_t i
         ) const;
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns DelegationSet.Delegation
+        DelegationSet.prototype.get = function(
+            i  // number
+        )
+
 :[Java]:
 
     .. code-block:: java
@@ -144,6 +177,15 @@ Remove every delegation entry with the given name.
             const Name& name
         );
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        DelegationSet.prototype.remove = function(
+            name  // Name
+        )
+
 :[Java]:
 
     .. code-block:: java
@@ -171,6 +213,13 @@ Get the number of delegation entries.
     .. code-block:: c++
 
         size_t size() const;
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        DelegationSet.prototype.size = function()
 
 :[Java]:
 
@@ -210,6 +259,13 @@ Get the preference number.
 
         const int getPreference() const;
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        DelegationSet.Delegation.prototype.getPreference = function()
+
 :[Java]:
 
     .. code-block:: java
@@ -230,6 +286,13 @@ Get the delegation name.
     .. code-block:: c++
 
         const Name& getName() const;
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name
+        DelegationSet.Delegation.prototype.getName = function()
 
 :[Java]:
 

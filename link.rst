@@ -28,6 +28,12 @@ the meta info type is LINK.
 
         Link();
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        var Link = function Link()
+
 :[Java]:
 
     .. code-block:: java
@@ -47,6 +53,14 @@ decoded, then update the list of delegations.
         Link(
             const Data& data
         );
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        var Link = function Link(
+            data  // Data
+        )
 
 :[Java]:
 
@@ -77,6 +91,16 @@ then by name. Re-encode this object's content which holds the delegation set.
             int preference,
             const Name& name
         );
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Link
+        Link.prototype.addDelegation = function(
+            preference  // number
+            name        // Name
+        )
 
 :[Java]:
 
@@ -110,6 +134,13 @@ Get the list of delegation for read only.
 
         const DelegationSet& getDelegations() const;
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns DelegationSet
+        Link.prototype.getDelegations = function()
+
 :[Java]:
 
     .. code-block:: java
@@ -134,6 +165,15 @@ content which holds the delegation set.
         bool removeDelegation(
             const Name& name
         );
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Link.prototype.removeDelegation = function(
+            name        // Name
+        )
 
 :[Java]:
 

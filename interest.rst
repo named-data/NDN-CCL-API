@@ -271,6 +271,13 @@ Get the :ref:`Link <Link>` object. If necessary, decode it from the link wire en
 
         const Link* getLink() const;
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Link
+        Interest.prototype.getLink = function()
+
 :[Java]:
 
     .. code-block:: java
@@ -292,6 +299,13 @@ then return it. Otherwise encode from the link object (if available).
     .. code-block:: c++
 
         Blob getLinkWireEncoding() const;
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Blob
+        Interest.prototype.getLinkWireEncoding = function()
 
 :[Java]:
 
@@ -517,6 +531,13 @@ Get the selected delegation index.
     .. code-block:: c++
 
         int getSelectedDelegationIndex() const;
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Interest.prototype.getSelectedDelegationIndex = function()
 
 :[Java]:
 
@@ -751,6 +772,15 @@ will decode the wireEncoding to create the link object.
         Interest& setLinkWireEncoding(
             Blob encoding
         );
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Interest
+        Interest.prototype.setLinkWireEncoding = function(
+            encoding  // Blob
+        )
 
 :[Java]:
 
@@ -997,6 +1027,15 @@ Set the selected delegation index.
             int selectedDelegationIndex
         );
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Interest
+        Interest.prototype.setSelectedDelegationIndex = function(
+            selectedDelegationIndex  // number
+        )
+
 :[Java]:
 
     .. code-block:: java
@@ -1026,6 +1065,13 @@ decoded to make the link object).
     .. code-block:: c++
 
         bool hasLink() const;
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Interest.prototype.hasLink = function()
 
 :[Java]:
 
@@ -1173,6 +1219,13 @@ Clear the link wire encoding and link object so that
     .. code-block:: c++
 
         Interest& unsetLink();
+
+:[JavaScript]:
+
+  .. code-block:: javascript
+
+      // Returns Interest
+      Interest.prototype.unsetLink = function()
 
 :[Java]:
 
