@@ -10,6 +10,9 @@ the Data content is an encoded :ref:`DelegationSet <DelegationSet>`.
     | ``#include <ndn-cpp/link.hpp>``
     | Namespace: ``ndn``
 
+:[Python]:
+    Module: ``pyndn``
+
 :[Java]:
     Package: ``net.named_data.jndn``
 
@@ -27,6 +30,12 @@ the meta info type is LINK.
     .. code-block:: c++
 
         Link();
+
+:[Python]:
+
+    .. code-block:: python
+
+        def __init__(self)
 
 :[JavaScript]:
 
@@ -53,6 +62,14 @@ decoded, then update the list of delegations.
         Link(
             const Data& data
         );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def __init__(self,
+            data  # Data
+        )
 
 :[JavaScript]:
 
@@ -91,6 +108,16 @@ then by name. Re-encode this object's content which holds the delegation set.
             int preference,
             const Name& name
         );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Link
+        def addDelegation(self,
+            preference,  # int
+            name         # Name
+        )
 
 :[JavaScript]:
 
@@ -134,6 +161,13 @@ Get the list of delegation for read only.
 
         const DelegationSet& getDelegations() const;
 
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns DelegationSet
+        def getDelegations(self)
+
 :[JavaScript]:
 
     .. code-block:: javascript
@@ -165,6 +199,15 @@ content which holds the delegation set.
         bool removeDelegation(
             const Name& name
         );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns bool
+        def removeDelegation(self,
+            name         # Name
+        )
 
 :[JavaScript]:
 

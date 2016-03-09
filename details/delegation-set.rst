@@ -14,6 +14,9 @@ a DelegationSet really holds a "list" and not necessarily a "set").
     | ``#include <ndn-cpp/delegation-set.hpp>``
     | Namespace: ``ndn``
 
+:[Python]:
+    Module: ``pyndn``
+
 :[Java]:
     Package: ``net.named_data.jndn``
 
@@ -36,13 +39,22 @@ delegations with the same name.
             const Name& name
         );
 
+:[Python]:
+
+    .. code-block:: python
+
+        def add(self,
+            preference,  # int
+            name         # Name
+        )
+
 :[JavaScript]:
 
     .. code-block:: javascript
 
         DelegationSet.prototype.add = function(
-            preference  // number
-            name        // Name
+            preference,  // number
+            name         // Name
         )
 
 :[Java]:
@@ -73,6 +85,12 @@ Clear the list of delegations.
 
         void clear();
 
+:[Python]:
+
+    .. code-block:: python
+
+        def clear(self)
+
 :[JavaScript]:
 
     .. code-block:: javascript
@@ -97,6 +115,15 @@ Find the first delegation with the given name and return its index.
         int find(
             const Name& name
         ) const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns int
+        def find(self,
+            name  # Name
+        )
 
 :[JavaScript]:
 
@@ -138,6 +165,15 @@ Get the delegation at the given index, according to the ordering described in
             size_t i
         ) const;
 
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns DelegationSet.Delegation
+        def get(self,
+            i  # int
+        )
+
 :[JavaScript]:
 
     .. code-block:: javascript
@@ -177,6 +213,15 @@ Remove every delegation entry with the given name.
             const Name& name
         );
 
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns bool
+        def remove(self,
+            name  # Name
+        )
+
 :[JavaScript]:
 
     .. code-block:: javascript
@@ -214,6 +259,13 @@ Get the number of delegation entries.
 
         size_t size() const;
 
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns int
+        def size(self)
+
 :[JavaScript]:
 
     .. code-block:: javascript
@@ -245,6 +297,9 @@ a Link instance.
     | ``#include <ndn-cpp/delegation-set.hpp>``
     | Namespace: ``ndn``
 
+:[Python]:
+    Module: ``pyndn``
+
 :[Java]:
     Package: ``net.named_data.jndn``
 
@@ -258,6 +313,13 @@ Get the preference number.
     .. code-block:: c++
 
         const int getPreference() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns int
+        def getPreference(self)
 
 :[JavaScript]:
 
@@ -286,6 +348,13 @@ Get the delegation name.
     .. code-block:: c++
 
         const Name& getName() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name
+        def getName(self)
 
 :[JavaScript]:
 
