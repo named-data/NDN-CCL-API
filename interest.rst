@@ -271,6 +271,13 @@ Get the :ref:`Link <Link>` object. If necessary, decode it from the link wire en
 
         const Link* getLink() const;
 
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Link
+        def getLink(self)
+
 :[JavaScript]:
 
     .. code-block:: javascript
@@ -299,6 +306,13 @@ then return it. Otherwise encode from the link object (if available).
     .. code-block:: c++
 
         Blob getLinkWireEncoding() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Blob
+        def getLinkWireEncoding(self)
 
 :[JavaScript]:
 
@@ -532,6 +546,13 @@ Get the selected delegation index.
 
         int getSelectedDelegationIndex() const;
 
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns int
+        def getSelectedDelegationIndex(self)
+
 :[JavaScript]:
 
     .. code-block:: javascript
@@ -547,7 +568,8 @@ Get the selected delegation index.
 
 :Returns:
 
-    The selected delegation index. If not specified, return ``-1`` (C++ and Java).
+    The selected delegation index. If not specified, return ``-1`` (C++ and Java)
+    or ``None`` (Python) or ``undefined`` (JavaScript).
 
 Interest Set Methods
 --------------------
@@ -772,6 +794,15 @@ will decode the wireEncoding to create the link object.
         Interest& setLinkWireEncoding(
             Blob encoding
         );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Interest
+        def setLinkWireEncoding(self,
+            encoding  # Blob
+        )
 
 :[JavaScript]:
 
@@ -1027,6 +1058,15 @@ Set the selected delegation index.
             int selectedDelegationIndex
         );
 
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Interest
+        def setSelectedDelegationIndex(self,
+            selectedDelegationIndex  # int
+        )
+
 :[JavaScript]:
 
     .. code-block:: javascript
@@ -1048,7 +1088,7 @@ Set the selected delegation index.
 
     - `selectedDelegationIndex`
         The selected delegation index. If not specified, set to ``-1``
-        (C++ and Java).
+        (C++ and Java) or ``None`` (Python) or ``undefined`` (JavaScript).
 
 :Returns:
 
@@ -1065,6 +1105,13 @@ decoded to make the link object).
     .. code-block:: c++
 
         bool hasLink() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns bool
+        def hasLink(self)
 
 :[JavaScript]:
 
@@ -1219,6 +1266,13 @@ Clear the link wire encoding and link object so that
     .. code-block:: c++
 
         Interest& unsetLink();
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Interest
+        def unsetLink(self)
 
 :[JavaScript]:
 
