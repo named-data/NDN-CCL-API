@@ -220,6 +220,302 @@ Return a pointer to a new DigestSha256Signature which is a copy of this signatur
 
     A new DigestSha256Signature object.
 
+.. _GenericSignature:
+
+GenericSignature Class
+======================
+
+A GenericSignature extends Signature and holds the encoding bytes of the
+SignatureInfo so that the application can process experimental signature
+types. When decoding a packet, if the type of SignatureInfo is not
+recognized, the library creates a GenericSignature.
+
+:[C++]:
+    | ``#include <ndn-cpp/generic-signature.hpp>``
+    | Namespace: ``ndn``
+
+:[Python]:
+    Module: ``pyndn``
+
+:[Java]:
+    Package: ``net.named_data.jndn``
+
+GenericSignature Constructor
+----------------------------
+
+Create a new GenericSignature object.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        GenericSignature();
+
+:[Python]:
+
+    .. code-block:: python
+
+        def __init__(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        var GenericSignature = function GenericSignature()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public GenericSignature()
+
+GenericSignature Get Methods
+----------------------------
+
+GenericSignature.getSignature Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the signature bytes.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        const Blob& getSignature() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Blob
+        def getSignature(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Blob
+        GenericSignature.prototype.getSignature = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Blob getSignature()
+
+:Returns:
+
+    The signature bytes. If not specified, the value :ref:`isNull() <isNull>`.
+
+GenericSignature.getSignatureInfoEncoding Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the bytes of the entire signature info encoding (including the type code).
+
+:[C++]:
+
+    .. code-block:: c++
+
+        const Blob& getSignatureInfoEncoding() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Blob
+        def getSignatureInfoEncoding(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Blob
+        GenericSignature.prototype.getSignatureInfoEncoding = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Blob getSignatureInfoEncoding()
+
+:Returns:
+
+    The encoding bytes. If not specified, the value :ref:`isNull() <isNull>`.
+
+GenericSignature.getTypeCode Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the type code of the signature type. When wire decode calls
+setSignatureInfoEncoding, it sets the type code. Note that the type code is
+ignored during wire encode, which simply uses getSignatureInfoEncoding() where
+the encoding already has the type code.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        int getTypeCode() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns int
+        def getTypeCode(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        GenericSignature.prototype.getTypeCode = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final int getTypeCode()
+
+:Returns:
+
+    The type code. If not specified, return ``-1`` (C++ and Java)
+    or ``None`` (Python) or ``undefined`` (JavaScript).
+
+GenericSignature Set Methods
+----------------------------
+
+GenericSignature.setSignature Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set the signature bytes to the given value.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setSignature(
+            const Blob& signature
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def setSignature(self,
+            signature  # Blob
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        GenericSignature.prototype.setSignature = function(
+            signature  // Blob
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final void setSignature(
+            Blob signature
+        )
+
+:Parameters:
+
+    - `signature`
+        A Blob with the signature bytes.
+
+GenericSignature.setSignatureInfoEncoding Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the type code of the signature type. When wire decode calls
+setSignatureInfoEncoding, it sets the type code. Note that the type code is
+ignored during wire encode, which simply uses getSignatureInfoEncoding() where
+the encoding already has the type code.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setSignatureInfoEncoding(
+            const Blob& signatureInfoEncoding
+            [, int typeCode]
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def setSignatureInfoEncoding(self,
+            signatureInfoEncoding  # Blob
+            [, typeCode]           # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        GenericSignature.prototype.setSignatureInfoEncoding = function(
+            signatureInfoEncoding  // Blob
+            [, typeCode]           // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final void setSignatureInfoEncoding(
+            Blob signatureInfoEncoding
+            [, int typeCode]
+        )
+
+:Parameters:
+
+    - `signatureInfoEncoding`
+        A Blob with the encoding bytes.
+
+    - `typeCode`
+        The type code of the signature type. If not known, set to ``-1``
+        (C++ and Java) or ``None`` (Python) or ``undefined`` (JavaScript).
+        (When a GenericSignature is created by wire decoding, it sets the
+        typeCode.)
+
+GenericSignature.clone Method
+------------------------------
+
+Return a pointer to a new GenericSignature which is a copy of this signature.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        virtual ptr_lib::shared_ptr<Signature> clone() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns GenericSignature
+        def clone(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns GenericSignature
+        GenericSignature.prototype.clone = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public Object clone()
+
+:Returns:
+
+    A new GenericSignature object.
+
 .. _Sha256WithRsaSignature:
 
 Sha256WithRsaSignature Class

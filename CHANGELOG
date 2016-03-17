@@ -1,10 +1,11 @@
-Interim changes since NDN-CCL-API v0.4.0 (2016-02-29)
+Interim changes since NDN-CCL-API v0.4.0 (2016-03-17)
 -----------------------------------------------------
 
 Changes
 * Added classes Link and DelegationSet.
 * In Interest, added methods to support link objects and SelectedDelegation:
   hasLink, getLink, unsetLink, get/setLinkWireEncoding, get/setSelectedDelegationIndex.
+* In Signature, added GenericSignature.
 * In Interest, added refreshNonce.
 * In Name, added getSuccessor and compare with sub names.
 * In MemoryContentCache.registerPrefix, added optional onRegisterSuccess.
