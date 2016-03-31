@@ -1,3 +1,6 @@
+Please submit any bugs or issues to the NDN-CCL issue tracker:
+http://redmine.named-data.net/projects/ndn-ccl/issues
+
 Prerequisites
 =============
 
