@@ -71,7 +71,8 @@ MemoryContentCache Constructor
     :Parameters:
 
         - `face`
-            The Face to use to call registerPrefix and which will call the onInterest callback.
+            The Face to use to call registerPrefix and setInterestFilter, and
+            which will call the onInterest callback.
 
         - `cleanupIntervalMilliseconds`
             (optional) The interval in milliseconds
@@ -207,6 +208,8 @@ MemoryContentCache.registerPrefix Method
 
     Call registerPrefix on the Face given to the constructor so that this
     MemoryContentCache will answer interests whose name has the prefix.
+    Alternatively, if the Face's registerPrefix has already been called,
+    then you can call :ref:`setInterestFilter <MemoryContentCache.setInterestFilter>`.
 
     .. note::
 
@@ -314,6 +317,175 @@ MemoryContentCache.registerPrefix Method
             (optional) The flags for finer control of how and which Interests should be forwarded towards the face.
             If omitted, use the default flags defined by the default :ref:`ForwardingFlags <ForwardingFlags>` constructor.
 
+.. _MemoryContentCache.setInterestFilter:
+
+MemoryContentCache.setInterestFilter Methods
+--------------------------------------------
+
+MemoryContentCache.setInterestFilter Method (from InterestFilter)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The MemoryContentCache is experimental and the API is not finalized.
+
+    Call setInterestFilter on the Face given to the constructor so that this
+    MemoryContentCache will answer interests whose name matches the filter.
+
+    .. note::
+
+        [except JavaScript] Your application must call :ref:`processEvents <processEvents>`.
+        The cache is processed on the same thread that calls processEvents.
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            void setInterestFilter(
+                const InterestFilter& filter,
+                [, const OnInterestCallback& onDataNotFound]
+            );
+
+    :[Python]:
+
+        .. code-block:: python
+
+            def setInterestFilter(self,
+                filter,            # InterestFilter
+                [, onDataNotFound  # function object]
+            )
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            MemoryContentCache.prototype.setInterestFilter = function(
+                filter,            // InterestFilter
+                [, onDataNotFound  // function]
+            )
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final void setInterestFilter(
+                InterestFilter filter,
+                [, OnInterestCallback onDataNotFound]
+            )
+
+    :Parameters:
+
+        - `filter`
+            The :ref:`InterestFilter <InterestFilter>` with a prefix and optional
+            regex filter used to match the name of an incoming Interest. This makes
+            a copy of filter.
+
+        - `onDataNotFound`
+            (optional) If a data packet for an interest is not found in the
+            cache, this forwards the interest by calling the onDataNotFound
+            callback. (For details of the callback parameters, see the
+            onInterest parameter of :ref:`registerPrefix <Face.registerPrefix>`.
+            The onDataNotFound callback is called on the same thread that calls
+            :ref:`processEvents <processEvents>`.) Your callback can find the
+            Data packet for the interest and send it. If your callback cannot
+            find the Data packet, it can optionally call
+            :ref:`storePendingInterest(interest, ...) <MemoryContentCache.storePendingInterest>`
+            to store the pending interest in this object to be satisfied by a
+            later call to :ref:`add(data) <MemoryContentCache.add>`. If you want
+            to automatically store all pending interests, you can simply use
+            :ref:`getStorePendingInterest() <MemoryContentCache.getStorePendingInterest>`
+            for onDataNotFound. If onDataNotFound is an empty OnInterestCallback()
+            (C++) or null (Java, JavaScript) or None (PyNDN), this does not use
+            it.
+
+          .. note::
+
+              The library will log any exceptions thrown by this callback, but for better
+              error handling the callback should catch and properly handle any exceptions.
+
+MemoryContentCache.setInterestFilter Method (from prefix)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The MemoryContentCache is experimental and the API is not finalized.
+
+    Call setInterestFilter on the Face given to the constructor so that this
+    MemoryContentCache will answer interests whose name name has the prefix.
+
+    .. note::
+
+        [except JavaScript] Your application must call :ref:`processEvents <processEvents>`.
+        The cache is processed on the same thread that calls processEvents.
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            void setInterestFilter(
+                const Name &prefix,
+                [, const OnInterestCallback& onDataNotFound]
+            );
+
+    :[Python]:
+
+        .. code-block:: python
+
+            def setInterestFilter(self,
+                prefix,            # Name
+                [, onDataNotFound  # function object]
+            )
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            MemoryContentCache.prototype.setInterestFilter = function(
+                prefix,            // Name
+                [, onDataNotFound  // function]
+            )
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final void setInterestFilter(
+                Name prefix,
+                [, OnInterestCallback onDataNotFound]
+            )
+
+    :Parameters:
+
+        - `prefix`
+           The :ref:`Name <Name>` prefix used to match the name of an incoming Interest.
+
+        - `onDataNotFound`
+            (optional) If a data packet for an interest is not found in the
+            cache, this forwards the interest by calling the onDataNotFound
+            callback. (For details of the callback parameters, see the
+            onInterest parameter of :ref:`registerPrefix <Face.registerPrefix>`.
+            The onDataNotFound callback is called on the same thread that calls
+            :ref:`processEvents <processEvents>`.) Your callback can find the
+            Data packet for the interest and send it. If your callback cannot
+            find the Data packet, it can optionally call
+            :ref:`storePendingInterest(interest, ...) <MemoryContentCache.storePendingInterest>`
+            to store the pending interest in this object to be satisfied by a
+            later call to :ref:`add(data) <MemoryContentCache.add>`. If you want
+            to automatically store all pending interests, you can simply use
+            :ref:`getStorePendingInterest() <MemoryContentCache.getStorePendingInterest>`
+            for onDataNotFound. If onDataNotFound is an empty OnInterestCallback()
+            (C++) or null (Java, JavaScript) or None (PyNDN), this does not use
+            it.
+
+          .. note::
+
+              The library will log any exceptions thrown by this callback, but for better
+              error handling the callback should catch and properly handle any exceptions.
+
 .. _MemoryContentCache.storePendingInterest:
 
 MemoryContentCache.storePendingInterest Method
@@ -386,10 +558,11 @@ MemoryContentCache.unregisterAll Method
 
        The MemoryContentCache is experimental and the API is not finalized.
 
-    Call Face.removeRegisteredPrefix for all the prefixes given to the
-    registerPrefix method on this MemoryContentCache object so that it will not
-    receive interests any more. You can call this if you want to "shut down"
-    this MemoryContentCache while your application is still running.
+    Call Face.unsetInterestFilter and Face.removeRegisteredPrefix for all the
+    prefixes given to the setInterestFilter and registerPrefix method on this
+    MemoryContentCache object so that it will not receive interests any more.
+    You can call this if you want to "shut down" this MemoryContentCache while
+    your application is still running.
 
     .. note::
 
