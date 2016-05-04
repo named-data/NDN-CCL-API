@@ -5,6 +5,7 @@ Changes
 * Added classes Link and DelegationSet.
 * In Interest, added methods to support link objects and SelectedDelegation:
   hasLink, getLink, unsetLink, get/setLinkWireEncoding, get/setSelectedDelegationIndex.
+* Added class NetworkNack. In Face.expressInterest, added the onNetworkNack callback.
 * In Interest and Data, added getIncomingFaceId.
 * In Signature, added GenericSignature.
 * In Interest, added refreshNonce.

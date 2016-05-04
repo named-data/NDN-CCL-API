@@ -141,13 +141,16 @@ Create a new Face object with optional settings to manage NDN communication.
                   OR 6363, // If in Node.js.
                            // However, if connectionInfo is not null, use it instead.
 
+.. _Face.expressInterest:
+
 Face.expressInterest Methods
 ----------------------------
 
 Face.expressInterest Method (from Interest)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Send the interest through the transport, read the entire response and call onData. If the interest times out according to interest lifetime, call onTimeout (if not omitted).
+Send the interest through the transport, read the entire response and call
+onData, onTimeout or onNetworkNack as described below.
 
 .. note::
 
@@ -161,6 +164,7 @@ Send the interest through the transport, read the entire response and call onDat
             const Interest& interest,
             const OnData& onData,
             [, const OnTimeout& onTimeout]
+            [, const OnNetworkNack& onNetworkNack]
         );
 
 :[Python]:
@@ -169,9 +173,10 @@ Send the interest through the transport, read the entire response and call onDat
 
         # Returns int
         def expressInterest(self,
-            interest,     # Interest
-            onData        # function object
-            [, onTimeout  # function object]
+            interest,         # Interest
+            onData            # function object
+            [, onTimeout      # function object]
+            [, onNetworkNack  # function object]
         )
 
 :[JavaScript]:
@@ -180,9 +185,10 @@ Send the interest through the transport, read the entire response and call onDat
 
         // Returns number
         Face.prototype.expressInterest = function(
-            interest     // Interest
-            onData,      // function
-            [, onTimeout // function]
+            interest          // Interest
+            onData,           // function
+            [, onTimeout      // function]
+            [, onNetworkNack  // function]
         )
 
 :[Java]:
@@ -193,6 +199,7 @@ Send the interest through the transport, read the entire response and call onDat
             Interest interest,
             OnData onData,
             [, OnTimeout onTimeout]
+            [, OnNetworkNack onNetworkNack]
         )
 
 :Parameters:
@@ -225,6 +232,25 @@ Send the interest through the transport, read the entire response and call onDat
             The library will log any exceptions thrown by this callback, but for better
             error handling the callback should catch and properly handle any exceptions.
 
+    - `onNetworkNack`
+	(optional) When a network Nack packet for the interest is received and onNetworkNack is supplied, this calls ``onData(interest, networkNack)`` where:
+
+	    - ``interest`` is the interest given to expressInterest.
+	    - ``networkNack`` is the received :ref:`NetworkNack <NetworkNack>` object.
+
+        If onNetworkNack is called then onTimeout is not called. However,
+        if a network Nack is received and onNetworkNack not supplied, do nothing
+        and wait for the interest to time out.
+
+        .. note::
+
+            You must not change the interest object - if you need to change it then make a copy.
+
+        .. note::
+
+            The library will log any exceptions thrown by this callback, but for better
+            error handling the callback should catch and properly handle any exceptions.
+
 :Returns:
 
     The pending interest ID which can be used with
@@ -238,7 +264,9 @@ Send the interest through the transport, read the entire response and call onDat
 Face.expressInterest Method (from Name)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Encode name as an Interest, using the interestTemplate if supplied, send the interest through the transport, read the entire response and call onData. If the interest times out according to interest lifetime, call onTimeout (if not omitted).
+Encode name as an Interest, using the interestTemplate if supplied, send the
+interest through the transport, read the entire response and call
+onData, onTimeout or onNetworkNack as described below.
 
 .. note::
 
@@ -253,6 +281,7 @@ Encode name as an Interest, using the interestTemplate if supplied, send the int
             [, const Interest* interestTemplate]
             const OnData& onData,
             [, const OnTimeout& onTimeout]
+            [, const OnNetworkNack& onNetworkNack]
         );
 
 :[Python]:
@@ -265,6 +294,7 @@ Encode name as an Interest, using the interestTemplate if supplied, send the int
             [, interestTemplate # Interest]
             onData,             # function object
             [, onTimeout        # function object]
+            [, onNetworkNack    # function object]
         )
 
 :[JavaScript]:
@@ -277,6 +307,7 @@ Encode name as an Interest, using the interestTemplate if supplied, send the int
             [, interestTemplate // Interest]
             onData,             // function
             [, onTimeout        // function]
+            [, onNetworkNack    // function]
         )
 
 :[Java]:
@@ -288,6 +319,7 @@ Encode name as an Interest, using the interestTemplate if supplied, send the int
             [, Interest interestTemplate]
             OnData onData,
             [, OnTimeout onTimeout]
+            [, OnNetworkNack onNetworkNack]
         )
 
 :Parameters:
@@ -317,6 +349,25 @@ Encode name as an Interest, using the interestTemplate if supplied, send the int
 	(optional) If the interest times out according to the interest lifetime, this calls ``onTimeout(interest)`` where:
 
 	    - ``interest`` is the interest given to expressInterest.
+
+        .. note::
+
+            The library will log any exceptions thrown by this callback, but for better
+            error handling the callback should catch and properly handle any exceptions.
+
+    - `onNetworkNack`
+	(optional) When a network Nack packet for the interest is received and onNetworkNack is supplied, this calls ``onData(interest, networkNack)`` where:
+
+	    - ``interest`` is the interest given to expressInterest.
+	    - ``networkNack`` is the received :ref:`NetworkNack <NetworkNack>` object.
+
+        If onNetworkNack is called then onTimeout is not called. However,
+        if a network Nack is received and onNetworkNack not supplied, do nothing
+        and wait for the interest to time out.
+
+        .. note::
+
+            You must not change the interest object - if you need to change it then make a copy.
 
         .. note::
 
