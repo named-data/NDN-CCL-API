@@ -93,6 +93,43 @@ Get content of the Data packet.
 
     The data packet content as a Blob.
 
+Data.getIncomingFaceId Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the incoming face ID according to the incoming packet header (if the
+forwarder is configured to include it in the header).
+
+:[C++]:
+
+    .. code-block:: c++
+
+        uint64_t getIncomingFaceId() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns int
+        def getIncomingFaceId(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Data.prototype.getIncomingFaceId = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final long getIncomingFaceId()
+
+:Returns:
+
+    The incoming face ID. If not specified, return ``(uint64_t)-1`` (C++)
+    or ``None`` (Python) or ``undefined`` (JavaScript) or ``-1`` (Java).
+
 Data.getMetaInfo Method
 ^^^^^^^^^^^^^^^^^^^^^^^
 
