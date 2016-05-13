@@ -166,6 +166,47 @@ Get the data packet freshness period.
     The freshness period in milliseconds. If not specified, return ``-1`` 
     (C++ and Java) or ``None`` (Python) or ``undefined`` (JavaScript).
 
+.. _MetaInfo.getOtherTypeCode:
+
+MetaInfo.getOtherTypeCode Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the content type code from the packet which is other than a recognized
+ContentType enum value. This is only meaningful if
+:ref:`getType() <MetaInfo.getType>` is OTHER_CODE.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        int getOtherTypeCode() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns int
+        def getOtherTypeCode(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        MetaInfo.prototype.getOtherTypeCode = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final int getOtherTypeCode()
+
+:Returns:
+
+    The type code.
+
+.. _MetaInfo.getType:
+
 MetaInfo.getType Method
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -199,12 +240,15 @@ Get the content type.
 
 :Returns:
 
-    The content type which is BLOB, LINK, KEY or NACK as follows:
+    The content type enum value which is BLOB, LINK, KEY, NACK, or OTHER_CODE as follows.
+    If this is OTHER_CODE, then call
+    :ref:`getOtherTypeCode() <MetaInfo.getOtherTypeCode>` to get the unrecognized
+    content type code.
     
-        * C++: ``ndn_ContentType_BLOB``, ``ndn_ContentType_LINK``, ``ndn_ContentType_KEY`` or ``ndn_ContentType_NACK``
-        * Python: ``ContentType.BLOB``, ``ContentType.LINK``, ``ContentType.KEY`` or ``ContentType.NACK``
-        * JavaScript: ``ContentType.BLOB``, ``ContentType.LINK``, ``ContentType.KEY`` or ``ContentType.NACK``
-        * Java: ``ContentType.BLOB``, ``ContentType.LINK``, ``ContentType.KEY`` or ``ContentType.NACK``
+        * C++: ``ndn_ContentType_BLOB``, ``ndn_ContentType_LINK``, ``ndn_ContentType_KEY``, ``ndn_ContentType_NACK`` or ``ndn_ContentType_OTHER_CODE``
+        * Python: ``ContentType.BLOB``, ``ContentType.LINK``, ``ContentType.KEY``, ``ContentType.NACK`` or ``ContentType.OTHER_CODE``
+        * JavaScript: ``ContentType.BLOB``, ``ContentType.LINK``, ``ContentType.KEY``, ``ContentType.NACK`` or ``ContentType.OTHER_CODE``
+        * Java: ``ContentType.BLOB``, ``ContentType.LINK``, ``ContentType.KEY``, ``ContentType.NACK`` or ``ContentType.OTHER_CODE``
 
 MetaInfo Set Methods
 --------------------
@@ -296,6 +340,55 @@ Set the freshness period.
         The freshness period in milliseconds. If not specified, set to ``-1`` 
         (C++ and Java) or ``None`` (Python) or ``undefined`` (JavaScript).
 
+.. _MetaInfo.setOtherTypeCode:
+
+MetaInfo.setOtherTypeCode Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set the packet's content type code to use when the content type enum is
+OTHER_CODE. If the packet's content type code is a recognized enum value, just
+call :ref:`setType() <MetaInfo.setType>`.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setOtherTypeCode(
+            int otherTypeCode
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def setOtherTypeCode(self,
+            otherTypeCode  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        MetaInfo.prototype.setOtherTypeCode = function(
+            otherTypeCode  // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final void setOtherTypeCode(
+            int otherTypeCode
+        )
+
+:Parameters:
+
+    - `otherTypeCode`
+
+        The packet's unrecognized content type code, which must be non-negative.
+
+.. _MetaInfo.setType:
+
 MetaInfo.setType Method
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -337,9 +430,11 @@ Set the content type.
 
     - `type`
 
-        The content type which is BLOB, LINK, KEY or NACK as follows:
+        The content type enum value which is BLOB, LINK, KEY or NACK as follows.
+        If the packet's content type is not a recognized ContentType enum value,
+        use OTHER_CODE and call :ref:`setOtherTypeCode() <MetaInfo.setOtherTypeCode>`.
 
-            * C++: ``ndn_ContentType_BLOB``, ``ndn_ContentType_LINK``, ``ndn_ContentType_KEY`` or ``ndn_ContentType_NACK``
-            * Python: ``ContentType.BLOB``, ``ContentType.LINK``, ``ContentType.KEY`` or ``ContentType.NACK``
-            * JavaScript: ``ContentType.BLOB``, ``ContentType.LINK``, ``ContentType.KEY`` or ``ContentType.NACK``
-            * Java: ``ContentType.BLOB``, ``ContentType.LINK``, ``ContentType.KEY`` or ``ContentType.NACK``
+            * C++: ``ndn_ContentType_BLOB``, ``ndn_ContentType_LINK``, ``ndn_ContentType_KEY``, ``ndn_ContentType_NACK`` or ``ndn_ContentType_OTHER_CODE``
+            * Python: ``ContentType.BLOB``, ``ContentType.LINK``, ``ContentType.KEY``, ``ContentType.NACK`` or ``ContentType.OTHER_CODE``
+            * JavaScript: ``ContentType.BLOB``, ``ContentType.LINK``, ``ContentType.KEY``, ``ContentType.NACK`` or ``ContentType.OTHER_CODE``
+            * Java: ``ContentType.BLOB``, ``ContentType.LINK``, ``ContentType.KEY``, ``ContentType.NACK`` or ``ContentType.OTHER_CODE``

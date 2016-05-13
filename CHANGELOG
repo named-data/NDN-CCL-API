@@ -1,3 +1,9 @@
+Interim changes since NDN-CCL-API v0.4.1 (2016-05-13)
+-----------------------------------------------------
+
+Changes
+* In MetaInfo, added get/setOtherTypeCode.
+
 NDN-CCL-API v0.4.1 (2016-05-09)
 -------------------------------
 
