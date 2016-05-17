@@ -498,6 +498,194 @@ Get the successor of this component, as described in :ref:`Name.getSuccessor <Na
 
     A new Name.Component which is the successor of this.
 
+Name.Component Is Naming Convention Value Methods
+-------------------------------------------------
+
+Name.Component.isSegment Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Check if this name component is a segment number according to NDN naming
+conventions for "Segment number" (marker 0x00).
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
+
+:[C++]:
+
+    .. code-block:: c++
+
+        bool isSegment() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns bool
+        def isSegment(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Name.Component.prototype.isSegment = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final boolean isSegment()
+
+:Returns:
+
+    True if this is a segment number.
+
+Name.Component.isSegmentOffset Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Check if this name component is a segment byte offset according to NDN naming
+conventions for segment "Byte offset" (marker 0xFB).
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
+
+:[C++]:
+
+    .. code-block:: c++
+
+        bool isSegmentOffset() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns bool
+        def isSegmentOffset(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Name.Component.prototype.isSegmentOffset = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final boolean isSegmentOffset()
+
+:Returns:
+
+    True if this is a segment byte offset.
+
+Name.Component.isSequenceNumber Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Check if this name component is a sequence number according to NDN naming
+conventions for "Sequencing" (marker 0xFE).
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
+
+:[C++]:
+
+    .. code-block:: c++
+
+        bool isSequenceNumber() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns bool
+        def isSequenceNumber(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Name.Component.prototype.isSequenceNumber = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final boolean isSequenceNumber()
+
+:Returns:
+
+    True if this is a sequence number.
+
+Name.Component.isTimestamp Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Check if this name component is a timestamp  according to NDN naming
+conventions for "Timestamp" (marker 0xFC).
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
+
+:[C++]:
+
+    .. code-block:: c++
+
+        bool isTimestamp() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns bool
+        def isTimestamp(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Name.Component.prototype.isTimestamp = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final boolean isTimestamp()
+
+:Returns:
+
+    True if this is a timestamp.
+
+Name.Component.isVersion Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Check if this name component is a version number  according to NDN naming
+conventions for "Versioning" (marker 0xFD).
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
+
+:[C++]:
+
+    .. code-block:: c++
+
+        bool isVersion() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns bool
+        def isVersion(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Name.Component.prototype.isVersion = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final boolean isVersion()
+
+:Returns:
+
+    True if this is a version number.
+
 Name.Component To Naming Convention Value Methods
 -------------------------------------------------
 
@@ -510,7 +698,7 @@ Interpret this name component as a network-ordered number and return an integer.
 
     .. code-block:: c++
     
-        const uint64_t toNumber() const;
+        uint64_t toNumber() const;
 
 :[Python]:
 
@@ -546,7 +734,7 @@ marker and return an integer.
 
     .. code-block:: c++
     
-        const uint64_t toNumberWithMarker(
+        uint64_t toNumberWithMarker(
             uint8_t marker
         ) const;
 
@@ -600,7 +788,7 @@ http://named-data.net/doc/tech-memos/naming-conventions.pdf
 
     .. code-block:: c++
     
-        const uint64_t toSegment() const;
+        uint64_t toSegment() const;
 
 :[Python]:
 
@@ -641,7 +829,7 @@ http://named-data.net/doc/tech-memos/naming-conventions.pdf
 
     .. code-block:: c++
 
-        const uint64_t toSegmentOffset() const;
+        uint64_t toSegmentOffset() const;
 
 :[Python]:
 
@@ -682,7 +870,7 @@ http://named-data.net/doc/tech-memos/naming-conventions.pdf
 
     .. code-block:: c++
 
-        const uint64_t toSequenceNumber() const;
+        uint64_t toSequenceNumber() const;
 
 :[Python]:
 
@@ -723,7 +911,7 @@ http://named-data.net/doc/tech-memos/naming-conventions.pdf
 
     .. code-block:: c++
 
-        const uint64_t toTimestamp() const;
+        uint64_t toTimestamp() const;
 
 :[Python]:
 
@@ -767,7 +955,7 @@ http://named-data.net/doc/tech-memos/naming-conventions.pdf
 
     .. code-block:: c++
     
-        const uint64_t toVersion() const;
+        uint64_t toVersion() const;
 
 :[Python]:
 
