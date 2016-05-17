@@ -498,8 +498,11 @@ Get the successor of this component, as described in :ref:`Name.getSuccessor <Na
 
     A new Name.Component which is the successor of this.
 
+Name.Component To Naming Convention Value Methods
+-------------------------------------------------
+
 Name.Component.toNumber Method
-------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Interpret this name component as a network-ordered number and return an integer.
 
@@ -534,7 +537,7 @@ Interpret this name component as a network-ordered number and return an integer.
     The integer number.
 
 Name.Component.toNumberWithMarker Method
-----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Interpret this name component as a network-ordered number with a 
 marker and return an integer.
@@ -587,7 +590,7 @@ marker and return an integer.
     Throw an exception if the first byte of the component does not equal the marker.
 
 Name.Component.toSegment Method
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Interpret this name component as a segment number according to NDN naming
 conventions for "Segment number" (marker 0x00).
@@ -628,7 +631,7 @@ http://named-data.net/doc/tech-memos/naming-conventions.pdf
     Throw an exception if the first byte of the component is not the expected marker.
 
 Name.Component.toSegmentOffset Method
--------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Interpret this name component as a segment byte offset according to NDN naming
 conventions for segment "Byte offset" (marker 0xFB).
@@ -669,7 +672,7 @@ http://named-data.net/doc/tech-memos/naming-conventions.pdf
     Throw an exception if the first byte of the component is not the expected marker.
 
 Name.Component.toSequenceNumber Method
---------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Interpret this name component as a sequence number according to NDN naming
 conventions for "Sequencing" (marker 0xFE).
@@ -710,7 +713,7 @@ http://named-data.net/doc/tech-memos/naming-conventions.pdf
     Throw an exception if the first byte of the component is not the expected marker.
 
 Name.Component.toTimestamp Method
----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Interpret this name component as a timestamp  according to NDN naming
 conventions for "Timestamp" (marker 0xFC).
@@ -752,7 +755,7 @@ http://named-data.net/doc/tech-memos/naming-conventions.pdf
     Throw an exception if the first byte of the component is not the expected marker.
 
 Name.Component.toVersion Method
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Interpret this name component as a version number  according to NDN naming
 conventions for "Versioning" (marker 0xFD). Note that this returns
