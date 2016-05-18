@@ -896,7 +896,7 @@ which means the component should be skipped in a URI name.
     
         # Returns Blob
         @staticmethod
-        def fromEscapedString(self,
+        def fromEscapedString(
             escapedString  # str
         )
 
