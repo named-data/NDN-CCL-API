@@ -285,114 +285,6 @@ Check if this is the same component as other.
 
     True if the components are not equal, otherwise false.
 
-Name.Component.fromNumber Method
---------------------------------
-
-Create a component whose value is the nonNegativeInteger encoding of the number.
-A nonNegativeInteger is always encoded as 1, 2, 4 or 8 bytes.
-
-:[C++]:
-
-    .. code-block:: c++
-
-        static Component fromNumber(
-            uint64_t number
-        );
-
-:[Python]:
-
-    .. code-block:: python
-
-        # Returns Name.Component
-        @staticmethod
-        def fromNumber(self,
-            number  # int
-        )
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-
-        // Returns Name.Component
-        Name.Component.fromNumber = function(
-            number  # number
-        )
-
-:[Java]:
-
-    .. code-block:: java
-
-        public static Component fromNumber(
-            long number
-        )
-
-:Parameters:
-
-    - `number`
-        The number to be encoded.
-
-:Returns:
-
-    The component value.
-
-Name.Component.fromNumberWithMarker Method
-------------------------------------------
-
-Create a component whose value is the marker appended with the nonNegativeInteger
-encoding of the number. This is a static method.
-A nonNegativeInteger is always encoded as 1, 2, 4 or 8 bytes.
-
-:[C++]:
-
-    .. code-block:: c++
-
-        static Component fromNumberWithMarker(
-            uint64_t number,
-            uint8_t marker
-        );
-
-:[Python]:
-
-    .. code-block:: python
-
-        # Returns Name.Component
-        @staticmethod
-        def fromNumberWithMarker(self,
-            number,  # int
-            marker   # int
-        )
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-
-        // Returns Name.Component
-        Name.Component.fromNumberWithMarker = function(
-            number,  # number
-            marker   # number
-        )
-
-:[Java]:
-
-    .. code-block:: java
-
-        public static Component fromNumberWithMarker(
-            long number,
-            int marker
-        )
-
-:Parameters:
-
-    - `number`
-        The number to be encoded.
-
-    - `marker`
-        The marker to use as the first byte of the component.
-
-:Returns:
-
-    The component value.
-
 Name.Component.getValue Method
 ------------------------------
 
@@ -497,6 +389,374 @@ Get the successor of this component, as described in :ref:`Name.getSuccessor <Na
 :Returns:
 
     A new Name.Component which is the successor of this.
+
+Name.Component From Naming Convention Value Methods
+---------------------------------------------------
+
+Name.Component.fromNumber Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a component whose value is the nonNegativeInteger encoding of the number.
+A nonNegativeInteger is always encoded as 1, 2, 4 or 8 bytes.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        static Component fromNumber(
+            uint64_t number
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name.Component
+        @staticmethod
+        def fromNumber(
+            number  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name.Component
+        Name.Component.fromNumber = function(
+            number  // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public static Component fromNumber(
+            long number
+        )
+
+:Parameters:
+
+    - `number`
+        The number to be encoded.
+
+:Returns:
+
+    The new component.
+
+Name.Component.fromNumberWithMarker Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a component whose value is the marker appended with the nonNegativeInteger
+encoding of the number. This is a static method.
+A nonNegativeInteger is always encoded as 1, 2, 4 or 8 bytes.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        static Component fromNumberWithMarker(
+            uint64_t number,
+            uint8_t marker
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name.Component
+        @staticmethod
+        def fromNumberWithMarker(
+            number,  # int
+            marker   # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name.Component
+        Name.Component.fromNumberWithMarker = function(
+            number,  // number
+            marker   // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public static Component fromNumberWithMarker(
+            long number,
+            int marker
+        )
+
+:Parameters:
+
+    - `number`
+        The number to be encoded.
+
+    - `marker`
+        The marker to use as the first byte of the component.
+
+:Returns:
+
+    The new component.
+
+Name.Component.fromSegment Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a component with the encoded segment number according to NDN naming
+conventions for "Segment number" (marker 0x00).
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
+
+:[C++]:
+
+    .. code-block:: c++
+
+        static Component fromSegment(
+            uint64_t segment
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name.Component
+        @staticmethod
+        def fromSegment(
+            segment  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name.Component
+        Name.Component.fromSegment = function(
+            segment  // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final long fromSegment(
+            long segment
+        )
+
+:Parameters:
+
+    - `segment`
+        The integer segment number.
+
+:Returns:
+
+    The new component.
+
+Name.Component.fromSegmentOffset Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a component with the encoded segment byte offset according to NDN naming
+conventions for segment "Byte offset" (marker 0xFB).
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
+
+:[C++]:
+
+    .. code-block:: c++
+
+        static Component fromSegmentOffset(
+            uint64_t segmentOffset
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name.Component
+        @staticmethod
+        def fromSegmentOffset(
+            segmentOffset  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name.Component
+        Name.Component.fromSegmentOffset = function(
+            segmentOffset  // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final long fromSegmentOffset(
+            long segmentOffset
+        )
+
+:Parameters:
+
+    - `segmentOffset`
+        The integer segment byte offset.
+
+:Returns:
+
+    The new component.
+
+Name.Component.fromSequenceNumber Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a component with the encoded sequence number according to NDN naming
+conventions for "Sequencing" (marker 0xFE).
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
+
+:[C++]:
+
+    .. code-block:: c++
+
+        static Component fromSequenceNumber(
+            uint64_t segmentOffset
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name.Component
+        @staticmethod
+        def fromSequenceNumber(
+            segmentOffset  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name.Component
+        Name.Component.fromSequenceNumber = function(
+            segmentOffset  // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final long fromSequenceNumber(
+            long segmentOffset
+        )
+
+:Parameters:
+
+    - `segmentOffset`
+        The integer sequence number.
+
+:Returns:
+
+    The new component.
+
+Name.Component.fromTimestamp Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a component with the encoded timestamp  according to NDN naming
+conventions for "Timestamp" (marker 0xFC).
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
+
+:[C++]:
+
+    .. code-block:: c++
+
+        static Component fromTimestamp(
+            uint64_t timestamp
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name.Component
+        @staticmethod
+        def fromTimestamp(
+            timestamp  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name.Component
+        Name.Component.fromTimestamp = function(
+            timestamp  // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final long fromTimestamp(
+            long timestamp
+        )
+
+:Parameters:
+
+    - `timestamp`
+        The number of microseconds since the UNIX epoch (Thursday, 1 January 1970)
+        not counting leap seconds.
+
+:Returns:
+
+    The new component.
+
+Name.Component.fromVersion Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a component with the encoded version number  according to NDN naming
+conventions for "Versioning" (marker 0xFD). Note that this encodes the exact
+value of version without converting from a time representation.
+http://named-data.net/doc/tech-memos/naming-conventions.pdf
+
+:[C++]:
+
+    .. code-block:: c++
+
+        static Component fromVersion(
+            uint64_t version
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name.Component
+        @staticmethod
+        def fromVersion(
+            version  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name.Component
+        Name.Component.fromVersion = function(
+            version  // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final long fromVersion(
+            long version
+        )
+
+:Parameters:
+
+    - `version`
+        The integer version number.
+
+:Returns:
+
+    The new component.
 
 Name.Component Is Naming Convention Value Methods
 -------------------------------------------------
@@ -753,7 +1013,7 @@ marker and return an integer.
 
         // Returns number
         Name.Component.prototype.toNumberWithMarker = function(
-            marker  # number
+            marker  // number
         )
 
 :[Java]:
