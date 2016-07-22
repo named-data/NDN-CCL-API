@@ -1,9 +1,10 @@
-Interim changes since NDN-CCL-API v0.4.1 (2016-05-18)
+Interim changes since NDN-CCL-API v0.4.1 (2016-07-22)
 -----------------------------------------------------
 
 Changes
 * In MetaInfo, added get/setOtherTypeCode.
 * In Name.Component, added from* and is* name convention methods.
+* In Data, added getFullName.
 
 NDN-CCL-API v0.4.1 (2016-05-09)
 -------------------------------

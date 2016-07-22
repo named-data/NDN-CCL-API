@@ -93,6 +93,43 @@ Get content of the Data packet.
 
     The data packet content as a Blob.
 
+Data.getFullName Method
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the data packet's full :ref:`Name <Name>`, which includes the final
+ImplicitSha256Digest.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        ptr_lib::shared_ptr<Name> getFullName() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name
+        def getFullName(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name
+        Data.prototype.getFullName = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Name getFullName()
+
+:Returns:
+
+    The full name. You must not change the Name object - if you need to change
+    it then make a copy.
+
 Data.getIncomingFaceId Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
