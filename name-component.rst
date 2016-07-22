@@ -21,7 +21,9 @@ Name.Component Constructors
 Name.Component Constructor (copy optional byte array)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a new Name.Component, optionally copying from the byte array.
+Create a new GENERIC Name.Component, optionally copying from the byte array.
+(To create an ImplicitSha256Digest component, use
+:ref:`fromImplicitSha256Digest <fromImplicitSha256Digest>`.)
 
 :[C++]:
 
@@ -63,7 +65,7 @@ Create a new Name.Component, optionally copying from the byte array.
 Name.Component Constructor (from Unicode string)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a new Name.Component, converting the value to UTF8 bytes.  This does not 
+Create a new GENERIC Name.Component, converting the value to UTF8 bytes.  This does not
 escape %XX values. If you need to escape, use Name.fromEscapedString.
 
 :[Python]:
@@ -104,7 +106,9 @@ escape %XX values. If you need to escape, use Name.fromEscapedString.
 Name.Component Constructor (from Blob)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a new Name.Component, taking another pointer to the byte array in the Blob.
+Create a new GENERIC Name.Component, taking another pointer to the byte array in the Blob.
+(To create an ImplicitSha256Digest component, use
+:ref:`fromImplicitSha256Digest <fromImplicitSha256Digest>`.)
 
 :[C++]:
 
@@ -285,6 +289,110 @@ Check if this is the same component as other.
 
     True if the components are not equal, otherwise false.
 
+.. _fromImplicitSha256Digest:
+
+Name.Component.fromImplicitSha256Digest Method
+----------------------------------------------
+
+Create a component of type ImplicitSha256DigestComponent, so that
+isImplicitSha256Digest() is true.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        static Component fromImplicitSha256Digest(
+            const Blob& digest
+        );
+
+        static Component fromImplicitSha256Digest(
+            const uint8_t *digest,
+            size_t digestLength
+        );
+
+        static Component fromImplicitSha256Digest(
+            const std::vector<uint8_t>& digest
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name.Component
+        @staticmethod
+        def fromImplicitSha256Digest(
+            digest  # Blob or value for Blob constructor
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name.Component
+        Name.Component.fromImplicitSha256Digest = function(
+            digest  // Blob|Buffer
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public static Component fromImplicitSha256Digest(
+            Blob digest
+        )
+
+        public static Component fromImplicitSha256Digest(
+            byte[] digest
+        )
+
+:Parameters:
+
+    - `digest`
+        The SHA-256 digest value.
+
+:Returns:
+
+    The new component.
+
+:Throw:
+
+    Throw an exception if the digest length is not 32 bytes.
+
+Name.Component.getSuccessor Method
+----------------------------------
+
+Get the successor of this component, as described in :ref:`Name.getSuccessor <Name.getSuccessor>`.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Component getSuccessor() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name.Component
+        def getSuccessor(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name.Component
+        Name.Component.prototype.getSuccessor = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Component getSuccessor()
+
+:Returns:
+
+    A new Name.Component which is the successor of this.
+
 Name.Component.getValue Method
 ------------------------------
 
@@ -320,10 +428,82 @@ Get the value of the component.
 
     The component value.
 
+Name.Component.isGeneric Method
+-------------------------------
+
+Check if this component is a generic component.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        bool isGeneric() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns bool
+        def isGeneric(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Name.Component.prototype.isGeneric = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final boolean isGeneric()
+
+:Returns:
+
+    True if this is an generic component.
+
+Name.Component.isImplicitSha256Digest Method
+--------------------------------------------
+
+Check if this component is an ImplicitSha256Digest component.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        bool isImplicitSha256Digest() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns bool
+        def isImplicitSha256Digest(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Name.Component.prototype.isImplicitSha256Digest = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final boolean isImplicitSha256Digest()
+
+:Returns:
+
+    True if this is an ImplicitSha256Digest component.
+
 Name.Component.toEscapedString Method
 -------------------------------------
 
 Convert this component value by escaping characters according to the NDN URI Scheme.
+This also adds "..." to a value with zero or more ".".
+This adds a type code prefix as needed, such as "sha256digest=".
 
 :[C++]:
 
@@ -354,41 +534,6 @@ Convert this component value by escaping characters according to the NDN URI Sch
 :Returns:
 
     The escaped string.
-
-Name.Component.getSuccessor Method
-----------------------------------
-
-Get the successor of this component, as described in :ref:`Name.getSuccessor <Name.getSuccessor>`.
-
-:[C++]:
-
-    .. code-block:: c++
-    
-        Component getSuccessor() const;
-
-:[Python]:
-
-    .. code-block:: python
-    
-        # Returns Name.Component
-        def getSuccessor(self)
-
-:[JavaScript]:
-
-    .. code-block:: javascript
-    
-        // Returns Name.Component
-        Name.Component.prototype.getSuccessor = function()
-
-:[Java]:
-
-    .. code-block:: java
-    
-        public final Component getSuccessor()
-
-:Returns:
-
-    A new Name.Component which is the successor of this.
 
 Name.Component From Naming Convention Value Methods
 ---------------------------------------------------
@@ -539,7 +684,7 @@ http://named-data.net/doc/tech-memos/naming-conventions.pdf
 
     .. code-block:: java
 
-        public final long fromSegment(
+        public static Component fromSegment(
             long segment
         )
 
@@ -590,7 +735,7 @@ http://named-data.net/doc/tech-memos/naming-conventions.pdf
 
     .. code-block:: java
 
-        public final long fromSegmentOffset(
+        public static Component fromSegmentOffset(
             long segmentOffset
         )
 
@@ -641,7 +786,7 @@ http://named-data.net/doc/tech-memos/naming-conventions.pdf
 
     .. code-block:: java
 
-        public final long fromSequenceNumber(
+        public static Component fromSequenceNumber(
             long segmentOffset
         )
 
@@ -692,7 +837,7 @@ http://named-data.net/doc/tech-memos/naming-conventions.pdf
 
     .. code-block:: java
 
-        public final long fromTimestamp(
+        public static Component fromTimestamp(
             long timestamp
         )
 
@@ -745,7 +890,7 @@ http://named-data.net/doc/tech-memos/naming-conventions.pdf
 
     .. code-block:: java
 
-        public final long fromVersion(
+        public static Component fromVersion(
             long version
         )
 
