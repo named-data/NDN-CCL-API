@@ -1167,6 +1167,56 @@ decoded to make the link object).
 
     True if this interest has a link object, false if not.
 
+Interest.matchesData Method
+---------------------------
+
+Check if the given Data packet can satisfy this Interest. This method considers
+the Name, MinSuffixComponents, MaxSuffixComponents, PublisherPublicKeyLocator,
+and Exclude. It does not consider the ChildSelector or MustBeFresh.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        bool matchesData(
+            const Data& data
+        ) const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns True or False
+        def matchesData(self,
+            data  # Data
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Interest.prototype.matchesData = function(
+            data  // Data
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final boolean matchesData(
+            Data data
+        )
+
+:Parameters:
+
+    - `data`
+	The Data packet to check.
+
+:Returns:
+
+    True if the given Data packet can satisfy this Interest.
+
 Interest.matchesName Method
 ---------------------------
 

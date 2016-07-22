@@ -5,6 +5,7 @@ Changes
 * In MetaInfo, added get/setOtherTypeCode.
 * In Name.Component, added from* and is* name convention methods.
 * In Data, added getFullName.
+* In Interest, added matchesData.
 
 NDN-CCL-API v0.4.1 (2016-05-09)
 -------------------------------
