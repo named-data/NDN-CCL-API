@@ -148,7 +148,9 @@ Name.append Methods
 Name.append Method (copy byte array)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Append a new component, copying from the byte array.
+Append a new GENERIC component, copying from the byte array.
+(To append an ImplicitSha256Digest component, use
+:ref:`appendImplicitSha256Digest <appendImplicitSha256Digest>`.)
 
 :[C++]:
 
@@ -196,7 +198,7 @@ Append a new component, copying from the byte array.
 Name.append Method (from Unicode string)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Convert the value to UTF8 bytes and append a Name.Component.  This does not 
+Convert the value to UTF8 bytes and append a GENERIC Name.Component.  This does not
 escape %XX values. If you need to escape, use Name.fromEscapedString. Also, if 
 the string has "/", this does not split into separate components. If you need 
 to split into separate components, create a new Name using the from URI
@@ -246,7 +248,9 @@ constructor, and use append from Name.
 Name.append Method (from Blob)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Append a new component, taking another pointer to the byte array in the Blob.
+Append a new GENERIC component, taking another pointer to the byte array in the Blob.
+(To append an ImplicitSha256Digest component, use
+:ref:`appendImplicitSha256Digest <appendImplicitSha256Digest>`.)
 
 :[C++]:
 
@@ -386,6 +390,75 @@ Append the components of the given name to this name.
 :Returns:
 
     This name so that you can chain calls to append.
+
+.. _appendImplicitSha256Digest:
+
+Name.appendImplicitSha256Digest Method
+--------------------------------------
+
+Append a component of type ImplicitSha256DigestComponent, so that
+isImplicitSha256Digest() is true.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Name& appendImplicitSha256Digest(
+            const Blob& digest
+        );
+
+        Name& appendImplicitSha256Digest(
+            const uint8_t *digest,
+            size_t digestLength
+        );
+
+        Name& appendImplicitSha256Digest(
+            const std::vector<uint8_t>& digest
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name
+        @staticmethod
+        def appendImplicitSha256Digest(
+            digest  # Blob or value for Blob constructor
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name
+        Name.Component.appendImplicitSha256Digest = function(
+            digest  // Blob|Buffer
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Name appendImplicitSha256Digest(
+            Blob digest
+        )
+
+        public final Name appendImplicitSha256Digest(
+            byte[] digest
+        )
+
+:Parameters:
+
+    - `digest`
+        The SHA-256 digest value.
+
+:Returns:
+
+    This name so that you can chain calls to append.
+
+:Throw:
+
+    Throw an exception if the digest length is not 32 bytes.
 
 Name.appendSegment Method
 -------------------------
@@ -877,6 +950,7 @@ Name.fromEscapedString Method
 Make a Blob value by decoding the escapedString according to the NDN URI Scheme.
 If the escaped string is "", "." or ".." then return a Blob with a null pointer, 
 which means the component should be skipped in a URI name.
+This does not check for a type code prefix such as "sha256digest=".
 
 :[C++]:
 
