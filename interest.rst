@@ -3,6 +3,8 @@
 Interest Class
 ==============
 
+The Interest class represents an NDN Interest packet.
+
 :[C++]:
     | ``#include <ndn-cpp/interest.hpp>``
     | Namespace: ``ndn``
