@@ -3,6 +3,8 @@
 Data Class
 ==========
 
+The Data class represents an NDN Data packet.
+
 :[C++]:
     | ``#include <ndn-cpp/data.hpp>``
     | Namespace: ``ndn``
