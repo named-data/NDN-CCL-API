@@ -1,3 +1,8 @@
+Interim changes since NDN-CCL-API v0.5.0 (2016-11-16)
+-----------------------------------------------------
+
+* In KeyChain verifyData and verifyInterest, added the reason string to onValidationFailed.
+
 NDN-CCL-API v0.5.0 (2016-11-02)
 -------------------------------
 

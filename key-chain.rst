@@ -453,7 +453,7 @@ KeyChain.verifyData Method
             void verifyData(
                 const ptr_lib::shared_ptr<Data>& data,
                 const OnVerified& onVerified,
-                const OnVerifyFailed& onVerifyFailed
+                const OnDataValidationFailed& onValidationFailed
             );
 
     :[Python]:
@@ -461,9 +461,9 @@ KeyChain.verifyData Method
         .. code-block:: python
 
             def verifyData(self,
-                data,           # Data
-                onVerified,     # function object
-                onVerifyFailed  # function object
+                data,               # Data
+                onVerified,         # function object
+                onValidationFailed  # function object
             )
 
     :[JavaScript]:
@@ -471,9 +471,9 @@ KeyChain.verifyData Method
         .. code-block:: javascript
 
             KeyChain.prototype.verifyData = function(
-                data,           // Data
-                onVerified,     // function object
-                onVerifyFailed  // function object
+                data,               // Data
+                onVerified,         // function object
+                onValidationFailed  // function object
             )
 
     :[Java]:
@@ -483,7 +483,7 @@ KeyChain.verifyData Method
             public final void verifyData(
                 Data data,
                 OnVerified onVerified,
-                OnVerifyFailed onVerifyFailed
+                OnDataValidationFailed onValidationFailed
             )
 
     :Parameters:
@@ -500,9 +500,10 @@ KeyChain.verifyData Method
               The library will log any exceptions thrown by this callback, but for better
               error handling the callback should catch and properly handle any exceptions.
 
-        - `onVerifyFailed`
-            If the signature check fails, this calls ``onVerifyFailed(data)`` where:
+        - `onValidationFailed`
+            If the signature check fails, this calls ``onValidationFailed(data, reason)`` where:
                 - `data` is the given Data object.
+                - `reason` is the reason string.
 
           .. note::
 
@@ -527,7 +528,7 @@ KeyChain.verifyInterest Method
             void verifyInterest(
                 const ptr_lib::shared_ptr<Interest>& interest,
                 const OnVerifiedInterest& onVerified,
-                const OnVerifyInterestFailed& onVerifyFailed
+                const OnInterestValidationFailed& onValidationFailed
             );
 
     :[Python]:
@@ -535,9 +536,9 @@ KeyChain.verifyInterest Method
         .. code-block:: python
 
             def verifyInterest(self,
-                interest,       # Interest
-                onVerified,     # function object
-                onVerifyFailed  # function object
+                interest,           # Interest
+                onVerified,         # function object
+                onValidationFailed  # function object
             )
 
     :[JavaScript]:
@@ -545,9 +546,9 @@ KeyChain.verifyInterest Method
         .. code-block:: javascript
 
             KeyChain.prototype.verifyInterest = function(
-                interest,       // Interest
-                onVerified,     // function object
-                onVerifyFailed  // function object
+                interest,           // Interest
+                onVerified,         // function object
+                onValidationFailed  // function object
             )
 
     :[Java]:
@@ -557,7 +558,7 @@ KeyChain.verifyInterest Method
             public final void verifyInterest(
                 Interest interest,
                 OnVerifiedInterest onVerified,
-                OnVerifyInterestFailed onVerifyFailed
+                OnInterestValidationFailed onValidationFailed
             )
 
     :Parameters:
@@ -574,9 +575,10 @@ KeyChain.verifyInterest Method
               The library will log any exceptions thrown by this callback, but for better
               error handling the callback should catch and properly handle any exceptions.
 
-        - `onVerifyFailed`
-            If the signature check fails, this calls ``onVerifyFailed(interest)`` where:
+        - `onValidationFailed`
+            If the signature check fails, this calls ``onValidationFailed(interest, reason)`` where:
                 - `interest` is the given Interest object.
+                - `reason` is the reason string.
 
           .. note::
 
