@@ -283,7 +283,7 @@ MemoryContentCache.registerPrefix Method
           (optional) When this receives a success message from the forwarder, this calls ``onRegisterSuccess(prefix, registeredPrefixId)`` where:
 
           - ``prefix`` is the prefix given to registerPrefix.
-          - ``registeredPrefixId`` is the value retured by registerPrefix.
+          - ``registeredPrefixId`` is the value returned by registerPrefix.
 
           .. note::
 

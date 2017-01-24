@@ -721,7 +721,7 @@ local or remote forwarder according to :ref:`isLocal <Face.isLocal>`.
 	(optional) When this receives a success message from the forwarder, this calls ``onRegisterSuccess(prefix, registeredPrefixId)`` where:
 
 	    - ``prefix`` is the prefix given to registerPrefix.
-	    - ``registeredPrefixId`` is the value retured by registerPrefix.
+	    - ``registeredPrefixId`` is the value returned by registerPrefix.
 
         (The onRegisterSuccess parameter comes after onRegisterFailed because it
         can be omitted, unlike onRegisterFailed.)
