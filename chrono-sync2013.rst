@@ -431,25 +431,41 @@ ChronoSync2013.publishNextSequenceNo Method
 
         .. code-block:: c++
 
-            void publishNextSequenceNo();
+            void publishNextSequenceNo(
+                [const Blob& applicationInfo]
+            );
 
     :[Python]:
 
         .. code-block:: python
 
-            def publishNextSequenceNo(self)
+            def publishNextSequenceNo(self
+                [, applicationInfo  # Blob]
+            )
 
     :[JavaScript]:
 
         .. code-block:: javascript
 
-            ChronoSync2013.prototype.publishNextSequenceNo = function()
+            ChronoSync2013.prototype.publishNextSequenceNo = function(
+                [applicationInfo  // Blob]
+            )
 
     :[Java]:
 
         .. code-block:: java
 
-            public final void publishNextSequenceNo()
+            public final void publishNextSequenceNo(
+                [Blob applicationInfo]
+            )
+
+    :Parameters:
+
+        - `applicationInfo`
+            (optional) This appends applicationInfo to the content of the sync
+            messages. This same info is provided to the receiving application in
+            the SyncState state object provided to the onReceivedSyncState
+            callback.
 
 ChronoSync2013.shutdown Method
 ------------------------------
@@ -520,6 +536,49 @@ ChronoSync2013.SyncState Class
 
     :[Java]:
         Package: ``net.named_data.jndn.sync``
+
+ChronoSync2013.SyncState.getApplicationInfo Method
+--------------------------------------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The support for ChronoSync is experimental and the API is not finalized.
+
+    Get the application info which was included when the sender called
+    :ref:`publishNextSequenceNo <ChronoSync2013.publishNextSequenceNo>` .
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            const Blob& getApplicationInfo() const;
+
+    :[Python]:
+
+        .. code-block:: python
+
+            # Returns Blob
+            def getApplicationInfo(self)
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            // Returns Blob
+            ChronoSync2013.prototype.getApplicationInfo = function()
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final Blob getApplicationInfo()
+
+    :Returns:
+
+        The applicationInfo Blob. If the sender did not provide any, return an
+        isNull Blob.
 
 ChronoSync2013.SyncState.getDataPrefix Method
 ---------------------------------------------

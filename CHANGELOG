@@ -1,7 +1,8 @@
-Interim changes since NDN-CCL-API v0.5.0 (2016-11-16)
+Interim changes since NDN-CCL-API v0.5.0 (2017-03-15)
 -----------------------------------------------------
 
 * In KeyChain verifyData and verifyInterest, added the reason string to onValidationFailed.
+* In ChronoSync2013, added optional application info.
 
 NDN-CCL-API v0.5.0 (2016-11-02)
 -------------------------------
