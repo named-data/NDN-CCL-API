@@ -295,7 +295,7 @@ Name.Component.fromImplicitSha256Digest Method
 ----------------------------------------------
 
 Create a component of type ImplicitSha256DigestComponent, so that
-isImplicitSha256Digest() is true.
+:ref:`isImplicitSha256Digest() <isImplicitSha256Digest>` is true.
 
 :[C++]:
 
@@ -462,6 +462,8 @@ Check if this component is a generic component.
 :Returns:
 
     True if this is an generic component.
+
+.. _isImplicitSha256Digest:
 
 Name.Component.isImplicitSha256Digest Method
 --------------------------------------------

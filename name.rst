@@ -397,7 +397,7 @@ Name.appendImplicitSha256Digest Method
 --------------------------------------
 
 Append a component of type ImplicitSha256DigestComponent, so that
-isImplicitSha256Digest() is true.
+:ref:`isImplicitSha256Digest() <isImplicitSha256Digest>` is true.
 
 :[C++]:
 
