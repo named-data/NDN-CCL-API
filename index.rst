@@ -16,7 +16,6 @@ Table of Contents:
    signature
    key-locator
    interest-filter
-   link
    face
    transport
    blob
