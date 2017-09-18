@@ -184,6 +184,44 @@ Get the interest :ref:`Exclude <Exclude>` object.
 
     The :ref:`Exclude <Exclude>` object. If not specified, the exclude size() is 0.
 
+Interest.getForwardingHint Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the forwarding hint object which you can modify to add or remove
+forwarding hints.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        DelegationSet& getForwardingHint();
+
+        const DelegationSet& getForwardingHint() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns DelegationSet
+        def getForwardingHint(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns DelegationSet
+        Interest.prototype.getForwardingHint = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final DelegationSet getForwardingHint()
+
+:Returns:
+
+    The forwarding hint as a :ref:`DelegationSet <DelegationSet>`
+
 Interest.getIncomingFaceId Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -596,6 +634,61 @@ Set this interest to use a copy of the given :ref:`Exclude <Exclude>` object.
         The :ref:`Exclude <Exclude>` object. This makes a copy of the object. 
         If no exclude is specified, set to a new default Exclude(), or to an 
         Exclude with size() 0.
+
+:Returns:
+
+    This Interest so that you can chain calls to update values.
+
+Interest.setForwardingHint Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set this interest to use a copy of the given :ref:`DelegationSet <DelegationSet>`
+object as the forwarding hint.
+
+.. note::
+
+    You can also call getForwardingHint and change the forwarding hint directly.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Interest& setForwardingHint(
+            const DelegationSet& forwardingHint
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Interest
+        def setForwardingHint(self,
+            forwardingHint  # DelegationSet
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Interest
+        Interest.prototype.setForwardingHint = function(
+            forwardingHint  // DelegationSet
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Interest setForwardingHint(
+            DelegationSet forwardingHint
+        )
+
+:Parameters:
+
+    - `forwardingHint`
+        The :ref:`DelegationSet <DelegationSet>` object. to use as the
+        forwarding hint. This makes a copy of the object. If no forwarding hint
+        is specified, set to a new default DelegationSet() with no entries.
 
 :Returns:
 
