@@ -1,9 +1,10 @@
-Interim changes since NDN-CCL-API v0.5.1 (2017-09-18)
+Interim changes since NDN-CCL-API v0.5.1 (2018-04-05)
 -----------------------------------------------------
 
 Changes
 * https://redmine.named-data.net/issues/4251 Added Interest get/setForwardingHint.
   Removed Interest link object and selected delegation methods.
+* In MemoryContentCache, added get/setMinimumCacheLifetime.
 
 NDN-CCL-API v0.5.1 (2017-03-17)
 -------------------------------

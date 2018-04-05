@@ -93,7 +93,8 @@ MemoryContentCache.add Method
 
     Add the Data packet to the cache so that it is available to use to 
     answer interests. If data.getMetaInfo().getFreshnessPeriod() is specified,
-    set the staleness time to now plus data.getMetaInfo().getFreshnessPeriod(),
+    set the staleness time to now plus the maximum of
+    data.getMetaInfo().getFreshnessPeriod() and minimumCacheLifetime,
     which is checked during cleanup to remove stale content. This also checks if 
     cleanupIntervalMilliseconds milliseconds have passed and removes stale 
     content from the cache. After removing stale content, remove timed-out
@@ -145,6 +146,49 @@ MemoryContentCache.add Method
         - `data`
             The Data packet object to put in the cache. This copies the 
             fields from the object.
+
+.. _MemoryContentCache.getMinimumCacheLifetime:
+
+MemoryContentCache.getMinimumCacheLifetime Method
+-------------------------------------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The MemoryContentCache is experimental and the API is not finalized.
+
+    Get the minimum lifetime before removing stale content from the cache.
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            Milliseconds getMinimumCacheLifetime();
+
+    :[Python]:
+
+        .. code-block:: python
+
+            # Returns float
+            def getMinimumCacheLifetime(self)
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            // Returns number
+            MemoryContentCache.prototype.getMinimumCacheLifetime = function()
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final double getMinimumCacheLifetime()
+
+    :Returns:
+
+        The minimum cache lifetime in milliseconds.
 
 .. _MemoryContentCache.getStorePendingInterest:
 
@@ -485,6 +529,60 @@ MemoryContentCache.setInterestFilter Method (from prefix)
 
               The library will log any exceptions thrown by this callback, but for better
               error handling the callback should catch and properly handle any exceptions.
+
+.. _MemoryContentCache.setMinimumCacheLifetime:
+
+MemoryContentCache.setMinimumCacheLifetime Method
+-------------------------------------------------
+
+.. container:: experimental
+
+    .. admonition:: Experimental
+
+       The MemoryContentCache is experimental and the API is not finalized.
+
+    Set the minimum lifetime before removing stale content from the cache which
+    can keep content in the cache longer than the lifetime defined in the meta
+    info. This can be useful for matching interests where MustBeFresh is false.
+    The default minimum cache lifetime is zero, meaning that content is removed
+    when its lifetime expires.
+
+    :[C++]:
+
+        .. code-block:: c++
+
+            void setMinimumCacheLifetime(
+                Milliseconds minimumCacheLifetime
+            );
+
+    :[Python]:
+
+        .. code-block:: python
+
+            def setMinimumCacheLifetime(self,
+                minimumCacheLifetime  # float
+            )
+
+    :[JavaScript]:
+
+        .. code-block:: javascript
+
+            MemoryContentCache.prototype.setMinimumCacheLifetime = function(
+                minimumCacheLifetime  // number
+            )
+
+    :[Java]:
+
+        .. code-block:: java
+
+            public final void setMinimumCacheLifetime(
+                double minimumCacheLifetime
+            )
+
+    :Parameters:
+
+        - `minimumCacheLifetime`
+            The minimum cache lifetime in milliseconds.
 
 .. _MemoryContentCache.storePendingInterest:
 
