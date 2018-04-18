@@ -60,6 +60,41 @@ Create a new Data object with the optional name.
 Data Get Methods
 ----------------
 
+Data.getCongestionMark Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the congestion mark according to the incoming packet header.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        uint64_t getCongestionMark() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns int
+        def getCongestionMark(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Data.prototype.getCongestionMark = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final long getCongestionMark()
+
+:Returns:
+
+    The congestion mark. If not specified, return 0.
+
 Data.getContent Method
 ^^^^^^^^^^^^^^^^^^^^^^
 
