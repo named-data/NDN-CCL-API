@@ -21,7 +21,7 @@ Name.Component Constructors
 Name.Component Constructor (copy optional byte array)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a new GENERIC Name.Component, optionally copying from the byte array.
+Create a new Name.Component, optionally copying from the byte array.
 (To create an ImplicitSha256Digest component, use
 :ref:`fromImplicitSha256Digest <fromImplicitSha256Digest>`.)
 
@@ -31,6 +31,8 @@ Create a new GENERIC Name.Component, optionally copying from the byte array.
     
         Name::Component(
             [const std::vector<uint8_t>& value]
+            [, ndn_NameComponentType type]
+            [, int otherTypeCode]
         );
 
 :[Python]:
@@ -39,6 +41,8 @@ Create a new GENERIC Name.Component, optionally copying from the byte array.
     
         def __init__(self
             [, value  # bytearray|memoryview|other array of int]
+            [, type  # int]
+            [, otherTypeCode  # int]
         )
 
 :[JavaScript]:
@@ -47,6 +51,8 @@ Create a new GENERIC Name.Component, optionally copying from the byte array.
     
         Name.Component = function NameComponent(
             [value  // Array<number>|ArrayBuffer|Uint8Array]
+            [, type  // number]
+            [, otherTypeCode  // number]
         )
 
 :[Java]:
@@ -55,17 +61,35 @@ Create a new GENERIC Name.Component, optionally copying from the byte array.
     
         public Component(
             [byte[] value]
+            [, ComponentType type]
+            [, int otherTypeCode]
         )
 
 :Parameters:
 
     - `value`
-        (optional) The content byte array to copy. If omitted, create a Component with an empty value.
+        (optional) The content byte array to copy. If omitted, create a GENERIC
+        Component with an empty value.
+
+    - `type`
+        (optional) The component enum value which is GENERIC,
+        IMPLICIT_SHA256_DIGEST or OTHER_CODE as follows. If the name component
+        type is not a enum value, then set this to OTHER_CODE and use the
+        otherTypeCode parameter. If omitted, use GENERIC.
+
+            * C++: ``ndn_NameComponentType_GENERIC``, ``ndn_NameComponentType_IMPLICIT_SHA256_DIGEST`` or ``ndn_NameComponentType_OTHER_CODE``
+            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+
+    - `otherTypeCode`
+        (optional) If type is OTHER_CODE, then this is the packet's unrecognized
+        content type code, which must be non-negative.
 
 Name.Component Constructor (from Unicode string)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a new GENERIC Name.Component, converting the value to UTF8 bytes.  This does not
+Create a new Name.Component, converting the value to UTF8 bytes.  This does not
 escape %XX values. If you need to escape, use Name.fromEscapedString.
 
 :[Python]:
@@ -74,6 +98,8 @@ escape %XX values. If you need to escape, use Name.fromEscapedString.
     
          def __init__(self, 
             value  # unicode (Python 2) or str (Python 3)
+            [, type  # int]
+            [, otherTypeCode  # int]
         )
 
 :[JavaScript]:
@@ -82,6 +108,8 @@ escape %XX values. If you need to escape, use Name.fromEscapedString.
     
         Name.Component = function NameComponent(
             value  // string
+            [, type  // number]
+            [, otherTypeCode  // number]
         )
 
 :[Java]:
@@ -90,13 +118,29 @@ escape %XX values. If you need to escape, use Name.fromEscapedString.
     
         Component(
             String value
+            [, ComponentType type]
+            [, int otherTypeCode]
         )
 
 :Parameters:
 
     - `value`
         The Unicode string which is encoded as UTF8.  
-        
+
+    - `type`
+        (optional) The component enum value which is GENERIC,
+        IMPLICIT_SHA256_DIGEST or OTHER_CODE as follows. If the name component
+        type is not a enum value, then set this to OTHER_CODE and use the
+        otherTypeCode parameter. If omitted, use GENERIC.
+
+            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+
+    - `otherTypeCode`
+        (optional) If type is OTHER_CODE, then this is the packet's unrecognized
+        content type code, which must be non-negative.
+
         .. note::
 
             [Python only] In Python 2, only a value of type 'unicode' is encoded 
@@ -106,7 +150,7 @@ escape %XX values. If you need to escape, use Name.fromEscapedString.
 Name.Component Constructor (from Blob)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a new GENERIC Name.Component, taking another pointer to the byte array in the Blob.
+Create a new Name.Component, taking another pointer to the byte array in the Blob.
 (To create an ImplicitSha256Digest component, use
 :ref:`fromImplicitSha256Digest <fromImplicitSha256Digest>`.)
 
@@ -116,6 +160,8 @@ Create a new GENERIC Name.Component, taking another pointer to the byte array in
     
         Name::Component(
             const Blob& value
+            [, ndn_NameComponentType type]
+            [, int otherTypeCode]
         );
 
 :[Python]:
@@ -124,6 +170,8 @@ Create a new GENERIC Name.Component, taking another pointer to the byte array in
     
          def __init__(self, 
             value  # Blob
+            [, type  # int]
+            [, otherTypeCode  # int]
         )
 
 :[JavaScript]:
@@ -132,6 +180,8 @@ Create a new GENERIC Name.Component, taking another pointer to the byte array in
     
         Name.Component = function NameComponent(
             value  // Blob
+            [, type  // number]
+            [, otherTypeCode  // number]
         )
 
 :[Java]:
@@ -140,12 +190,29 @@ Create a new GENERIC Name.Component, taking another pointer to the byte array in
     
         Component(
             Blob value
+            [, ComponentType type]
+            [, int otherTypeCode]
         )
 
 :Parameters:
 
     - `value`
         The Blob with the pointer to the byte array.
+
+    - `type`
+        (optional) The component enum value which is GENERIC,
+        IMPLICIT_SHA256_DIGEST or OTHER_CODE as follows. If the name component
+        type is not a enum value, then set this to OTHER_CODE and use the
+        otherTypeCode parameter. If omitted, use GENERIC.
+
+            * C++: ``ndn_NameComponentType_GENERIC``, ``ndn_NameComponentType_IMPLICIT_SHA256_DIGEST`` or ``ndn_NameComponentType_OTHER_CODE``
+            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+
+    - `otherTypeCode`
+        (optional) If type is OTHER_CODE, then this is the packet's unrecognized
+        content type code, which must be non-negative.
 
 Name.Component Constructor (from Component)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -358,6 +425,45 @@ Create a component of type ImplicitSha256DigestComponent, so that
 
     Throw an exception if the digest length is not 32 bytes.
 
+.. _Name.Component.getOtherTypeCode:
+
+Name.Component.getOtherTypeCode Method
+--------------------------------------
+
+Get the name component type code from the packet which is other than a recognized
+ComponentType enum value. This is only meaningful if
+:ref:`getType() <Name.Component.getType>` is OTHER_CODE.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        int getOtherTypeCode() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns int
+        def getOtherTypeCode(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        Name.Component.prototype.getOtherTypeCode = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final int getOtherTypeCode()
+
+:Returns:
+
+    The type code.
+
 Name.Component.getSuccessor Method
 ----------------------------------
 
@@ -392,6 +498,51 @@ Get the successor of this component, as described in :ref:`Name.getSuccessor <Na
 :Returns:
 
     A new Name.Component which is the successor of this.
+
+.. _Name.Component.getType:
+
+Name.Component.getType Method
+-----------------------------
+
+Get the name component type.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        ndn_NameComponentType getType() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns int
+        def getType(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        MetaInfo.prototype.getType = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final ComponentType getType()
+
+:Returns:
+
+    The name component type enum value which is GENERIC, IMPLICIT_SHA256_DIGEST
+    or OTHER_CODE as follows. If this is OTHER_CODE, then call
+    :ref:`getOtherTypeCode() <Name.Component.getOtherTypeCode>` to get the
+    unrecognized component type code.
+
+        * C++: ``ndn_NameComponentType_GENERIC``, ``ndn_NameComponentType_IMPLICIT_SHA256_DIGEST`` or ``ndn_NameComponentType_OTHER_CODE``
+        * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+        * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+        * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
 
 Name.Component.getValue Method
 ------------------------------
@@ -552,6 +703,8 @@ A nonNegativeInteger is always encoded as 1, 2, 4 or 8 bytes.
 
         static Component fromNumber(
             uint64_t number
+            [, ndn_NameComponentType type]
+            [, int otherTypeCode]
         );
 
 :[Python]:
@@ -562,6 +715,8 @@ A nonNegativeInteger is always encoded as 1, 2, 4 or 8 bytes.
         @staticmethod
         def fromNumber(
             number  # int
+            [, type  # int]
+            [, otherTypeCode  # int]
         )
 
 :[JavaScript]:
@@ -571,6 +726,8 @@ A nonNegativeInteger is always encoded as 1, 2, 4 or 8 bytes.
         // Returns Name.Component
         Name.Component.fromNumber = function(
             number  // number
+            [, type  // number]
+            [, otherTypeCode  // number]
         )
 
 :[Java]:
@@ -579,12 +736,29 @@ A nonNegativeInteger is always encoded as 1, 2, 4 or 8 bytes.
 
         public static Component fromNumber(
             long number
+            [, ComponentType type]
+            [, int otherTypeCode]
         )
 
 :Parameters:
 
     - `number`
         The number to be encoded.
+
+    - `type`
+        (optional) The component enum value which is GENERIC,
+        IMPLICIT_SHA256_DIGEST or OTHER_CODE as follows. If the name component
+        type is not a enum value, then set this to OTHER_CODE and use the
+        otherTypeCode parameter. If omitted, use GENERIC.
+
+            * C++: ``ndn_NameComponentType_GENERIC``, ``ndn_NameComponentType_IMPLICIT_SHA256_DIGEST`` or ``ndn_NameComponentType_OTHER_CODE``
+            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+
+    - `otherTypeCode`
+        (optional) If type is OTHER_CODE, then this is the packet's unrecognized
+        content type code, which must be non-negative.
 
 :Returns:
 

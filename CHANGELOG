@@ -1,4 +1,10 @@
-Interim changes since NDN-CCL-API v0.5.1 (2018-04-05)
+Interim changes since NDN-CCL-API v0.6.1 (2018-06-11)
+-----------------------------------------------------
+
+* https://redmine.named-data.net/issues/4397 In Name and Name.Component, added
+  API for typed name components.
+
+NDN-CCL-API v0.6.1 (2018-04-18)
 -----------------------------------------------------
 
 Changes

@@ -148,7 +148,7 @@ Name.append Methods
 Name.append Method (copy byte array)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Append a new GENERIC component, copying from the byte array.
+Append a new component, copying from the byte array.
 (To append an ImplicitSha256Digest component, use
 :ref:`appendImplicitSha256Digest <appendImplicitSha256Digest>`.)
 
@@ -158,6 +158,8 @@ Append a new GENERIC component, copying from the byte array.
     
         Name& append(
             const std::vector<uint8_t>& value
+            [, ndn_NameComponentType type]
+            [, int otherTypeCode]
         );
 
 :[Python]:
@@ -167,6 +169,8 @@ Append a new GENERIC component, copying from the byte array.
         # Returns Name
         def append(self, 
             value  # bytearray|memoryview|other array of int
+            [, type  # int]
+            [, otherTypeCode  # int]
         )
 
 :[JavaScript]:
@@ -176,6 +180,8 @@ Append a new GENERIC component, copying from the byte array.
         // Returns Name
         Name.prototype.append = function(
             value  // Array<number>|ArrayBuffer|Uint8Array
+            [, type  // number]
+            [, otherTypeCode  // number]
         )
 
 :[Java]:
@@ -184,12 +190,29 @@ Append a new GENERIC component, copying from the byte array.
     
         public final Name append(
             byte[] value
+            [, ComponentType type]
+            [, int otherTypeCode]
         )
 
 :Parameters:
 
     - `value`
         The component byte array to copy.
+
+    - `type`
+        (optional) The component enum value which is GENERIC,
+        IMPLICIT_SHA256_DIGEST or OTHER_CODE as follows. If the name component
+        type is not a enum value, then set this to OTHER_CODE and use the
+        otherTypeCode parameter. If omitted, use GENERIC.
+
+            * C++: ``ndn_NameComponentType_GENERIC``, ``ndn_NameComponentType_IMPLICIT_SHA256_DIGEST`` or ``ndn_NameComponentType_OTHER_CODE``
+            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+
+    - `otherTypeCode`
+        (optional) If type is OTHER_CODE, then this is the packet's unrecognized
+        content type code, which must be non-negative.
 
 :Returns:
 
@@ -198,7 +221,7 @@ Append a new GENERIC component, copying from the byte array.
 Name.append Method (from Unicode string)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Convert the value to UTF8 bytes and append a GENERIC Name.Component.  This does not
+Convert the value to UTF8 bytes and append a Name.Component.  This does not
 escape %XX values. If you need to escape, use Name.fromEscapedString. Also, if 
 the string has "/", this does not split into separate components. If you need 
 to split into separate components, create a new Name using the from URI
@@ -211,6 +234,8 @@ constructor, and use append from Name.
         # Returns Name
         def append(self, 
             value  # unicode (Python 2) or str (Python 3)
+            [, type  # int]
+            [, otherTypeCode  # int]
         )
 
 :[JavaScript]:
@@ -220,6 +245,8 @@ constructor, and use append from Name.
         // Returns Name
         Name.prototype.append = function(
             value  // string
+            [, type  // number]
+            [, otherTypeCode  // number]
         )
 
 :[Java]:
@@ -228,13 +255,29 @@ constructor, and use append from Name.
     
         public final Name append(
             String value
+            [, ComponentType type]
+            [, int otherTypeCode]
         )
 
 :Parameters:
 
     - `value`
         The Unicode string which is encoded as UTF8.  
-        
+
+    - `type`
+        (optional) The component enum value which is GENERIC,
+        IMPLICIT_SHA256_DIGEST or OTHER_CODE as follows. If the name component
+        type is not a enum value, then set this to OTHER_CODE and use the
+        otherTypeCode parameter. If omitted, use GENERIC.
+
+            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+
+    - `otherTypeCode`
+        (optional) If type is OTHER_CODE, then this is the packet's unrecognized
+        content type code, which must be non-negative.
+
         .. note::
 
             [Python only] In Python 2, only a value of type 'unicode' is encoded 
@@ -248,7 +291,7 @@ constructor, and use append from Name.
 Name.append Method (from Blob)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Append a new GENERIC component, taking another pointer to the byte array in the Blob.
+Append a new component, taking another pointer to the byte array in the Blob.
 (To append an ImplicitSha256Digest component, use
 :ref:`appendImplicitSha256Digest <appendImplicitSha256Digest>`.)
 
@@ -258,6 +301,8 @@ Append a new GENERIC component, taking another pointer to the byte array in the 
     
         Name& append(
             const Blob& value
+            [, ndn_NameComponentType type]
+            [, int otherTypeCode]
         );
 
 :[Python]:
@@ -267,6 +312,8 @@ Append a new GENERIC component, taking another pointer to the byte array in the 
         # Returns Name
         def append(self, 
             value  # Blob
+            [, type  # int]
+            [, otherTypeCode  # int]
         )
 
 :[JavaScript]:
@@ -276,6 +323,8 @@ Append a new GENERIC component, taking another pointer to the byte array in the 
         // Returns Name
         Name.prototype.append = function(
             value  // Blob
+            [, type  // number]
+            [, otherTypeCode  // number]
         )
 
 :[Java]:
@@ -284,12 +333,29 @@ Append a new GENERIC component, taking another pointer to the byte array in the 
     
         public final Name append(
             Blob value
+            [, ComponentType type]
+            [, int otherTypeCode]
         )
 
 :Parameters:
 
     - `value`
         The Blob with the pointer to the byte array.
+
+    - `type`
+        (optional) The component enum value which is GENERIC,
+        IMPLICIT_SHA256_DIGEST or OTHER_CODE as follows. If the name component
+        type is not a enum value, then set this to OTHER_CODE and use the
+        otherTypeCode parameter. If omitted, use GENERIC.
+
+            * C++: ``ndn_NameComponentType_GENERIC``, ``ndn_NameComponentType_IMPLICIT_SHA256_DIGEST`` or ``ndn_NameComponentType_OTHER_CODE``
+            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+
+    - `otherTypeCode`
+        (optional) If type is OTHER_CODE, then this is the packet's unrecognized
+        content type code, which must be non-negative.
 
 :Returns:
 
