@@ -638,6 +638,43 @@ Get the signature bytes.
 
     The signature bytes. If not specified, the value :ref:`isNull() <isNull>`.
 
+Sha256WithRsaSignature.getValidityPeriod Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the signature :ref:`ValidityPeriod <ValidityPeriod>` object.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        ValidityPeriod& getValidityPeriod();
+
+        const ValidityPeriod& getValidityPeriod() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns ValidityPeriod
+        def getValidityPeriod(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns ValidityPeriod
+        Sha256WithRsaSignature.prototype.getValidityPeriod = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final ValidityPeriod getValidityPeriod()
+
+:Returns:
+
+    The :ref:`ValidityPeriod <ValidityPeriod>` object.
+
 Sha256WithRsaSignature Set Methods
 ----------------------------------
 
@@ -735,6 +772,55 @@ Set the signature bytes to the given value.
     - `signature`
         A Blob with the signature bytes.
 
+Sha256WithRsaSignature.setValidityPeriod Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set this signature object to use a copy of the given
+:ref:`ValidityPeriod <ValidityPeriod>` object.
+
+.. note::
+
+    You can also call getValidityPeriod and change the validity period directly.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setValidityPeriod(
+            const ValidityPeriod& validityPeriod
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def setValidityPeriod(self,
+            validityPeriod  # ValidityPeriod
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Sha256WithRsaSignature.prototype.setValidityPeriod = function(
+            validityPeriod  // ValidityPeriod
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final void setValidityPeriod(
+            ValidityPeriod validityPeriod
+        )
+
+:Parameters:
+
+    - `validityPeriod`
+        The :ref:`ValidityPeriod <ValidityPeriod>` object. This makes a copy of
+        the object. If no validity period is specified, set to a new default
+        ValidityPeriod().
+
 Sha256WithRsaSignature.clone Method
 -----------------------------------
 
@@ -804,6 +890,12 @@ Create a new Sha256WithEcdsaSignature object.
 
         def __init__(self)
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        var Sha256WithEcdsaSignature = function Sha256WithEcdsaSignature()
+
 :[Java]:
 
     .. code-block:: java
@@ -832,6 +924,13 @@ Get the signature :ref:`KeyLocator <KeyLocator>` object.
 
         # Returns KeyLocator
         def getKeyLocator(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns KeyLocator
+        Sha256WithEcdsaSignature.prototype.getKeyLocator = function()
 
 :[Java]:
 
@@ -862,6 +961,13 @@ Get the signature bytes.
         # Returns Blob
         def getSignature(self)
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Blob
+        Sha256WithEcdsaSignature.prototype.getSignature = function()
+
 :[Java]:
 
     .. code-block:: java
@@ -871,6 +977,43 @@ Get the signature bytes.
 :Returns:
 
     The signature bytes. If not specified, the value :ref:`isNull() <isNull>`.
+
+Sha256WithEcdsaSignature.getValidityPeriod Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the signature :ref:`ValidityPeriod <ValidityPeriod>` object.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        ValidityPeriod& getValidityPeriod();
+
+        const ValidityPeriod& getValidityPeriod() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns ValidityPeriod
+        def getValidityPeriod(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns ValidityPeriod
+        Sha256WithEcdsaSignature.prototype.getValidityPeriod = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final ValidityPeriod getValidityPeriod()
+
+:Returns:
+
+    The :ref:`ValidityPeriod <ValidityPeriod>` object.
 
 Sha256WithEcdsaSignature Set Methods
 ------------------------------------
@@ -898,6 +1041,14 @@ Set this signature object to use a copy of the given :ref:`KeyLocator <KeyLocato
 
         def setKeyLocator(self,
             keyLocator  # KeyLocator
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Sha256WithEcdsaSignature.prototype.setKeyLocator = function(
+            keyLocator  // KeyLocator
         )
 
 :[Java]:
@@ -940,6 +1091,14 @@ Set the signature bytes to the given value.
             signature  # Blob
         )
 
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Sha256WithEcdsaSignature.prototype.setSignature = function(
+            signature  // Blob
+        )
+
 :[Java]:
 
     .. code-block:: java
@@ -952,6 +1111,55 @@ Set the signature bytes to the given value.
 
     - `signature`
         A Blob with the signature bytes.
+
+Sha256WithEcdsaSignature.setValidityPeriod Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set this signature object to use a copy of the given
+:ref:`ValidityPeriod <ValidityPeriod>` object.
+
+.. note::
+
+    You can also call getValidityPeriod and change the validity period directly.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setValidityPeriod(
+            const ValidityPeriod& validityPeriod
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def setValidityPeriod(self,
+            validityPeriod  # ValidityPeriod
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Sha256WithEcdsaSignature.prototype.setValidityPeriod = function(
+            validityPeriod  // ValidityPeriod
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final void setValidityPeriod(
+            ValidityPeriod validityPeriod
+        )
+
+:Parameters:
+
+    - `validityPeriod`
+        The :ref:`ValidityPeriod <ValidityPeriod>` object. This makes a copy of
+        the object. If no validity period is specified, set to a new default
+        ValidityPeriod().
 
 Sha256WithEcdsaSignature.clone Method
 -------------------------------------
@@ -970,6 +1178,13 @@ Return a pointer to a new Sha256WithEcdsaSignature which is a copy of this signa
 
         # Returns Sha256WithEcdsaSignature
         def clone(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Sha256WithEcdsaSignature
+        Sha256WithEcdsaSignature.prototype.clone = function()
 
 :[Java]:
 
