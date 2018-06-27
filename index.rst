@@ -38,6 +38,7 @@ Table of Contents:
    security/pib-identity
    security/pib-key
    security/certificate-v2
+   security/validity-period
    security/tpm
    :maxdepth: 1
 
