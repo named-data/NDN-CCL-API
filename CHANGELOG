@@ -1,8 +1,10 @@
-Interim changes since NDN-CCL-API v0.6.1 (2018-06-11)
+Interim changes since NDN-CCL-API v0.6.1 (2018-06-20)
 -----------------------------------------------------
 
+Changes
 * https://redmine.named-data.net/issues/4397 In Name and Name.Component, added
   API for typed name components.
+* Change KeyChain to the security v2 API. Added classes for the PIB and TPM.
 
 NDN-CCL-API v0.6.1 (2018-04-18)
 -----------------------------------------------------
