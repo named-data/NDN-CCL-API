@@ -248,6 +248,43 @@ Get the public key DER encoding.
 
     The public key DER encoding :ref:`Blob <Blob>`.
 
+CertificateV2.getValidityPeriod Method
+--------------------------------------
+
+Get the certificate :ref:`ValidityPeriod <ValidityPeriod>` from the SignatureInfo.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        ValidityPeriod& getValidityPeriod();
+
+        const ValidityPeriod& getValidityPeriod() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns ValidityPeriod
+        def getValidityPeriod(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns ValidityPeriod
+        CertificateV2.prototype.getValidityPeriod = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final ValidityPeriod getValidityPeriod()
+
+:Returns:
+
+    The :ref:`ValidityPeriod <ValidityPeriod>` object.
+
 CertificateV2.isValid Method
 ----------------------------
 
@@ -276,7 +313,7 @@ Check if the time falls within the validity period.
 
         // Returns boolean
         CertificateV2.prototype.isValid = function(
-            [time  # number]
+            [time  // number]
         )
 
 :[Java]:
@@ -295,5 +332,5 @@ Check if the time falls within the validity period.
 
 :Returns:
 
-    True if must be fresh, otherwise false. If not specified, the default is
-    true.
+    True if the beginning of the validity period is less than or equal to time
+    and time is less than or equal to the end of the validity period.
