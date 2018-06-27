@@ -828,6 +828,8 @@ the same name (without considering implicit digest).
         support libraries only use a callback, so onError is required to be
         notified of an exception.)
 
+.. _KeyChain.sign:
+
 KeyChain Signing Methods
 ------------------------
 
