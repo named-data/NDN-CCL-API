@@ -241,6 +241,8 @@ Get the data packet's :ref:`MetaInfo <MetaInfo>` object.
 
     The meta info object.
 
+.. _Data.getName:
+
 Data.getName Method
 ^^^^^^^^^^^^^^^^^^^
 
