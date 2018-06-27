@@ -33,6 +33,14 @@ Table of Contents:
    details/udp-transport
    :maxdepth: 1
 
+.. toctree::
+   security/pib
+   security/pib-identity
+   security/pib-key
+   security/certificate-v2
+   security/tpm
+   :maxdepth: 1
+
 .. Indices and tables
 .. ==================
 
