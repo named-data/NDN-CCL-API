@@ -1310,7 +1310,7 @@ Get the successor of this name which is defined as follows.
 In plain words, the successor of a name is the same name, but with its last
 component advanced to a next possible value. Examples:
 
-* The successor of / is /%00
+* The successor of / is /sha256digest=0000000000000000000000000000000000000000000000000000000000000000
 * The successor of /%00%01/%01%02 is /%00%01/%01%03
 * The successor of /%00%01/%01%FF is /%00%01/%02%00
 * The successor of /%00%01/%FF%FF is /%00%01/%00%00%00
