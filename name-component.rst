@@ -24,6 +24,8 @@ Name.Component Constructor (copy optional byte array)
 Create a new Name.Component, optionally copying from the byte array.
 (To create an ImplicitSha256Digest component, use
 :ref:`fromImplicitSha256Digest <fromImplicitSha256Digest>`.)
+(To create a ParametersSha256Digest component, use
+:ref:`fromParametersSha256Digest <fromParametersSha256Digest>`.)
 
 :[C++]:
 
@@ -72,15 +74,15 @@ Create a new Name.Component, optionally copying from the byte array.
         Component with an empty value.
 
     - `type`
-        (optional) The component enum value which is GENERIC,
-        IMPLICIT_SHA256_DIGEST or OTHER_CODE as follows. If the name component
+        (optional) The component enum value which is GENERIC, IMPLICIT_SHA256_DIGEST,
+        PARAMETERS_SHA256_DIGEST or OTHER_CODE as follows. If the name component
         type is not a enum value, then set this to OTHER_CODE and use the
         otherTypeCode parameter. If omitted, use GENERIC.
 
-            * C++: ``ndn_NameComponentType_GENERIC``, ``ndn_NameComponentType_IMPLICIT_SHA256_DIGEST`` or ``ndn_NameComponentType_OTHER_CODE``
-            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
-            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
-            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * C++: ``ndn_NameComponentType_GENERIC``, ``ndn_NameComponentType_IMPLICIT_SHA256_DIGEST``, ``ndn_NameComponentType_PARAMETERS_SHA256_DIGEST`` or ``ndn_NameComponentType_OTHER_CODE``
+            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
 
     - `otherTypeCode`
         (optional) If type is OTHER_CODE, then this is the packet's unrecognized
@@ -128,14 +130,14 @@ escape %XX values. If you need to escape, use Name.fromEscapedString.
         The Unicode string which is encoded as UTF8.  
 
     - `type`
-        (optional) The component enum value which is GENERIC,
-        IMPLICIT_SHA256_DIGEST or OTHER_CODE as follows. If the name component
+        (optional) The component enum value which is GENERIC, IMPLICIT_SHA256_DIGEST,
+        PARAMETERS_SHA256_DIGEST or OTHER_CODE as follows. If the name component
         type is not a enum value, then set this to OTHER_CODE and use the
         otherTypeCode parameter. If omitted, use GENERIC.
 
-            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
-            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
-            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
 
     - `otherTypeCode`
         (optional) If type is OTHER_CODE, then this is the packet's unrecognized
@@ -153,6 +155,8 @@ Name.Component Constructor (from Blob)
 Create a new Name.Component, taking another pointer to the byte array in the Blob.
 (To create an ImplicitSha256Digest component, use
 :ref:`fromImplicitSha256Digest <fromImplicitSha256Digest>`.)
+(To create a ParametersSha256Digest component, use
+:ref:`fromParametersSha256Digest <fromParametersSha256Digest>`.)
 
 :[C++]:
 
@@ -200,15 +204,15 @@ Create a new Name.Component, taking another pointer to the byte array in the Blo
         The Blob with the pointer to the byte array.
 
     - `type`
-        (optional) The component enum value which is GENERIC,
-        IMPLICIT_SHA256_DIGEST or OTHER_CODE as follows. If the name component
+        (optional) The component enum value which is GENERIC, IMPLICIT_SHA256_DIGEST,
+        PARAMETERS_SHA256_DIGEST or OTHER_CODE as follows. If the name component
         type is not a enum value, then set this to OTHER_CODE and use the
         otherTypeCode parameter. If omitted, use GENERIC.
 
-            * C++: ``ndn_NameComponentType_GENERIC``, ``ndn_NameComponentType_IMPLICIT_SHA256_DIGEST`` or ``ndn_NameComponentType_OTHER_CODE``
-            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
-            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
-            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * C++: ``ndn_NameComponentType_GENERIC``, ``ndn_NameComponentType_IMPLICIT_SHA256_DIGEST``, ``ndn_NameComponentType_PARAMETERS_SHA256_DIGEST`` or ``ndn_NameComponentType_OTHER_CODE``
+            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
 
     - `otherTypeCode`
         (optional) If type is OTHER_CODE, then this is the packet's unrecognized
@@ -425,6 +429,75 @@ Create a component of type ImplicitSha256DigestComponent, so that
 
     Throw an exception if the digest length is not 32 bytes.
 
+.. _fromParametersSha256Digest:
+
+Name.Component.fromParametersSha256Digest Method
+------------------------------------------------
+
+Create a component of type ParametersSha256DigestComponent, so that
+:ref:`isParametersSha256Digest() <isParametersSha256Digest>` is true.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        static Component fromParametersSha256Digest(
+            const Blob& digest
+        );
+
+        static Component fromParametersSha256Digest(
+            const uint8_t *digest,
+            size_t digestLength
+        );
+
+        static Component fromParametersSha256Digest(
+            const std::vector<uint8_t>& digest
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name.Component
+        @staticmethod
+        def fromParametersSha256Digest(
+            digest  # Blob or value for Blob constructor
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name.Component
+        Name.Component.fromParametersSha256Digest = function(
+            digest  // Blob|Buffer
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public static Component fromParametersSha256Digest(
+            Blob digest
+        )
+
+        public static Component fromParametersSha256Digest(
+            byte[] digest
+        )
+
+:Parameters:
+
+    - `digest`
+        The SHA-256 digest value.
+
+:Returns:
+
+    The new component.
+
+:Throw:
+
+    Throw an exception if the digest length is not 32 bytes.
+
 .. _Name.Component.getOtherTypeCode:
 
 Name.Component.getOtherTypeCode Method
@@ -534,15 +607,15 @@ Get the name component type.
 
 :Returns:
 
-    The name component type enum value which is GENERIC, IMPLICIT_SHA256_DIGEST
-    or OTHER_CODE as follows. If this is OTHER_CODE, then call
+    The name component type enum value which is GENERIC, IMPLICIT_SHA256_DIGEST,
+    PARAMETERS_SHA256_DIGEST or OTHER_CODE as follows. If this is OTHER_CODE, then call
     :ref:`getOtherTypeCode() <Name.Component.getOtherTypeCode>` to get the
     unrecognized component type code.
 
-        * C++: ``ndn_NameComponentType_GENERIC``, ``ndn_NameComponentType_IMPLICIT_SHA256_DIGEST`` or ``ndn_NameComponentType_OTHER_CODE``
-        * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
-        * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
-        * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+        * C++: ``ndn_NameComponentType_GENERIC``, ``ndn_NameComponentType_IMPLICIT_SHA256_DIGEST``, ``ndn_NameComponentType_PARAMETERS_SHA256_DIGEST`` or ``ndn_NameComponentType_OTHER_CODE``
+        * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+        * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+        * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
 
 Name.Component.getValue Method
 ------------------------------
@@ -651,6 +724,43 @@ Check if this component is an ImplicitSha256Digest component.
 
     True if this is an ImplicitSha256Digest component.
 
+.. _isParametersSha256Digest:
+
+Name.Component.isParametersSha256Digest Method
+----------------------------------------------
+
+Check if this component is a ParametersSha256Digest component.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        bool isParametersSha256Digest() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns bool
+        def isParametersSha256Digest(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Name.Component.prototype.isParametersSha256Digest = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final boolean isParametersSha256Digest()
+
+:Returns:
+
+    True if this is a ParametersSha256Digest component.
+
 Name.Component.toEscapedString Method
 -------------------------------------
 
@@ -746,15 +856,15 @@ A nonNegativeInteger is always encoded as 1, 2, 4 or 8 bytes.
         The number to be encoded.
 
     - `type`
-        (optional) The component enum value which is GENERIC,
-        IMPLICIT_SHA256_DIGEST or OTHER_CODE as follows. If the name component
+        (optional) The component enum value which is GENERIC, IMPLICIT_SHA256_DIGEST,
+        PARAMETERS_SHA256_DIGEST or OTHER_CODE as follows. If the name component
         type is not a enum value, then set this to OTHER_CODE and use the
         otherTypeCode parameter. If omitted, use GENERIC.
 
-            * C++: ``ndn_NameComponentType_GENERIC``, ``ndn_NameComponentType_IMPLICIT_SHA256_DIGEST`` or ``ndn_NameComponentType_OTHER_CODE``
-            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
-            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
-            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * C++: ``ndn_NameComponentType_GENERIC``, ``ndn_NameComponentType_IMPLICIT_SHA256_DIGEST``, ``ndn_NameComponentType_PARAMETERS_SHA256_DIGEST`` or ``ndn_NameComponentType_OTHER_CODE``
+            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
 
     - `otherTypeCode`
         (optional) If type is OTHER_CODE, then this is the packet's unrecognized

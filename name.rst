@@ -151,6 +151,8 @@ Name.append Method (copy byte array)
 Append a new component, copying from the byte array.
 (To append an ImplicitSha256Digest component, use
 :ref:`appendImplicitSha256Digest <appendImplicitSha256Digest>`.)
+(To append a ParametersSha256Digest component, use
+:ref:`appendParametersSha256Digest <appendParametersSha256Digest>`.)
 
 :[C++]:
 
@@ -200,15 +202,15 @@ Append a new component, copying from the byte array.
         The component byte array to copy.
 
     - `type`
-        (optional) The component enum value which is GENERIC,
-        IMPLICIT_SHA256_DIGEST or OTHER_CODE as follows. If the name component
+        (optional) The component enum value which is GENERIC, IMPLICIT_SHA256_DIGEST,
+        PARAMETERS_SHA256_DIGEST or OTHER_CODE as follows. If the name component
         type is not a enum value, then set this to OTHER_CODE and use the
         otherTypeCode parameter. If omitted, use GENERIC.
 
-            * C++: ``ndn_NameComponentType_GENERIC``, ``ndn_NameComponentType_IMPLICIT_SHA256_DIGEST`` or ``ndn_NameComponentType_OTHER_CODE``
-            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
-            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
-            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * C++: ``ndn_NameComponentType_GENERIC``, ``ndn_NameComponentType_IMPLICIT_SHA256_DIGEST``, ``ndn_NameComponentType_PARAMETERS_SHA256_DIGEST`` or ``ndn_NameComponentType_OTHER_CODE``
+            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
 
     - `otherTypeCode`
         (optional) If type is OTHER_CODE, then this is the packet's unrecognized
@@ -265,14 +267,14 @@ constructor, and use append from Name.
         The Unicode string which is encoded as UTF8.  
 
     - `type`
-        (optional) The component enum value which is GENERIC,
-        IMPLICIT_SHA256_DIGEST or OTHER_CODE as follows. If the name component
+        (optional) The component enum value which is GENERIC, IMPLICIT_SHA256_DIGEST,
+        PARAMETERS_SHA256_DIGEST or OTHER_CODE as follows. If the name component
         type is not a enum value, then set this to OTHER_CODE and use the
         otherTypeCode parameter. If omitted, use GENERIC.
 
-            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
-            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
-            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
 
     - `otherTypeCode`
         (optional) If type is OTHER_CODE, then this is the packet's unrecognized
@@ -294,6 +296,8 @@ Name.append Method (from Blob)
 Append a new component, taking another pointer to the byte array in the Blob.
 (To append an ImplicitSha256Digest component, use
 :ref:`appendImplicitSha256Digest <appendImplicitSha256Digest>`.)
+(To append a ParametersSha256Digest component, use
+:ref:`appendParametersSha256Digest <appendParametersSha256Digest>`.)
 
 :[C++]:
 
@@ -343,15 +347,15 @@ Append a new component, taking another pointer to the byte array in the Blob.
         The Blob with the pointer to the byte array.
 
     - `type`
-        (optional) The component enum value which is GENERIC,
-        IMPLICIT_SHA256_DIGEST or OTHER_CODE as follows. If the name component
+        (optional) The component enum value which is GENERIC, IMPLICIT_SHA256_DIGEST,
+        PARAMETERS_SHA256_DIGEST or OTHER_CODE as follows. If the name component
         type is not a enum value, then set this to OTHER_CODE and use the
         otherTypeCode parameter. If omitted, use GENERIC.
 
-            * C++: ``ndn_NameComponentType_GENERIC``, ``ndn_NameComponentType_IMPLICIT_SHA256_DIGEST`` or ``ndn_NameComponentType_OTHER_CODE``
-            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
-            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
-            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * C++: ``ndn_NameComponentType_GENERIC``, ``ndn_NameComponentType_IMPLICIT_SHA256_DIGEST``, ``ndn_NameComponentType_PARAMETERS_SHA256_DIGEST`` or ``ndn_NameComponentType_OTHER_CODE``
+            * Python: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * JavaScript: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
+            * Java: ``ComponentType.GENERIC``, ``ComponentType.IMPLICIT_SHA256_DIGEST``, ``ComponentType.PARAMETERS_SHA256_DIGEST`` or ``ComponentType.OTHER_CODE``
 
     - `otherTypeCode`
         (optional) If type is OTHER_CODE, then this is the packet's unrecognized
@@ -510,6 +514,75 @@ Append a component of type ImplicitSha256DigestComponent, so that
         )
 
         public final Name appendImplicitSha256Digest(
+            byte[] digest
+        )
+
+:Parameters:
+
+    - `digest`
+        The SHA-256 digest value.
+
+:Returns:
+
+    This name so that you can chain calls to append.
+
+:Throw:
+
+    Throw an exception if the digest length is not 32 bytes.
+
+.. _appendParametersSha256Digest:
+
+Name.appendParametersSha256Digest Method
+----------------------------------------
+
+Append a component of type ParametersSha256DigestComponent, so that
+:ref:`isParametersSha256Digest() <isParametersSha256Digest>` is true.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Name& appendParametersSha256Digest(
+            const Blob& digest
+        );
+
+        Name& appendParametersSha256Digest(
+            const uint8_t *digest,
+            size_t digestLength
+        );
+
+        Name& appendParametersSha256Digest(
+            const std::vector<uint8_t>& digest
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Name
+        @staticmethod
+        def appendParametersSha256Digest(
+            digest  # Blob or value for Blob constructor
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Name
+        Name.Component.appendParametersSha256Digest = function(
+            digest  // Blob|Buffer
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Name appendParametersSha256Digest(
+            Blob digest
+        )
+
+        public final Name appendParametersSha256Digest(
             byte[] digest
         )
 
