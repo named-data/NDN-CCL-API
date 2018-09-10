@@ -278,27 +278,27 @@ Get the regex filter. This is only valid if hasRegexFilter() is true.
 
     .. code-block:: c++
 
-        const Name& getRegexFilter() const;
+        const std::string& getRegexFilter() const;
 
 :[Python]:
 
     .. code-block:: python
 
-        # Returns Name
+        # Returns str
         def getRegexFilter(self)
 
 :[JavaScript]:
 
     .. code-block:: javascript
 
-        // Returns Name
+        // Returns string
         InterestFilter.prototype.getRegexFilter = function()
 
 :[Java]:
 
     .. code-block:: java
 
-        public final Name getRegexFilter()
+        public final String getRegexFilter()
 
 :Returns:
 
