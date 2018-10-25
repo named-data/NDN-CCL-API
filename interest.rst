@@ -26,7 +26,8 @@ Interest Constructors
 Interest Constructor (optional Name)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a new Interest with the optional name.
+Create a new Interest with the optional name, and where other values are
+unspecified.
 
 :[C++]:
 
@@ -65,6 +66,48 @@ Create a new Interest with the optional name.
     - `name`
 	(optional) The name for the interest which is copied. If omitted, use a blank name.
 
+Interest Constructor (from URI)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a new Interest with a Name from the given URI string, and where other
+values are unspecified.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Interest(
+            const char* uri
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def __init__(self,
+            uri  # str
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        var Interest = function Interest(
+            uri  // string
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public Interest(
+            String uri
+        )
+
+:Parameters:
+
+    - `uri`
+        The URI in the NDN URI Scheme.
 
 Interest Constructor (copy)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
