@@ -576,6 +576,41 @@ in this Interest object, then the nonce value is cleared.
 
     The nonce. If not specified, the value :ref:`isNull() <isNull>`.
 
+Interest.getParameters Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the Interest parameters.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        const Blob& getParameters() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Blob
+        def getParameters(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Blob
+        Interest.prototype.getParameters = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Blob getParameters()
+
+:Returns:
+
+    The parameters as a Blob, which isNull() if unspecified.
+
 Interest Set Methods
 --------------------
 
@@ -1048,6 +1083,92 @@ Set the interest name.
 
     - `name`
         The interest name. This makes a copy of the name.
+
+:Returns:
+
+    This Interest so that you can chain calls to update values.
+
+Interest.setParameters Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set the Interest parameters to the given value.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Interest& setParameters(
+            const Blob& parameters
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Interest
+        def setParameters(self,
+            parameters  # Blob
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Interest
+        Interest.prototype.setParameters = function(
+            parameters  // Blob
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Interest setParameters(
+            Blob parameters
+        )
+
+:Parameters:
+
+    - `parameters`
+        The Interest parameters Blob.
+
+:Returns:
+
+    This Interest so that you can chain calls to update values.
+
+Interest.appendParametersDigestToName Method
+--------------------------------------------
+
+Append the digest of the Interest parameters to the Name as a
+ParametersSha256DigestComponent. However, if the Interest parameters is
+unspecified, do nothing. This does not check if the Name already has a
+parameters digest component, so calling again will append another component.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Interest& appendParametersDigestToName();
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Interest
+        def appendParametersDigestToName(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Interest
+        Interest.prototype.appendParametersDigestToName = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Interest appendParametersDigestToName()
 
 :Returns:
 
