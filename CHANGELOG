@@ -1,7 +1,8 @@
-Interim changes since NDN-CCL-API v0.6.3 (2018-12-17)
+Interim changes since NDN-CCL-API v0.6.3 (2018-12-19)
 -----------------------------------------------------
 
 Changes
+* Added Validator, ValidationError and CertificateFetcher.
 * In Interest, added get/setParameters and appendParametersDigestToName.
 
 NDN-CCL-API v0.6.3 (2018-09-17)

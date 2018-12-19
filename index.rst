@@ -40,6 +40,9 @@ Table of Contents:
    security/certificate-v2
    security/validity-period
    security/tpm
+   security/validator
+   security/certificate-fetcher
+   security/validation-error
    :maxdepth: 1
 
 .. Indices and tables
