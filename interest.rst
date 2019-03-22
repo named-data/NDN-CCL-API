@@ -154,6 +154,41 @@ Create a new Interest as a deep copy of the given interest.
 Interest Get Methods
 --------------------
 
+Interest.getCanBePrefix Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the CanBePrefix flag. If not specified, the default is true.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        bool getCanBePrefix() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns bool
+        def getCanBePrefix(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Interest.prototype.getCanBePrefix = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final boolean getCanBePrefix()
+
+:Returns:
+
+    The CanBePrefix flag.
+
 Interest.getChildSelector Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -613,6 +648,55 @@ Get the Interest parameters.
 
 Interest Set Methods
 --------------------
+
+Interest.setCanBePrefix Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set the CanBePrefix flag.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        Interest& setCanBePrefix(
+            bool canBePrefix
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns Interest
+        def setCanBePrefix(self,
+            canBePrefix  # bool
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns Interest
+        Interest.prototype.setCanBePrefix = function(
+            canBePrefix  // boolean
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final Interest setCanBePrefix(
+            boolean canBePrefix
+        )
+
+:Parameters:
+
+    - `canBePrefix`
+        True if the Interest name can be a prefix. If you do not set this flag,
+        the default value is true.
+
+:Returns:
+
+    This Interest so that you can chain calls to update values.
 
 Interest.setChildSelector Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
