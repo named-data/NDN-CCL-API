@@ -1,3 +1,8 @@
+Interim changes since NDN-CCL-API v0.6.5 (2019-03-22)
+-----------------------------------------------------
+
+* In Interest, added get/setDefaultCanBePrefix.
+
 NDN-CCL-API v0.6.5 (2019-03-06)
 -------------------------------
 

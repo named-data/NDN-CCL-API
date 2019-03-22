@@ -157,7 +157,8 @@ Interest Get Methods
 Interest.getCanBePrefix Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Get the CanBePrefix flag. If not specified, the default is true.
+Get the CanBePrefix flag. If not specified, the default is true, or the
+value from :ref:`setDefaultCanBePrefix <Interest.setDefaultCanBePrefix>`.
 
 :[C++]:
 
@@ -224,6 +225,44 @@ Get the child selector.
 
     The child selector. If not specified, return ``-1`` (C++ and Java)
     or ``None`` (Python) or ``undefined`` (JavaScript).
+
+Interest.getDefaultCanBePrefix Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get the default value of the CanBePrefix flag used in the Interest constructor.
+You can change this with
+:ref:`setDefaultCanBePrefix <Interest.setDefaultCanBePrefix>`.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        static bool getDefaultCanBePrefix();
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns bool
+        @staticmethod
+        def getDefaultCanBePrefix()
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns boolean
+        Interest.getDefaultCanBePrefix = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public static boolean getDefaultCanBePrefix()
+
+:Returns:
+
+    The default value of the CanBePrefix flag.
 
 Interest.getExclude Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -649,6 +688,8 @@ Get the Interest parameters.
 Interest Set Methods
 --------------------
 
+.. _Interest.setCanBePrefix:
+
 Interest.setCanBePrefix Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -746,6 +787,57 @@ Set the child selector.
 :Returns:
 
     This Interest so that you can chain calls to update values.
+
+.. _Interest.setDefaultCanBePrefix:
+
+Interest.setDefaultCanBePrefix Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set the default value of the CanBePrefix flag used in the Interest constructor.
+The default is currently true, but will be changed at a later date. The
+application should call this before creating any Interest (even to set the
+default again to true), or the application should explicitly call
+:ref:`setCanBePrefix <Interest.setCanBePrefix>` after creating the Interest.
+Otherwise wireEncode will print a warning message. This is to avoid breaking any
+code when the library default for CanBePrefix is changed at a later date.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        static void setDefaultCanBePrefix(
+            bool defaultCanBePrefix
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        @staticmethod
+        def setDefaultCanBePrefix(
+            defaultCanBePrefix  # bool
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Interest.setDefaultCanBePrefix = function(
+            defaultCanBePrefix  // boolean
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public static void setDefaultCanBePrefix(
+            boolean defaultCanBePrefix
+        )
+
+:Parameters:
+
+    - `defaultCanBePrefix`
+        The default value of the CanBePrefix flag.
 
 Interest.setExclude Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
