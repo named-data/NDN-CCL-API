@@ -1,7 +1,12 @@
 Interim changes since NDN-CCL-API v0.6.5 (2019-03-22)
 -----------------------------------------------------
 
+Changes
 * In Interest, added get/setDefaultCanBePrefix.
+
+Bug fixes
+* https://redmine.named-data.net/issues/4891 In MemoryContentCache.storePendingInterest,
+  fix the transport argument to face.
 
 NDN-CCL-API v0.6.5 (2019-03-06)
 -------------------------------

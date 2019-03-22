@@ -599,7 +599,7 @@ MemoryContentCache.storePendingInterest Method
     interest table (normally because there is no Data packet available yet to
     satisfy the interest). :ref:`add(data) <MemoryContentCache.add>` will check
     if the added Data packet satisfies any pending interest and send it through
-    the transport.
+    the face.
 
     :[C++]:
 
@@ -607,7 +607,7 @@ MemoryContentCache.storePendingInterest Method
 
             void storePendingInterest(
                 const ptr_lib::shared_ptr<const Interest>& interest,
-                Transport& transport
+                Face& face
             );
 
     :[Python]:
@@ -616,7 +616,7 @@ MemoryContentCache.storePendingInterest Method
 
             def storePendingInterest(self,
                 interest,  # Interest
-                transport  # Transport
+                face       # Face
             )
 
     :[JavaScript]:
@@ -625,7 +625,7 @@ MemoryContentCache.storePendingInterest Method
 
             MemoryContentCache.prototype.storePendingInterest = function(
                 interest.  // Interest
-                transport  // Transport
+                face       // Face
             )
 
     :[Java]:
@@ -643,9 +643,9 @@ MemoryContentCache.storePendingInterest Method
             The Interest for which we don't have a Data packet yet. You should
             not modify the interest after calling this.
 
-        - `transport`
-            The Transport with the connection which received the interest. This
-            comes from the onInterest callback.
+        - `face`
+            The Face with the connection which received the interest. This comes
+            from the onInterest callback.
 
 MemoryContentCache.unregisterAll Method
 ---------------------------------------
