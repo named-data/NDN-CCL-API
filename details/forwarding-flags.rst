@@ -123,14 +123,15 @@ Set the value of the "capture" flag.
 
     .. code-block:: c++
 
-        void setCapture(
+        ForwardingFlags& setCapture(
             bool capture
         );
 
 :[Python]:
 
     .. code-block:: python
-    
+
+        # Returns ForwardingFlags
         def setCapture(self,
             capture  # bool
         )
@@ -139,6 +140,7 @@ Set the value of the "capture" flag.
 
     .. code-block:: javascript
 
+        // Returns ForwardingFlags
         ForwardingFlags.prototype.setCapture = function(
             capture  // boolean
         )
@@ -147,14 +149,18 @@ Set the value of the "capture" flag.
 
     .. code-block:: java
     
-        public final void setCapture(
+        public final ForwardingFlags setCapture(
             boolean capture
         )
 
 :Parameters:
 
     - `capture`
-        true to set the flag, false to clear it.
+        true to set the "capture" flag, false to clear it.
+
+:Returns:
+
+    This ForwardingFlags so that you can chain calls to update values.
 
 ForwardingFlags.setChildInherit Method
 --------------------------------------
@@ -165,7 +171,7 @@ Set the value of the "childInherit" flag.
 
     .. code-block:: c++
 
-        void setChildInherit(
+        ForwardingFlags& setChildInherit(
             bool childInherit
         );
 
@@ -173,6 +179,7 @@ Set the value of the "childInherit" flag.
 
     .. code-block:: python
     
+        # Returns ForwardingFlags
         def setChildInherit(self,
             childInherit  # bool
         )
@@ -181,6 +188,7 @@ Set the value of the "childInherit" flag.
 
     .. code-block:: javascript
 
+        // Returns ForwardingFlags
         ForwardingFlags.prototype.setChildInherit = function(
             childInherit  // boolean
         )
@@ -189,11 +197,15 @@ Set the value of the "childInherit" flag.
 
     .. code-block:: java
     
-        public final void setChildInherit(
+        public final ForwardingFlags setChildInherit(
             boolean childInherit
         )
 
 :Parameters:
 
     - `childInherit`
-        true to set the flag, false to clear it.
+        true to set the "childInherit" flag, false to clear it.
+
+:Returns:
+
+    This ForwardingFlags so that you can chain calls to update values.
