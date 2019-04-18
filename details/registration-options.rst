@@ -118,6 +118,42 @@ Get the value of the "childInherit" flag.
 
     true if the flag is set, false if it is cleared.
 
+RegistrationOptions.getOrigin Method
+------------------------------------
+
+Get the origin value.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        int getOrigin() const;
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns int
+        def getOrigin(self)
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns number
+        RegistrationOptions.prototype.getOrigin = function()
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final int getOrigin()
+
+:Returns:
+
+    The origin value. If not specified, return ``-1`` (C++ and Java)
+    or ``None`` (Python) or ``null`` (JavaScript).
+
 RegistrationOptions.setCapture Method
 -------------------------------------
 
@@ -209,6 +245,55 @@ Set the value of the "childInherit" flag.
 
     - `childInherit`
         true to set the "childInherit" flag, false to clear it.
+
+:Returns:
+
+    This RegistrationOptions so that you can chain calls to update values.
+
+RegistrationOptions.setOrigin Method
+------------------------------------
+
+Set the child selector.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        RegistrationOptions& setOrigin(
+            int origin
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        # Returns RegistrationOptions
+        def setOrigin(self,
+            origin  # int
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        // Returns RegistrationOptions
+        RegistrationOptions.prototype.setOrigin = function(
+            origin  // number
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final RegistrationOptions setOrigin(
+            int origin
+        )
+
+:Parameters:
+
+    - `origin`
+        The origin value. If not specified, set to ``-1`` (C++ and Java)
+        or ``None`` (Python) or ``null`` (JavaScript).
 
 :Returns:
 
