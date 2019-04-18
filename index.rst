@@ -27,7 +27,7 @@ Table of Contents:
 
 .. toctree::
    details/delegation-set
-   details/forwarding-flags
+   details/registration-options
    details/network-nack
    details/tcp-transport
    details/udp-transport

@@ -637,7 +637,7 @@ local or remote forwarder according to :ref:`isLocal <Face.isLocal>`.
             const OnInterestCallback &onInterest,
             const OnRegisterFailed &onRegisterFailed
             [, const OnRegisterSuccess &onRegisterSuccess]
-            [, const ForwardingFlags& flags]
+            [, const RegistrationOptions& registrationOptions]
         )
 
 :[Python]:
@@ -650,7 +650,7 @@ local or remote forwarder according to :ref:`isLocal <Face.isLocal>`.
             onInterest,           # function object
             onRegisterFailed      # function object
             [, onRegisterSuccess  # function object]
-            [, flags              # ForwardingFlags]
+            [, registrationOptions # RegistrationOptions]
         )
 
 :[JavaScript]:
@@ -663,7 +663,7 @@ local or remote forwarder according to :ref:`isLocal <Face.isLocal>`.
             onInterest,           // function
             onRegisterFailed      // function
             [, onRegisterSuccess  // function]
-            [, flags              // ForwardingFlags]
+            [, registrationOptions // RegistrationOptions]
         )
 
 :[Java]:
@@ -675,7 +675,7 @@ local or remote forwarder according to :ref:`isLocal <Face.isLocal>`.
             OnInterestCallback onInterest,
             OnRegisterFailed onRegisterFailed
             [, OnRegisterSuccess onRegisterSuccess]
-            [, ForwardingFlags flags]
+            [, RegistrationOptions registrationOptions]
         )
 
 :Parameters:
@@ -731,9 +731,10 @@ local or remote forwarder according to :ref:`isLocal <Face.isLocal>`.
             The library will log any exceptions thrown by this callback, but for better
             error handling the callback should catch and properly handle any exceptions.
 
-    - `flags`
-	(optional) The flags for finer control of how and which Interests should be forwarded towards the face.
-        If omitted, use the default flags defined by the default :ref:`ForwardingFlags <ForwardingFlags>` constructor.
+    - `registrationOptions`
+	(optional) The registration options for finer control of how to forward an 
+        interest and other options. If omitted, use the default
+        :ref:`RegistrationOptions <RegistrationOptions>` constructor.
 
 :Returns:
 

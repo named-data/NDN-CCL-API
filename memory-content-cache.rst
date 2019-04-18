@@ -269,7 +269,7 @@ MemoryContentCache.registerPrefix Method
                 const OnRegisterFailed& onRegisterFailed
                 [, const OnRegisterSuccess& onRegisterSuccess]
                 [, const OnInterestCallback& onDataNotFound]
-                [, const ForwardingFlags& flags]
+                [, const RegistrationOptions& registrationOptions]
             );
 
     :[Python]:
@@ -281,7 +281,7 @@ MemoryContentCache.registerPrefix Method
                 onRegisterFailed      # function object
                 [, onRegisterSuccess  # function object]
                 [, onDataNotFound     # function object]
-                [, flags              # ForwardingFlags]
+                [, registrationOptions # RegistrationOptions]
             )
 
     :[JavaScript]:
@@ -293,7 +293,7 @@ MemoryContentCache.registerPrefix Method
                 onRegisterFailed      // function
                 [, onRegisterSuccess  // function]
                 [, onDataNotFound     // function]
-                [, flags              // ForwardingFlags]
+                [, registrationOptions // RegistrationOptions]
             )
 
     :[Java]:
@@ -305,7 +305,7 @@ MemoryContentCache.registerPrefix Method
                 OnRegisterFailed onRegisterFailed
                 [, OnRegisterSuccess onRegisterSuccess]
                 [, OnInterestCallback onDataNotFound]
-                [, ForwardingFlags flags]
+                [, RegistrationOptions registrationOptions]
             )
 
     :Parameters:
@@ -357,9 +357,10 @@ MemoryContentCache.registerPrefix Method
               The library will log any exceptions thrown by this callback, but for better
               error handling the callback should catch and properly handle any exceptions.
 
-        - `flags`
-            (optional) The flags for finer control of how and which Interests should be forwarded towards the face.
-            If omitted, use the default flags defined by the default :ref:`ForwardingFlags <ForwardingFlags>` constructor.
+        - `registrationOptions`
+              (optional) The registration options for finer control of how to forward an
+              interest and other options. If omitted, use the default
+              :ref:`RegistrationOptions <RegistrationOptions>` constructor.
 
 .. _MemoryContentCache.setInterestFilter:
 

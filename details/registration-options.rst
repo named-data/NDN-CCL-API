@@ -1,12 +1,16 @@
-.. _ForwardingFlags:
+.. _RegistrationOptions:
 
-ForwardingFlags Class
-=====================
+RegistrationOptions Class
+=========================
 
-A ForwardingFlags object holds the flags which specify how the forwarding daemon should forward an interest for a registered prefix.  We use a separate ForwardingFlags object to retain future compatibility if the daemon forwarding bits are changed, amended or deprecated.
+A RegistrationOptions holds the options used when registering with the
+forwarder to specify how to forward an interest and other options. We use a
+separate RegistrationOptions object to retain future compatibility if the
+format of the registration command is changed.
+(This class was renamed from ForwardingFlags, which is deprecated.)
 
 :[C++]:
-    | ``#include <ndn-cpp/forwarding-flags.hpp>``
+    | ``#include <ndn-cpp/registration-options.hpp>``
     | Namespace: ``ndn``
 
 :[Python]:
@@ -15,16 +19,16 @@ A ForwardingFlags object holds the flags which specify how the forwarding daemon
 :[Java]:
     Package: ``net.named_data.jndn``
 
-ForwardingFlags Constructor
----------------------------
+RegistrationOptions Constructor
+-------------------------------
 
-Create a new ForwardingFlags with "childInherit" set and all other flags cleared.
+Create a new RegistrationOptions with "childInherit" set and all other flags cleared.
 
 :[C++]:
 
     .. code-block:: c++
 
-        ForwardingFlags();
+        RegistrationOptions();
 
 :[Python]:
 
@@ -36,16 +40,16 @@ Create a new ForwardingFlags with "childInherit" set and all other flags cleared
 
     .. code-block:: javascript
 
-        var ForwardingFlags = function ForwardingFlags()
+        var RegistrationOptions = function RegistrationOptions()
 
 :[Java]:
 
     .. code-block:: java
     
-        public ForwardingFlags()
+        public RegistrationOptions()
 
-ForwardingFlags.getCapture Method
----------------------------------
+RegistrationOptions.getCapture Method
+-------------------------------------
 
 Get the value of the "capture" flag.
 
@@ -67,7 +71,7 @@ Get the value of the "capture" flag.
     .. code-block:: javascript
 
         // Returns boolean
-        ForwardingFlags.prototype.getCapture = function()
+        RegistrationOptions.prototype.getCapture = function()
 
 :[Java]:
 
@@ -79,8 +83,8 @@ Get the value of the "capture" flag.
 
     true if the flag is set, false if it is cleared.
 
-ForwardingFlags.getChildInherit Method
---------------------------------------
+RegistrationOptions.getChildInherit Method
+------------------------------------------
 
 Get the value of the "childInherit" flag.
 
@@ -102,7 +106,7 @@ Get the value of the "childInherit" flag.
     .. code-block:: javascript
 
         // Returns boolean
-        ForwardingFlags.prototype.getChildInherit = function()
+        RegistrationOptions.prototype.getChildInherit = function()
 
 :[Java]:
 
@@ -114,8 +118,8 @@ Get the value of the "childInherit" flag.
 
     true if the flag is set, false if it is cleared.
 
-ForwardingFlags.setCapture Method
----------------------------------
+RegistrationOptions.setCapture Method
+-------------------------------------
 
 Set the value of the "capture" flag.
 
@@ -123,7 +127,7 @@ Set the value of the "capture" flag.
 
     .. code-block:: c++
 
-        ForwardingFlags& setCapture(
+        RegistrationOptions& setCapture(
             bool capture
         );
 
@@ -131,7 +135,7 @@ Set the value of the "capture" flag.
 
     .. code-block:: python
 
-        # Returns ForwardingFlags
+        # Returns RegistrationOptions
         def setCapture(self,
             capture  # bool
         )
@@ -140,8 +144,8 @@ Set the value of the "capture" flag.
 
     .. code-block:: javascript
 
-        // Returns ForwardingFlags
-        ForwardingFlags.prototype.setCapture = function(
+        // Returns RegistrationOptions
+        RegistrationOptions.prototype.setCapture = function(
             capture  // boolean
         )
 
@@ -149,7 +153,7 @@ Set the value of the "capture" flag.
 
     .. code-block:: java
     
-        public final ForwardingFlags setCapture(
+        public final RegistrationOptions setCapture(
             boolean capture
         )
 
@@ -160,10 +164,10 @@ Set the value of the "capture" flag.
 
 :Returns:
 
-    This ForwardingFlags so that you can chain calls to update values.
+    This RegistrationOptions so that you can chain calls to update values.
 
-ForwardingFlags.setChildInherit Method
---------------------------------------
+RegistrationOptions.setChildInherit Method
+------------------------------------------
 
 Set the value of the "childInherit" flag.
 
@@ -171,7 +175,7 @@ Set the value of the "childInherit" flag.
 
     .. code-block:: c++
 
-        ForwardingFlags& setChildInherit(
+        RegistrationOptions& setChildInherit(
             bool childInherit
         );
 
@@ -179,7 +183,7 @@ Set the value of the "childInherit" flag.
 
     .. code-block:: python
     
-        # Returns ForwardingFlags
+        # Returns RegistrationOptions
         def setChildInherit(self,
             childInherit  # bool
         )
@@ -188,8 +192,8 @@ Set the value of the "childInherit" flag.
 
     .. code-block:: javascript
 
-        // Returns ForwardingFlags
-        ForwardingFlags.prototype.setChildInherit = function(
+        // Returns RegistrationOptions
+        RegistrationOptions.prototype.setChildInherit = function(
             childInherit  // boolean
         )
 
@@ -197,7 +201,7 @@ Set the value of the "childInherit" flag.
 
     .. code-block:: java
     
-        public final ForwardingFlags setChildInherit(
+        public final RegistrationOptions setChildInherit(
             boolean childInherit
         )
 
@@ -208,4 +212,4 @@ Set the value of the "childInherit" flag.
 
 :Returns:
 
-    This ForwardingFlags so that you can chain calls to update values.
+    This RegistrationOptions so that you can chain calls to update values.
