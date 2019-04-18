@@ -1147,6 +1147,53 @@ always succeed. To register a prefix with the forwarder, use
     The interest filter ID which can be used with
     :ref:`unsetInterestFilter <Face.unsetInterestFilter>`.
 
+Face.setInterestLoopbackEnabled Method
+--------------------------------------
+
+Enable or disable Interest loopback. If Interest loopback is enabled, then an
+Interest to expressInterest is also sent to each of the matching OnInterest
+callbacks that the application gave to registerPrefix or setInterestFilter, and
+a Data that the application gives to putData can satisfy pending Interests. This
+way one part of an application can do Interest/Data exchange with another part
+through the same Face. Interest loopback is disabled by default.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void setInterestLoopbackEnabled(
+            bool interestLoopbackEnabled
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def setInterestLoopbackEnabled(self,
+            interestLoopbackEnabled  # bool
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Face.prototype.setInterestLoopbackEnabled = function(
+            interestLoopbackEnabled  // boolean
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public final void setInterestLoopbackEnabled(
+            boolean interestLoopbackEnabled
+        )
+
+:Parameters:
+
+    - `interestLoopbackEnabled`
+        If true, enable Interest loopback, otherwise disable it.
+
 .. _Face.unsetInterestFilter:
 
 Face.unsetInterestFilter Method
