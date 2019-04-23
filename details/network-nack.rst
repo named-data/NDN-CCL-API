@@ -44,7 +44,7 @@ OTHER_CODE.
     .. code-block:: javascript
 
         // Returns number
-        Interest.prototype.getOtherReasonCode = function()
+        NetworkNack.prototype.getOtherReasonCode = function()
 
 :[Java]:
 
@@ -81,7 +81,7 @@ Get the network Nack reason.
     .. code-block:: javascript
 
         // Returns number
-        MetaInfo.prototype.getReason = function()
+        NetworkNack.prototype.getReason = function()
 
 :[Java]:
 
