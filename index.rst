@@ -27,6 +27,7 @@ Table of Contents:
 
 .. toctree::
    details/delegation-set
+   details/encrypted-content
    details/registration-options
    details/network-nack
    details/tcp-transport
