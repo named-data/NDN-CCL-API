@@ -253,7 +253,7 @@ Set the value of the "childInherit" flag.
 RegistrationOptions.setOrigin Method
 ------------------------------------
 
-Set the child selector.
+Set the origin value.
 
 :[C++]:
 
