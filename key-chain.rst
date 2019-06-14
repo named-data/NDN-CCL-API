@@ -1,3 +1,5 @@
+.. _KeyChain:
+
 KeyChain Class
 ==============
 
