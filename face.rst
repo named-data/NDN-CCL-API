@@ -614,6 +614,66 @@ The onInterest callback calls this to put a Data packet which satisfies an Inter
     Throw an exception if the encoded Data packet size exceeds
     :ref:`getMaxNdnPacketSize() <Face.getMaxNdnPacketSize>`.
 
+.. _Face.putNack:
+
+Face.putNack Method
+-------------------
+
+The OnInterest callback can call this to put a Nack for the received Interest.
+
+:[C++]:
+
+    .. code-block:: c++
+
+        void putNack(
+            const Interest& interest,
+            const NetworkNack& networkNack
+        );
+
+:[Python]:
+
+    .. code-block:: python
+
+        def putNack(self,
+            interest,    # Interest
+            networkNack  # NetworkNack
+        )
+
+:[JavaScript]:
+
+    .. code-block:: javascript
+
+        Face.prototype.putNack = function(
+            interest,    // Interest
+            networkNack  // NetworkNack
+        )
+
+:[Java]:
+
+    .. code-block:: java
+
+        public void putNack(
+            Interest interest,
+            NetworkNack networkNack
+        )
+
+:Parameters:
+
+    - `interest`
+        The Interest to put in the Nack packet.
+
+    - `networkNack`
+        The :ref:`NetworkNack <NetworkNack>` with the reason code. For example,
+
+            * C++: ``NetworkNack().setReason(ndn_NetworkNackReason_NO_ROUTE)``
+            * Python: ``NetworkNack().setReason(NetworkNack.Reason.NO_ROUTE)``
+            * Java and JavaScript: ``new NetworkNack().setReason(NetworkNack.Reason.NO_ROUTE)``
+
+:Throw:
+
+    Throw an exception if the encoded Data packet size exceeds
+    :ref:`getMaxNdnPacketSize() <Face.getMaxNdnPacketSize>`.
+
 .. _Face.registerPrefix:
 
 Face.registerPrefix Method

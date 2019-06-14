@@ -1,8 +1,9 @@
-Interim changes since NDN-CCL-API v0.6.5 (2019-04-18)
+Interim changes since NDN-CCL-API v0.6.5 (2019-06-14)
 -----------------------------------------------------
 
 Changes
 * In Interest, added get/setDefaultCanBePrefix.
+* In Face, added putNack.
 * https://redmine.named-data.net/issues/4869 Renamed ForwardingFlags to
   RegistrationOptions.
 
