@@ -619,60 +619,66 @@ The onInterest callback calls this to put a Data packet which satisfies an Inter
 Face.putNack Method
 -------------------
 
-The OnInterest callback can call this to put a Nack for the received Interest.
+.. container:: experimental
 
-:[C++]:
+    .. admonition:: Experimental
 
-    .. code-block:: c++
+       This method is an experimental feature, and the API may change.
 
-        void putNack(
-            const Interest& interest,
-            const NetworkNack& networkNack
-        );
+    The OnInterest callback can call this to put a Nack for the received Interest.
 
-:[Python]:
+    :[C++]:
 
-    .. code-block:: python
+        .. code-block:: c++
 
-        def putNack(self,
-            interest,    # Interest
-            networkNack  # NetworkNack
-        )
+            void putNack(
+                const Interest& interest,
+                const NetworkNack& networkNack
+            );
 
-:[JavaScript]:
+    :[Python]:
 
-    .. code-block:: javascript
+        .. code-block:: python
 
-        Face.prototype.putNack = function(
-            interest,    // Interest
-            networkNack  // NetworkNack
-        )
+            def putNack(self,
+                interest,    # Interest
+                networkNack  # NetworkNack
+            )
 
-:[Java]:
+    :[JavaScript]:
 
-    .. code-block:: java
+        .. code-block:: javascript
 
-        public void putNack(
-            Interest interest,
-            NetworkNack networkNack
-        )
+            Face.prototype.putNack = function(
+                interest,    // Interest
+                networkNack  // NetworkNack
+            )
 
-:Parameters:
+    :[Java]:
 
-    - `interest`
-        The Interest to put in the Nack packet.
+        .. code-block:: java
 
-    - `networkNack`
-        The :ref:`NetworkNack <NetworkNack>` with the reason code. For example,
+            public void putNack(
+                Interest interest,
+                NetworkNack networkNack
+            )
 
-            * C++: ``NetworkNack().setReason(ndn_NetworkNackReason_NO_ROUTE)``
-            * Python: ``NetworkNack().setReason(NetworkNack.Reason.NO_ROUTE)``
-            * Java and JavaScript: ``new NetworkNack().setReason(NetworkNack.Reason.NO_ROUTE)``
+    :Parameters:
 
-:Throw:
+        - `interest`
+            The Interest to put in the Nack packet.
 
-    Throw an exception if the encoded Data packet size exceeds
-    :ref:`getMaxNdnPacketSize() <Face.getMaxNdnPacketSize>`.
+        - `networkNack`
+            The :ref:`NetworkNack <NetworkNack>` with the reason code. For example,
+
+                * C++: ``NetworkNack().setReason(ndn_NetworkNackReason_NO_ROUTE)``
+                * Python: ``NetworkNack().setReason(NetworkNack.Reason.NO_ROUTE)``
+                * Java and JavaScript: ``new NetworkNack().setReason(NetworkNack.Reason.NO_ROUTE)``
+
+    :Throw:
+
+        Throw an exception if the encoded Data packet size exceeds
+        :ref:`getMaxNdnPacketSize() <Face.getMaxNdnPacketSize>`.
 
 .. _Face.registerPrefix:
 
