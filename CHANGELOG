@@ -2,6 +2,7 @@ Interim changes since NDN-CCL-API v0.6.5 (2019-06-14)
 -----------------------------------------------------
 
 Changes
+* Added AccessManagerV2, DecryptorV2 and EncryptorV2.
 * In Interest, added get/setDefaultCanBePrefix.
 * In Face, added putNack.
 * https://redmine.named-data.net/issues/4869 Renamed ForwardingFlags to

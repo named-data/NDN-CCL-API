@@ -27,7 +27,6 @@ Table of Contents:
 
 .. toctree::
    details/delegation-set
-   details/encrypted-content
    details/registration-options
    details/network-nack
    details/tcp-transport
@@ -44,6 +43,13 @@ Table of Contents:
    security/validator
    security/certificate-fetcher
    security/validation-error
+   :maxdepth: 1
+
+.. toctree::
+   encrypt/access-manager-v2
+   encrypt/decryptor-v2
+   encrypt/encryptor-v2
+   details/encrypted-content
    :maxdepth: 1
 
 .. Indices and tables
