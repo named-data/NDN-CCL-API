@@ -864,7 +864,7 @@ parameters, and set its signature.
     .. code-block:: javascript
 
         KeyChain.prototype.sign = function(
-            data,          // Data
+            data           // Data
             [, params      // SigningInfo]
             [, onComplete  // function]
             [, onError     // function]
@@ -934,7 +934,7 @@ append a final name component with the signature bits.
     .. code-block:: javascript
 
         KeyChain.prototype.sign = function(
-            interest,      // Interest
+            interest       // Interest
             [, params      // SigningInfo]
             [, onComplete  // function]
             [, onError     // function]
