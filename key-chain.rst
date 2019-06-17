@@ -846,8 +846,8 @@ parameters, and set its signature.
     .. code-block:: c++
 
         void sign(
-            Data& data,
-            const SigningInfo& params
+            Data& data
+            [, const SigningInfo& params]
         );
 
 :[Python]:
@@ -855,8 +855,8 @@ parameters, and set its signature.
     .. code-block:: python
 
         def sign(self,
-            data,   # Data
-            params  # SigningInfo
+            data       # Data
+            [, params  # SigningInfo]
         )
 
 :[JavaScript]:
@@ -864,8 +864,8 @@ parameters, and set its signature.
     .. code-block:: javascript
 
         KeyChain.prototype.sign = function(
-            data,   // Data
-            params  // SigningInfo
+            data,          // Data
+            [, params      // SigningInfo]
             [, onComplete  // function]
             [, onError     // function]
         )
@@ -875,8 +875,8 @@ parameters, and set its signature.
     .. code-block:: java
 
         public final void sign(
-            Data data,
-            SigningInfo params
+            Data data
+            [, SigningInfo params]
         )
 
 :Parameters:
@@ -887,7 +887,8 @@ parameters, and set its signature.
         and updates the wireEncoding.
 
     - `params`
-        The signing parameters.
+        (optional) The signing parameters. If omitted, sign with the default key
+        of the default identity.
 
     - `onComplete`
         [JavaScript only] (optional) This calls onComplete(data) with the
@@ -915,8 +916,8 @@ append a final name component with the signature bits.
     .. code-block:: c++
 
         void sign(
-            Interest& interest,
-            const SigningInfo& params
+            Interest& interest
+            [, const SigningInfo& params]
         );
 
 :[Python]:
@@ -924,8 +925,8 @@ append a final name component with the signature bits.
     .. code-block:: python
 
         def sign(self,
-            interest,  # Interest
-            params     # SigningInfo
+            interest   # Interest
+            [, params  # SigningInfo]
         )
 
 :[JavaScript]:
@@ -933,8 +934,8 @@ append a final name component with the signature bits.
     .. code-block:: javascript
 
         KeyChain.prototype.sign = function(
-            interest,  // Interest
-            params     // SigningInfo
+            interest,      // Interest
+            [, params      // SigningInfo]
             [, onComplete  // function]
             [, onError     // function]
         )
@@ -944,8 +945,8 @@ append a final name component with the signature bits.
     .. code-block:: java
 
         public final void sign(
-            Interest interest,
-            SigningInfo params
+            Interest interest
+            [, SigningInfo params]
         )
 
 :Parameters:
@@ -955,7 +956,8 @@ append a final name component with the signature bits.
         components of SignatureInfo and the signature bits.
 
     - `params`
-        The signing parameters.
+        (optional) The signing parameters. If omitted, sign with the default key
+        of the default identity.
 
     - `onComplete`
         [JavaScript only] (optional) This calls onComplete(interest) with the
