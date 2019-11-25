@@ -570,7 +570,7 @@ Get the MustBeFresh flag.
 :Returns:
 
     True if must be fresh, otherwise false. If not specified, the default is 
-    true.
+    false.
 
 Interest.getName Method
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -1094,7 +1094,7 @@ Set the MustBeFresh flag.
 
     - `mustBeFresh`
         True if the content must be fresh, otherwise false. If you do not set
-        this flag, the default value is true.
+        this flag, the default value is false.
 
 :Returns:
 

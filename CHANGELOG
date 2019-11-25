@@ -7,6 +7,8 @@ Changes
 * In Face, added putNack.
 * https://redmine.named-data.net/issues/4869 Renamed ForwardingFlags to
   RegistrationOptions.
+* https://redmine.named-data.net/issues/5052 In Interest, changed the
+  MustBeFresh default value to false.
 
 Bug fixes
 * https://redmine.named-data.net/issues/4891 In MemoryContentCache.storePendingInterest,
