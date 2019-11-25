@@ -1,12 +1,13 @@
+dist: bionic
 language: python
-sudo: false
-python:
-  - 2.7
+python: 3.7
 branches:
   only:
     - master
-script:
+cache: pip
+install:
   - pip install -r .travis.d/requirements.txt
+script:
   - make html
 after_success:
   - ssh-keyscan -H $HOSTNAME 2>&1 | tee -a $HOME/.ssh/known_hosts
